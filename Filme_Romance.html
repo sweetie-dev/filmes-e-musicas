@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmes de Romance</title>
+    <link rel="stylesheet" href="src/css/swiper.min.css">
+    <link rel="shortcut icon" href="src/imgens_pp/logo_M&M.png" type="imgens_pp">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            box-sizing: border-box;
+            scroll-padding-top: 2rem;
+        }
+
+        :root {
+            --text-color: #fcfeff;
+            --main-color: #f64a5b;
+            --hover-color: #A80011;
+            --body-color: rgb(148, 0, 25);
+            --container-color: #171727;
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        section {
+            padding: 3rem 0 2rem;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .bx {
+            cursor: pointer;
+        }
+
+        body {
+            background: linear-gradient(rgb(182, 33, 58) 89%, #F50018);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1068px;
+            margin: auto;
+            width: 100%;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--body-color);
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            color: var(--text-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin: 0 auto 0 0;
+        }
+
+        .logo span {
+            color: var(--main-color);
+
+        }
+
+        .search-box {
+            max-width: 240px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            column-gap: 0.7rem;
+            padding: 8px 15px;
+            background: var(--container-color);
+            border-radius: 4rem;
+            margin-right: 1rem;
+        }
+
+        .search-box .bx {
+            font-size: 1.1rem;
+        }
+
+        .search-box .bx:hover {
+            color: var(--main-color);
+        }
+
+        #search-input {
+            width: 100%;
+            border: none;
+            outline: none;
+            color: var(--text-color);
+            background: transparent;
+            font-size: 0.938rem;
+        }
+
+        .user {
+            display: flex;
+        }
+
+        .user-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 18px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 2.1rem;
+        }
+
+        .nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #b7b7b7;
+        }
+
+        .nav-link:hover,
+        .nav-active {
+            color: var(--text-color);
+            transition: 0.3s all linear;
+            transform: scale(1.1);
+        }
+
+        .nav-link .bx {
+            font-size: 1.6rem;
+        }
+
+        .nav-link-title {
+            font-size: 0.7rem;
+        }
+
+        .home {
+            position: relative;
+            min-height: 470px;
+            display: flex;
+            align-items: center;
+            margin-top: 5rem !important;
+            border-radius: 0.5rem;
+        }
+
+        .home-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+
+        .home-text {
+            padding-left: 40px;
+        }
+
+        .home-title {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .home-text p {
+            font-size: 0.938rem;
+            margin: 10px 0 20px;
+            color: var(--main-color);
+        }
+
+        .watch-btn {
+            display: flex;
+            align-items: center;
+            column-gap: 0.8rem;
+            color: var(--text-color);
+        }
+
+        .watch-btn .bx {
+            font-size: 21px;
+            background: var(--main-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .watch-btn .bx:hover {
+            background: var(--hover-color);
+        }
+
+        .watch-btn span {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--container-color);
+            padding: 8px 14px;
+            border: 1px solid hsl(200 100% 99% / 5%);
+            margin-bottom: 2rem;
+        }
+
+        .heading-Romance {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(to right, #e11c30 55%, rgb(234, 70, 97));
+            padding: 8px 14px;
+            border: 1px solid hsl(200 100% 99% / 5%);
+            margin-bottom: 2rem;
+        }
+
+        .heading-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .movie-box {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .movie-box-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .movie-box .box-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 14px;
+            background: linear-gradient(8deg,
+                    hsl(240 17% 14% / 74%) 14%,
+                    hsl(240 17% 14% / 14%) 44%);
+            overflow: hidden;
+        }
+
+        .movie-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .movie-type {
+            font-size: 0.938rem;
+        }
+
+        .play {
+            position: absolute;
+            bottom: 0.8rem;
+            right: 0.8rem;
+
+        }
+
+        .swiper-btn {
+            display: flex;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            position: static !important;
+            margin: 0 0 0 10px !important;
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            color: var(--text-color);
+            font-size: 18px !important;
+            font-weight: 700;
+        }
+
+        .seta {
+            width: 50px;
+        }
+
+        .movies .heading {
+            padding: 10px 14px;
+        }
+
+        .movies-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .movies-content .movie-box:hover .movie-box-img {
+            transform: scale(1.1);
+            transition: 0.5s;
+        }
+
+        /* Estilos da Barra de Pesquisa */
+        .search-box {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        /* Estilos dos Resultados da Pesquisa */
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--container-color);
+            border-radius: 0.5rem;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin-top: 5px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        /*Não esquecer de passar essa linha para as outras paginas ->*/
+        .search-result-item {
+            padding: 10px 15px;
+            cursor: pointer;
+            color: var(--text-color);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .search-result-item:hover {
+            background: var(--hover-color);
+            transform: translateX(5px);
+            padding-left: 20px;
+        }
+
+        /*<- Não esquecer de passar essa linha para as outras paginas*/
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Estilo para Mensagem de Não Encontrado */
+        .no-results {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-color);
+            font-style: italic;
+        }
+
+        /* Estilização da Barra de Rolagem */
+        .search-results::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .search-results::-webkit-scrollbar-track {
+            background: var(--container-color);
+            border-radius: 0.5rem;
+        }
+
+        .search-results::-webkit-scrollbar-thumb {
+            background: var(--main-color);
+            border-radius: 0.5rem;
+        }
+
+        .search-results::-webkit-scrollbar-thumb:hover {
+            background: var(--hover-color);
+        }
+
+        /* Container de Resultados Não Encontrados */
+        .no-results-container {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--container-color);
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 500px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .no-results-container .bx-error-circle {
+            font-size: 48px;
+            color: var(--main-color);
+            margin-bottom: 15px;
+        }
+
+        .no-results-title {
+            font-size: 24px;
+            color: var(--text-color);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .no-results-text {
+            font-size: 16px;
+            color: #999;
+            line-height: 1.5;
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsividade - Ordem do maior para o menor breakpoint */
+        @media (max-width: 1240px) {
+            .navbar {
+                bottom: 0;
+                left: 0;
+                right: 0;
+                top: auto;
+                transform: translateY(0);
+                flex-direction: row;
+                justify-content: space-evenly;
+                padding: 10px;
+                border-top: 1px solid hsl(200 100% 99% / 5%);
+                background: linear-gradient(8deg,
+                        hsl(240 17% 14% / 100%) 5%,
+                        hsl(240 17% 14% / 90%) 100%);
+            }
+
+            .nav-link .bx {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 1060px) {
+            .container {
+                margin: 0 auto;
+                width: 95%;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .movie-box {
+                height: 340px;
+            }
+
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(214px, 1fr));
+            }
+        }
+
+        @media (max-width: 888px) {
+            .nav {
+                padding: 14px 0;
+            }
+
+            .movie-title {
+                font-size: 1rem;
+                padding-right: 30px;
+            }
+
+            .search-box {
+                max-width: 250px;
+            }
+
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+        }
+
+        @media (max-width: 514px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+
+            .movie-box {
+                height: 300px;
+            }
+
+            .movie-title {
+                font-size: 0.9rem;
+                padding-right: 20px;
+            }
+
+            .search-box {
+                max-width: 200px;
+            }
+
+            .search-result-item {
+                font-size: 14px;
+            }
+
+            .no-results-container {
+                max-width: 250px;
+                padding: 20px 10px;
+            }
+        }
+
+        @media (max-width: 370px) {
+            .movie-box {
+                height: 285px;
+            }
+
+            .watch-btn .bx {
+                width: 35px;
+                height: 35px;
+            }
+
+            .navbar {
+                justify-content: space-around;
+                padding: 8px 0;
+            }
+
+            .nav-link .bx {
+                font-size: 1.4rem;
+            }
+
+            /* Estilos adicionais para resultados da pesquisa */
+            .search-box input {
+                font-size: 13px;
+            }
+
+            .search-results {
+                max-height: 200px;
+            }
+
+            .search-result-item {
+                padding: 6px 8px;
+                font-size: 12px;
+            }
+
+            .no-results-container {
+                max-width: 200px;
+                padding: 15px 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav container">
+            <a href="pagina principal.html" class="logo">
+                <span>M</span>&<span>M</span>
+            </a>
+
+            <div class="search-box">
+                <input type="search" name="" id="search-input" placeholder="Pesquisar um Filme">
+                <i class='bx bx-search'></i>
+                <div id="search-results" class="search-results"></div>
+            </div>
+            <div class="navbar">
+                <a href="pagina principal.html" class="nav-link nav-active">
+                    <i class='bx bx-home-alt-2'></i>
+                    <span class="nav-link-title">Início</span>
+                </a>
+                <a href="Filmes_Aventura.html" class="nav-link">
+                    <i class='bx bxs-tree'></i>
+                    <span class="nav-link-title">Aventura</span>
+                </a>
+                <a href="Filmes_Acao.html" class="nav-link">
+                    <i class='bx bx-car'></i>
+                    <span class="nav-link-title">Ação</span>
+                </a>
+                <a href="Filmes_Animação.html" class="nav-link">
+                    <i class='bx bx-happy'></i>
+                    <span class="nav-link-title">Animação</span>
+                </a>
+                <a href="Filmes_Comédia.html" class="nav-link">
+                    <i class='bx bx-laugh'></i>
+                    <span class="nav-link-title">Comédia</span>
+                </a>
+                <a href="Filme_Romance.html" class="nav-link">
+                    <i class='bx bx-happy-heart-eyes'></i>
+                    <span class="nav-link-title">Romance</span>
+                </a>
+                <a href="Filme_Terror.html" class="nav-link">
+                    <i class='bx bxs-skull'></i>
+                    <span class="nav-link-title">Terror</span>
+                </a>
+                </a>
+            </div>
+        </div>
+    </header>
+    </div>
+    </section>
+    <br><br>
+    <section class="movies container" id="movies">
+        <div class="heading-Romance">
+            <h2 class="heading-title">Filmes de Romance</h2>
+        </div>
+        <div class="movies-content">
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes A Casa do Lago/A casa do lago - img.jpg"
+                    alt="filme A casa do lago" class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">A Casa do Lago</h2>
+                    <span class="movie-type">Romance</span>
+                    <a href="Romance - A Casa do Lago.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes A Culpa e das Estrelas/A culpa e das estrelas - img.jpg"
+                    alt="filme A culpa e das estrelas" class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">A Culpa é<br>das Estrelas</h2>
+                    <span class="movie-type">Romance</span>
+                    <a href="Romance - A Culpa e das Estrelas.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Amor a  Segunda Vista/Amor a  Segunda Vista - img.jpg"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Amor a<br>Segunda Vista</h2>
+                    <span class="movie-type">Romance</span>
+                    <a href="Romance - Amor a Segunda Vista.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Cartas para Julieta - img.jpg"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Cartas<br>Para Julieta</h2>
+                    <span class="movie-type">Romance</span>
+                    <a href="Romance - Cartas Para Julieta.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Como eu Era Antes de Você/Como eu era antes de você - img.jpg"
+                    alt="filme Como eu era antes de você" class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Como eu Era<br>Antes de Você</h2>
+                    <span class="movie-type">Romance</span>
+                    <a href="Romance - Como eu Era Antes de Voce.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Diario da Nossa Paixão/Diario da nossa paixão -  img.jpg"
+                    alt="filme Diario da nossa paixão" class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Diario da<br>Nossa Paixão</h2>
+                    <span class="movie-type">Romance</span>
+                    <a href="Romance - Diario da Nossa Paixao.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes E o Vento Levou/De repente e amor - capa do filme.jpg"
+                    alt="filme E o Vento Levou" class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">E o Vento Levou</h2>
+                    <span class="movie-type">Romance</span>
+                    <a href="Romance - E o Vento Levou.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes La La Land/La la land cantando estações - img.jpg"
+                    alt="filme La la land cantando estações" class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">La La Land -<br>Cantando Estações</h2>
+                    <span class="movie-type">Romance</span>
+                    <a href="Romance - LaLaLand.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Mensagem Para Você/Mensagem  para você - capa do filme romance.png"
+                    alt="filme Mensagem  para você" class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Mensagem<br>Para Você</h2>
+                    <span class="movie-type">Romance</span>
+                    <a href="Romance - Mensagem Para Voce.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Orgulho e Preconceito/Orgulho e preconceito - capa do filme romance.png"
+                    alt="filme Orgulho e preconceito" class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Orgulho e<br>Preconceito</h2>
+                    <span class="movie-type">Romance</span>
+                    <a href="Romance - Orgulho e Preconceito.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Por Lugares Incriveis/por lugares incríveis - capa do filme romance.png"
+                    alt="filme Por lugares incríveis " class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Por lugares<br>incríveis</h2>
+                    <span class="movie-type">Romance</span>
+                    <a href="Romance - Por Lugares Incriveis.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Questão de Tempo/Questão de tempo - capa do filme romance.png"
+                    alt="filme Questão de tempo" class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Questão de Tempo</h2>
+                    <span class="movie-type">Aventura</span>
+                    <a href="Romance - Questao de Tempo.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Simplismente Acontece/Simplesmente acontece - capa do filme romance.png"
+                    alt="filme Simplesmente acontece" class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Simplesmente<br>Acontece</h2>
+                    <span class="movie-type">Romance</span>
+                    <a href="Romance - Simplesmente Acontece.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Titanic/Titanic - capa do filme romance.png" alt="filme Titanic"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Titanic</h2>
+                    <span class="movie-type">Romance</span>
+                    <a href="Romance - Titanic.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Um Amor para Recordar/Um amor para recordar - img.jpg"
+                    alt="filme Um amor para recordar" class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Um amor<br>para recordar</h2>
+                    <span class="movie-type">Romance</span>
+                    <a href="Romance - Um Amor Para Recordar.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <br><br>
+    </section>
+    <br><br>
+    <script src="src/javascript/swiper-bundle.min.js"></script>
+    <script src="src/javascript/Pesquisa.js"></script>
+    <script src="src/javascript/script.js"></script>
+</body>
+
+</html>

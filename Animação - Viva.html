@@ -1,0 +1,1837 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viva - A Vida é uma Festa - Animação - M&M</title>
+    <link rel="stylesheet" href="src/css/swiper.min.css">
+    <link rel="shortcut icon" href="src/imgens_pp/logo_M&M.png" type="imgens_pp">
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            box-sizing: border-box;
+            scroll-padding-top: 2rem;
+        }
+
+        :root {
+            --text-color: #fcfeff;
+            --main-color: rgb(34, 34, 236);
+            --hover-color: rgb(20, 20, 227);
+            --body-color: #121220;
+            --container-color: #171727;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        section {
+            padding: 3rem 0 2rem;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .bx {
+            cursor: pointer;
+        }
+
+        body {
+            background: linear-gradient(#1e1e2a 89%, rgb(20, 20, 227));
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1068px;
+            margin: auto;
+            width: 100%;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--body-color);
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            color: var(--text-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin: 0 auto 0 0;
+        }
+
+        .logo span {
+            color: var(--main-color);
+
+        }
+
+        .search-box {
+            max-width: 240px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            column-gap: 0.7rem;
+            padding: 8px 15px;
+            background: var(--container-color);
+            border-radius: 4rem;
+            margin-right: 1rem;
+        }
+
+        .search-box .bx {
+            font-size: 1.1rem;
+        }
+
+        .search-box .bx:hover {
+            color: var(--main-color);
+        }
+
+        #search-input {
+            width: 100%;
+            border: none;
+            outline: none;
+            color: var(--text-color);
+            background: transparent;
+            font-size: 0.938rem;
+        }
+
+        .user {
+            display: flex;
+        }
+
+        .user-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 18px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 2.1rem;
+        }
+
+        .nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #b7b7b7;
+        }
+
+        .nav-link:hover,
+        .nav-active {
+            color: var(--text-color);
+            transition: 0.3s all linear;
+            transform: scale(1.1);
+        }
+
+        .nav-link .bx {
+            font-size: 1.6rem;
+        }
+
+        .nav-link-title {
+            font-size: 0.7rem;
+        }
+
+        .home {
+            position: relative;
+            min-height: 470px;
+            display: flex;
+            align-items: center;
+            margin-top: 5rem !important;
+            border-radius: 0.5rem;
+        }
+
+        .home-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+
+        .home-text {
+            padding-left: 40px;
+        }
+
+        .home-title {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .home-text p {
+            font-size: 0.938rem;
+            margin: 10px 0 20px;
+            color: var(--main-color);
+        }
+
+        .watch-btn {
+            display: flex;
+            align-items: center;
+            column-gap: 0.8rem;
+            color: var(--text-color);
+        }
+
+        .watch-btn .bx {
+            font-size: 25px;
+            background: var(--main-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .watch-btn .bx:hover {
+            background: var(--hover-color);
+        }
+
+        .watch-btn span {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--container-color);
+            padding: 8px 14px;
+            border: 1px solid hsl(200 100% 99% / 5%);
+            margin-bottom: 2rem;
+        }
+
+        .heading-aventura {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(to right, #3d3dec 55%, #1a1af0);
+            padding: 8px 14px;
+            border: 1px solid hsl(200 100% 99% / 5%);
+            margin-bottom: 2rem;
+        }
+
+        .heading-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .movie-box {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .movie-box-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .movie-box .box-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 14px;
+            background: linear-gradient(8deg,
+                    hsl(240 17% 14% / 74%) 14%,
+                    hsl(240 17% 14% / 14%) 44%);
+            overflow: hidden;
+        }
+
+        .movie-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .movie-type {
+            font-size: 0.938rem;
+        }
+
+        .play {
+            position: absolute;
+            bottom: 0.8rem;
+            right: 0.8rem;
+
+        }
+
+        .swiper-btn {
+            display: flex;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            position: static !important;
+            margin: 0 0 0 10px !important;
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            color: var(--text-color);
+            font-size: 18px !important;
+            font-weight: 700;
+        }
+
+        .seta {
+            width: 50px;
+        }
+
+        .movies .heading {
+            padding: 10px 14px;
+        }
+
+        .movies-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(247px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .movies-content .movie-box:hover .movie-box-img {
+            transform: scale(1.1);
+            transition: 0.5s;
+        }
+
+        .play-container {
+            position: relative;
+            min-height: 540px;
+            margin-top: 5rem !important;
+        }
+
+        .play-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: -1;
+        }
+
+        .play-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px;
+            background: linear-gradient(8deg,
+                    hsl(240 17% 14% / 74%) 14%,
+                    hsl(240 17% 14% / 14%) 44%);
+        }
+
+        .play-text h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            column-gap: 2px;
+            font-size: 1.1rem;
+            color: gold;
+            margin-top: 4px;
+        }
+
+        .tags {
+            display: flex;
+            align-items: center;
+            column-gap: 8px;
+            margin: 1rem 0;
+        }
+
+        .tags span {
+            background: var(--container-color);
+            padding: 0 4px;
+        }
+
+        .play-movie {
+            position: absolute;
+            bottom: 18rem;
+            right: 10rem;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--main-color);
+            font-size: 24px;
+            animation: animate 2s linear infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                box-shadow: 0 0 0 orangered;
+            }
+
+            40% {
+                box-shadow: 0 0 0 50px rgb(255, 193, 7, 0);
+            }
+
+            80% {
+                box-shadow: 0 0 0 50px rgb(255, 193, 7, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 rgb(255, 193, 7, 0);
+            }
+        }
+
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+            background: hsl(234 10% 20% /60%);
+            z-index: 400;
+        }
+
+        .video-container.show-video {
+            display: flex;
+        }
+
+        .video-box {
+            position: relative;
+            width: 82%;
+        }
+
+        .video-box #myvideo {
+            width: 100%;
+            aspect-ratio: 16/9;
+        }
+
+        .close-video {
+            position: absolute;
+            top: -3;
+            right: 0;
+            font-size: 40px;
+            color: var(--main-color);
+        }
+
+        .about-movie {
+            margin-top: 2rem !important;
+        }
+
+        .about-movie h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--main-color);
+        }
+
+        .about-movie p {
+            max-width: 6000px;
+            font-size: 0.938rem;
+            margin: 10px 0;
+        }
+
+        .cast-heading {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--main-color);
+        }
+
+        .cast {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .cast-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cast-img {
+            width: 150px;
+            height: 180px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .class-img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* Estilo base para o container das plataformas de streaming */
+        .streaming-platforms {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .streaming-platforms a {
+            display: inline-block;
+        }
+
+        .streaming-platforms img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .streaming-platforms img:hover {
+            transform: scale(1.1);
+        }
+
+        /**/
+
+        /* Estilos da Barra de Pesquisa */
+        .search-box {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        /* Estilos dos Resultados da Pesquisa */
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--container-color);
+            border-radius: 0.5rem;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin-top: 5px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .search-result-item {
+            padding: 10px 15px;
+            cursor: pointer;
+            color: var(--text-color);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .search-result-item:hover {
+            background: var(--hover-color);
+            transform: translateX(5px);
+            padding-left: 20px;
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Estilo para Mensagem de Não Encontrado */
+        .no-results {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-color);
+            font-style: italic;
+        }
+
+        /* Estilização da Barra de Rolagem */
+        .search-results::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .search-results::-webkit-scrollbar-track {
+            background: var(--container-color);
+            border-radius: 0.5rem;
+        }
+
+        .search-results::-webkit-scrollbar-thumb {
+            background: var(--main-color);
+            border-radius: 0.5rem;
+        }
+
+        .search-results::-webkit-scrollbar-thumb:hover {
+            background: var(--hover-color);
+        }
+
+        /* Container de Resultados Não Encontrados */
+        .no-results-container {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--container-color);
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 500px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .no-results-container .bx-error-circle {
+            font-size: 48px;
+            color: var(--main-color);
+            margin-bottom: 15px;
+        }
+
+        .no-results-title {
+            font-size: 24px;
+            color: var(--text-color);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .no-results-text {
+            font-size: 16px;
+            color: #999;
+            line-height: 1.5;
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* Responsividade - Ordem do maior para o menor breakpoint */
+        @media (max-width: 1240px) {
+            .navbar {
+                bottom: 0;
+                left: 0;
+                right: 0;
+                top: auto;
+                transform: translateY(0);
+                flex-direction: row;
+                justify-content: space-evenly;
+                padding: 10px;
+                border-top: 1px solid hsl(200 100% 99% / 5%);
+                background: linear-gradient(8deg,
+                        hsl(240 17% 14% / 100%) 5%,
+                        hsl(240 17% 14% / 90%) 100%);
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .search-results {
+                max-height: 400px;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 1060px) {
+            .container {
+                margin: 0 auto;
+                width: 95%;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .search-box {
+                max-width: 280px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+
+            .movie-box {
+                height: 280px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(214px, 1fr));
+            }
+
+            .play-container {
+                margin-top: 5rem !important;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .video-box {
+                width: 90%;
+            }
+
+            .search-results {
+                max-height: 350px;
+            }
+
+            .search-result-item {
+                padding: 10px 15px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 888px) {
+            .nav {
+                padding: 14px 0;
+            }
+
+            .search-box {
+                max-width: 240px;
+            }
+
+            .search-results {
+                max-height: 300px;
+            }
+
+            .play-text {
+                padding: 20px;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .cast {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                padding: 11px 0;
+            }
+
+            .search-box {
+                max-width: 200px;
+            }
+
+            .search-results {
+                max-height: 250px;
+            }
+
+            .search-result-item {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+
+            .no-results-container {
+                max-width: 300px;
+                padding: 25px 15px;
+            }
+
+            .no-results-title {
+                font-size: 18px;
+            }
+
+            .play-text h2 {
+                font-size: 1.4rem;
+            }
+
+            .video-box {
+                width: 95%;
+            }
+
+            .streaming-platforms {
+                gap: 15px;
+            }
+
+            .streaming-platforms img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            }
+
+            .movie-box {
+                height: 260px;
+            }
+        }
+
+        @media (max-width: 514px) {
+            .nav {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto;
+                gap: 5px;
+                padding: 10px;
+            }
+
+            .search-box {
+                max-width: 100%;
+                grid-column: 1 / -1;
+                order: 2;
+            }
+
+            .search-results {
+                max-height: 200px;
+                top: calc(100% + 5px);
+            }
+
+            .play-text {
+                padding: 15px;
+            }
+
+            .play-movie {
+                right: 4rem;
+            }
+
+            .video-box {
+                width: 100%;
+            }
+
+            .streaming-platforms {
+                gap: 10px;
+            }
+
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 1rem;
+            }
+
+            .movie-box {
+                height: 240px;
+            }
+        }
+
+        @media (max-width: 370px) {
+            .search-box input {
+                font-size: 13px;
+            }
+
+            .search-results {
+                max-height: 180px;
+            }
+
+            .search-result-item {
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+
+            .no-results-container {
+                max-width: 200px;
+                padding: 15px 8px;
+            }
+
+            .no-results-title {
+                font-size: 16px;
+            }
+
+            .play-text {
+                padding: 10px;
+            }
+
+            .video-box {
+                height: 180px;
+            }
+
+            .cast-img {
+                width: 100px;
+                height: 130px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav container">
+            <a href="pagina principal.html" class="logo">
+                <span>M</span>&<span>M</span>
+            </a>
+
+            <div class="search-box">
+                <input type="search" name="" id="search-input" placeholder="Pesquisar um Filme">
+                <i class='bx bx-search'></i>
+                <div id="search-results" class="search-results"></div>
+            </div>
+            <div class="navbar">
+                <a href="pagina principal.html" class="nav-link nav-active">
+                    <i class='bx bx-home-alt-2'></i>
+                    <span class="nav-link-title">Início</span>
+                </a>
+                <a href="Filmes_Aventura.html" class="nav-link">
+                    <i class='bx bxs-tree'></i>
+                    <span class="nav-link-title">Aventura</span>
+                </a>
+                <a href="Filmes_Acao.html" class="nav-link">
+                    <i class='bx bx-car'></i>
+                    <span class="nav-link-title">Ação</span>
+                </a>
+                <a href="Filmes_Animação.html" class="nav-link">
+                    <i class='bx bx-happy'></i>
+                    <span class="nav-link-title">Animação</span>
+                </a>
+                <a href="Filmes_Comédia.html" class="nav-link">
+                    <i class='bx bx-laugh'></i>
+                    <span class="nav-link-title">Comédia</span>
+                </a>
+                <a href="Filme_Romance.html" class="nav-link">
+                    <i class='bx bx-happy-heart-eyes'></i>
+                    <span class="nav-link-title">Romance</span>
+                </a>
+                <a href="Filme_Terror.html" class="nav-link">
+                    <i class='bx bxs-skull'></i>
+                    <span class="nav-link-title">Terror</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <br><br>
+    <div class="play-container container">
+        <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa banner.jpg"
+            alt="Banner Viva - A Vida é uma Festa" class="play-img">
+        <div class="play-text">
+            <h2>Viva - A Vida é uma Festa</h2>
+            <div class="rating">
+                <!--20% - 0%: 1 estrela-->
+                <i class='bx bxs-star'></i>
+                <!--40% - 21%: 2 estrelas-->
+                <i class='bx bxs-star'></i>
+                <!--60% - 41%: 3 estrelas-->
+                <i class='bx bxs-star'></i>
+                <!--80% - 61%: 4 estrelas-->
+                <i class='bx bxs-star'></i>
+                <!--100% - 81%: 5 estrelas-->
+                <i class='bx bxs-star'></i>
+            </div>
+            <span>De acordo com os criticos</span>
+            <h3>Titulo original:</h3>
+            <span>Coco</span>
+            <div class="tags">
+                <span>Animação</span>
+                <!--<span>Aventura</span>-->
+                <span>1h 45min</span>
+                <span>4 de Janeiro de 2018</span>
+            </div>
+        </div>
+        <i class='bx bx-right-arrow play-movie'></i>
+        <div class="video-container">
+            <div class="video-box">
+                <video id="myvideo"
+                    src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Trailer/Viva  - A Vida é uma Festa _ Trailer Dublado(720P_HD).mp4"
+                    controls></video>
+                <i class='bx bx-x-circle close-video'></i>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="about-movie container">
+        <br>
+        <div class="cast">
+
+            <h2 class="cast-heading">Classificação:</h2>
+            <div class="cast">
+                <div class="cast-box">
+                    <img src="src/classificações de idade/classificação livre.png" alt="classificação livre"
+                        class="class-img">
+                </div>
+            </div>
+
+            <div class="cast">
+                <h2 class="cast-heading">Assistir:</h2>
+                <div class="streaming-platforms">
+                    <a target="_blank" href="https://tv.apple.com/br/movie/valente/umc.cmc.a5h7arztcvuj7vdz82lydg5b">
+                        <img src="src/onde ver/Apple TV+.jpg" alt="Apple TV+" class="class-img">
+                    </a>
+                    <a target="_blank"
+                        href="https://www.disneyplus.com/pt-br/movies/valente/ovUp92sPbaSW?msockid=323e658cc557654d02a371f7c1576bd0">
+                        <img src="src/onde ver/Disney+.webp" alt="Disney+" class="class-img">
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <h2>Sinopse:</h2>
+        <p>O filme conta a história de Miguel, um menino de 12 anos que sonha em se tornar um músico famoso, mas
+            enfrenta a proibição da música em sua família. Em busca de realizar seu sonho, Miguel acaba desencadeando
+            uma série de eventos que o levam à Terra dos Mortos, onde ele descobre segredos de sua família e sua própria
+            identidade.
+        </p>
+
+        <h2 class="cast-heading">Direção do Filme</h2>
+        <div class="cast">
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Elenco e direção do filme/Lee Unkrich.jpg"
+                    alt="Lee Unkrich responsavel pala direção do filme" class="cast-img">
+                <span class="cast-title">Lee Unkrich</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Elenco e direção do filme/Adrian Molina.jpeg"
+                    alt="Adrian Molina responsavel pala direção do filme" class="cast-img">
+                <span class="cast-title">Adrian Molina</span>
+            </div>
+        </div>
+        <br><br>
+        <!--Miguel - Personagem Principal
+            Héctor - Personagem Secundário
+            Mamá Imelda - Personagem Secundário
+            Ernesto de la Cruz - Personagem Secundário
+            Dante - Personagem Secundário
+            Abuelita Elena - Personagem Secundário
+            Mamá Coco - Personagem Secundário
+            Pepita - Personagem Secundário
+            -->
+        <h2 class="cast-heading">Personagens do Filme</h2>
+        <div class="cast">
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Elenco e direção do filme/Personagem/Miguel.jpg"
+                    alt="Miguel - Personagem Principal" class="cast-img">
+                <span class="cast-title">Miguel</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Elenco e direção do filme/Personagem/Héctor.png"
+                    alt="Héctor - Personagem Secundário" class="cast-img">
+                <span class="cast-title">Héctor</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Elenco e direção do filme/Personagem/Mamá Imelda.png"
+                    alt="Mamá Imelda - Personagem Secundário" class="cast-img">
+                <span class="cast-title">Mamá Imelda</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Elenco e direção do filme/Personagem/Ernesto de la Cruz.jpg"
+                    alt="Ernesto de la Cruz - Personagem Secundário" class="cast-img">
+                <span class="cast-title">Ernesto de la Cruz</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Elenco e direção do filme/Personagem/Dante.webp"
+                    alt="Dante - Personagem Secundário" class="cast-img">
+                <span class="cast-title">Dante</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Elenco e direção do filme/Personagem/Abuelita Elena.webp"
+                    alt="Abuelita Elena - Personagem Secundário" class="cast-img">
+                <span class="cast-title">Abuelita Elena</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Elenco e direção do filme/Personagem/Mamãe Inês.jpg"
+                    alt="Mamãe Inês - Personagem Secundário" class="cast-img">
+                <span class="cast-title">Mama Inês</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Elenco e direção do filme/Personagem/Pepita.jpg"
+                    alt="Pepita - Personagem Secundário" class="cast-img">
+                <span class="cast-title">Pepita</span>
+            </div>
+        </div>
+        <br><br>
+
+        <h2 class="cast-heading">Direção da Trilha Sonora</h2>
+        <div class="cast">
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Elenco e direção do filme/Michael Giacchino.jpg"
+                    alt="Michael Giacchino responsável pela Trilha sonora" class="cast-img">
+                <span class="cast-title">Michael Giacchino</span>
+            </div>
+        </div>
+        <br><br>
+        <br><br>
+        <!--
+
+Trilha Sonora
+1. A Blessing and a Fessing
+2. A Family Dysfunction
+3. A Run for the Ages
+4. Adiós Chicharrón
+5. Bésame mucho
+6. Cave Dwelling on the Past
+7. Coco - Día de los Muertos Suite
+8. Crossing the Marigold Bridge
+9. Dept. of Family Reunions
+10. Dueto a Través del Tiempo
+11. El corrido de Miguel Rivera
+12. El Latido de mi Corazón
+13. El Mundo es mi Familia
+14. Family Doubtings
+15. Fiesta con de la Cruz
+16. Fiesta Espectacular
+17. For Whom the Bell Tolls
+18. Grabbing a Photo Opportunity
+19. Harmonia do Meu Coração
+20. I Have a Great-Great-Grandson
+21. It's All Relative
+22. Jálale (Instrumental)
+23. Juanita
+24. La bikina
+25. La Llorona
+26. Lembre de Mim (Canção de Ninar)
+27. Lembre de Mim (Interpretada por Ernesto De la Cruz)
+28. Lembre de Mim (Reencontro)
+29. Lembre de Mim (Versão Rogério Flausino)
+30. Miguel's Got an Axe to Find
+31. Much Needed Advice
+32. Nunca Esqueci Juanita
+33. O Mundo es mi Familia
+34. One Year Later
+35. Plaza de la Cruz
+36. Proud Corazón
+37. Recuérdame (Arrullo)
+38. Recuérdame (Interpretada por Ernesto De La Cruz)
+39. Recuérdame (Reencuentro)
+40. Recuérdame (Solo)
+41. Remember Me (Dúo) [feat. Natalia Lafourcade]
+42. Remember Me (Ernesto de la Cruz)
+43. Remember Me (Lullaby)
+44. Remember Me (Reunion)
+45. Reunión Familiar de Rivera
+46. Shrine and Dash
+47. Somos Familia
+48. Taking Sides
+49. The Newbie Skeleton Walk
+50. The Show Must Go On
+51. The Skeleton Key to Escape
+52. The Strum of Destiny
+53. Um Bom Conselho
+54. Um Poco Loco
+55. Un Mundo Raro
+56. Will He Shoemaker?
+-->
+        <h2 class="cast-heading">Trilha Sonora do Filme</h2>
+        <div class="movies-content">
+            <!-- 1-10 -->
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 1 - A Blessing and a Fessing (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">A Blessing and a Fessing</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/sIo59U2Fnho" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 2 - A Family Dysfunction (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">A Family Dysfunction</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/17B-n4R1F2A" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 3 - A Run for the Ages (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">A Run for the Ages</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/S3_h8wZLiuE" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 4 - Adiós Chicharrón (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Adiós Chicharrón</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/IBP3-pHxeGI" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 5 - Bésame mucho (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Bésame mucho</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/iqE_Jh2jUl0" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 6 - Cave Dwelling on the Past (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Cave Dwelling on the Past</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/ZHyPHcb88BI?si=bWeKhvcz0tSoKqAt" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 7 - Coco - Día de los Muertos Suite (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Coco - Día de los Muertos Suite</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/1OBEDI2I_BQ?si=ST3e8G9i3Of8nW4Q" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 8 - Crossing the Marigold Bridge (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Crossing the Marigold Bridge</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/8Di4SYPr4AA" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 9 - Dept. of Family Reunions (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Dept. of Family Reunions</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/8Di4SYPr4AA?si=VKhWt0ZUaG7BSbuB" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 10 - Dueto a Través del Tiempo (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Dueto a Través del Tiempo</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/0scTPVpv05I?si=JRcpd-UM5QwBG_pV" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 11 - El corrido de Miguel Rivera (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">El corrido de Miguel Rivera</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/ql68q19lEPQ?si=7d1v8cGgfXvpVi7p" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 12 - El Latido de mi Corazón (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">El Latido de mi Corazón</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/q0-eXWnsOWg?si=bd2iaGZ0MrbVBg6s" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 13 - El Mundo es mi Familia (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">El Mundo es mi Familia</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/Mk2JshTXNfY?si=oNEOE6fZQDTGx6R9" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 14 - Family Doubtings (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Family Doubtings</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/L7azmczz2So?si=rxOaJOhcpX67CBxd" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 15 - Fiesta con de la Cruz (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Fiesta con de la Cruz</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/QiXvC0bIiWI?si=h3bSDsY0wNSIzUjD" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 16 - Fiesta Espectacular (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Fiesta Espectacular</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/_n8Gsf4yZss?si=4l4xil0B8CtDGoo-" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 17 - For Whom the Bell Tolls (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">For Whom the Bell Tolls</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/mdnmH8Cfgrw?si=mfRcI3eMhrQh0_Ka" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 18 - Grabbing a Photo Opportunity (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Grabbing a Photo Opportunity</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/SXe0UwfItqA?si=SxueNdfeRUdo56E4" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 19 - Harmonia do Meu Coração (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Harmonia do Meu Coração</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/ohZ5ELOD6Ow?si=mBFuwTiubvM0BjJf" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 20 - I Have a Great-Great-Grandson (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">I Have a Great-Great-Grandson</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/b0xCfwmKvDY?si=P73Oezbh1NNWd9QV" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 21 - It's All Relative (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">It's All Relative</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/hW53JshL3j0?si=__TPdSXrOuR1GsAs" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 22 - Jálale (Instrumental) - (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Jálale (Instrumental)</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/PTgczpMIjxU?si=N6b7EVb2UiPBmyHc" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 23 - Everyone Knows Juanita (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Everyone Knows Juanita</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href=https://youtu.be/c8q-pzrEIPc?si=s8aiePZDPpVo7AUa" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 24 - La bikina (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">La bikina</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/PX82UDYiWnc?si=apy8BNhVMsQvqzAs" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 25 - La Llorona (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">La Llorona</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/T3I_bUwoQOM?si=6Yk2NjIsRG4bzPAg" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 26 - Lembre de Mim (Canção de Ninar) - (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Lembre de Mim (Canção de Ninar)</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/L7ctGzPo9oU?si=zOu2ygLrCd1bEfmI" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 27 - Lembre de Mim (Interpretada por Ernesto De la Cruz) - (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Lembre de Mim (Interpretada por Ernesto De la Cruz)</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/1DjLqU5dnAc?si=UFjbjrBd-IZVOSEy" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 28 - Lembre de Mim (Reencontro) - (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Lembre de Mim (Reencontro)</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/3rqoJydNDAI?si=EeEbX0WM_apIrUiL" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 29 - Lembre de Mim (Versão Rogério Flausino) - (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Lembre de Mim (Versão Rogério Flausino)</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/eIASedsHMFQ?si=fz-nxod2y7SB0lFc" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 30 - Miguel's Got an Axe to Find (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Miguel's Got an Axe to Find</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/_iFVB2vHAZk?si=XuNBDNCmU140Tjwb" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 31-40 -->
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 31 - Much Needed Advice (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Much Needed Advice</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/DN1ao6WDyjQ?si=on3X9WDR8EOuVM0h" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 32 - Nunca Esqueci Juanita (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Nunca Esqueci Juanita</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/MaAKQdu4aQs?si=3fv4yeGfDKPPakJu" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 33 - O Mundo es mi Familia (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">O Mundo es mi Familia</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/xV40Mb-XdVk?si=2q8PiHr_KjDrsUVO" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 34 - One Year Later (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">One Year Later</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/HGHDkl3YsNY?si=WB192dIoj5mfj80i" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 35 - Plaza de la Cruz (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Plaza de la Cruz</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/ZZ7af8Rff1Y?si=dYwINAEUQ1_HPKQq" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 36 - Proud Corazón (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Proud Corazón</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/B0lchjz1RQg?si=RtrmirBOjA8W6TXa" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 37 - Recuérdame (Arrullo) - (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Recuérdame (Arrullo)</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/2rn0dJI33RI?si=Q2xDDodvWsUYoCWh" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 38 - Recuérdame (Interpretada por Ernesto De La Cruz) - (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Recuérdame (Interpretada por Ernesto De La Cruz)</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/Jh36KGOqHEs?si=sWCV9lLUpFDEdbVM" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 39 - Recuérdame (Reencuentro) - (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Recuérdame (Reencuentro)</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/zRK_zAWAvOE?si=ZJ8gmzEWzqvyzd31" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 40 - Recuérdame (Solo) - (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Recuérdame (Solo)</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/nTU9mMixmJc?si=3sCb_S_ODaWmLJUB" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 41 - Remember Me (Dúo) [feat. Natalia Lafourcade] - (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Remember Me (Dúo) [feat. Natalia Lafourcade]</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 42 - Remember Me (Ernesto de la Cruz) - (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Remember Me (Ernesto de la Cruz)</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/JziEhiagzzk?si=O6XyL1yL19pxDgJ2" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 43 - Remember Me (Lullaby) - (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Remember Me (Lullaby)</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/ImutnoiBixY?si=wRAADaEYFM_7-96X" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 44 - Remember Me (Reunion) - (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Remember Me (Reunion)</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/KTy2MpmQFSY?si=cGGEP9vjYMJasvWw" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 45 - Reunión Familiar de Rivera - (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Reunión Familiar de Rivera</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/thrUOZfvEYI?si=mF0PpcQzD9z0oEgN" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 46 - Shrine and Dash - (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Shrine and Dash</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/mJq-ie6u0sQ?si=txRaUvdp7Fb3s2iD" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 47 - Somos Familia - (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Somos Familia</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/l-7ZvMeFUI4?si=1eqQles6GfBRfbZJ" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 48 - Taking Sides - (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Taking Sides</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/nEMNAk8DCQU?si=5fBT-Mi6p27O27WD" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 49 - The Newbie Skeleton Walk - (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">The Newbie Skeleton Walk</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/_ZorrrM1yvM?si=Ac5uN6ppIAchkrO9" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 50 - The Show Must Go On - (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">The Show Must Go On</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/ulxspCwPMYo?si=mze79IC_jOt1etbk" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <!-- 51-56 -->
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 51 - The Skeleton Key to Escape - (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">The Skeleton Key to Escape</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/l3Z05ygOmRU?si=dqXWSlNz54f22JL5" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 52 - The Strum of Destiny - (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">The Strum of Destiny</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/84N1e0B5JGM?si=KBEvRo5y44EP4eXC" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 53 - Um Bom Conselho - (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Um Bom Conselho</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/ZdcSZ-7xeys?si=eu77z5Bxzj5IJpR0" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 54 - Um Poco Loco - (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Um Poco Loco</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/NnLjluGNFVw?si=Ti_IzuHBBdLsG-5l" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 55 - Un Mundo Raro - (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Un Mundo Raro</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/43TGjH_cWv8?si=VZ9se3MKVeFVOod-" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa img.jpg"
+                    alt="Música 56 - Will He Shoemaker? - (Viva - A Vida é uma Festa)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Will He Shoemaker?</span>
+                    <span class="movie-type">Viva - A Vida é uma Festa</span>
+                    <a target="_blank" href="https://youtu.be/XXlf3AqNw1c?si=-LBN75qPnlWPT9OH" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <br><br><br>
+    <script src="src/javascript/soundtrack.js"></script>
+    <script src="src/javascript/swiper-bundle.min.js"></script>
+    <script src="src/javascript/Pesquisa.js"></script>
+    <script src="src/javascript/script.js"></script>
+</body>
+
+</html>

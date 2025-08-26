@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aladdin - Animação - M&M</title>
+    <link rel="stylesheet" href="src/css/swiper.min.css">
+    <link rel="shortcut icon" href="src/imgens_pp/logo_M&M.png" type="imgens_pp">
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            box-sizing: border-box;
+            scroll-padding-top: 2rem;
+        }
+
+        :root {
+            --text-color: #fcfeff;
+            --main-color: rgb(34, 34, 236);
+            --hover-color: rgb(20, 20, 227);
+            --body-color: #121220;
+            --container-color: #171727;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        section {
+            padding: 3rem 0 2rem;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .bx {
+            cursor: pointer;
+        }
+
+        body {
+            background: linear-gradient(#1e1e2a 89%, rgb(20, 20, 227));
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1068px;
+            margin: auto;
+            width: 100%;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--body-color);
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            color: var(--text-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin: 0 auto 0 0;
+        }
+
+        .logo span {
+            color: var(--main-color);
+
+        }
+
+        .search-box {
+            max-width: 240px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            column-gap: 0.7rem;
+            padding: 8px 15px;
+            background: var(--container-color);
+            border-radius: 4rem;
+            margin-right: 1rem;
+        }
+
+        .search-box .bx {
+            font-size: 1.1rem;
+        }
+
+        .search-box .bx:hover {
+            color: var(--main-color);
+        }
+
+        #search-input {
+            width: 100%;
+            border: none;
+            outline: none;
+            color: var(--text-color);
+            background: transparent;
+            font-size: 0.938rem;
+        }
+
+        .user {
+            display: flex;
+        }
+
+        .user-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 18px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 2.1rem;
+        }
+
+        .nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #b7b7b7;
+        }
+
+        .nav-link:hover,
+        .nav-active {
+            color: var(--text-color);
+            transition: 0.3s all linear;
+            transform: scale(1.1);
+        }
+
+        .nav-link .bx {
+            font-size: 1.6rem;
+        }
+
+        .nav-link-title {
+            font-size: 0.7rem;
+        }
+
+        .home {
+            position: relative;
+            min-height: 470px;
+            display: flex;
+            align-items: center;
+            margin-top: 5rem !important;
+            border-radius: 0.5rem;
+        }
+
+        .home-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+
+        .home-text {
+            padding-left: 40px;
+        }
+
+        .home-title {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .home-text p {
+            font-size: 0.938rem;
+            margin: 10px 0 20px;
+            color: var(--main-color);
+        }
+
+        .watch-btn {
+            display: flex;
+            align-items: center;
+            column-gap: 0.8rem;
+            color: var(--text-color);
+        }
+
+        .watch-btn .bx {
+            font-size: 25px;
+            background: var(--main-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .watch-btn .bx:hover {
+            background: var(--hover-color);
+        }
+
+        .watch-btn span {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--container-color);
+            padding: 8px 14px;
+            border: 1px solid hsl(200 100% 99% / 5%);
+            margin-bottom: 2rem;
+        }
+
+        .heading-aventura {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(to right, #3d3dec 55%, #1a1af0);
+            padding: 8px 14px;
+            border: 1px solid hsl(200 100% 99% / 5%);
+            margin-bottom: 2rem;
+        }
+
+        .heading-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .movie-box {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .movie-box-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .movie-box .box-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 14px;
+            background: linear-gradient(8deg,
+                    hsl(240 17% 14% / 74%) 14%,
+                    hsl(240 17% 14% / 14%) 44%);
+            overflow: hidden;
+        }
+
+        .movie-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .movie-type {
+            font-size: 0.938rem;
+        }
+
+        .play {
+            position: absolute;
+            bottom: 0.8rem;
+            right: 0.8rem;
+
+        }
+
+        .swiper-btn {
+            display: flex;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            position: static !important;
+            margin: 0 0 0 10px !important;
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            color: var(--text-color);
+            font-size: 18px !important;
+            font-weight: 700;
+        }
+
+        .seta {
+            width: 50px;
+        }
+
+        .movies .heading {
+            padding: 10px 14px;
+        }
+
+        .movies-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(247px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .movies-content .movie-box:hover .movie-box-img {
+            transform: scale(1.1);
+            transition: 0.5s;
+        }
+
+        .play-container {
+            position: relative;
+            min-height: 540px;
+            margin-top: 5rem !important;
+        }
+
+        .play-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: -1;
+        }
+
+        .play-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px;
+            background: linear-gradient(8deg,
+                    hsl(240 17% 14% / 74%) 14%,
+                    hsl(240 17% 14% / 14%) 44%);
+        }
+
+        .play-text h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            column-gap: 2px;
+            font-size: 1.1rem;
+            color: gold;
+            margin-top: 4px;
+        }
+
+        .tags {
+            display: flex;
+            align-items: center;
+            column-gap: 8px;
+            margin: 1rem 0;
+        }
+
+        .tags span {
+            background: var(--container-color);
+            padding: 0 4px;
+        }
+
+        .play-movie {
+            position: absolute;
+            bottom: 18rem;
+            right: 10rem;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--main-color);
+            font-size: 24px;
+            animation: animate 2s linear infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                box-shadow: 0 0 0 aquamarine;
+            }
+
+            40% {
+                box-shadow: 0 0 0 50px rgb(255, 193, 7, 0);
+            }
+
+            80% {
+                box-shadow: 0 0 0 50px rgb(255, 193, 7, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 rgb(255, 193, 7, 0);
+            }
+        }
+
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+            background: hsl(234 10% 20% /60%);
+            z-index: 400;
+        }
+
+        .video-container.show-video {
+            display: flex;
+        }
+
+        .video-box {
+            position: relative;
+            width: 82%;
+        }
+
+        .video-box #myvideo {
+            width: 100%;
+            aspect-ratio: 16/9;
+        }
+
+        .close-video {
+            position: absolute;
+            top: -3;
+            right: 0;
+            font-size: 40px;
+            color: var(--main-color);
+        }
+
+        .about-movie {
+            margin-top: 2rem !important;
+        }
+
+        .about-movie h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--main-color);
+        }
+
+        .about-movie p {
+            max-width: 6000px;
+            font-size: 0.938rem;
+            margin: 10px 0;
+        }
+
+        .cast-heading {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--main-color);
+        }
+
+        .cast {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .cast-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cast-img {
+            width: 150px;
+            height: 180px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .class-img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            object-position: center;
+        }
+/* Estilo base para o container das plataformas de streaming */
+.streaming-platforms {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .streaming-platforms a {
+            display: inline-block;
+        }
+
+        .streaming-platforms img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .streaming-platforms img:hover {
+            transform: scale(1.1);
+        }
+
+        /**/
+
+        /* Estilos da Barra de Pesquisa */
+        .search-box {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        /* Estilos dos Resultados da Pesquisa */
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--container-color);
+            border-radius: 0.5rem;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin-top: 5px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .search-result-item {
+            padding: 10px 15px;
+            cursor: pointer;
+            color: var(--text-color);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .search-result-item:hover {
+            background: var(--hover-color);
+            transform: translateX(5px);
+            padding-left: 20px;
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Estilo para Mensagem de Não Encontrado */
+        .no-results {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-color);
+            font-style: italic;
+        }
+
+        /* Estilização da Barra de Rolagem */
+        .search-results::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .search-results::-webkit-scrollbar-track {
+            background: var(--container-color);
+            border-radius: 0.5rem;
+        }
+
+        .search-results::-webkit-scrollbar-thumb {
+            background: var(--main-color);
+            border-radius: 0.5rem;
+        }
+
+        .search-results::-webkit-scrollbar-thumb:hover {
+            background: var(--hover-color);
+        }
+
+        /* Container de Resultados Não Encontrados */
+        .no-results-container {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--container-color);
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 500px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .no-results-container .bx-error-circle {
+            font-size: 48px;
+            color: var(--main-color);
+            margin-bottom: 15px;
+        }
+
+        .no-results-title {
+            font-size: 24px;
+            color: var(--text-color);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .no-results-text {
+            font-size: 16px;
+            color: #999;
+            line-height: 1.5;
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* Responsividade - Ordem do maior para o menor breakpoint */
+        @media (max-width: 1240px) {
+            .navbar {
+                bottom: 0;
+                left: 0;
+                right: 0;
+                top: auto;
+                transform: translateY(0);
+                flex-direction: row;
+                justify-content: space-evenly;
+                padding: 10px;
+                border-top: 1px solid hsl(200 100% 99% / 5%);
+                background: linear-gradient(8deg,
+                        hsl(240 17% 14% / 100%) 5%,
+                        hsl(240 17% 14% / 90%) 100%);
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .search-results {
+                max-height: 400px;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 1060px) {
+            .container {
+                margin: 0 auto;
+                width: 95%;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .search-box {
+                max-width: 280px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+
+            .movie-box {
+                height: 280px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(214px, 1fr));
+            }
+
+            .play-container {
+                margin-top: 5rem !important;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .video-box {
+                width: 90%;
+            }
+
+            .search-results {
+                max-height: 350px;
+            }
+
+            .search-result-item {
+                padding: 10px 15px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 888px) {
+            .nav {
+                padding: 14px 0;
+            }
+
+            .search-box {
+                max-width: 240px;
+            }
+
+            .search-results {
+                max-height: 300px;
+            }
+
+            .play-text {
+                padding: 20px;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .cast {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                padding: 11px 0;
+            }
+
+            .search-box {
+                max-width: 200px;
+            }
+
+            .search-results {
+                max-height: 250px;
+            }
+
+            .search-result-item {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+
+            .no-results-container {
+                max-width: 300px;
+                padding: 25px 15px;
+            }
+
+            .no-results-title {
+                font-size: 18px;
+            }
+
+            .play-text h2 {
+                font-size: 1.4rem;
+            }
+
+            .video-box {
+                width: 95%;
+            }
+
+            .streaming-platforms {
+                gap: 15px;
+            }
+
+            .streaming-platforms img {
+                width: 45px;
+                height: 45px;
+            }
+
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            }
+
+            .movie-box {
+                height: 260px;
+            }
+        }
+
+        @media (max-width: 514px) {
+            .nav {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto;
+                gap: 5px;
+                padding: 10px;
+            }
+
+            .search-box {
+                max-width: 100%;
+                grid-column: 1 / -1;
+                order: 2;
+            }
+
+            .search-results {
+                max-height: 200px;
+                top: calc(100% + 5px);
+            }
+
+            .play-text {
+                padding: 15px;
+            }
+
+            .play-movie {
+                bottom: 8rem;
+                left: 20rem;
+            }
+
+            .video-box {
+                width: 100%;
+            }
+
+            .streaming-platforms {
+                gap: 10px;
+            }
+
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 1rem;
+            }
+
+            .movie-box {
+                height: 240px;
+            }
+        }
+
+        @media (max-width: 370px) {
+            .search-box input {
+                font-size: 13px;
+            }
+
+            .search-results {
+                max-height: 180px;
+            }
+
+            .search-result-item {
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+
+            .no-results-container {
+                max-width: 200px;
+                padding: 15px 8px;
+            }
+
+            .no-results-title {
+                font-size: 16px;
+            }
+
+            .play-text {
+                padding: 10px;
+            }
+
+            .video-box {
+                height: 180px;
+            }
+
+            .cast-img {
+                width: 100px;
+                height: 130px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav container">
+            <a href="pagina principal.html" class="logo">
+                <span>M</span>&<span>M</span>
+            </a>
+
+            <div class="search-box">
+                <input type="search" name="" id="search-input" placeholder="Pesquisar um Filme">
+                <i class='bx bx-search'></i>
+                <div id="search-results" class="search-results"></div>
+            </div>
+            <div class="navbar">
+                <a href="pagina principal.html" class="nav-link nav-active">
+                    <i class='bx bx-home-alt-2'></i>
+                    <span class="nav-link-title">Início</span>
+                </a>
+                <a href="Filmes_Aventura.html" class="nav-link">
+                    <i class='bx bxs-tree'></i>
+                    <span class="nav-link-title">Aventura</span>
+                </a>
+                <a href="Filmes_Acao.html" class="nav-link">
+                    <i class='bx bx-car'></i>
+                    <span class="nav-link-title">Ação</span>
+                </a>
+                <a href="Filmes_Animação.html" class="nav-link">
+                    <i class='bx bx-happy'></i>
+                    <span class="nav-link-title">Animação</span>
+                </a>
+                <a href="Filmes_Comédia.html" class="nav-link">
+                    <i class='bx bx-laugh'></i>
+                    <span class="nav-link-title">Comédia</span>
+                </a>
+                <a href="Filme_Romance.html" class="nav-link">
+                    <i class='bx bx-happy-heart-eyes'></i>
+                    <span class="nav-link-title">Romance</span>
+                </a>
+                <a href="Filme_Terror.html" class="nav-link">
+                    <i class='bx bxs-skull'></i>
+                    <span class="nav-link-title">Terror</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <br><br>
+    <div class="play-container container">
+        <img src="src/Filmes_animação/Filmes Aladdin/Aladdin banner.jpg" alt="Banner Aladdin" class="play-img">
+        <div class="play-text">
+            <h2>Aladdin</h2>
+            <div class="rating">
+                <!--20% - 0%: 1 estrela-->
+                <i class='bx bxs-star'></i>
+                <!--40% - 21%: 2 estrelas-->
+                <i class='bx bxs-star'></i>
+                <!--60% - 41%: 3 estrelas-->
+                <i class='bx bxs-star'></i>
+                <!--80% - 61%: 4 estrelas-->
+                <i class='bx bxs-star'></i>
+                <!--100% - 81%: 5 estrelas-->
+                <i class='bx bxs-star-half'></i>
+            </div>
+            <span>De acordo com os criticos</span>
+
+            <div class="tags">
+                <span>Animação</span>
+                <span>1h 34min</span>
+                <span>25 de novembro de 1992</span>
+            </div>
+        </div>
+        <i class='bx bx-right-arrow play-movie'></i>
+        <div class="video-container">
+            <div class="video-box">
+                <video id="myvideo"
+                    src="src/Filmes_animação/Filmes Aladdin/Trailer/Aladdin Edição Diamante - Trailer Dublado PT-BR(720P_HD).mp4"
+                    controls></video>
+                <i class='bx bx-x-circle close-video'></i>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="about-movie container">
+        <br>
+        <div class="cast">
+
+            <h2 class="cast-heading">Classificação:</h2>
+            <div class="cast">
+                <div class="cast-box">
+                    <img src="src/classificações de idade/classificação livre.png" alt="classificação Livre"
+                        class="class-img">
+                </div>
+            </div>
+            
+            <div class="cast">
+                <h2 class="cast-heading">Assistir:</h2>
+                <div class="streaming-platforms">
+                    <a target="_blank"
+                        href="https://www.disneyplus.com/pt-br/movies/aladdin/2SngByljXESE?irclickid=yIu31YxeWxyKRn2XYVz5a1DyUkCR7JUXZwM6zY0&irgwc=1&cid=DSS-Affiliate-Impact-Content-JustWatch+GmbH-705874&tgclid=00010009-8640-42e4-8b00-04746718dc83&dclid=CjgKEAjwveK4BhCMm_3qyt2E3RISJAAUEAM9Fnglm8R0JLtlymUHYV6-mXCOw6Q93vJXK1ZmFpNY3vD_BwE"><img
+                            src="src/onde ver/Disney Plus.avif" alt="Disney+" class="class-img"></a>
+                </div>
+            </div>
+
+        </div>
+        <h2>Sinopse:</h2>
+        <p>Em Aladdin, um jovem astuto e charmoso das ruas, conhece a bela princesa Jasmine. Ao visitar o palácio do
+            sultão, Aladdin descobre uma lâmpada mágica que liberta um Gênio poderoso, brincalhão e grandioso. Com a
+            ajuda do Gênio, Aladdin se torna "Príncipe Ali" e conquista o coração de Jasmine. No entanto, o malvado
+            feiticeiro Jafar tem outros planos. Ele busca usar o poder do Gênio para dominar
+            Agrabah e destruir o reino. Aladdin e o Gênio devem embarcar em uma missão perigosa para impedir os planos
+            de Jafar, salvar o reino e proteger o amor de Aladdin por Jasmine.</p>
+
+        <h2 class="cast-heading">Direção do Filme</h2>
+        <div class="cast">
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Elenco e direção do filme/Jhon Musker.jpg"
+                    alt="Jhon Musker responsavel pela direção do filme" class="cast-img">
+                <span class="cast-title">Jhon Musker</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Elenco e direção do filme/Ron Clements.jpg"
+                    alt="Ron Clements responsavel pela direção do filme" class="cast-img">
+                <span class="cast-title">Ron Clements</span>
+            </div>
+        </div>
+        <br><br>
+        <!--Aladdin - Personagem Principal
+            Gênio da Lampada - Personagem Secundário
+            Jasmine - Personagem Secundário
+            Abu - Personagem Secundário
+            Tapete Magico - Personagem Secundário
+            Jafar - Vilão do filme
+            Iago - Mascote do Vilão-->
+        <h2 class="cast-heading">Personagem do Filme</h2>
+        <div class="cast">
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Elenco e direção do filme/Personagem/Aladdin.png"
+                    alt="Aladdin - Personagem Principal" class="cast-img">
+                <span class="cast-title">Aladdin</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Elenco e direção do filme/Personagem/Jasmine.jpg"
+                    alt="Jasmine - Personagem Secundário" class="cast-img">
+                <span class="cast-title">Jasmine</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Elenco e direção do filme/Personagem/Genio.jpg"
+                    alt="Gênio da Lampada - Personagem Secundário" class="cast-img">
+                <span class="cast-title">Gênio da Lampada</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Elenco e direção do filme/Personagem/Abu.jpg"
+                    alt="Abu - Personagem Secundário" class="cast-img">
+                <span class="cast-title">Abu</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Elenco e direção do filme/Personagem/Tapete Magico.jpg"
+                    alt="Tapete Magico - Personagem Secundária" class="cast-img">
+                <span class="cast-title">Tapete Magico</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Elenco e direção do filme/Personagem/Jafar.jpg"
+                    alt="Jafar - Vilão do Filme" class="cast-img">
+                <span class="cast-title">Jafar</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Elenco e direção do filme/Personagem/Iago.jpg"
+                    alt="Iago - Mascote do Vilão" class="cast-img">
+                <span class="cast-title">Iago</span>
+            </div>
+        </div>
+        <br><br>
+        <h2 class="cast-heading">Direção da Trilha Sonora</h2>
+        <div class="cast">
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Elenco e direção do filme/Alan Menken.jpg"
+                    alt="Alan Menken responsavel pela Trilha sonora" class="cast-img">
+                <span class="cast-title">Alan Menken</span>
+            </div>
+        </div>
+        <br><br>
+        <!--
+        *Música 1 - Noite da Árabia (Aladdin)
+        *Música 2 - Correr para Viver (Aladdin)
+        *Música 3 - Correr para Viver (Reprise) (Aladdin)
+        *Música 4 - Nunca Teve Um Amigo Assim (Aladdin)
+        Música 5 - Príncipe Ali (Aladdin)
+        Música 6 - Um Mundo Ideal (Aladdin)
+        Música 7 - Príncipe Ali (Reprise) (Aladdin)
+        Música 8 - Arabian Nights (Aladdin)
+        Música 9 - One Jump Ahead (Aladdin)
+        Música 10 - One Jump Ahead (Reprise) (Aladdin)
+        Música 11 - Friend Like Me (Aladdin)
+        Música 12 - Prince Ali (Aladdin)
+        Música 13 - A Whole New World (Aladdin)
+        Música 14 - To Be Free (Aladdin)
+        Música 15 - The Final Battle (Aladdin)
+        Música 16 - Prince Ali (Reprise) (Aladdin)
+        Música 17 - A Whole New World (Reprise) (Aladdin)
+        Música 18 - With This Tear (Aladdin)
+        Música 19 - Proud of Your Boy (Aladdin)
+        Música 20 - Proud of Your Boy (Aladdin)
+        Música 21 - High Adventure (Aladdin)
+        Música 22 - Humiliate the Boy (Aladdin)
+        Música 23 - Why Me? (Aladdin)
+        Música 24 - You Can Count On Me (Aladdin)
+        https://youtu.be/wC_0BkmOIAM?si=42saT8DWGKzk7htW - the battle
+        -->
+        <h2 class="cast-heading">Trilha Sonora do Filme</h2>
+        <div class="movies-content">
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Aladdin img1.jpg"
+                    alt="Música 1 - Noite da Árabia (Aladdin)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Noite da Árabia</span>
+                    <span class="movie-type">Aladdin</span>
+                    <a target="_blank" href="https://youtu.be/I-ckfFWC9l0" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Aladdin img1.jpg"
+                    alt="Música 2 - Correr para Viver (Aladdin)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Correr para Viver</span>
+                    <span class="movie-type">Aladdin</span>
+                    <a target="_blank" href="https://youtu.be/oPzywjRNEaA" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Aladdin img1.jpg"
+                    alt="Música 3 - Correr para Viver (Reprise) - (Aladdin)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Correr para Viver (Reprise)</span>
+                    <span class="movie-type">Aladdin</span>
+                    <a target="_blank" href="https://youtu.be/UNDtc3Ur1mo" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Aladdin img1.jpg"
+                    alt="Música 4 - Nunca Teve Um Amigo Assim (Aladdin)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Nunca Teve Um Amigo Assim</span>
+                    <span class="movie-type">Aladdin</span>
+                    <a target="_blank" href="https://youtu.be/ZvsBRj6ycxA" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Aladdin img1.jpg" alt="Música 5 - Príncipe Ali (Aladdin)"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Príncipe Ali</span>
+                    <span class="movie-type">Aladdin</span>
+                    <a target="_blank" href="https://youtu.be/e3iCPKBIMz4" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Aladdin img1.jpg" alt="Música 6 - Um Mundo Ideal (Aladdin)"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Um Mundo Ideal</span>
+                    <span class="movie-type">Aladdin</span>
+                    <a target="_blank" href="https://youtu.be/nNuSuiFb-OY" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Aladdin img1.jpg"
+                    alt="Música 7 - Príncipe Ali (Reprise) - (Aladdin)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Príncipe Ali (Reprise)</span>
+                    <span class="movie-type">Aladdin</span>
+                    <a target="_blank" href="https://youtu.be/Xrc7g_pDnww" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Aladdin img1.jpg" alt="Música 8 - Arabian Nights (Aladdin)"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Arabian Nights</span>
+                    <span class="movie-type">Aladdin</span>
+                    <a target="_blank" href="https://youtu.be/phDElL3duQI?si=18Eq0Cz-hL7SgPjZ" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Aladdin img1.jpg"
+                    alt="Música 9 - Legend of The Lamp (Aladdin)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Legend of The Lamp</span>
+                    <span class="movie-type">Aladdin</span>
+                    <a target="_blank" href="https://youtu.be/VNoV0KWkwyo?si=pMAiHqn2nVfwWY-o" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Aladdin img1.jpg"
+                    alt="Música 10 - One Jump Ahead (Aladdin)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">One Jump Ahead</span>
+                    <span class="movie-type">Aladdin</span>
+                    <a target="_blank" href="https://youtu.be/1K6gj2nSIvM?si=gjt8FW1b3AwQqKsJ" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Aladdin img1.jpg"
+                    alt="Música 11 - One Jump Ahead (Reprise) - (Aladdin)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">One Jump Ahead (Reprise)</span>
+                    <span class="movie-type">Aladdin</span>
+                    <a target="_blank" href="https://youtu.be/jKPuwObiyc8?si=_WeNHRTok-RqQR8f" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Aladdin img1.jpg"
+                    alt="Música 12 - Friend Like Me (Aladdin)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Friend Like Me</span>
+                    <span class="movie-type">Aladdin</span>
+                    <a target="_blank" href="https://youtu.be/VOXEEX_JR3A?si=USeCw-i5wu6z_jeS" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Aladdin img1.jpg" alt="Música 13 - Prince Ali (Aladdin)"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Prince Ali</span>
+                    <span class="movie-type">Aladdin</span>
+                    <a target="_blank" href="https://youtu.be/NkAc4v_boOM" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Aladdin img1.jpg"
+                    alt="Música 14 - A Whole New World (Aladdin)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">A Whole New World</span>
+                    <span class="movie-type">Aladdin</span>
+                    <a target="_blank" href="https://youtu.be/xYjFxFFdyyk?si=YgfVppODdR8wg4W_" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Aladdin img1.jpg" alt="Música 15 - To be Free (Aladdin)"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">To be Free</span>
+                    <span class="movie-type">Aladdin</span>
+                    <a target="_blank" href="https://youtu.be/OtPe7MnrLnk?si=bTJ6TdNRbw92jm5u" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Aladdin img1.jpg"
+                    alt="Música 16 - Prince Ali (Reprise) - (Aladdin)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Prince Ali (Reprise)</span>
+                    <span class="movie-type">Aladdin</span>
+                    <a target="_blank" href="https://youtu.be/qTGaARjRSXs?si=gv1e2GPPsWvcpjsh" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Aladdin img1.jpg"
+                    alt="Música 17 - A Whole New World - (Aladdin)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">A Whole New World (Reprise)</span>
+                    <span class="movie-type">Aladdin</span>
+                    <a target="_blank" href="https://youtu.be/xYjFxFFdyyk?si=wtVoTZzn4AUl6xj5" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Aladdin img1.jpg"
+                    alt="Música 18 - Street Urchins (Aladdin)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Street Urchins</span>
+                    <span class="movie-type">Aladdin</span>
+                    <a target="_blank" href="https://youtu.be/ppWO4lzd8k4?si=dN4Sv-ppkHm3s-uc" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Aladdin img1.jpg"
+                    alt="Música 19 - The Ends of the Earth (Aladdin)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">The Ends of the Earth</span>
+                    <span class="movie-type">Aladdin</span>
+                    <a target="_blank" href="https://youtu.be/l8YO0ZCyaMc?si=0XjptyJ6zUPAM2K7" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Aladdin img1.jpg" alt="Música 20 - The Kiss (Aladdin)"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">The Kiss</span>
+                    <span class="movie-type">Aladdin</span>
+                    <a target="_blank" href="https://youtu.be/0lvDGoQW-48?si=TSUF_AbPLMz_RTUQ" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Aladdin img1.jpg"
+                    alt="Música 21 - On a Dark Night (Aladdin)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">On a Dark Night</span>
+                    <span class="movie-type">Aladdin</span>
+                    <a target="_blank" href="https://youtu.be/FbGJNskY9ik?si=xahsj1_m3Vtiyo-I" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Aladdin img1.jpg"
+                    alt="Música 22 - Jasmine Runs Away (Aladdin)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Jasmine Runs Away</span>
+                    <span class="movie-type">Aladdin</span>
+                    <a target="_blank" href="https://youtu.be/3Yz-NjgguW8?si=iLmUdTwNasDagb49" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Aladdin img1.jpg" alt="Música 23 - Marketplace (Aladdin)"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Marketplace</span>
+                    <span class="movie-type">Aladdin</span>
+                    <a target="_blank" href="https://youtu.be/Jri7-r9KmOw?si=s4kfuNpqoaFur8Yo" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Aladdin img1.jpg"
+                    alt="Música 24 - The Cave of Wonders (Aladdin)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">The Cave of Wonders</span>
+                    <span class="movie-type">Aladdin</span>
+                    <a target="_blank" href="https://youtu.be/8DVNkuTnWsw?si=YCTne-KzZ0bwrfL-" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Aladdin img1.jpg"
+                    alt="Música 25 - Aladdin's World (Aladdin)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Aladdin's World</span>
+                    <span class="movie-type">Aladdin</span>
+                    <a target="_blank" href="https://youtu.be/RzOC-Mv_DSA?si=81wPGFQmW126i3In" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Aladdin img1.jpg" alt="Música 26 - The Battle (Aladdin)"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">The Battle</span>
+                    <span class="movie-type">Aladdin</span>
+                    <a target="_blank" href="https://youtu.be/-gvjnSQTBpU?si=S54pTz1YbRlEeTTB" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Aladdin img1.jpg"
+                    alt="Música 27 - Happy End in Agraba (Aladdin)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Happy End in Agraba</span>
+                    <span class="movie-type">Aladdin</span>
+                    <a target="_blank" href="https://youtu.be/DaPfxHdQRv8?si=cS2ggRrkLc6SHN3G" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Aladdin img1.jpg"
+                    alt="Música 28 - A Whole New World (Ver. Peabo Bryson and Regina Belle) - (Aladdin)"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">A Whole New World<br>(Ver. Peabo Bryson and Regina Belle)</span>
+                    <span class="movie-type">Aladdin</span>
+                    <a target="_blank" href="" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Aladdin img1.jpg"
+                    alt="Música 29 - Proud of Your Boy (Demo) - (Aladdin)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Proud of Your Boy (Demo)</span>
+                    <span class="movie-type">Aladdin</span>
+                    <a target="_blank" href="https://youtu.be/3cKoswqYFIk?si=SPLE_0fN5ol5yHDY" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Aladdin/Aladdin img1.jpg"
+                    alt="Música 30 - High Adventure (Demo) (Aladdin)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">High Adventure (Demo)</span>
+                    <span class="movie-type">Aladdin</span>
+                    <a target="_blank" href="https://youtu.be/3vIL3VysWqQ?si=lbxSthpRWMpMPdBO" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <br><br><br>
+    <script src="src/javascript/soundtrack.js"></script>
+    <script src="src/javascript/swiper-bundle.min.js"></script>
+    <script src="src/javascript/Pesquisa.js"></script>
+    <script src="src/javascript/script.js"></script>
+</body>
+
+</html>

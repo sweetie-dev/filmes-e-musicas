@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartas Para Julieta - Romance - M&M</title>
+    <link rel="stylesheet" href="src/css/swiper.min.css">
+    <link rel="shortcut icon" href="src/imgens_pp/logo_M&M.png" type="imgens_pp">
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            box-sizing: border-box;
+            scroll-padding-top: 2rem;
+        }
+
+        :root {
+            --text-color: #fcfeff;
+            --main-color: #f64a5b;
+            --hover-color: #A80011;
+            --body-color: #121220;
+            --container-color: #171727;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        section {
+            padding: 3rem 0 2rem;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .bx {
+            cursor: pointer;
+        }
+
+        body {
+            background: linear-gradient(#1e1e2a 89%, #F50018);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1068px;
+            margin: auto;
+            width: 100%;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--body-color);
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            color: var(--text-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin: 0 auto 0 0;
+        }
+
+        .logo span {
+            color: var(--main-color);
+
+        }
+
+        .search-box {
+            max-width: 240px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            column-gap: 0.7rem;
+            padding: 8px 15px;
+            background: var(--container-color);
+            border-radius: 4rem;
+            margin-right: 1rem;
+        }
+
+        .search-box .bx {
+            font-size: 1.1rem;
+        }
+
+        .search-box .bx:hover {
+            color: var(--main-color);
+        }
+
+        #search-input {
+            width: 100%;
+            border: none;
+            outline: none;
+            color: var(--text-color);
+            background: transparent;
+            font-size: 0.938rem;
+        }
+
+        .user {
+            display: flex;
+        }
+
+        .user-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 18px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 2.1rem;
+        }
+
+        .nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #b7b7b7;
+        }
+
+        .nav-link:hover,
+        .nav-active {
+            color: var(--text-color);
+            transition: 0.3s all linear;
+            transform: scale(1.1);
+        }
+
+        .nav-link .bx {
+            font-size: 1.6rem;
+        }
+
+        .nav-link-title {
+            font-size: 0.7rem;
+        }
+
+        .home {
+            position: relative;
+            min-height: 470px;
+            display: flex;
+            align-items: center;
+            margin-top: 5rem !important;
+            border-radius: 0.5rem;
+        }
+
+        .home-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+
+        .home-text {
+            padding-left: 40px;
+        }
+
+        .home-title {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .home-text p {
+            font-size: 0.938rem;
+            margin: 10px 0 20px;
+            color: var(--main-color);
+        }
+
+        .watch-btn {
+            display: flex;
+            align-items: center;
+            column-gap: 0.8rem;
+            color: var(--text-color);
+        }
+
+        .watch-btn .bx {
+            font-size: 25px;
+            background: var(--main-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .watch-btn .bx:hover {
+            background: var(--hover-color);
+        }
+
+        .watch-btn span {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--container-color);
+            padding: 8px 14px;
+            border: 1px solid hsl(200 100% 99% / 5%);
+            margin-bottom: 2rem;
+        }
+
+        .heading-Romance {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(to right, #e11c30 55%, rgb(234, 70, 97));
+            padding: 8px 14px;
+            border: 1px solid hsl(200 100% 99% / 5%);
+            margin-bottom: 2rem;
+        }
+
+        .heading-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .movie-box {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .movie-box-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .movie-box .box-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 14px;
+            background: linear-gradient(8deg,
+                    hsl(240 17% 14% / 74%) 14%,
+                    hsl(240 17% 14% / 14%) 44%);
+            overflow: hidden;
+        }
+
+        .movie-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .movie-type {
+            font-size: 0.938rem;
+        }
+
+        .play {
+            position: absolute;
+            bottom: 0.8rem;
+            right: 0.8rem;
+
+        }
+
+        .swiper-btn {
+            display: flex;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            position: static !important;
+            margin: 0 0 0 10px !important;
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            color: var(--text-color);
+            font-size: 18px !important;
+            font-weight: 700;
+        }
+
+        .seta {
+            width: 50px;
+        }
+
+        .movies .heading {
+            padding: 10px 14px;
+        }
+
+        .movies-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(247px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .movies-content .movie-box:hover .movie-box-img {
+            transform: scale(1.1);
+            transition: 0.5s;
+        }
+
+        .play-container {
+            position: relative;
+            min-height: 540px;
+            margin-top: 5rem !important;
+        }
+
+        .play-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: -1;
+        }
+
+        .play-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px;
+            background: linear-gradient(8deg,
+                    hsl(240 17% 14% / 74%) 14%,
+                    hsl(240 17% 14% / 14%) 44%);
+        }
+
+        .play-text h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            column-gap: 2px;
+            font-size: 1.1rem;
+            color: gold;
+            margin-top: 4px;
+        }
+
+        .tags {
+            display: flex;
+            align-items: center;
+            column-gap: 8px;
+            margin: 1rem 0;
+        }
+
+        .tags span {
+            background: var(--container-color);
+            padding: 0 4px;
+        }
+
+        .play-movie {
+            position: absolute;
+            bottom: 18rem;
+            right: 10rem;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--main-color);
+            font-size: 24px;
+            animation: animate 2s linear infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                box-shadow: 0 0 0 palevioletred;
+            }
+
+            40% {
+                box-shadow: 0 0 0 50px rgb(255, 193, 7, 0);
+            }
+
+            80% {
+                box-shadow: 0 0 0 50px rgb(255, 193, 7, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 rgb(255, 193, 7, 0);
+            }
+        }
+
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+            background: hsl(234 10% 20% /60%);
+            z-index: 400;
+        }
+
+        .video-container.show-video {
+            display: flex;
+        }
+
+        .video-box {
+            position: relative;
+            width: 82%;
+        }
+
+        .video-box #myvideo {
+            width: 100%;
+            aspect-ratio: 16/9;
+        }
+
+        .close-video {
+            position: absolute;
+            top: -3;
+            right: 0;
+            font-size: 40px;
+            color: var(--main-color);
+        }
+
+        .about-movie {
+            margin-top: 2rem !important;
+        }
+
+        .about-movie h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--main-color);
+        }
+
+        .about-movie p {
+            max-width: 6000px;
+            font-size: 0.938rem;
+            margin: 10px 0;
+        }
+
+        .cast-heading {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--main-color);
+        }
+
+        .cast {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .cast-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cast-img {
+            width: 150px;
+            height: 180px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .class-img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* Estilo base para o container das plataformas de streaming */
+        .streaming-platforms {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .streaming-platforms a {
+            display: inline-block;
+        }
+
+        .streaming-platforms img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .streaming-platforms img:hover {
+            transform: scale(1.1);
+        }
+
+        /**/
+
+        /* Estilos da Barra de Pesquisa */
+        .search-box {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        /* Estilos dos Resultados da Pesquisa */
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--container-color);
+            border-radius: 0.5rem;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin-top: 5px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .search-result-item {
+            padding: 10px 15px;
+            cursor: pointer;
+            color: var(--text-color);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .search-result-item:hover {
+            background: var(--hover-color);
+            transform: translateX(5px);
+            padding-left: 20px;
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Estilo para Mensagem de Não Encontrado */
+        .no-results {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-color);
+            font-style: italic;
+        }
+
+        /* Estilização da Barra de Rolagem */
+        .search-results::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .search-results::-webkit-scrollbar-track {
+            background: var(--container-color);
+            border-radius: 0.5rem;
+        }
+
+        .search-results::-webkit-scrollbar-thumb {
+            background: var(--main-color);
+            border-radius: 0.5rem;
+        }
+
+        .search-results::-webkit-scrollbar-thumb:hover {
+            background: var(--hover-color);
+        }
+
+        /* Container de Resultados Não Encontrados */
+        .no-results-container {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--container-color);
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 500px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .no-results-container .bx-error-circle {
+            font-size: 48px;
+            color: var(--main-color);
+            margin-bottom: 15px;
+        }
+
+        .no-results-title {
+            font-size: 24px;
+            color: var(--text-color);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .no-results-text {
+            font-size: 16px;
+            color: #999;
+            line-height: 1.5;
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* Responsividade - Ordem do maior para o menor breakpoint */
+        @media (max-width: 1240px) {
+            .navbar {
+                bottom: 0;
+                left: 0;
+                right: 0;
+                top: auto;
+                transform: translateY(0);
+                flex-direction: row;
+                justify-content: space-evenly;
+                padding: 10px;
+                border-top: 1px solid hsl(200 100% 99% / 5%);
+                background: linear-gradient(8deg,
+                        hsl(240 17% 14% / 100%) 5%,
+                        hsl(240 17% 14% / 90%) 100%);
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .search-results {
+                max-height: 400px;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 1060px) {
+            .container {
+                margin: 0 auto;
+                width: 95%;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .search-box {
+                max-width: 280px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+
+            .movie-box {
+                height: 280px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(214px, 1fr));
+            }
+
+            .play-container {
+                margin-top: 5rem !important;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .video-box {
+                width: 90%;
+            }
+
+            .search-results {
+                max-height: 350px;
+            }
+
+            .search-result-item {
+                padding: 10px 15px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 888px) {
+            .nav {
+                padding: 14px 0;
+            }
+
+            .search-box {
+                max-width: 240px;
+            }
+
+            .search-results {
+                max-height: 300px;
+            }
+
+            .play-text {
+                padding: 20px;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .cast {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                padding: 11px 0;
+            }
+
+            .search-box {
+                max-width: 200px;
+            }
+
+            .search-results {
+                max-height: 250px;
+            }
+
+            .search-result-item {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+
+            .no-results-container {
+                max-width: 300px;
+                padding: 25px 15px;
+            }
+
+            .no-results-title {
+                font-size: 18px;
+            }
+
+            .play-text h2 {
+                font-size: 1.4rem;
+            }
+
+            .video-box {
+                width: 95%;
+            }
+
+            .streaming-platforms {
+                gap: 15px;
+            }
+
+            .streaming-platforms img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            }
+
+            .movie-box {
+                height: 260px;
+            }
+        }
+
+        @media (max-width: 514px) {
+            .nav {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto;
+                gap: 5px;
+                padding: 10px;
+            }
+
+            .search-box {
+                max-width: 100%;
+                grid-column: 1 / -1;
+                order: 2;
+            }
+
+            .search-results {
+                max-height: 200px;
+                top: calc(100% + 5px);
+            }
+
+            .play-text {
+                padding: 15px;
+            }
+
+            .play-movie {
+                bottom: 6rem;
+                left: 17rem;
+            }
+
+            .video-box {
+                width: 100%;
+            }
+
+            .streaming-platforms {
+                gap: 10px;
+            }
+
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 1rem;
+            }
+
+            .movie-box {
+                height: 240px;
+            }
+        }
+
+        @media (max-width: 370px) {
+            .search-box input {
+                font-size: 13px;
+            }
+
+            .search-results {
+                max-height: 180px;
+            }
+
+            .search-result-item {
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+
+            .no-results-container {
+                max-width: 200px;
+                padding: 15px 8px;
+            }
+
+            .no-results-title {
+                font-size: 16px;
+            }
+
+            .play-text {
+                padding: 10px;
+            }
+
+            .video-box {
+                height: 180px;
+            }
+
+            .cast-img {
+                width: 100px;
+                height: 130px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav container">
+            <a href="pagina principal.html" class="logo">
+                <span>M</span>&<span>M</span>
+            </a>
+
+            <div class="search-box">
+                <input type="search" name="" id="search-input" placeholder="Pesquisar um Filme">
+                <i class='bx bx-search'></i>
+                <div id="search-results" class="search-results"></div>
+            </div>
+            <div class="navbar">
+<a href="pagina principal.html" class="nav-link nav-active">
+                    <i class='bx bx-home-alt-2'></i>
+                    <span class="nav-link-title">Início</span>
+                </a>
+                <a href="Filmes_Aventura.html" class="nav-link">
+                    <i class='bx bxs-tree'></i>
+                    <span class="nav-link-title">Aventura</span>
+                </a>
+                <a href="Filmes_Acao.html" class="nav-link">
+                    <i class='bx bx-car'></i>
+                    <span class="nav-link-title">Ação</span>
+                </a>
+                <a href="Filmes_Animação.html" class="nav-link">
+                    <i class='bx bx-happy'></i>
+                    <span class="nav-link-title">Animação</span>
+                </a>
+                <a href="Filmes_Comédia.html" class="nav-link">
+                    <i class='bx bx-laugh'></i>
+                    <span class="nav-link-title">Comédia</span>
+                </a>
+                <a href="Filme_Romance.html" class="nav-link">
+                    <i class='bx bx-happy-heart-eyes'></i>
+                    <span class="nav-link-title">Romance</span>
+                </a>
+                <a href="Filme_Terror.html" class="nav-link">
+                    <i class='bx bxs-skull'></i>
+                    <span class="nav-link-title">Terror</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <br><br>
+    <div class="play-container container">
+        <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Cartas para Julieta - banner.jpg"
+            alt="Banner Cartas Para Julieta" class="play-img">
+        <div class="play-text">
+            <h2>Cartas Para Julieta</h2>
+            <div class="rating">
+                <!--20% - 0%: 1 estrela-->
+                <i class='bx bxs-star'></i>
+                <!--40% - 21%: 2 estrelas-->
+                <i class='bx bxs-star'></i>
+                <!--60% - 41%: 3 estrelas-->
+                <i class='bx bxs-star-half'></i>
+                <!--80% - 61%: 4 estrelas-->
+                <i class='bx bx-star'></i>
+                <!--100% - 81%: 5 estrelas-->
+                <i class='bx bx-star'></i>
+            </div>
+            <span>De acordo com os criticos</span>
+            <h3>Titulo original:</h3>
+            <span>Letters to Juliet</span>
+            <div class="tags">
+                <span>Romance</span>
+                <span>1h 45min</span>
+                <span>11 de junho de 2010</span>
+            </div>
+        </div>
+        <i class='bx bx-right-arrow play-movie'></i>
+        <div class="video-container">
+            <div class="video-box">
+                <video id="myvideo"
+                    src="src/Filmes Romance/Filmes Cartas Para Julieta/Trailer/Cartas Para Julieta - Trailer Oficial Legendado(480P).mp4"
+                    controls></video>
+                <i class='bx bx-x-circle close-video'></i>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="about-movie container">
+        <br>
+        <div class="cast">
+
+            <h2 class="cast-heading">Classificação:</h2>
+            <div class="cast">
+                <div class="cast-box">
+                    <img src="src/classificações de idade/classificação 10 anos.png" alt="classificação 10 anos"
+                        class="class-img">
+                </div>
+            </div>
+
+            <div class="cast">
+                <h2 class="cast-heading">Assistir:</h2>
+                <div class="streaming-platforms">
+                    <a target="_blank"
+                        href="https://tv.apple.com/br/movie/cartas-para-julieta/umc.cmc.2w2k3h7xi3hlpbdby0fj3r6mk">
+                        <img src="src/onde ver/Apple TV+.jpg" alt="Apple TV+" class="class-img">
+                    </a>
+                    <a target="_blank"
+                        href="https://www.primevideo.com/detail/Cartas-para-Julieta/0J81EQR4OLUZG9CMESJ2PNZBLH/ref=atv_nb_lcl_pt_BR">
+                        <img src="src/onde ver/prime video.png" alt="Prime Video" class="class-img">
+                    </a>
+                    <a target="_blank"
+                        href="https://globoplay.globo.com/cartas-para-julieta/t/9zmLJPyQDT/">
+                        <img src="src/onde ver/Telecine.jpg" alt="Telecine" class="class-img">
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <h2>Sinopse:</h2>
+        <p>Uma jovem americana, enquanto está de férias na Itália, descobre uma carta antiga endereçada a Julieta, que
+            leva a uma busca por um amor perdido e a uma jornada de autodescoberta.</p>
+
+        <h2 class="cast-heading">Direção do Filme</h2>
+        <div class="cast">
+            <div class="cast-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Elenco e direção do filme/Gary Winick.jpeg"
+                    alt="Gary Winick responsavel pala direção do filme" class="cast-img">
+                <span class="cast-title">Gary Winick</span>
+            </div>
+        </div>
+        <br><br>
+        <!-- Amanda Seyfried como Sophie
+             Vanessa Redgrave como Claire
+             Christopher Egan como Charlie
+             Franco Nero como Lorenzo
+            -->
+        <h2 class="cast-heading">Elenco do Filme</h2>
+        <div class="cast">
+            <div class="cast-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Elenco e direção do filme/Elenco/Amanda Seyfried.jpeg"
+                    alt="Amanda Seyfried como Sophie" class="cast-img">
+                <span class="cast-title">Amanda Seyfried</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Elenco e direção do filme/Elenco/Vanessa Redgrave.jpeg"
+                    alt="Vanessa Redgrave como Claire" class="cast-img">
+                <span class="cast-title">Vanessa Redgrave</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Elenco e direção do filme/Elenco/Christopher Egan.jpeg"
+                    alt="Christopher Egan como Charlie" class="cast-img">
+                <span class="cast-title">Christopher Egan</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Elenco e direção do filme/Elenco/Franco Nero.webp"
+                    alt="Franco Nero como Lorenzo" class="cast-img">
+                <span class="cast-title">Franco Nero</span>
+            </div>
+        </div>
+        <br><br>
+
+        <h2 class="cast-heading">Direção da Trilha Sonora</h2>
+        <div class="cast">
+            <div class="cast-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Elenco e direção do filme/Andrea.jpg"
+                    alt=" Andrea Guerra responsável pela Trilha sonora" class="cast-img">
+                <span class="cast-title">Andrea Guerra</span>
+            </div>
+        </div>
+        <br><br>
+        <br><br>
+        <!--
+        Trilha Sonora
+        1 - Main Title - [https://youtu.be/AAcMraiQ7v0?si=iBEuajt6V6r8-7tA]
+        2 - Vineyards - [https://youtu.be/V10YRil68Lg?si=9ZPGLsrmkToQ3eSG]
+        3 - Dear Juliet - [https://youtu.be/KqJZZ_SZcV8?si=-XoO0TtTYG1Elt2q]
+        4 - Juliet's Secretaries - [https://youtu.be/96QlC8T3W0U?si=xwFX5k9_JhZw1-mB]
+        5 - Sophie Discovers Claire's Letter - [https://youtu.be/fMlDVm5cPQQ?si=Bi0VJYLFQaPAuGFN]
+        6 - Verona - [https://youtu.be/JbGBf1ZLJfU?si=glRpV-qojgZrkWFi]
+        7 - I Have To Write Back - [https://youtu.be/kB16yZzOZuA?si=USdA8YsxCqKN119c]
+        8 - I Miss You Already - [https://youtu.be/IcTj4cWqXjM?si=WXgNa1BQ4GQ4KKMS]
+        9 - Sophie Meets Claire - [https://youtu.be/zcD0tMaTpME?si=OICSyi_UyVuG4Ri1]
+        10 - Love of First Sight - [https://youtu.be/UwT4Ee21ruk?si=86HsBDCz7Xp1rqLy]
+        11 - So Romantic - [https://youtu.be/dJ92oYxKnSo?si=hqsmRZU2bQjNYL2Z]
+        12 - Searching For Lorenzo - [https://youtu.be/zMLyZTtNnDQ?si=XBmeENtVu-tuBZFh]
+        13 - It's Not Him - [https://youtu.be/VmALQ-tgkG8?si=FQzRbK6bJIxKO7zj]
+        14 - Goodnight Charlie - [https://youtu.be/ADondvT7a4w?si=KAGIj0yA8DCi4hgS]
+        15 - Siena - [https://youtu.be/YaMrxhof5uQ?si=OIw37EtgwSbXK9pc]
+        16 - I Am Lorenzo Bartolini - [https://youtu.be/Ac47kSWvHkw?si=UKgrla0nOInKrcqN]
+        17 - Claire Comforts Sophie - [https://youtu.be/5iswVkh0jkA?si=NmtuvidTa-LWptk4]
+        18 - Beautiful Night - [https://youtu.be/PDOfFn9i2OM?si=o3zTg2yLnwzLOrS7]
+        19 - Sophie and Charlie's First Kiss - [https://youtu.be/VRxIQJF04oA?si=shXcnr3ajC98LJka]
+        20 - Stop The Car - [https://youtu.be/sfiVpJ1Fj5U?si=4IZD50SJGbMyoUcr]
+        21 - Claire Meets Lorenzo - [https://youtu.be/hv235xlpJGg?si=QckzNFTr2UGDsNU-]
+        22 - Goodbye Charlie - [https://youtu.be/68etBwM1HNY?si=Q2CujBShdGu1aPjx]
+        23 - Going Back to New York - [https://youtu.be/UAxB4UUizUA?si=vPeJOsV5ifs7VaAz]
+        24 - Don't Wait 50 Years - [https://youtu.be/oEXWNqv-O94?si=mhERK5EuEZdiq2LY]
+        25 - Sophie's Story - [https://youtu.be/szK-IOFaTz0?si=zaVAC391mpW0zAPv]
+        26 - Breaking Up With Victor - [https://youtu.be/2HLJNhaHryo?si=ZViyf6_tcAtNKC-E]
+        27 - Wedding Reception - [https://youtu.be/XtZEDmS8EVE?si=D58rISqS5bWD699Q]
+        28 - What If - [https://youtu.be/T1-Lnqf-skg?si=rh51wS46hMfeIL4-]
+        29 - At The Wedding - [https://youtu.be/nJm_BgJtwTg?si=nFUmfHd3Pvrr1nXv]
+        30 - There Is Only One Sophie - [https://youtu.be/sAbZMVMywng?si=9blYcNb_5wSK8TaM]
+        -->
+        <h2 class="cast-heading">Trilha sonora do filme</h2>
+        <div class="movies-content">
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Cartas para Julieta - img.jpg"
+                    alt="Música 1 - Main Title (Cartas Para Julieta)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Main Title</span>
+                    <span class="movie-type">Cartas Para Julieta</span>
+                    <a target="_blank" href="https://youtu.be/AAcMraiQ7v0?si=iBEuajt6V6r8-7tA" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Cartas para Julieta - img.jpg"
+                    alt="Música 2 - Vineyards (Cartas Para Julieta)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Vineyards</span>
+                    <span class="movie-type">Cartas Para Julieta</span>
+                    <a target="_blank" href="https://youtu.be/V10YRil68Lg?si=9ZPGLsrmkToQ3eSG" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Cartas para Julieta - img.jpg"
+                    alt="Música 3 - Dear Juliet (Cartas Para Julieta)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Dear Juliet</span>
+                    <span class="movie-type">Cartas Para Julieta</span>
+                    <a target="_blank" href="https://youtu.be/KqJZZ_SZcV8?si=-XoO0TtTYG1Elt2q" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Cartas para Julieta - img.jpg"
+                    alt="Música 4 - Juliet's Secretaries (Cartas Para Julieta)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Juliet's Secretaries</span>
+                    <span class="movie-type">Cartas Para Julieta</span>
+                    <a target="_blank" href="https://youtu.be/96QlC8T3W0U?si=xwFX5k9_JhZw1-mB" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Cartas para Julieta - img.jpg"
+                    alt="Música 5 - Sophie Discovers Claire's Letter (Cartas Para Julieta)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Sophie Discovers Claire's Letter</span>
+                    <span class="movie-type">Cartas Para Julieta</span>
+                    <a target="_blank" href="https://youtu.be/fMlDVm5cPQQ?si=Bi0VJYLFQaPAuGFN" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Cartas para Julieta - img.jpg"
+                    alt="Música 6 - Verona (Cartas Para Julieta)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Verona</span>
+                    <span class="movie-type">Cartas Para Julieta</span>
+                    <a target="_blank" href="https://youtu.be/JbGBf1ZLJfU?si=glRpV-qojgZrkWFi" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Cartas para Julieta - img.jpg"
+                    alt="Música 7 - I Have To Write Back (Cartas Para Julieta)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">I Have To Write Back</span>
+                    <span class="movie-type">Cartas Para Julieta</span>
+                    <a target="_blank" href="https://youtu.be/kB16yZzOZuA?si=USdA8YsxCqKN119c" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Cartas para Julieta - img.jpg"
+                    alt="Música 8 - I Miss You Already (Cartas Para Julieta)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">I Miss You Already</span>
+                    <span class="movie-type">Cartas Para Julieta</span>
+                    <a target="_blank" href="https://youtu.be/IcTj4cWqXjM?si=WXgNa1BQ4GQ4KKMS" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Cartas para Julieta - img.jpg"
+                    alt="Música 9 - Sophie Meets Claire (Cartas Para Julieta)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Sophie Meets Claire</span>
+                    <span class="movie-type">Cartas Para Julieta</span>
+                    <a target="_blank" href="https://youtu.be/zcD0tMaTpME?si=OICSyi_UyVuG4Ri1" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Cartas para Julieta - img.jpg"
+                    alt="Música 10 - Love of First Sight (Cartas Para Julieta)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Love of First Sight</span>
+                    <span class="movie-type">Cartas Para Julieta</span>
+                    <a target="_blank" href="https://youtu.be/UwT4Ee21ruk?si=86HsBDCz7Xp1rqLy" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Cartas para Julieta - img.jpg"
+                    alt="Música 11 - So Romantic (Cartas Para Julieta)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">So Romantic</span>
+                    <span class="movie-type">Cartas Para Julieta</span>
+                    <a target="_blank" href="https://youtu.be/dJ92oYxKnSo?si=hqsmRZU2bQjNYL2Z" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Cartas para Julieta - img.jpg"
+                    alt="Música 12 - Searching For Lorenzo (Cartas Para Julieta)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Searching For Lorenzo</span>
+                    <span class="movie-type">Cartas Para Julieta</span>
+                    <a target="_blank" href="https://youtu.be/zMLyZTtNnDQ?si=XBmeENtVu-tuBZFh" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Cartas para Julieta - img.jpg"
+                    alt="Música 13 - It's Not Him (Cartas Para Julieta)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">It's Not Him</span>
+                    <span class="movie-type">Cartas Para Julieta</span>
+                    <a target="_blank" href="https://youtu.be/VmALQ-tgkG8?si=FQzRbK6bJIxKO7zj" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Cartas para Julieta - img.jpg"
+                    alt="Música 14 - Goodnight Charlie (Cartas Para Julieta)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Goodnight Charlie</span>
+                    <span class="movie-type">Cartas Para Julieta</span>
+                    <a target="_blank" href="https://youtu.be/ADondvT7a4w?si=KAGIj0yA8DCi4hgS" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Cartas para Julieta - img.jpg"
+                    alt="Música 15 - Siena (Cartas Para Julieta)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Siena</span>
+                    <span class="movie-type">Cartas Para Julieta</span>
+                    <a target="_blank" href="https://youtu.be/YaMrxhof5uQ?si=OIw37EtgwSbXK9pc" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Cartas para Julieta - img.jpg"
+                    alt="Música 16 - I Am Lorenzo Bartolini (Cartas Para Julieta)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">I Am Lorenzo Bartolini</span>
+                    <span class="movie-type">Cartas Para Julieta</span>
+                    <a target="_blank" href="https://youtu.be/Ac47kSWvHkw?si=UKgrla0nOInKrcqN" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Cartas para Julieta - img.jpg"
+                    alt="Música 17 - Claire Comforts Sophie (Cartas Para Julieta)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Claire Comforts Sophie</span>
+                    <span class="movie-type">Cartas Para Julieta</span>
+                    <a target="_blank" href="https://youtu.be/5iswVkh0jkA?si=NmtuvidTa-LWptk4" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Cartas para Julieta - img.jpg"
+                    alt="Música 18 - Beautiful Night (Cartas Para Julieta)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Beautiful Night</span>
+                    <span class="movie-type">Cartas Para Julieta</span>
+                    <a target="_blank" href="https://youtu.be/PDOfFn9i2OM?si=o3zTg2yLnwzLOrS7" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Cartas para Julieta - img.jpg"
+                    alt="Música 19 - Sophie and Charlie's First Kiss (Cartas Para Julieta)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Sophie and Charlie's First Kiss</span>
+                    <span class="movie-type">Cartas Para Julieta</span>
+                    <a target="_blank" href="https://youtu.be/VRxIQJF04oA?si=shXcnr3ajC98LJka" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Cartas para Julieta - img.jpg"
+                    alt="Música 20 - Stop The Car (Cartas Para Julieta)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Stop The Car</span>
+                    <span class="movie-type">Cartas Para Julieta</span>
+                    <a target="_blank" href="https://youtu.be/sfiVpJ1Fj5U?si=4IZD50SJGbMyoUcr" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Cartas para Julieta - img.jpg"
+                    alt="Música 21 - Claire Meets Lorenzo (Cartas Para Julieta)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Claire Meets Lorenzo</span>
+                    <span class="movie-type">Cartas Para Julieta</span>
+                    <a target="_blank" href="https://youtu.be/hv235xlpJGg?si=QckzNFTr2UGDsNU-" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Cartas para Julieta - img.jpg"
+                    alt="Música 22 - Goodbye Charlie (Cartas Para Julieta)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Goodbye Charlie</span>
+                    <span class="movie-type">Cartas Para Julieta</span>
+                    <a target="_blank" href="https://youtu.be/68etBwM1HNY?si=Q2CujBShdGu1aPjx" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Cartas para Julieta - img.jpg"
+                    alt="Música 23 - Going Back to New York (Cartas Para Julieta)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Going Back to New York</span>
+                    <span class="movie-type">Cartas Para Julieta</span>
+                    <a target="_blank" href="https://youtu.be/UAxB4UUizUA?si=vPeJOsV5ifs7VaAz" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Cartas para Julieta - img.jpg"
+                    alt="Música 24 - Don't Wait 50 Years (Cartas Para Julieta)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Don't Wait 50 Years</span>
+                    <span class="movie-type">Cartas Para Julieta</span>
+                    <a target="_blank" href="https://youtu.be/oEXWNqv-O94?si=mhERK5EuEZdiq2LY" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Cartas para Julieta - img.jpg"
+                    alt="Música 25 - Sophie's Story (Cartas Para Julieta)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Sophie's Story</span>
+                    <span class="movie-type">Cartas Para Julieta</span>
+                    <a target="_blank" href="https://youtu.be/szK-IOFaTz0?si=zaVAC391mpW0zAPv" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Cartas para Julieta - img.jpg"
+                    alt="Música 26 - Breaking Up With Victor (Cartas Para Julieta)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Breaking Up With Victor</span>
+                    <span class="movie-type">Cartas Para Julieta</span>
+                    <a target="_blank" href="https://youtu.be/2HLJNhaHryo?si=ZViyf6_tcAtNKC-E" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Cartas para Julieta - img.jpg"
+                    alt="Música 27 - Wedding Reception (Cartas Para Julieta)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Wedding Reception</span>
+                    <span class="movie-type">Cartas Para Julieta</span>
+                    <a target="_blank" href="https://youtu.be/XtZEDmS8EVE?si=D58rISqS5bWD699Q" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Cartas para Julieta - img.jpg"
+                    alt="Música 28 - What If (Cartas Para Julieta)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">What If</span>
+                    <span class="movie-type">Cartas Para Julieta</span>
+                    <a target="_blank" href="https://youtu.be/T1-Lnqf-skg?si=rh51wS46hMfeIL4-" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Cartas para Julieta - img.jpg"
+                    alt="Música 29 - At The Wedding (Cartas Para Julieta)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">At The Wedding</span>
+                    <span class="movie-type">Cartas Para Julieta</span>
+                    <a target="_blank" href="https://youtu.be/nJm_BgJtwTg?si=nFUmfHd3Pvrr1nXv" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Cartas Para Julieta/Cartas para Julieta - img.jpg"
+                    alt="Música 30 - There Is Only One Sophie (Cartas Para Julieta)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">There Is Only One Sophie</span>
+                    <span class="movie-type">Cartas Para Julieta</span>
+                    <a target="_blank" href="https://youtu.be/sAbZMVMywng?si=9blYcNb_5wSK8TaM" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+    <script src="src/javascript/soundtrack.js"></script>
+    <script src="src/javascript/swiper-bundle.min.js"></script>
+    <script src="src/javascript/Pesquisa.js"></script>
+    <script src="src/javascript/script.js"></script>
+</body>
+
+</html>

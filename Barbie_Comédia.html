@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbie - Comédia - M&M</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            box-sizing: border-box;
+            scroll-padding-top: 2rem;
+        }
+
+        :root {
+            --text-color: #fcfeff;
+            --main-color: #e51379;
+            --hover-color: hsl(329, 51%, 50%);
+            --body-color: #1e1e2a;
+            --container-color: #171727;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        section {
+            padding: 3rem 0 2rem;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .bx {
+            cursor: pointer;
+        }
+
+        body {
+            background: linear-gradient(#1e1e2a 89%, #52c3da);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1068px;
+            margin: auto;
+            width: 100%;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--body-color);
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            color: var(--text-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin: 0 auto 0 0;
+        }
+
+        .logo span {
+            color: var(--main-color);
+
+        }
+
+        .search-box {
+            max-width: 240px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            column-gap: 0.7rem;
+            padding: 8px 15px;
+            background: var(--container-color);
+            border-radius: 4rem;
+            margin-right: 1rem;
+        }
+
+        .search-box .bx {
+            font-size: 1.1rem;
+        }
+
+        .search-box .bx:hover {
+            color: var(--main-color);
+        }
+
+        #search-input {
+            width: 100%;
+            border: none;
+            outline: none;
+            color: var(--text-color);
+            background: transparent;
+            font-size: 0.938rem;
+        }
+
+                /* Estilos da Barra de Pesquisa */
+                .search-box {
+                    position: relative;
+                    width: 100%;
+                    max-width: 300px;
+                }
+        
+                /* Estilos dos Resultados da Pesquisa */
+                .search-results {
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    right: 0;
+                    background: var(--container-color);
+                    border-radius: 0.5rem;
+                    max-height: 300px;
+                    overflow-y: auto;
+                    z-index: 1000;
+                    display: none;
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+                    margin-top: 5px;
+                    animation: fadeIn 0.3s ease;
+                }
+        
+                .search-result-item {
+                    padding: 10px 15px;
+                    cursor: pointer;
+                    color: var(--text-color);
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                    transition: all 0.3s ease-in-out;
+                }
+        
+                .search-result-item:hover {
+                    background: var(--hover-color);
+                    transform: translateX(5px);
+                    padding-left: 20px;
+                }
+        
+                .search-result-item:last-child {
+                    border-bottom: none;
+                }
+        
+                /* Estilo para Mensagem de Não Encontrado */
+                .no-results {
+                    text-align: center;
+                    padding: 20px;
+                    color: var(--text-color);
+                    font-style: italic;
+                }
+        
+                /* Estilização da Barra de Rolagem */
+                .search-results::-webkit-scrollbar {
+                    width: 8px;
+                }
+        
+                .search-results::-webkit-scrollbar-track {
+                    background: var(--container-color);
+                    border-radius: 0.5rem;
+                }
+        
+                .search-results::-webkit-scrollbar-thumb {
+                    background: var(--main-color);
+                    border-radius: 0.5rem;
+                }
+        
+                .search-results::-webkit-scrollbar-thumb:hover {
+                    background: var(--hover-color);
+                }
+        
+                /* Container de Resultados Não Encontrados */
+                .no-results-container {
+                    text-align: center;
+                    padding: 40px 20px;
+                    background: var(--container-color);
+                    border-radius: 10px;
+                    margin: 20px auto;
+                    max-width: 500px;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                    animation: fadeIn 0.5s ease-in-out;
+                }
+        
+                .no-results-container .bx-error-circle {
+                    font-size: 48px;
+                    color: var(--main-color);
+                    margin-bottom: 15px;
+                }
+        
+                .no-results-title {
+                    font-size: 24px;
+                    color: var(--text-color);
+                    margin-bottom: 10px;
+                    font-weight: 600;
+                }
+        
+                .no-results-text {
+                    font-size: 16px;
+                    color: #999;
+                    line-height: 1.5;
+                }
+        
+
+        .user {
+            display: flex;
+        }
+
+        .user-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 18px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 2.1rem;
+        }
+
+        .nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #b7b7b7;
+        }
+
+        .nav-link:hover,
+        .nav-active {
+            color: var(--text-color);
+            transition: 0.3s all linear;
+            transform: scale(1.1);
+        }
+
+        .nav-link .bx {
+            font-size: 1.6rem;
+        }
+
+        .nav-link-title {
+            font-size: 0.7rem;
+        }
+
+        .home {
+            position: relative;
+            min-height: 470px;
+            display: flex;
+            align-items: center;
+            margin-top: 5rem !important;
+            border-radius: 0.5rem;
+        }
+
+        .home-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+
+        .home-text {
+            padding-left: 40px;
+        }
+
+        .home-title {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .home-text p {
+            font-size: 0.938rem;
+            margin: 10px 0 20px;
+            color: var(--main-color);
+        }
+
+        .watch-btn {
+            display: flex;
+            align-items: center;
+            column-gap: 0.8rem;
+            color: var(--text-color);
+        }
+
+        .watch-btn .bx {
+            font-size: 25px;
+            background: var(--main-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .watch-btn .bx:hover {
+            background: var(--hover-color);
+        }
+
+        .watch-btn span {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--container-color);
+            padding: 8px 14px;
+            border: 1px solid hsl(200 100% 99% / 5%);
+            margin-bottom: 2rem;
+        }
+
+        .movie-box {
+            position: relative;
+            width: 100%;
+            height: 380px;
+            overflow: hidden;
+        }
+
+        .movie-box-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .movie-box .box-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 14px;
+            background: linear-gradient(8deg,
+                    hsl(240 17% 14% / 74%) 14%,
+                    hsl(240 17% 14% / 14%) 44%);
+            overflow: hidden;
+        }
+
+        .movie-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .movie-type {
+            font-size: 0.938rem;
+        }
+
+        .play {
+            position: absolute;
+            bottom: 0.8rem;
+            right: 0.8rem;
+
+        }
+
+        .swiper-btn {
+            display: flex;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            position: static !important;
+            margin: 0 0 0 10px !important;
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            color: var(--text-color);
+            font-size: 18px !important;
+            font-weight: 700;
+        }
+
+        .seta {
+            width: 50px;
+        }
+
+        .movies .heading {
+            padding: 10px 14px;
+        }
+
+        .movies-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(247px, 1fr));
+            gap: 1.5rem;
+            justify-items: center;
+        }
+
+        .movies-content .movie-box:hover .movie-box-img {
+            transform: scale(1.1);
+            transition: 0.5s;
+        }
+
+        .play-container {
+            position: relative;
+            min-height: 540px;
+            margin-top: 5rem !important;
+        }
+
+        .play-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: -1;
+        }
+
+        .play-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px;
+            background: linear-gradient(8deg,
+                    hsl(240 17% 14% / 74%) 14%,
+                    hsl(240 17% 14% / 14%) 44%);
+        }
+
+        .play-text h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            column-gap: 2px;
+            font-size: 1.1rem;
+            color: gold;
+            margin-top: 4px;
+        }
+
+        .tags {
+            display: flex;
+            align-items: center;
+            column-gap: 8px;
+            margin: 1rem 0;
+        }
+
+        .tags span {
+            background: var(--container-color);
+            padding: 0 4px;
+        }
+
+        .play-movie {
+            position: absolute;
+            bottom: 18rem;
+            right: 10rem;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--main-color);
+            font-size: 24px;
+            animation: animate 2s linear infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                box-shadow: 0 0 0 rgb(17, 0, 255);
+            }
+
+            40% {
+                box-shadow: 0 0 0 50px rgb(255, 193, 7, 0);
+            }
+
+            80% {
+                box-shadow: 0 0 0 50px rgb(255, 193, 7, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 rgb(255, 193, 7, 0);
+            }
+        }
+
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+            background: hsl(234 10% 20% /60%);
+            z-index: 400;
+        }
+
+        .video-container.show-video {
+            display: flex;
+        }
+
+        .video-box {
+            position: relative;
+            width: 82%;
+        }
+
+        .video-box #myvideo {
+            width: 100%;
+            aspect-ratio: 16/9;
+        }
+
+        .close-video {
+            position: absolute;
+            top: -3;
+            right: 0;
+            font-size: 40px;
+            color: var(--main-color);
+        }
+
+        .about-movie {
+            margin-top: 2rem;
+        }
+
+        .about-movie h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--main-color);
+        }
+
+        .about-movie p {
+            max-width: 6000px;
+            font-size: 0.938rem;
+            margin: 10px 0;
+        }
+
+        .cast-heading {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--main-color);
+        }
+
+        .cast {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 150px));
+            gap: 1rem;
+        }
+
+        .cast-img {
+            width: 150px;
+            height: 180px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .class-img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        @media (max-width: 1240px) {
+            .navbar {
+                bottom: 0;
+                left: 0;
+                right: 0;
+                top: auto;
+                transform: translateY(0);
+                flex-direction: row;
+                justify-content: space-evenly;
+                padding: 10px;
+                border-top: 1px solid hsl(200 100% 99% / 5%);
+                background: linear-gradient(8deg,
+                        hsl(240 17% 14% / 100%) 5%,
+                        hsl(240 17% 14% / 90%) 100%);
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .search-results {
+                max-height: 400px;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 1060px) {
+            .container {
+                margin: 0 auto;
+                width: 95%;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .search-box {
+                max-width: 280px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+
+            .movie-box {
+                height: 280px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(214px, 1fr));
+            }
+
+            .play-container {
+                margin-top: 5rem !important;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .video-box {
+                width: 90%;
+            }
+
+            .search-results {
+                max-height: 350px;
+            }
+
+            .search-result-item {
+                padding: 10px 15px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 888px) {
+            .nav {
+                padding: 14px 0;
+            }
+
+            .search-box {
+                max-width: 240px;
+            }
+
+            .search-results {
+                max-height: 300px;
+            }
+
+            .play-text {
+                padding: 20px;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .cast {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                padding: 11px 0;
+            }
+
+            .search-box {
+                max-width: 200px;
+            }
+
+            .search-results {
+                max-height: 250px;
+            }
+
+            .search-result-item {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+
+            .no-results-container {
+                max-width: 300px;
+                padding: 25px 15px;
+            }
+
+            .no-results-title {
+                font-size: 18px;
+            }
+
+            .play-text h2 {
+                font-size: 1.4rem;
+            }
+
+            .video-box {
+                width: 95%;
+            }
+
+            .streaming-platforms {
+                gap: 15px;
+            }
+
+            .streaming-platforms img {
+                width: 45px;
+                height: 45px;
+            }
+
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            }
+
+            .movie-box {
+                height: 260px;
+            }
+        }
+
+        @media (max-width: 514px) {
+            .nav {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto;
+                gap: 5px;
+                padding: 10px;
+            }
+
+            .search-box {
+                max-width: 100%;
+                grid-column: 1 / -1;
+                order: 2;
+            }
+
+            .search-results {
+                max-height: 200px;
+                top: calc(100% + 5px);
+            }
+
+            .play-text {
+                padding: 15px;
+            }
+
+            .play-movie {
+                bottom: 9rem;
+                left: 15rem;
+            }
+
+            .video-box {
+                width: 100%;
+            }
+
+            .streaming-platforms {
+                gap: 10px;
+            }
+
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 1rem;
+            }
+
+            .movie-box {
+                height: 240px;
+            }
+        }
+        .cast {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+    
+        .cast-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .Streaming-platforms{
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .Streaming-platforms a{
+            display: inline-block;
+        }
+        .Streaming-platforms img{
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .Streaming-platforms img:hover{
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav container">
+            <a href="pagina principal.html" class="logo">
+                <span>M</span>&<span>M</span>
+            </a>
+
+            <div class="search-box">
+                <input type="search" name="" id="search-input" placeholder="Pesquisar um Filme">
+                <i class='bx bx-search'></i>
+                <div id="search-results" class="search-results"></div>
+            </div>
+            <div class="navbar">
+                <a href="pagina principal.html" class="nav-link nav-active">
+                    <i class='bx bx-home-alt-2'></i>
+                    <span class="nav-link-title">Início</span>
+                </a>
+                <a href="Filmes_Aventura.html" class="nav-link">
+                    <i class='bx bxs-tree'></i>
+                    <span class="nav-link-title">Aventura</span>
+                </a>
+                <a href="Filmes_Acao.html" class="nav-link">
+                    <i class='bx bx-car'></i>
+                    <span class="nav-link-title">Ação</span>
+                </a>
+                <a href="Filmes_Animação.html" class="nav-link">
+                    <i class='bx bx-happy'></i>
+                    <span class="nav-link-title">Animação</span>
+                </a>
+                <a href="Filmes_Comédia.html" class="nav-link">
+                    <i class='bx bx-laugh'></i>
+                    <span class="nav-link-title">Comédia</span>
+                </a>
+                <a href="Filme_Romance.html" class="nav-link">
+                    <i class='bx bx-happy-heart-eyes'></i>
+                    <span class="nav-link-title">Romance</span>
+                </a>
+                <a href="Filme_Terror.html" class="nav-link">
+                    <i class='bx bxs-skull'></i>
+                    <span class="nav-link-title">Terror</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <br><br>
+    <div class="play-container container">
+        <img src="src/Filmes_Comédia/filme Barbie/Barbie - banner.jpg" alt="banner jumanji" class="play-img">
+        <div class="play-text">
+            <h2>Barbie</h2>
+            <div class="rating">
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bx-star'></i>
+                <i class='bx bx-star'></i>
+            </div>
+            <span>De acordo com os críticos</span>
+            <div class="tags">
+                <span>Comédia</span>
+                <span>1h49</span>
+                <span>20 de julho de 2023</span>
+            </div>
+        </div>
+        <i class='bx bx-right-arrow play-movie'></i>
+        <div class="video-container">
+            <div class="video-box">
+                <video id="myvideo" src="src/Filmes_comédia/filme Barbie/Trailer/Barbie _ Trailer Dublado.mp4"
+                    controls></video>
+                <i class='bx bx-x-circle close-video'></i>
+            </div>
+        </div>
+    </div>
+    </div>
+    <br>
+    <div class="about-movie container">
+        <div class="cast">
+            <h2 class="cast-heading">classificação:</h2>
+            <div class="cast">
+                <div class="cast-box">
+                    <img src="src/classificações de idade/classificação 12 anos.png" alt="classificação 14 anos"
+                        class="class-img">
+                </div>
+
+            </div>
+            <div class="cast">
+                <h2 class="cast-heading">Assistir:</h2>
+                <div class="Streaming-platforms">
+                    <a target="_blank"
+                        href="https://www.max.com/br/pt/movies/barbie/80bc4915-c826-499f-9961-b422b17559b6?utm_source=universal_search"><img
+                            src="src/onde ver/Max.jpg" alt="classificação 14 anos" class="class-img">
+                    </a>
+                    <a target="_blank"
+                        href="https://tv.apple.com/br/movie/barbie/umc.cmc.3u6lep5fj0lq4f4lvvrntr9rh"><img
+                            src="src/onde ver/Apple TV.png" alt="classificação 14 anos" class="class-img">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+
+        <h2> Sinopse:</h2>
+        <p>No fabuloso live-action da boneca mais famosa do mundo, acompanhamos o dia a dia em Barbieland - o mundo
+            mágico das Barbies, onde todas as versões da boneca vivem em completa harmonia e suas únicas preocupações
+            são encontrar as melhores roupas para passear com as amigas e curtir intermináveis festas. Porém, uma das
+            bonecas (interpretada por Margot Robbie) começa a perceber que talvez sua vida não seja tão perfeita assim,
+            questionando-se sobre o sentido de sua existência e alarmando suas companheiras. Logo, sua vida no mundo
+            cor-de-rosa começa a mudar e, eventualmente, ela sai de Barbieland. Forçada a viver no mundo real, Barbie
+            precisa lutar com as dificuldades de não ser mais apenas uma boneca - pelo menos ela está acompanhada de seu
+            fiel e amado Ken (Ryan Gosling), que parece cada vez mais fascinado pela vida no novo mundo. Enquanto isso,
+            Barbie tem dificuldades para se ajustar, e precisa enfrentar vários momentos nada coloridos até descobrir
+            que a verdadeira beleza está no interior de cada um.
+        </p>
+        <h2 class="cast-heading">Direção</h2>
+        <div class="cast">
+            <div class="cast-box">
+                <img src="src/Filmes_comédia/filme Barbie/elenco e direção do filme/Diretora - Greta Gerwig.webp"
+                    alt="Ator P.J. Hogan " class="cast-img">
+                <span class="cast-title">Greta Gerwig</span>
+            </div>
+        </div>
+        <br><br>
+        <h2 class="cast-heading">Elenco do Filme</h2>
+        <div class="cast">
+            <div class="cast-box">
+                <img src="src/Filmes_comédia/filme Barbie/elenco e direção do filme/elenco - America Ferrerag.webp"
+                    alt="Ator Geoffrey Palmer" class="cast-img">
+                <span class="cast-title">America Ferrera</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_comédia/filme Barbie/elenco e direção do filme/elenco - Ariana Greenblatt.webp"
+                    alt="Ator Jason Isaacs" class="cast-img">
+                <span class="cast-title">Ariana Greenblatt</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_comédia/filme Barbie/elenco e direção do filme/elenco - Issa Rae.jpg"
+                    alt="Ator  Jeremy Sumpter" class="cast-img">
+                <span class="cast-title">Issa Rae</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_comédia/filme Barbie/elenco e direção do filme/elenco - Kingsley Ben-Adir.webp"
+                    alt="Ator Ludivine Sagnier" class="cast-img">
+                <span class="cast-title">Kingsley Ben-Adir</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_comédia/filme Barbie/elenco e direção do filme/elenco - Margot Robbie.webp"
+                    alt="Atriz Lynn Redgrave" class="cast-img">
+                <span class="cast-title">Margot Robbie</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_comédia/filme Barbie/elenco e direção do filme/elenco - Michael Cera.webp"
+                    alt="Atriz Olivia Williams" class="cast-img">
+                <span class="cast-title">Michael Cera</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_comédia/filme Barbie/elenco e direção do filme/elenco - Ryan Gosling.webp"
+                    alt="Atriz Rachel Hurd-Wood" class="cast-img">
+                <span class="cast-title">Ryan Gosling</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_comédia/filme Barbie/elenco e direção do filme/elenco - Simu Liu.webp"
+                    alt="Ator Richard Briers" class="cast-img">
+                <span class="cast-title">Simu Liu</span>
+            </div>
+        </div>
+        <br><br>
+        <h2 class="cast-heading">Direção da trilha sonora:</h2>
+        <div class="cast">
+            <div class="cast-box">
+                <img src="src/Filmes_comédia/filme Barbie/elenco e direção do filme/trilha sonora - Mark Ronson.jpeg"
+                    alt="Trilha Sonora - Teddy Castellucci" class="cast-img">
+                <span class="cast-title">Mark Ronson</span>
+            </div>
+        </div>
+        <br>
+        <h2 class="cast-heading">Trilha sonora do filme:</h2>
+        <div class="movies-content">
+            <div class="movie-box">
+                <img src="src/Filmes_comédia/filme Barbie/Barbie - trilha sonora.jpg"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">LIZZO - Pink (From Barbie The Album)</span>
+                    <span class="movie-type">Mark Ronson</span>
+                    <a href="https://youtu.be/8uIxoCs7iv8?si=7KhyvWuEWbfo0zFo" target="blank" class="watch-btn ">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                    <img src="src/Filmes_comédia/filme Barbie/Barbie - trilha sonora.jpg" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Dua Lipa - Dance The Night (From Barbie The Album)</span>
+                    <span class="movie-type">Mark Ronson</span>
+                    <a href="https://youtu.be/OiC1rgCPmUQ?si=Rr5x1YAXPubqXgGE" target="blank" class="watch-btn ">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_comédia/filme Barbie/Barbie - trilha sonora.jpg" alt="musica 4"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Nicki Minaj & Ice Spice -Barbie World (with Aqua)</span>
+                    <span class="movie-type">Mark Ronson</span>
+                    <a href="https://youtu.be/CUj2AWEJnwQ?si=diWjhy6jTR18D-eu" target="blank" class="watch-btn ">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_comédia/filme Barbie/Barbie - trilha sonora.jpg" alt="musica 4"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Charli XCX - Speed Drive (From Barbie The Album) </span>
+                    <span class="movie-type">Mark Ronson</span>
+                    <a href="https://youtu.be/y7jzzvKxgZ8?si=ztoiCA20KFS3H0Ev" target="blank" class="watch-btn ">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_comédia/filme Barbie/Barbie - trilha sonora.jpg"
+                    alt="filme It a coisa" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">KAROL G - WATATI (feat. Aldo Ranks- From Barbie The Album)</span>
+                    <span class="movie-type">Mark Ronson</span>
+                    <a href="https://youtu.be/ubvV498pyIM?si=jeJWAbwMhcIQY_Mk" target="_blank" class="watch-btn ">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_comédia/filme Barbie/Barbie - trilha sonora.jpg"
+                    alt="filme It a coisa" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Sam Smith - Man I Am (Barbie The Album)</span>
+                    <span class="movie-type">Mark Ronson</span>
+                    <a href="https://youtu.be/wznzQGxELWI?si=7fP2mBJmW8420bVa" target="blank" class="watch-btn ">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_comédia/filme Barbie/Barbie - trilha sonora.jpg"
+                    alt="filme It a coisa" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Tame Impala - Journey To The Real World (From Barbie The Album)</span>
+                    <span class="movie-type">Mark Ronson</span>
+                    <a href="https://youtu.be/AOi-zV5rer0?si=P8DX2cV__s6ILVE2" target="blank" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_comédia/filme Barbie/Barbie - trilha sonora.jpg"
+                    alt="filme It a coisa" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Ryan Gosling - I'm Just Ken | Barbie</span>
+                    <span class="movie-type">Mark Ronson</span>
+                    <a href="https://youtu.be/RIHExGaxfPE?si=LF8TUFoOnb9t0Y5L" target="blank" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_comédia/filme Barbie/Barbie - trilha sonora.jpg"
+                    alt="filme It a coisa" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Dominic Fike - Hey Blondie (From Barbie The Album)</span>
+                    <span class="movie-type">Mark Ronson</span>
+                    <a href="https://youtu.be/YtXiWgS56KU?si=ZvdBumhXjMvIfe77" target="blank" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_comédia/filme Barbie/Barbie - trilha sonora.jpg"
+                    alt="filme It a coisa" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Taylor Roche - costume party</span>
+                    <span class="movie-type">Mark Ronson</span>
+                    <a href="https://youtu.be/AXAj7tBHIwc?si=_e7vOJC0qhddOKuT" target="blank" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_comédia/filme Barbie/Barbie - trilha sonora.jpg"
+                    alt="filme It a coisa" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">HAIM - Home (From Barbie The Album)</span>
+                    <span class="movie-type">Mark Ronson</span>
+                    <a href="https://youtu.be/Pz33OxSgP74?si=i6MhogN47HI3a7st" target="blank" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_comédia/filme Barbie/Barbie - trilha sonora.jpg"
+                    alt="filme It a coisa" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Billie Eilish - What Was I Made For? (Official Music Video)</span>
+                    <span class="movie-type">Mark Ronson</span>
+                    <a href="https://youtu.be/cW8VLC9nnTo?si=JLNEXBHULBARqLB0" target="blank" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_comédia/filme Barbie/Barbie - trilha sonora.jpg"
+                    alt="filme It a coisa" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">The Kid LAROI - Forever & Again (From Barbie The Album)</span>
+                        <span class="movie-type">Mark Ronson</span>
+                    <a href="https://youtu.be/q7JbDu1Wv84?si=UkxKyzeQfa49grmE" target="blank" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_comédia/filme Barbie/Barbie - trilha sonora.jpg"
+                    alt="filme It a coisa" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Khalid - Silver Platter (From Barbie The Album)</span>
+                    <span class="movie-type">Mark Ronson</span>
+                    <a href="https://youtu.be/bjoAKU_dwug?si=1XNvrMZsFHxz_zvq" target="blank" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_comédia/filme Barbie/Barbie - trilha sonora.jpg"
+                    alt="filme It a coisa" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">PinkPantheress - Angel (From Barbie The Album)</span>
+                    <span class="movie-type">Mark Ronson</span>
+                    <a href="https://youtu.be/JVhqadzCgwE?si=OCnacWm6CP9JmOX8" target="blank" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_comédia/filme Barbie/Barbie - trilha sonora.jpg"
+                    alt="filme It a coisa" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">GAYLE - butterflies (From Barbie The Album)</span>
+                    <span class="movie-type">Mark Ronson</span>
+                    <a href="https://youtu.be/66FzKI-b06c?si=qh8_903EDgEZWO6g" target="blank" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_comédia/filme Barbie/Barbie - trilha sonora.jpg"
+                    alt="filme It a coisa" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Jessica Leigh - GIRLFRIENDS (Music Video)</span>
+                    <span class="movie-type">Mark Ronson</span>
+                    <a href="https://youtu.be/VaPw7I9zxco?si=44ssnDRxKvEAIRFd" target="blank" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_comédia/filme Barbie/Barbie - trilha sonora.jpg"
+                    alt="filme It a coisa" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Ava Max - Choose Your Fighter (From Barbie The Album)</span>
+                    <span class="movie-type">Mark Ronson</span>
+                    <a href="https://youtu.be/PzNLMmAOlEU?si=C-jXu2TzLWPcPiK6" target="blank" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_comédia/filme Barbie/Barbie - trilha sonora.jpg"
+                    alt="filme It a coisa" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">FIFTY FIFTY - Barbie Dreams (feat. Kaliii - From Barbie The Album)</span>
+                    <span class="movie-type">Mark Ronson</span>
+                    <a href="https://youtu.be/pfZjylInCwg?si=VPdazrYSsCiHiL9M" target="blank" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+        <script src="src/javascript/soundtrack.js"></script>
+    <script src="src/javascript/swiper-bundle.min.js"></script>
+    <script src="src/javascript/Pesquisa.js"></script>
+    <script src="src/javascript/script.js"></script>
+</body>
+
+</html>

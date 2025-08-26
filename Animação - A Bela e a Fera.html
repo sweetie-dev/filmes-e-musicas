@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Bela e a Fera - Animação - M&M</title>
+    <link rel="stylesheet" href="src/css/swiper.min.css">
+    <link rel="shortcut icon" href="src/imgens_pp/logo_M&M.png" type="imgens_pp">
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            box-sizing: border-box;
+            scroll-padding-top: 2rem;
+        }
+
+        :root {
+            --text-color: #fcfeff;
+            --main-color: rgb(34, 34, 236);
+            --hover-color: rgb(20, 20, 227);
+            --body-color: #121220;
+            --container-color: #171727;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        section {
+            padding: 3rem 0 2rem;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .bx {
+            cursor: pointer;
+        }
+
+        body {
+            background: linear-gradient(#1e1e2a 89%, rgb(20, 20, 227));
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1068px;
+            margin: auto;
+            width: 100%;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--body-color);
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            color: var(--text-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin: 0 auto 0 0;
+        }
+
+        .logo span {
+            color: var(--main-color);
+
+        }
+
+        .search-box {
+            max-width: 240px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            column-gap: 0.7rem;
+            padding: 8px 15px;
+            background: var(--container-color);
+            border-radius: 4rem;
+            margin-right: 1rem;
+        }
+
+        .search-box .bx {
+            font-size: 1.1rem;
+        }
+
+        .search-box .bx:hover {
+            color: var(--main-color);
+        }
+
+        #search-input {
+            width: 100%;
+            border: none;
+            outline: none;
+            color: var(--text-color);
+            background: transparent;
+            font-size: 0.938rem;
+        }
+
+        .user {
+            display: flex;
+        }
+
+        .user-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 18px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 2.1rem;
+        }
+
+        .nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #b7b7b7;
+        }
+
+        .nav-link:hover,
+        .nav-active {
+            color: var(--text-color);
+            transition: 0.3s all linear;
+            transform: scale(1.1);
+        }
+
+        .nav-link .bx {
+            font-size: 1.6rem;
+        }
+
+        .nav-link-title {
+            font-size: 0.7rem;
+        }
+
+        .home {
+            position: relative;
+            min-height: 470px;
+            display: flex;
+            align-items: center;
+            margin-top: 5rem !important;
+            border-radius: 0.5rem;
+        }
+
+        .home-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+
+        .home-text {
+            padding-left: 40px;
+        }
+
+        .home-title {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .home-text p {
+            font-size: 0.938rem;
+            margin: 10px 0 20px;
+            color: var(--main-color);
+        }
+
+        .watch-btn {
+            display: flex;
+            align-items: center;
+            column-gap: 0.8rem;
+            color: var(--text-color);
+        }
+
+        .watch-btn .bx {
+            font-size: 25px;
+            background: var(--main-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .watch-btn .bx:hover {
+            background: var(--hover-color);
+        }
+
+        .watch-btn span {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--container-color);
+            padding: 8px 14px;
+            border: 1px solid hsl(200 100% 99% / 5%);
+            margin-bottom: 2rem;
+        }
+
+        .heading-aventura {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(to right, #3d3dec 55%, #1a1af0);
+            padding: 8px 14px;
+            border: 1px solid hsl(200 100% 99% / 5%);
+            margin-bottom: 2rem;
+        }
+
+        .heading-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .movie-box {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .movie-box-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .movie-box .box-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 14px;
+            background: linear-gradient(8deg,
+                    hsl(240 17% 14% / 74%) 14%,
+                    hsl(240 17% 14% / 14%) 44%);
+            overflow: hidden;
+        }
+
+        .movie-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .movie-type {
+            font-size: 0.938rem;
+        }
+
+        .play {
+            position: absolute;
+            bottom: 0.8rem;
+            right: 0.8rem;
+
+        }
+
+        .swiper-btn {
+            display: flex;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            position: static !important;
+            margin: 0 0 0 10px !important;
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            color: var(--text-color);
+            font-size: 18px !important;
+            font-weight: 700;
+        }
+
+        .seta {
+            width: 50px;
+        }
+
+        .movies .heading {
+            padding: 10px 14px;
+        }
+
+        .movies-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(247px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .movies-content .movie-box:hover .movie-box-img {
+            transform: scale(1.1);
+            transition: 0.5s;
+        }
+
+        .play-container {
+            position: relative;
+            min-height: 540px;
+            margin-top: 5rem !important;
+        }
+
+        .play-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: -1;
+        }
+
+        .play-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px;
+            background: linear-gradient(8deg,
+                    hsl(240 17% 14% / 74%) 14%,
+                    hsl(240 17% 14% / 14%) 44%);
+        }
+
+        .play-text h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            column-gap: 2px;
+            font-size: 1.1rem;
+            color: gold;
+            margin-top: 4px;
+        }
+
+        .tags {
+            display: flex;
+            align-items: center;
+            column-gap: 8px;
+            margin: 1rem 0;
+        }
+
+        .tags span {
+            background: var(--container-color);
+            padding: 0 4px;
+        }
+
+        .play-movie {
+            position: absolute;
+            bottom: 18rem;
+            right: 10rem;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--main-color);
+            font-size: 24px;
+            animation: animate 2s linear infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                box-shadow: 0 0 0 rgb(234, 63, 63);
+            }
+
+            40% {
+                box-shadow: 0 0 0 50px rgb(255, 193, 7, 0);
+            }
+
+            80% {
+                box-shadow: 0 0 0 50px rgb(255, 193, 7, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 rgb(255, 193, 7, 0);
+            }
+        }
+
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+            background: hsl(234 10% 20% /60%);
+            z-index: 400;
+        }
+
+        .video-container.show-video {
+            display: flex;
+        }
+
+        .video-box {
+            position: relative;
+            width: 82%;
+        }
+
+        .video-box #myvideo {
+            width: 100%;
+            aspect-ratio: 16/9;
+        }
+
+        .close-video {
+            position: absolute;
+            top: -3;
+            right: 0;
+            font-size: 40px;
+            color: var(--main-color);
+        }
+
+        .about-movie {
+            margin-top: 2rem !important;
+        }
+
+        .about-movie h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--main-color);
+        }
+
+        .about-movie p {
+            max-width: 6000px;
+            font-size: 0.938rem;
+            margin: 10px 0;
+        }
+
+        .cast-heading {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--main-color);
+        }
+
+        .cast {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .cast-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cast-img {
+            width: 150px;
+            height: 180px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .class-img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* Estilo base para o container das plataformas de streaming */
+        .streaming-platforms {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .streaming-platforms a {
+            display: inline-block;
+        }
+
+        .streaming-platforms img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .streaming-platforms img:hover {
+            transform: scale(1.1);
+        }
+
+        /**/
+
+        /* Estilos da Barra de Pesquisa */
+        .search-box {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        /* Estilos dos Resultados da Pesquisa */
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--container-color);
+            border-radius: 0.5rem;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin-top: 5px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .search-result-item {
+            padding: 10px 15px;
+            cursor: pointer;
+            color: var(--text-color);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .search-result-item:hover {
+            background: var(--hover-color);
+            transform: translateX(5px);
+            padding-left: 20px;
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Estilo para Mensagem de Não Encontrado */
+        .no-results {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-color);
+            font-style: italic;
+        }
+
+        /* Estilização da Barra de Rolagem */
+        .search-results::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .search-results::-webkit-scrollbar-track {
+            background: var(--container-color);
+            border-radius: 0.5rem;
+        }
+
+        .search-results::-webkit-scrollbar-thumb {
+            background: var(--main-color);
+            border-radius: 0.5rem;
+        }
+
+        .search-results::-webkit-scrollbar-thumb:hover {
+            background: var(--hover-color);
+        }
+
+        /* Container de Resultados Não Encontrados */
+        .no-results-container {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--container-color);
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 500px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .no-results-container .bx-error-circle {
+            font-size: 48px;
+            color: var(--main-color);
+            margin-bottom: 15px;
+        }
+
+        .no-results-title {
+            font-size: 24px;
+            color: var(--text-color);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .no-results-text {
+            font-size: 16px;
+            color: #999;
+            line-height: 1.5;
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* Responsividade - Ordem do maior para o menor breakpoint */
+        @media (max-width: 1240px) {
+            .navbar {
+                bottom: 0;
+                left: 0;
+                right: 0;
+                top: auto;
+                transform: translateY(0);
+                flex-direction: row;
+                justify-content: space-evenly;
+                padding: 10px;
+                border-top: 1px solid hsl(200 100% 99% / 5%);
+                background: linear-gradient(8deg,
+                        hsl(240 17% 14% / 100%) 5%,
+                        hsl(240 17% 14% / 90%) 100%);
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .search-results {
+                max-height: 400px;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 1060px) {
+            .container {
+                margin: 0 auto;
+                width: 95%;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .search-box {
+                max-width: 280px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+
+            .movie-box {
+                height: 280px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(214px, 1fr));
+            }
+
+            .play-container {
+                margin-top: 5rem !important;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .video-box {
+                width: 90%;
+            }
+
+            .search-results {
+                max-height: 350px;
+            }
+
+            .search-result-item {
+                padding: 10px 15px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 888px) {
+            .nav {
+                padding: 14px 0;
+            }
+
+            .search-box {
+                max-width: 240px;
+            }
+
+            .search-results {
+                max-height: 300px;
+            }
+
+            .play-text {
+                padding: 20px;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .cast {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                padding: 11px 0;
+            }
+
+            .search-box {
+                max-width: 200px;
+            }
+
+            .search-results {
+                max-height: 250px;
+            }
+
+            .search-result-item {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+
+            .no-results-container {
+                max-width: 300px;
+                padding: 25px 15px;
+            }
+
+            .no-results-title {
+                font-size: 18px;
+            }
+
+            .play-text h2 {
+                font-size: 1.4rem;
+            }
+
+            .video-box {
+                width: 95%;
+            }
+
+            .streaming-platforms {
+                gap: 15px;
+            }
+
+            .streaming-platforms img {
+                width: 45px;
+                height: 45px;
+            }
+
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            }
+
+            .movie-box {
+                height: 260px;
+            }
+        }
+
+        @media (max-width: 514px) {
+            .nav {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto;
+                gap: 5px;
+                padding: 10px;
+            }
+
+            .search-box {
+                max-width: 100%;
+                grid-column: 1 / -1;
+                order: 2;
+            }
+
+            .search-results {
+                max-height: 200px;
+                top: calc(100% + 5px);
+            }
+
+            .play-text {
+                padding: 15px;
+            }
+
+            .play-movie {
+                bottom: 6rem;
+                left: 20rem;
+            }
+
+            .video-box {
+                width: 100%;
+            }
+
+            .streaming-platforms {
+                gap: 10px;
+            }
+
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 1rem;
+            }
+
+            .movie-box {
+                height: 240px;
+            }
+        }
+
+        @media (max-width: 370px) {
+            .search-box input {
+                font-size: 13px;
+            }
+
+            .search-results {
+                max-height: 180px;
+            }
+
+            .search-result-item {
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+
+            .no-results-container {
+                max-width: 200px;
+                padding: 15px 8px;
+            }
+
+            .no-results-title {
+                font-size: 16px;
+            }
+
+            .play-text {
+                padding: 10px;
+            }
+
+            .video-box {
+                height: 180px;
+            }
+
+            .cast-img {
+                width: 100px;
+                height: 130px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav container">
+            <a href="pagina principal.html" class="logo">
+                <span>M</span>&<span>M</span>
+            </a>
+
+            <div class="search-box">
+                <input type="search" name="" id="search-input" placeholder="Pesquisar um Filme">
+                <i class='bx bx-search'></i>
+                <div id="search-results" class="search-results"></div>
+            </div>
+            <div class="navbar">
+                <a href="pagina principal.html" class="nav-link nav-active">
+                    <i class='bx bx-home-alt-2'></i>
+                    <span class="nav-link-title">Início</span>
+                </a>
+                <a href="Filmes_Aventura.html" class="nav-link">
+                    <i class='bx bxs-tree'></i>
+                    <span class="nav-link-title">Aventura</span>
+                </a>
+                <a href="Filmes_Acao.html" class="nav-link">
+                    <i class='bx bx-car'></i>
+                    <span class="nav-link-title">Ação</span>
+                </a>
+                <a href="Filmes_Animação.html" class="nav-link">
+                    <i class='bx bx-happy'></i>
+                    <span class="nav-link-title">Animação</span>
+                </a>
+                <a href="Filmes_Comédia.html" class="nav-link">
+                    <i class='bx bx-laugh'></i>
+                    <span class="nav-link-title">Comédia</span>
+                </a>
+                <a href="Filme_Romance.html" class="nav-link">
+                    <i class='bx bx-happy-heart-eyes'></i>
+                    <span class="nav-link-title">Romance</span>
+                </a>
+                <a href="Filme_Terror.html" class="nav-link">
+                    <i class='bx bxs-skull'></i>
+                    <span class="nav-link-title">Terror</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <br><br>
+    <div class="play-container container">
+        <img src="src/Filmes_animação/Filmes A Bela e a Fera/A bela e a fera  - banner.jpg" alt="Banner A Bela e a Fera"
+            class="play-img">
+        <div class="play-text">
+            <h2>A Bela e a Fera</h2>
+            <div class="rating">
+                <!--20% - 0%: 1 estrela-->
+                <i class='bx bxs-star'></i>
+                <!--40% - 21%: 2 estrelas-->
+                <i class='bx bxs-star'></i>
+                <!--60% - 41%: 3 estrelas-->
+                <i class='bx bxs-star'></i>
+                <!--80% - 61%: 4 estrelas-->
+                <i class='bx bxs-star'></i>
+                <!--100% - 81%: 5 estrelas-->
+                <i class='bx bxs-star'></i>
+            </div>
+            <span>De acordo com os criticos</span>
+            <h3>Titulo Original:</h3>
+            <span>Beauty and the Beast</span>
+            <div class="tags">
+                <span>Animação</span>
+                <span>1h 32min</span>
+                <span>22 de novembro de 1991</span>
+            </div>
+        </div>
+        <i class='bx bx-right-arrow play-movie'></i>
+        <div class="video-container">
+            <div class="video-box">
+                <video id="myvideo"
+                    src="src/Filmes_animação/Filmes A Bela e a Fera/Trailer/A Bela e a Fera 3D_ Trailer(720P_HD).mp4"
+                    controls></video>
+                <i class='bx bx-x-circle close-video'></i>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="about-movie container">
+        <br>
+        <div class="cast">
+
+            <h2 class="cast-heading">Classificação:</h2>
+            <div class="cast">
+                <div class="cast-box">
+                    <img src="src/classificações de idade/classificação livre.png" alt="classificação Livre"
+                        class="class-img">
+                </div>
+            </div>
+
+            <div class="cast">
+                <h2 class="cast-heading">Assistir:</h2>
+                <div class="streaming-platforms">
+                    <a target="_blank"
+                        href="https://www.disneyplus.com/pt-br/movies/beauty-and-the-beast/3oEh78YRc9VN?irclickid=yIu31YxeWxyKRn2XYVz5a1DyUkCR8-1v9z0k140&irgwc=1&cid=DSS-Affiliate-Impact-Content-JustWatch+GmbH-705874&tgclid=09010045-7b7b-479a-bf00-17b467183159&dclid=CjkKEQjwmt24BhD19qy3r7HiqIoBEiQA5iQoy2fYL4TbqsYPyC2wDtpoXQkKQ4WkFXot6pxcrDyDRXTw_wcB"><img
+                            src="src/onde ver/Disney Plus.avif" alt="Disney+" class="class-img"></a>
+                </div>
+            </div>
+
+        </div>
+        <h2>Sinopse:</h2>
+        <p>Em A Bela e a Fera, somos levados a acompanhar a história de Bela, uma jovem destemida que se vê
+            aprisionada em um castelo pela Fera. Enquanto enfrenta seus medos, ela descobre a verdadeira essência por
+            trás da aparência assustadora da Fera, encontrando amizade e bondade nos encantados servos do castelo. Esta
+            narrativa encantadora ressalta a importância de enxergar além das aparências, revelando um conto de amor
+            verdadeiro e superação que transcende barreiras físicas e emocionais e a trilha sonora do filme embala cada
+            momento com músicas envolventes e emocionantes, elevando a experiência cinematográfica a outro nível.</p>
+
+        <h2 class="cast-heading">Direção do Filme</h2>
+        <div class="cast">
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/Elenco e direção do filme/Gary Trousdale.jpg"
+                    alt="Gary Trousdale responsavel pala direção do filme" class="cast-img">
+                <span class="cast-title">Gary Trousdale</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/Elenco e direção do filme/Kirk Wise.jpg"
+                    alt="Kirk Wise responsavel pala direção do filme" class="cast-img">
+                <span class="cast-title">Kirk Wise</span>
+            </div>
+        </div>
+        <br><br>
+        <!--Bela - Personagem Principal
+            Fera - Personagem Principal
+            Lumière - Personagem Secundário
+            Horloge - Personagem Secundário
+            Madame Samovar - Personagem Secundário
+            Zip - Personagem Secundário
+            Gaston - O vilão da história
+            LeFou - O capanga de Gaston
+            Maurice - Personagem Secundário-->
+        <h2 class="cast-heading">Personagem do Filme</h2>
+        <div class="cast">
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/Elenco e direção do filme/Personagem/Bela.jpg"
+                    alt="Bela - Personagem Principal" class="cast-img">
+                <span class="cast-title">Bela</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/Elenco e direção do filme/Personagem/Fera.jpg"
+                    alt="Fera - Personagem Principal" class="cast-img">
+                <span class="cast-title">Fera</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/Elenco e direção do filme/Personagem/Lumière.avif"
+                    alt="Lumière - Personagem Secundário" class="cast-img">
+                <span class="cast-title">Lumière</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/Elenco e direção do filme/Personagem/Horloge.webp"
+                    alt="Horloge - Personagem Secundário" class="cast-img">
+                <span class="cast-title">Horloge</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/Elenco e direção do filme/Personagem/Madame Samovar.png"
+                    alt="Madame Samovar - Personagem Secundário" class="cast-img">
+                <span class="cast-title">Madame Samovar</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/Elenco e direção do filme/Personagem/Zip.jpg"
+                    alt="Zip - Personagem Secundário" class="cast-img">
+                <span class="cast-title">Zip</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/Elenco e direção do filme/Personagem/Gaston.jpg"
+                    alt="Gaston - O vilão da história" class="cast-img">
+                <span class="cast-title">Gaston</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/Elenco e direção do filme/Personagem/LeFou.jpg"
+                    alt="LeFou - O capanga de Gaston" class="cast-img">
+                <span class="cast-title">LeFou</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/Elenco e direção do filme/Personagem/Maurice.jpg"
+                    alt="Maurice - Personagem Secundário" class="cast-img">
+                <span class="cast-title">Maurice</span>
+            </div>
+        </div>
+        <br><br>
+        <h2 class="cast-heading">Direção da Trilha Sonora</h2>
+        <div class="cast">
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/Elenco e direção do filme/Alan Menken.jpg"
+                    alt="Alan Menken responsavel pela Trilha sonora" class="cast-img">
+                <span class="cast-title">Alan Menken</span>
+            </div>
+        </div>
+        <br><br>
+        <!--
+1 - Prologue: A Bela e a Fera
+2 - Minha Aldeia
+3 - Minha Aldeia (Reprise)
+4 - Gaston + Reprise
+5 - Seja a Nossa convidada
+6 - Alguma Coisa Acontece
+7 - Humano Outra Vez
+8 - Sentimentos São
+9 - A Canção da Multidão
+10 - To The Fair
+11 - The beast Lets Belle Go
+12 - Battle On The Tower
+13 - Tranformation
+14 - Prologue: Beauty and the Beast
+15 - Belle
+16 - Belle (Reprise)
+17 - Gaston
+18 - Gaston (Reprise)
+19 - Be Our Guest
+19 - Something There 
+20 - To The Fair
+21 - west wing
+22 - Beauty and the Beast
+23 - Transformation
+24 - Beauty and the Beast (End Title Duet)
+25 - Human Again
+26 - The Mob Song 
+-->
+        <h2 class="cast-heading">Trilha Sonora do Filme</h2>
+        <div class="movies-content">
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/A bela e a fera  - banner.jpg"
+                    alt="Música 1 - Prologue: A Bela e a Fera (A Bela e a Fera)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Prologue: A Bela e a Fera</span>
+                    <span class="movie-type">A Bela e a Fera</span>
+                    <a target="_blank" href="https://youtu.be/gqZJPDoC3lI?si=Wz0VZnyAn-dlYRPG" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/A bela e a fera  - banner.jpg"
+                    alt="Música 2 - Minha Aldeia (A Bela e a Fera)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Minha Aldeia</span>
+                    <span class="movie-type">A Bela e a Fera</span>
+                    <a target="_blank" href="https://youtu.be/KPQBCmKU_6M" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/A bela e a fera  - banner.jpg"
+                    alt="Música 3 - Minha Aldeia (Reprise) (A Bela e a Fera)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Minha Aldeia (Reprise)</span>
+                    <span class="movie-type">A Bela e a Fera</span>
+                    <a target="_blank" href="https://youtu.be/suzmeFvKac8" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/A bela e a fera  - banner.jpg"
+                    alt="Música 4 - Gaston + Reprise (A Bela e a Fera)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Gaston + Reprise</span>
+                    <span class="movie-type">A Bela e a Fera</span>
+                    <a target="_blank" href="https://youtu.be/7UU0XTue6qc?si=PC2Rz5J36i62Q4cn" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/A bela e a fera  - banner.jpg"
+                    alt="Música 5 - Seja a Nossa Convidada (A Bela e a Fera)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Seja a Nossa Convidada</span>
+                    <span class="movie-type">A Bela e a Fera</span>
+                    <a target="_blank" href="https://youtu.be/EWAQDDVMUnQ" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/A bela e a fera  - banner.jpg"
+                    alt="Música 6 - Alguma Coisa Acontece (A Bela e a Fera)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Alguma Coisa Acontece</span>
+                    <span class="movie-type">A Bela e a Fera</span>
+                    <a target="_blank" href="https://youtu.be/2UdKfsYk914" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/A bela e a fera  - banner.jpg"
+                    alt="Música 7 - Humano Outra Vez (A Bela e a Fera)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Humano Outra Vez</span>
+                    <span class="movie-type">A Bela e a Fera</span>
+                    <a target="_blank" href="https://youtu.be/YUKnrbUE1N4?si=RXNe763xA96HXPE1" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/A bela e a fera  - banner.jpg"
+                    alt="Música 8 - Sentimentos São (A Bela e a Fera)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Sentimentos São</span>
+                    <span class="movie-type">A Bela e a Fera</span>
+                    <a target="_blank" href="https://youtu.be/85TSPrKeK14" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/A bela e a fera  - banner.jpg"
+                    alt="Música 9 - A Canção da Multidão (A Bela e a Fera)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">A Canção da Multidão</span>
+                    <span class="movie-type">A Bela e a Fera</span>
+                    <a target="_blank" href="https://youtu.be/OY-MetSszhY?si=IDAGM347r0PFqMYg" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/A bela e a fera  - banner.jpg"
+                    alt="Música 10 - To The Fair (A Bela e a Fera)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">To The Fair</span>
+                    <span class="movie-type">A Bela e a Fera</span>
+                    <a target="_blank" href="https://youtu.be/nyUkqsOc8bE?si=9D0RrzVQT5yQ19vr" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/A bela e a fera  - banner.jpg"
+                    alt="Música 11 - Transformação (A Bela e a Fera)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Transformação</span>
+                    <span class="movie-type">A Bela e a Fera</span>
+                    <a target="_blank" href="https://youtu.be/MBi5MHAHK3s?si=jqNYddibRyBjckd4" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/A bela e a fera  - banner.jpg"
+                    alt="Música 12 - A Bela e a Fera (Dueto) (A Bela e a Fera)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">A Bela e a Fera (Dueto)</span>
+                    <span class="movie-type">A Bela e a Fera</span>
+                    <a target="_blank" href="https://youtu.be/2zm2_TzOqaI?si=vN3__tQcKeSseBmX" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/A bela e a fera  - banner.jpg"
+                    alt="Música 13 - The Beast Lets Belle Go (A Bela e a Fera)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">The Beast Lets Belle Go</span>
+                    <span class="movie-type">A Bela e a Fera</span>
+                    <a target="_blank" href="https://youtu.be/8dxKwTKxdYw?si=tnRo5P-UK5WAB0xQ" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/A bela e a fera  - banner.jpg"
+                    alt="Música 14 - Battle On The Tower (A Bela e a Fera)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Battle On The Tower</span>
+                    <span class="movie-type">A Bela e a Fera</span>
+                    <a target="_blank" href="https://youtu.be/8-aVUT4p7FU?si=B2FcyG-DWwCacGoj" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <!--
+            14 - Prologue: Beauty and the Beast
+            15 - Belle
+            16 - Belle (Reprise)
+            17 - Gaston
+            18 - Gaston (Reprise)
+            19 - Be Our Guest
+            19 - Something There 
+            20 - To The Fair
+            21 - west wing
+            22 - Beauty and the Beast
+            23 - Transformation
+            24 - Beauty and the Beast (End Title Duet)
+            25 - Human Again
+            26 - The Mob Song 
+            -->
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/A bela e a fera  - banner.jpg"
+                    alt="Música 15 - Prologue: Beauty and the Beast (A Bela e a Fera)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Prologue: Beauty and the Beast</span>
+                    <span class="movie-type">A Bela e a Fera</span>
+                    <a target="_blank" href="https://youtu.be/9vr9J8RNgHY?si=H9fosOAetU0DZd-C" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/A bela e a fera  - banner.jpg"
+                    alt="Música 16 - Belle (A Bela e a Fera)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Belle</span>
+                    <span class="movie-type">A Bela e a Fera</span>
+                    <a target="_blank" href="https://youtu.be/73lPbW9mfrY?si=HxhmWzfRH93dARLQ" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/A bela e a fera  - banner.jpg"
+                    alt="Música 17 - Belle (Reprise) (A Bela e a Fera)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Belle (Reprise)</span>
+                    <span class="movie-type">A Bela e a Fera</span>
+                    <a target="_blank" href="https://youtu.be/dZ6GYRZtnwA?si=FBc6sGHmiGx2o-gY" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/A bela e a fera  - banner.jpg"
+                    alt="Música 18 - Gaston (A Bela e a Fera)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Gaston</span>
+                    <span class="movie-type">A Bela e a Fera</span>
+                    <a target="_blank" href="https://youtu.be/_SII__LcyDA?si=_o6yWn2XfWYicKQd" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/A bela e a fera  - banner.jpg"
+                    alt="Música 19 - Gaston (Reprise) (A Bela e a Fera)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Gaston (Reprise)</span>
+                    <span class="movie-type">A Bela e a Fera</span>
+                    <a target="_blank" href="https://youtu.be/73lPbW9mfrY?si=u6JwlBaWIvWFy_qo" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/A bela e a fera  - banner.jpg"
+                    alt="Música 20 - Be Our Guest (A Bela e a Fera)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Be Our Guest</span>
+                    <span class="movie-type">A Bela e a Fera</span>
+                    <a target="_blank" href="https://youtu.be/kSB0FwKySds?si=Ke_QFqI504J2KbRP" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/A bela e a fera  - banner.jpg"
+                    alt="Música 21 - Something There (A Bela e a Fera)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Something There</span>
+                    <span class="movie-type">A Bela e a Fera</span>
+                    <a target="_blank" href="https://youtu.be/0enXNf-OoJ4?si=ITQVW0W7cX682M_6" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/A bela e a fera  - banner.jpg"
+                    alt="Música 22 - The Mob Song (A Bela e a Fera)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">The Mob Song</span>
+                    <span class="movie-type">A Bela e a Fera</span>
+                    <a target="_blank" href="https://youtu.be/tHoIEli6jn8?si=HaKnu5StSJ_EPW2E" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/A bela e a fera  - banner.jpg"
+                    alt="Música 23 - Beauty and the Beast (A Bela e a Fera)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Beauty and the Beast</span>
+                    <span class="movie-type">A Bela e a Fera</span>
+                    <a target="_blank" href="https://youtu.be/JW81PFSsNZs?si=fsVko8W84FlEzdar" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/A bela e a fera  - banner.jpg"
+                    alt="Música 24 - West Wing (A Bela e a Fera)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">West Wing</span>
+                    <span class="movie-type">A Bela e a Fera</span>
+                    <a target="_blank" href="https://youtu.be/njaySuGGR_g?si=BLp89LNfZV2opn2O" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/A bela e a fera  - banner.jpg"
+                    alt="Música 25 - Beauty and the Beast (Celine Dion e Peabo Bryson - A Bela e a Fera)"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Beauty and the Beast</span>
+                    <span class="movie-type">Celine Dion e Peabo Bryson<br>A Bela e a Fera</span>
+                    <a target="_blank" href="" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/A bela e a fera  - banner.jpg"
+                    alt="Música 26 -  Beauty and the Beast (Ver. Jordin Sparks - A Bela e a Fera)"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Beauty and the Beast (Ver. Jordin Sparks)</span>
+                    <span class="movie-type">A Bela e a Fera</span>
+                    <a target="_blank" href="" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/A bela e a fera  - banner.jpg"
+                    alt="Música 27 - Human Again (A Bela e a Fera)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Human Again</span>
+                    <span class="movie-type">A Bela e a Fera</span>
+                    <a target="_blank" href="https://youtu.be/rspO2N11nKU?si=sQAgrjtGoYCOU3Gq" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <br><br><br>
+    <script src="src/javascript/soundtrack.js"></script>
+    <script src="src/javascript/swiper-bundle.min.js"></script>
+    <script src="src/javascript/Pesquisa.js"></script>
+    <script src="src/javascript/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Caminho da Lua - Animação - M&M</title>
+    <link rel="stylesheet" href="src/css/swiper.min.css">
+    <link rel="shortcut icon" href="src/imgens_pp/logo_M&M.png" type="imgens_pp">
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            box-sizing: border-box;
+            scroll-padding-top: 2rem;
+        }
+
+        :root {
+            --text-color: #fcfeff;
+            --main-color: rgb(34, 34, 236);
+            --hover-color: rgb(20, 20, 227);
+            --body-color: #121220;
+            --container-color: #171727;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        section {
+            padding: 3rem 0 2rem;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .bx {
+            cursor: pointer;
+        }
+
+        body {
+            background: linear-gradient(#1e1e2a 89%, rgb(20, 20, 227));
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1068px;
+            margin: auto;
+            width: 100%;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--body-color);
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            color: var(--text-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin: 0 auto 0 0;
+        }
+
+        .logo span {
+            color: var(--main-color);
+
+        }
+
+        .search-box {
+            max-width: 240px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            column-gap: 0.7rem;
+            padding: 8px 15px;
+            background: var(--container-color);
+            border-radius: 4rem;
+            margin-right: 1rem;
+        }
+
+        .search-box .bx {
+            font-size: 1.1rem;
+        }
+
+        .search-box .bx:hover {
+            color: var(--main-color);
+        }
+
+        #search-input {
+            width: 100%;
+            border: none;
+            outline: none;
+            color: var(--text-color);
+            background: transparent;
+            font-size: 0.938rem;
+        }
+
+        .user {
+            display: flex;
+        }
+
+        .user-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 18px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 2.1rem;
+        }
+
+        .nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #b7b7b7;
+        }
+
+        .nav-link:hover,
+        .nav-active {
+            color: var(--text-color);
+            transition: 0.3s all linear;
+            transform: scale(1.1);
+        }
+
+        .nav-link .bx {
+            font-size: 1.6rem;
+        }
+
+        .nav-link-title {
+            font-size: 0.7rem;
+        }
+
+        .home {
+            position: relative;
+            min-height: 470px;
+            display: flex;
+            align-items: center;
+            margin-top: 5rem !important;
+            border-radius: 0.5rem;
+        }
+
+        .home-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+
+        .home-text {
+            padding-left: 40px;
+        }
+
+        .home-title {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .home-text p {
+            font-size: 0.938rem;
+            margin: 10px 0 20px;
+            color: var(--main-color);
+        }
+
+        .watch-btn {
+            display: flex;
+            align-items: center;
+            column-gap: 0.8rem;
+            color: var(--text-color);
+        }
+
+        .watch-btn .bx {
+            font-size: 25px;
+            background: var(--main-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .watch-btn .bx:hover {
+            background: var(--hover-color);
+        }
+
+        .watch-btn span {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--container-color);
+            padding: 8px 14px;
+            border: 1px solid hsl(200 100% 99% / 5%);
+            margin-bottom: 2rem;
+        }
+
+        .heading-aventura {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(to right, #3d3dec 55%, #1a1af0);
+            padding: 8px 14px;
+            border: 1px solid hsl(200 100% 99% / 5%);
+            margin-bottom: 2rem;
+        }
+
+        .heading-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .movie-box {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .movie-box-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .movie-box .box-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 14px;
+            background: linear-gradient(8deg,
+                    hsl(240 17% 14% / 74%) 14%,
+                    hsl(240 17% 14% / 14%) 44%);
+            overflow: hidden;
+        }
+
+        .movie-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .movie-type {
+            font-size: 0.938rem;
+        }
+
+        .play {
+            position: absolute;
+            bottom: 0.8rem;
+            right: 0.8rem;
+
+        }
+
+        .swiper-btn {
+            display: flex;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            position: static !important;
+            margin: 0 0 0 10px !important;
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            color: var(--text-color);
+            font-size: 18px !important;
+            font-weight: 700;
+        }
+
+        .seta {
+            width: 50px;
+        }
+
+        .movies .heading {
+            padding: 10px 14px;
+        }
+
+        .movies-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(247px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .movies-content .movie-box:hover .movie-box-img {
+            transform: scale(1.1);
+            transition: 0.5s;
+        }
+
+        .play-container {
+            position: relative;
+            min-height: 540px;
+            margin-top: 5rem !important;
+        }
+
+        .play-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: -1;
+        }
+
+        .play-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px;
+            background: linear-gradient(8deg,
+                    hsl(240 17% 14% / 74%) 14%,
+                    hsl(240 17% 14% / 14%) 44%);
+        }
+
+        .play-text h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            column-gap: 2px;
+            font-size: 1.1rem;
+            color: gold;
+            margin-top: 4px;
+        }
+
+        .tags {
+            display: flex;
+            align-items: center;
+            column-gap: 8px;
+            margin: 1rem 0;
+        }
+
+        .tags span {
+            background: var(--container-color);
+            padding: 0 4px;
+        }
+
+        .play-movie {
+            position: absolute;
+            bottom: 18rem;
+            right: 10rem;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--main-color);
+            font-size: 24px;
+            animation: animate 2s linear infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                box-shadow: 0 0 0 blue;
+            }
+
+            40% {
+                box-shadow: 0 0 0 50px rgb(255, 193, 7, 0);
+            }
+
+            80% {
+                box-shadow: 0 0 0 50px rgb(255, 193, 7, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 rgb(255, 193, 7, 0);
+            }
+        }
+
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+            background: hsl(234 10% 20% /60%);
+            z-index: 400;
+        }
+
+        .video-container.show-video {
+            display: flex;
+        }
+
+        .video-box {
+            position: relative;
+            width: 82%;
+        }
+
+        .video-box #myvideo {
+            width: 100%;
+            aspect-ratio: 16/9;
+        }
+
+        .close-video {
+            position: absolute;
+            top: -3;
+            right: 0;
+            font-size: 40px;
+            color: var(--main-color);
+        }
+
+        .about-movie {
+            margin-top: 2rem !important;
+        }
+
+        .about-movie h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--main-color);
+        }
+
+        .about-movie p {
+            max-width: 6000px;
+            font-size: 0.938rem;
+            margin: 10px 0;
+        }
+
+        .cast-heading {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--main-color);
+        }
+
+        .cast {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .cast-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cast-img {
+            width: 150px;
+            height: 180px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .class-img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* Estilo base para o container das plataformas de streaming */
+        .streaming-platforms {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .streaming-platforms a {
+            display: inline-block;
+        }
+
+        .streaming-platforms img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .streaming-platforms img:hover {
+            transform: scale(1.1);
+        }
+
+        /**/
+
+        /* Estilos da Barra de Pesquisa */
+        .search-box {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        /* Estilos dos Resultados da Pesquisa */
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--container-color);
+            border-radius: 0.5rem;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin-top: 5px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .search-result-item {
+            padding: 10px 15px;
+            cursor: pointer;
+            color: var(--text-color);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .search-result-item:hover {
+            background: var(--hover-color);
+            transform: translateX(5px);
+            padding-left: 20px;
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Estilo para Mensagem de Não Encontrado */
+        .no-results {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-color);
+            font-style: italic;
+        }
+
+        /* Estilização da Barra de Rolagem */
+        .search-results::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .search-results::-webkit-scrollbar-track {
+            background: var(--container-color);
+            border-radius: 0.5rem;
+        }
+
+        .search-results::-webkit-scrollbar-thumb {
+            background: var(--main-color);
+            border-radius: 0.5rem;
+        }
+
+        .search-results::-webkit-scrollbar-thumb:hover {
+            background: var(--hover-color);
+        }
+
+        /* Container de Resultados Não Encontrados */
+        .no-results-container {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--container-color);
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 500px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .no-results-container .bx-error-circle {
+            font-size: 48px;
+            color: var(--main-color);
+            margin-bottom: 15px;
+        }
+
+        .no-results-title {
+            font-size: 24px;
+            color: var(--text-color);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .no-results-text {
+            font-size: 16px;
+            color: #999;
+            line-height: 1.5;
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* Responsividade - Ordem do maior para o menor breakpoint */
+        @media (max-width: 1240px) {
+            .navbar {
+                bottom: 0;
+                left: 0;
+                right: 0;
+                top: auto;
+                transform: translateY(0);
+                flex-direction: row;
+                justify-content: space-evenly;
+                padding: 10px;
+                border-top: 1px solid hsl(200 100% 99% / 5%);
+                background: linear-gradient(8deg,
+                        hsl(240 17% 14% / 100%) 5%,
+                        hsl(240 17% 14% / 90%) 100%);
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .search-results {
+                max-height: 400px;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 1060px) {
+            .container {
+                margin: 0 auto;
+                width: 95%;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .search-box {
+                max-width: 280px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+
+            .movie-box {
+                height: 280px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(214px, 1fr));
+            }
+
+            .play-container {
+                margin-top: 5rem !important;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .video-box {
+                width: 90%;
+            }
+
+            .search-results {
+                max-height: 350px;
+            }
+
+            .search-result-item {
+                padding: 10px 15px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 888px) {
+            .nav {
+                padding: 14px 0;
+            }
+
+            .search-box {
+                max-width: 240px;
+            }
+
+            .search-results {
+                max-height: 300px;
+            }
+
+            .play-text {
+                padding: 20px;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .cast {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                padding: 11px 0;
+            }
+
+            .search-box {
+                max-width: 200px;
+            }
+
+            .search-results {
+                max-height: 250px;
+            }
+
+            .search-result-item {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+
+            .no-results-container {
+                max-width: 300px;
+                padding: 25px 15px;
+            }
+
+            .no-results-title {
+                font-size: 18px;
+            }
+
+            .play-text h2 {
+                font-size: 1.4rem;
+            }
+
+            .video-box {
+                width: 95%;
+            }
+
+            .streaming-platforms {
+                gap: 15px;
+            }
+
+            .streaming-platforms img {
+                width: 45px;
+                height: 45px;
+            }
+
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            }
+
+            .movie-box {
+                height: 260px;
+            }
+        }
+
+        @media (max-width: 514px) {
+            .nav {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto;
+                gap: 5px;
+                padding: 10px;
+            }
+
+            .search-box {
+                max-width: 100%;
+                grid-column: 1 / -1;
+                order: 2;
+            }
+
+            .search-results {
+                max-height: 200px;
+                top: calc(100% + 5px);
+            }
+
+            .play-text {
+                padding: 15px;
+            }
+
+            .play-movie {
+                right: 4rem;
+            }
+
+            .video-box {
+                width: 100%;
+            }
+
+            .streaming-platforms {
+                gap: 10px;
+            }
+
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 1rem;
+            }
+
+            .movie-box {
+                height: 240px;
+            }
+        }
+
+        @media (max-width: 370px) {
+            .search-box input {
+                font-size: 13px;
+            }
+
+            .search-results {
+                max-height: 180px;
+            }
+
+            .search-result-item {
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+
+            .no-results-container {
+                max-width: 200px;
+                padding: 15px 8px;
+            }
+
+            .no-results-title {
+                font-size: 16px;
+            }
+
+            .play-text {
+                padding: 10px;
+            }
+
+            .video-box {
+                height: 180px;
+            }
+
+            .cast-img {
+                width: 100px;
+                height: 130px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav container">
+            <a href="pagina principal.html" class="logo">
+                <span>M</span>&<span>M</span>
+            </a>
+
+            <div class="search-box">
+                <input type="search" name="" id="search-input" placeholder="Pesquisar um Filme">
+                <i class='bx bx-search'></i>
+                <div id="search-results" class="search-results"></div>
+            </div>
+            <div class="navbar">
+                <a href="pagina principal.html" class="nav-link nav-active">
+                    <i class='bx bx-home-alt-2'></i>
+                    <span class="nav-link-title">Início</span>
+                </a>
+                <a href="Filmes_Aventura.html" class="nav-link">
+                    <i class='bx bxs-tree'></i>
+                    <span class="nav-link-title">Aventura</span>
+                </a>
+                <a href="Filmes_Acao.html" class="nav-link">
+                    <i class='bx bx-car'></i>
+                    <span class="nav-link-title">Ação</span>
+                </a>
+                <a href="Filmes_Animação.html" class="nav-link">
+                    <i class='bx bx-happy'></i>
+                    <span class="nav-link-title">Animação</span>
+                </a>
+                <a href="Filmes_Comédia.html" class="nav-link">
+                    <i class='bx bx-laugh'></i>
+                    <span class="nav-link-title">Comédia</span>
+                </a>
+                <a href="Filme_Romance.html" class="nav-link">
+                    <i class='bx bx-happy-heart-eyes'></i>
+                    <span class="nav-link-title">Romance</span>
+                </a>
+                <a href="Filme_Terror.html" class="nav-link">
+                    <i class='bx bxs-skull'></i>
+                    <span class="nav-link-title">Terror</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <br><br>
+    <div class="play-container container">
+        <img src="src/Filmes_animação/Filmes A Caminho da Lua/a caminho da lua - banner2.jpg"
+            alt="Banner A Caminho da Lua" class="play-img">
+        <div class="play-text">
+            <h2>A Caminho da Lua</h2>
+            <div class="rating">
+                <!--20% - 0%: 1 estrela-->
+                <i class='bx bxs-star'></i>
+                <!--40% - 21%: 2 estrelas-->
+                <i class='bx bxs-star'></i>
+                <!--60% - 41%: 3 estrelas-->
+                <i class='bx bxs-star'></i>
+                <!--80% - 61%: 4 estrelas-->
+                <i class='bx bxs-star'></i>
+                <!--100% - 81%: 5 estrelas-->
+                <i class='bx bxs-star-half'></i>
+            </div>
+            <span>De acordo com os criticos</span>
+            <h3>Titulo Original:</h3>
+            <span>Over the Moon</span>
+            <div class="tags">
+                <span>Animação</span>
+                <span>1h 35min</span>
+                <span>23 de outubro de 2020</span>
+            </div>
+        </div>
+        <i class='bx bx-right-arrow play-movie'></i>
+        <div class="video-container">
+            <div class="video-box">
+                <video id="myvideo"
+                    src="src/Filmes_animação/Filmes A Caminho da Lua/Trailer/A CAMINHO DA LUA _ Trailer oficial 1 _ Uma produção Netflix _ Pearl Studio(720P_HD).mp4"
+                    controls></video>
+                <i class='bx bx-x-circle close-video'></i>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="about-movie container">
+        <br>
+        <div class="cast">
+
+            <h2 class="cast-heading">Classificação:</h2>
+            <div class="cast">
+                <div class="cast-box">
+                    <img src="src/classificações de idade/classificação livre.png" alt="classificação Livre"
+                        class="class-img">
+                </div>
+            </div>
+            
+            <div class="cast">
+                <h2 class="cast-heading">Assistir:</h2>
+                <div class="streaming-platforms">
+                    <a target="_blank" href="https://www.netflix.com/br/title/80214236"><img
+                            src="src/onde ver/netflix.png" alt="Netflix" class="class-img"></a>
+                </div>
+            </div>
+
+        </div>
+        <h2>Sinopse:</h2>
+        <p>Em A Caminho da Lua, acompanhamos a história de Fei Fei, uma jovem que embarca em uma jornada épica para a
+            Lua para provar a existência da deusa da Lua, Chang'e, e honrar a memória de sua falecida mãe. Com a ajuda
+            de um foguete caseiro e de um adorável coelho espacial chamado Bungee, Fei Fei enfrenta desafios e descobre
+            a importância da família, da amizade e da crença em seus sonhos. A animação vibrante, a trilha sonora
+            envolvente e a mensagem inspiradora sobre a busca por esperança e amor tornam A Caminho da Lua uma
+            experiência emocionante para todas as idades.</p>
+        <h2 class="cast-heading">Direção do Filme</h2>
+        <div class="cast">
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/Elenco e direção do filme/Glen Kean.jpg"
+                    alt="Glen Kean responsavel pala direção do filme" class="cast-img">
+                <span class="cast-title">Glen Kean</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/Elenco e direção do filme/Steven Price.jpg"
+                    alt="Steven Price responsavel pala direção do filme" class="cast-img">
+                <span class="cast-title">Steven Price</span>
+            </div>
+        </div>
+        <br><br>
+        <!--Fei Fei - Personagem Principal
+            Pulinho - Personagem Secundário
+            Chin - Personagem Secundário
+            Sapo do Chin - Personagem Secundário
+            Chang'e - Personagem Secundário
+            Coelho de Jade - Personagem Secundário
+            Gobi - Personagem Secundário-->
+        <h2 class="cast-heading">Personagem do Filme</h2>
+        <div class="cast">
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/Elenco e direção do filme/Personagem/Fei Fei.jpg"
+                    alt="Fei Fei - Personagem Principal" class="cast-img">
+                <span class="cast-title">Fei Fei</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/Elenco e direção do filme/Personagem/Pulinho.jpg"
+                    alt="Pulinho - Personagem Secundário" class="cast-img">
+                <span class="cast-title">Pulinho</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/Elenco e direção do filme/Personagem/Chin.jpg"
+                    alt="Chin - Personagem Secundário" class="cast-img">
+                <span class="cast-title">Chin</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/Elenco e direção do filme/Personagem/sapo do chin.jpg"
+                    alt="sapo do chin - Personagem Secundário" class="cast-img">
+                <span class="cast-title">Sapo do Chin</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/Elenco e direção do filme/Personagem/Chang'e.jpg"
+                    alt="Chang'e - Personagem Secundária" class="cast-img">
+                <span class="cast-title">Chang'e</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/Elenco e direção do filme/Personagem/Coelho de Jade.webp"
+                    alt="Coelho de Jade - Personagem Secundário" class="cast-img">
+                <span class="cast-title">Coelho de Jade</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/Elenco e direção do filme/Personagem/Gobi.jpg"
+                    alt="Gobi - Personagem Secundário" class="cast-img">
+                <span class="cast-title">Gobi</span>
+            </div>
+        </div>
+        <br><br>
+        <h2 class="cast-heading">Direção da Trilha Sonora</h2>
+        <div class="cast">
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/Elenco e direção do filme/John Kahrs.jpg"
+                    alt="John Kahrs responsavel pela Trilha sonora" class="cast-img">
+                <span class="cast-title">John Kahrs</span>
+            </div>
+        </div>
+        <br><br>
+        <!--
+1 - *"On the Moon Above" (Ruthie Ann Miles, John Cho & Cathy Ang)
+2 - *"Mooncakes" (Ruthie Ann Miles, John Cho & Cathy Ang)
+3 - *"Rocket to the Moon" (Cathy Ang)
+4 - *"Rocket to the Moon (Reprise)" (Cathy Ang)
+5 - *"Ultraluminary" (Phillipa Soo)
+6 - *"Hey Boy" (Phillipa Soo & Robert Chiu)
+7 - *"Wonderful" (Ken Jeong & Cathy Ang)
+8 - *"Yours Forever (Reprise)" (Phillipa Soo & Conrad Ricamora)
+9 - *"Love Someone New" (Phillipa Soo & Cathy Ang)
+10 - "Moon Phases"
+11 - "It's Good to Meet New People"
+12 - "Family Invasion"
+13 - "Nighttime Conversation"
+14 - "Science Project"
+15 - "Journey to Lunaria"
+16 - "Consider Yourself Welcomed"
+17 - "This Road is a Suicide Mission"
+18 - "A Bonding Experience"
+19 - "I've Lost Everything Now"
+20 - "The Chamber of Exquisite Sadness"
+21 - "Remember When We Said Goodbye"
+22 - "Back Home"-->
+        <h2 class="cast-heading">Trilha Sonora do Filme</h2>
+        <div class="movies-content">
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/a caminho da lua 3.jpg"
+                    alt="Música 1 - Quanto Tempo For - (A Caminho da lua - Netflix Brasil)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Quanto Tempo For</span>
+                    <span class="movie-type">A Caminho da lua<br>Netflix Brasil</span>
+                    <a target="_blank" href="https://youtu.be/ShaJcEFdbB8?si=hp5_O0tnnGSsP_Jc" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/a caminho da lua 3.jpg"
+                    alt="Música 2 - Bolhinos da Lua (A Caminho da Lua - Netflix Brasil)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Bolhinos da Lua</span>
+                    <span class="movie-type">A Caminho da Lua<br>Netflix Brasil</span>
+                    <a target="_blank" href="https://youtu.be/hWuDoSqtwhU?si=sKMV_F2oNRfYQmPE" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/a caminho da lua 3.jpg"
+                    alt="Música 3 - Vou Voar (A Caminho da Lua - Netflix Brasil)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Vou Voar</span>
+                    <span class="movie-type">A Caminho da Lua<br>Netflix Brasil</span>
+                    <a target="_blank" href="https://youtu.be/Bi1lkT2Bt-g?si=7wStSxcWlbGvtOqn" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/a caminho da lua 3.jpg"
+                    alt="Música 4 - Vou Voar (Reprise) (A Caminho da Lua - Netflix Brasi)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Vou Voar (Reprise)</span>
+                    <span class="movie-type">A Caminho da Lua<br>Netflix Brasil</span>
+                    <a target="_blank" href="https://youtu.be/F4-QvzE8PMM?si=sH7S1etwpkoCjlMt" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/a caminho da lua 3.jpg"
+                    alt="Música 5 - Ultrailuminada (A Caminho da Lua - Netflix Brasi)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Ultrailuminada</span>
+                    <span class="movie-type">A Caminho da Lua<br>Netflix Brasil</span>
+                    <a target="_blank" href="https://youtu.be/8Evkb3r8swY?si=QvwbzppquGGU-FkE" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/a caminho da lua 3.jpg"
+                    alt="Música 6 - Abra o jogo (A Caminho da Lua - Netflix Brasil)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Abra o jogo</span>
+                    <span class="movie-type">A Caminho da Lua<br>Netflix Brasil</span>
+                    <a target="_blank" href="" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/a caminho da lua 3.jpg"
+                    alt="Música 7 - Incrível (A Caminho da Lua - Netflix Brasil)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Incrível</span>
+                    <span class="movie-type">A Caminho da Lua<br>Netflix Brasil</span>
+                    <a target="_blank" href="https://youtu.be/Mh2wNhpCFzM?si=eO4x_VBgzEAyZPPh" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/a caminho da lua 3.jpg"
+                    alt="Música 8 - Pra Sempre (A Caminho da Lua - Netflix Brasil)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Pra Sempre</span>
+                    <span class="movie-type">A Caminho da Lua<br>Netflix Brasil</span>
+                    <a target="_blank" href="" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/a caminho da lua 3.jpg"
+                    alt="Música 9 - Se abrir para o amor (A Caminho da Lua - Netflix Brasil)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Se abrir para o amor</span>
+                    <span class="movie-type">A Caminho da Lua<br>Netflix Brasil</span>
+                    <a target="_blank" href="" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/a caminho da lua 3.jpg"
+                    alt="Música 10 -  Vou Voar (Ver. Priscilla Alcantara) (A Caminho da Lua - Netflix Brasil)"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Vou Voar (Ver. Priscilla Alcantara)</span>
+                    <span class="movie-type">A Caminho da Lua<br>Netflix Brasil</span>
+                    <a target="_blank" href="https://youtu.be/0Sq8NobYIwk?si=9jxKdUzdI4kS1FKZ" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/a caminho da lua 3.jpg"
+                    alt="Música 11 - On the Moon Above (A Caminho da Lua - Netflix After School)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">On the Moon Above</span>
+                    <span class="movie-type">A Caminho da Lua<br>Netflix After School</span>
+                    <a target="_blank" href="https://youtu.be/8Po9DyM_0BQ?si=mqIBtc-bhXeOPYJ8" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/a caminho da lua 3.jpg"
+                    alt="Música 12 - Mooncakes (A Caminho da Lua - Netflix After School)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Mooncakes</span>
+                    <span class="movie-type">A Caminho da Lua<br>Netflix After School</span>
+                    <a target="_blank" href="https://youtu.be/_PyF4LCcnrQ?si=b_UcSyrr5HgwgF73" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/a caminho da lua 3.jpg"
+                    alt="Música 13 - Rocket to the Moon (A Caminho da Lua - Netflix)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Rocket to the Moon</span>
+                    <span class="movie-type">A Caminho da Lua<br>Netflix</span>
+                    <a target="_blank" href="https://youtu.be/UVpyijl4K58?si=HXpnzD6b_PaRvIhe" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/a caminho da lua 3.jpg"
+                    alt="Música 14 -  Rocket to the Moon (Reprise) (A Caminho da Lua - Netflix After School)"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Rocket to the Moon (Reprise)</span>
+                    <span class="movie-type">A Caminho da Lua<br>Netflix After School</span>
+                    <a target="_blank" href="https://youtu.be/05hDQygE0Pc?si=9O3ZH7RJyB169hW4" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/a caminho da lua 3.jpg"
+                    alt="Música 15 - Ultraluminary (A Caminho da Lua - Netflix After School)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Ultraluminary</span>
+                    <span class="movie-type">A Caminho da Lua<br>Netflix After School</span>
+                    <a target="_blank" href="https://youtu.be/IbUfOhEv1sc?si=rTjNRjROXj0nYVu1" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/a caminho da lua 3.jpg"
+                    alt="Música 16 - Hey Boy (A Caminho da Lua - Netflix After School)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Hey Boy</span>
+                    <span class="movie-type">A Caminho da Lua<br>Netflix After School</span>
+                    <a target="_blank" href="https://youtu.be/ShLj0dC2_X8?si=tyvlsrR4n2BLHP3h" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/a caminho da lua 3.jpg"
+                    alt="Música 17 - Wonderful (A Caminho da Lua - Netflix After School)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Wonderful</span>
+                    <span class="movie-type">A Caminho da Lua<br>Netflix After School</span>
+                    <a target="_blank" href="https://youtu.be/ANzCVtNQKm0?si=lkt2m0JS7TCWRob9" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/a caminho da lua 3.jpg"
+                    alt="Música 18 - Yours Forever (Reprise) (A Caminho da Lua - Netflix)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Yours Forever (Reprise)</span>
+                    <span class="movie-type">A Caminho da Lua<br>Netflix</span>
+                    <a target="_blank" href="https://youtu.be/R9fWQKtgQjo?si=VN59fOouWUPZhZjG" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/a caminho da lua 3.jpg"
+                    alt="Música 19 - Love Someone New (A Caminho da Lua - Netflix)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Love Someone New</span>
+                    <span class="movie-type">A Caminho da Lua<br>Netflix</span>
+                    <a target="_blank" href="https://youtu.be/Gk1yjSLiwUY?si=DmyAYGwSbvzpWggv" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/a caminho da lua 3.jpg"
+                    alt="Música 20 - Moon Phases (A Caminho da Lua - Netflix)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Moon Phases</span>
+                    <span class="movie-type">A Caminho da Lua<br>Netflix</span>
+                    <a target="_blank" href="https://youtu.be/F_2tD30OOSw?si=jw9Ss98-gzQ1Bf_t" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/a caminho da lua 3.jpg"
+                    alt="Música 21 - It's Good to Meet New People (A Caminho da Lua - Netflix)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">It's Good to Meet New People</span>
+                    <span class="movie-type">A Caminho da Lua<br>Netflix</span>
+                    <a target="_blank" href="https://youtu.be/ETHA7Y7GJkU?si=0y1-P3atJ5uA5Af5" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/a caminho da lua 3.jpg"
+                    alt="Música 22 - Family Invasion (A Caminho da Lua - Netflix)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Family Invasion</span>
+                    <span class="movie-type">A Caminho da Lua<br>Netflix</span>
+                    <a target="_blank" href="https://youtu.be/GtRmrtTTgk8?si=kiXewbbueNYo4rF5" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/a caminho da lua 3.jpg"
+                    alt="Música 23 - Nighttime Conversation (A Caminho da Lua - Netflix)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Nighttime Conversation</span>
+                    <span class="movie-type">A Caminho da Lua<br>Netflix</span>
+                    <a target="_blank" href="https://youtu.be/6EyPUD_8u_4?si=Z2_v4ixRzl2CuUeX" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/a caminho da lua 3.jpg"
+                    alt="Música 24 - Science Project (A Caminho da Lua - Netflix)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Science Project</span>
+                    <span class="movie-type">A Caminho da Lua<br>Netflix</span>
+                    <a target="_blank" href="https://youtu.be/dF3CJl1tdBU?si=WJ8uwucW_8GptHJH" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/a caminho da lua 3.jpg"
+                    alt="Música 25 - Journey to Lunaria (A Caminho da Lua - Netflix)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Journey to Lunaria</span>
+                    <span class="movie-type">A Caminho da Lua<br>Netflix</span>
+                    <a target="_blank" href="https://youtu.be/rmSyfQMQL8o?si=06qnVeJI--3a7uO3" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/a caminho da lua 3.jpg"
+                    alt="Música 26 - Consider Yourself Welcomed (A Caminho da Lua - Netflix)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Consider Yourself Welcomed</span>
+                    <span class="movie-type">A Caminho da Lua<br>Netflix</span>
+                    <a target="_blank" href="https://youtu.be/4QUnQUVCclk?si=cz70jfJePZNhgrp7" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/a caminho da lua 3.jpg"
+                    alt="Música 27 - This Road is a Suicide Mission (A Caminho da Lua - Netflix)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">This Road is a Suicide Mission</span>
+                    <span class="movie-type">A Caminho da Lua<br>Netflix</span>
+                    <a target="_blank" href="https://youtu.be/ZAAC1CF1eQc?si=d27e42yxzee83guz" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/a caminho da lua 3.jpg"
+                    alt="Música 28 - A Bonding Experience (A Caminho da Lua - Netflix)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">A Bonding Experience</span>
+                    <span class="movie-type">A Caminho da Lua<br>Netflix</span>
+                    <a target="_blank" href="https://youtu.be/QU8gBEN-8QU?si=gSFPyacNl4f7cQQd" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/a caminho da lua 3.jpg"
+                    alt="Música 29 - I've Lost Everything Now (A Caminho da Lua - Netflix)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">I've Lost Everything Now</span>
+                    <span class="movie-type">A Caminho da Lua<br>Netflix</span>
+                    <a target="_blank" href="https://youtu.be/LI8Y9wj-4dQ?si=VmDe2cACCKXbb3Ap" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/a caminho da lua 3.jpg"
+                    alt="Música 30 - The Chamber of Exquisite Sadness (A Caminho da Lua - Netflix)"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">The Chamber of Exquisite Sadness</span>
+                    <span class="movie-type">A Caminho da Lua<br>Netflix</span>
+                    <a target="_blank" href="https://youtu.be/d3i0vHKMdkc?si=pv28i63P5x_TBZR5" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/a caminho da lua 3.jpg"
+                    alt="Música 31 - Remember When We Said Goodbye (A Caminho da Lua - Netflix)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Remember When We Said Goodbye</span>
+                    <span class="movie-type">A Caminho da Lua<br>Netflix</span>
+                    <a target="_blank" href="https://youtu.be/YSMZEi_c6h4?si=OW0r_ZXO5RKRrgSQ" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/a caminho da lua 3.jpg"
+                    alt="Música 32 - Back Home (A Caminho da Lua - Netflix)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Back Home</span>
+                    <span class="movie-type">A Caminho da Lua<br>Netflix</span>
+                    <a target="_blank" href="https://youtu.be/p7T9GqU-vpU?si=qZzS0rTHfR4t4WtL" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <br><br><br>
+    <script src="src/javascript/soundtrack.js"></script>
+    <script src="src/javascript/swiper-bundle.min.js"></script>
+    <script src="src/javascript/Pesquisa.js"></script>
+    <script src="src/javascript/script.js"></script>
+</body>
+
+</html>

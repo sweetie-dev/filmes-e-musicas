@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardiões da galáxia</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            box-sizing: border-box;
+            scroll-padding-top: 2rem;
+        }
+
+        :root {
+            --text-color: #fcfeff;
+            --main-color: #20a51b;
+            --hover-color: hsl(118, 69%, 20%);
+            --body-color: #1e1e2a;
+            --container-color: #171727;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        section {
+            padding: 3rem 0 2rem;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .bx {
+            cursor: pointer;
+        }
+
+        body {
+            background: linear-gradient(#1e1e2a 89%, rgb(38, 169, 5));
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1068px;
+            margin: auto;
+            width: 100%;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--body-color);
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            color: var(--text-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin: 0 auto 0 0;
+        }
+
+        .logo span {
+            color: var(--main-color);
+
+        }
+
+        .search-box {
+            max-width: 240px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            column-gap: 0.7rem;
+            padding: 8px 15px;
+            background: var(--container-color);
+            border-radius: 4rem;
+            margin-right: 1rem;
+        }
+
+        .search-box .bx {
+            font-size: 1.1rem;
+        }
+
+        .search-box .bx:hover {
+            color: var(--main-color);
+        }
+
+        #search-input {
+            width: 100%;
+            border: none;
+            outline: none;
+            color: var(--text-color);
+            background: transparent;
+            font-size: 0.938rem;
+        }
+
+        .user {
+            display: flex;
+        }
+
+        /* Estilos da Barra de Pesquisa */
+        .search-box {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        /* Estilos dos Resultados da Pesquisa */
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--container-color);
+            border-radius: 0.5rem;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin-top: 5px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .search-result-item {
+            padding: 10px 15px;
+            cursor: pointer;
+            color: var(--text-color);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .search-result-item:hover {
+            background: var(--hover-color);
+            transform: translateX(5px);
+            padding-left: 20px;
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Estilo para Mensagem de Não Encontrado */
+        .no-results {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-color);
+            font-style: italic;
+        }
+
+        /* Estilização da Barra de Rolagem */
+        .search-results::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .search-results::-webkit-scrollbar-track {
+            background: var(--container-color);
+            border-radius: 0.5rem;
+        }
+
+        .search-results::-webkit-scrollbar-thumb {
+            background: var(--main-color);
+            border-radius: 0.5rem;
+        }
+
+        .search-results::-webkit-scrollbar-thumb:hover {
+            background: var(--hover-color);
+        }
+
+        /* Container de Resultados Não Encontrados */
+        .no-results-container {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--container-color);
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 500px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .no-results-container .bx-error-circle {
+            font-size: 48px;
+            color: var(--main-color);
+            margin-bottom: 15px;
+        }
+
+        .no-results-title {
+            font-size: 24px;
+            color: var(--text-color);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .no-results-text {
+            font-size: 16px;
+            color: #999;
+            line-height: 1.5;
+        }
+        
+
+        .navbar {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 18px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 2.1rem;
+        }
+
+        .nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #b7b7b7;
+        }
+
+        .nav-link:hover,
+        .nav-active {
+            color: var(--text-color);
+            transition: 0.3s all linear;
+            transform: scale(1.1);
+        }
+
+        .nav-link .bx {
+            font-size: 1.6rem;
+        }
+
+        .nav-link-title {
+            font-size: 0.7rem;
+        }
+
+        .home {
+            position: relative;
+            min-height: 470px;
+            display: flex;
+            align-items: center;
+            margin-top: 5rem !important;
+            border-radius: 0.5rem;
+        }
+
+        .home-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+
+        .home-text {
+            padding-left: 40px;
+        }
+
+        .home-title {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .home-text p {
+            font-size: 0.938rem;
+            margin: 10px 0 20px;
+            color: var(--main-color);
+        }
+
+        .watch-btn {
+            display: flex;
+            align-items: center;
+            column-gap: 0.8rem;
+            color: var(--text-color);
+        }
+
+        .watch-btn .bx {
+            font-size: 25px;
+            background: var(--main-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .watch-btn .bx:hover {
+            background: var(--hover-color);
+        }
+
+        .watch-btn span {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--container-color);
+            padding: 8px 14px;
+            border: 1px solid hsl(200 100% 99% / 5%);
+            margin-bottom: 2rem;
+        }
+
+        .heading-aventura {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(to right, rgb(51, 113, 10) 55%, rgb(5, 62, 5));
+            padding: 8px 14px;
+            border: 1px solid hsl(200 100% 99% / 5%);
+            margin-bottom: 2rem;
+        }
+
+        .heading-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .movie-box {
+            position: relative;
+            width: 100%;
+            height: 380px;
+            overflow: hidden;
+        }
+
+        .movie-box-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .movie-box .box-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 14px;
+            background: linear-gradient(8deg,
+                    hsl(240 17% 14% / 74%) 14%,
+                    hsl(240 17% 14% / 14%) 44%);
+            overflow: hidden;
+        }
+
+        .movie-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .movie-type {
+            font-size: 0.938rem;
+        }
+
+        .play {
+            position: absolute;
+            bottom: 0.8rem;
+            right: 0.8rem;
+
+        }
+
+        .swiper-btn {
+            display: flex;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            position: static !important;
+            margin: 0 0 0 10px !important;
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            color: var(--text-color);
+            font-size: 18px !important;
+            font-weight: 700;
+        }
+
+        .seta {
+            width: 50px;
+        }
+
+        .movies .heading {
+            padding: 10px 14px;
+        }
+
+        .movies-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(247px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .movies-content .movie-box:hover .movie-box-img {
+            transform: scale(1.1);
+            transition: 0.5s;
+        }
+
+        .play-container {
+            position: relative;
+            min-height: 540px;
+            margin-top: 5rem !important;
+        }
+
+        .play-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: -1;
+        }
+
+        .play-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px;
+            background: linear-gradient(8deg,
+                    hsl(240 17% 14% / 74%) 14%,
+                    hsl(240 17% 14% / 14%) 44%);
+        }
+
+        .play-text h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            column-gap: 2px;
+            font-size: 1.1rem;
+            color: gold;
+            margin-top: 4px;
+        }
+
+        .tags {
+            display: flex;
+            align-items: center;
+            column-gap: 8px;
+            margin: 1rem 0;
+        }
+
+        .tags span {
+            background: var(--container-color);
+            padding: 0 4px;
+        }
+
+        .play-movie {
+            position: absolute;
+            bottom: 18rem;
+            right: 10rem;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--main-color);
+            font-size: 24px;
+            animation: animate 2s linear infinite;
+        }
+        @keyframes animate {
+            0% {
+                box-shadow: 0 0 0 rgb(38, 169, 5);
+            }
+
+            40% {
+                box-shadow: 0 0 0 50px rgb(255, 193, 7, 0);
+            }
+
+            80% {
+                box-shadow: 0 0 0 50px rgb(255, 193, 7, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 rgb(255, 193, 7, 0);
+            }
+        }
+
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+            background: hsl(234 10% 20% /60%);
+            z-index: 400;
+        }
+
+        .video-container.show-video {
+            display: flex;
+        }
+
+        .video-box {
+            position: relative;
+            width: 82%;
+        }
+
+        .video-box #myvideo {
+            width: 100%;
+            aspect-ratio: 16/9;
+        }
+
+        .close-video {
+            position: absolute;
+            top: -3;
+            right: 0;
+            font-size: 40px;
+            color: var(--main-color);
+        }
+
+        .about-movie {
+            margin-top: 2rem;
+        }
+
+        .about-movie h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--main-color);
+        }
+
+        .about-movie p {
+            max-width: 6000px;
+            font-size: 0.938rem;
+            margin: 10px 0;
+        }
+
+        .cast-heading {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--main-color);
+        }
+
+        .cast {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 150px));
+            gap: 1rem;
+        }
+
+        .cast-img {
+            width: 150px;
+            height: 180px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .class-img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        @media (max-width: 1240px) {
+            .navbar {
+                bottom: 0;
+                left: 0;
+                right: 0;
+                top: auto;
+                transform: translateY(0);
+                flex-direction: row;
+                justify-content: space-evenly;
+                padding: 10px;
+                border-top: 1px solid hsl(200 100% 99% / 5%);
+                background: linear-gradient(8deg,
+                        hsl(240 17% 14% / 100%) 5%,
+                        hsl(240 17% 14% / 90%) 100%);
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .search-results {
+                max-height: 400px;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 1060px) {
+            .container {
+                margin: 0 auto;
+                width: 95%;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .search-box {
+                max-width: 280px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+
+            .movie-box {
+                height: 280px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(214px, 1fr));
+            }
+
+            .play-container {
+                margin-top: 5rem !important;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .video-box {
+                width: 90%;
+            }
+
+            .search-results {
+                max-height: 350px;
+            }
+
+            .search-result-item {
+                padding: 10px 15px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 888px) {
+            .nav {
+                padding: 14px 0;
+            }
+
+            .search-box {
+                max-width: 240px;
+            }
+
+            .search-results {
+                max-height: 300px;
+            }
+
+            .play-text {
+                padding: 20px;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .cast {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                padding: 11px 0;
+            }
+
+            .search-box {
+                max-width: 200px;
+            }
+
+            .search-results {
+                max-height: 250px;
+            }
+
+            .search-result-item {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+
+            .no-results-container {
+                max-width: 300px;
+                padding: 25px 15px;
+            }
+
+            .no-results-title {
+                font-size: 18px;
+            }
+
+            .play-text h2 {
+                font-size: 1.4rem;
+            }
+
+            .video-box {
+                width: 95%;
+            }
+
+            .streaming-platforms {
+                gap: 15px;
+            }
+
+            .streaming-platforms img {
+                width: 45px;
+                height: 45px;
+            }
+
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            }
+
+            .movie-box {
+                height: 260px;
+            }
+        }
+
+        @media (max-width: 514px) {
+            .nav {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto;
+                gap: 5px;
+                padding: 10px;
+            }
+
+            .search-box {
+                max-width: 100%;
+                grid-column: 1 / -1;
+                order: 2;
+            }
+
+            .search-results {
+                max-height: 200px;
+                top: calc(100% + 5px);
+            }
+
+            .play-text {
+                padding: 15px;
+            }
+
+            .play-movie {
+                bottom: 6rem;
+                left: 20rem;
+            }
+
+            .video-box {
+                width: 100%;
+            }
+
+            .streaming-platforms {
+                gap: 10px;
+            }
+
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 1rem;
+            }
+
+            .movie-box {
+                height: 240px;
+            }
+        }
+        .cast {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+    
+        .cast-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .Streaming-platforms{
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .Streaming-platforms a{
+            display: inline-block;
+        }
+        .Streaming-platforms img{
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .Streaming-platforms img:hover{
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav container">
+            <a href="pagina principal.html" class="logo">
+                <span>M</span>&<span>M</span>
+            </a>
+
+            <div class="search-box">
+                <input type="search" name="" id="search-input" placeholder="Pesquisar um Filme">
+                <i class='bx bx-search'></i>
+                <div id="search-results" class="search-results"></div>
+            </div>
+            <div class="navbar">
+                <a href="pagina principal.html" class="nav-link nav-active">
+                    <i class='bx bx-home-alt-2'></i>
+                    <span class="nav-link-title">Início</span>
+                </a>
+                <a href="Filmes_Aventura.html" class="nav-link">
+                    <i class='bx bxs-tree'></i>
+                    <span class="nav-link-title">Aventura</span>
+                </a>
+                <a href="Filmes_Acao.html" class="nav-link">
+                    <i class='bx bx-car'></i>
+                    <span class="nav-link-title">Ação</span>
+                </a>
+                <a href="Filmes_Animação.html" class="nav-link">
+                    <i class='bx bx-happy'></i>
+                    <span class="nav-link-title">Animação</span>
+                </a>
+                <a href="Filmes_Comédia.html" class="nav-link">
+                    <i class='bx bx-laugh'></i>
+                    <span class="nav-link-title">Comédia</span>
+                </a>
+                <a href="Filme_Romance.html" class="nav-link">
+                    <i class='bx bx-happy-heart-eyes'></i>
+                    <span class="nav-link-title">Romance</span>
+                </a>
+                <a href="Filme_Terror.html" class="nav-link">
+                    <i class='bx bxs-skull'></i>
+                    <span class="nav-link-title">Terror</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <br><br>
+    <div class="play-container container">
+        <img src="src/Filmes_Aventura/filme jack o caçador de gigantes/Jack e o caçador de gigantes - banner.jpg"
+            alt="banner jumanji" class="play-img">
+        <div class="play-text">
+            <h2>Jack o caçador de gigantes</h2>
+            <div class="rating">
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star-half'></i>
+                <i class='bx bx-star'></i>
+            </div>
+            <span>De acordo com os críticos</span>
+            <h3>Título Original:</h3>
+            <span>Jack the giant slyer</span>
+            <div class="tags">
+                <span>Aventura</span>
+                <span>1h50</span>
+                <span>29 de março de 2013</span>
+            </div>
+        </div>
+        <i class='bx bx-right-arrow play-movie'></i>
+        <div class="video-container">
+            <div class="video-box">
+                <video id="myvideo" src="src/Filmes_Aventura/filme jack o caçador de gigantes/Trailer/Jack O Caçador de Gigantes - Trailer .mp4"
+                    controls></video>
+                <i class='bx bx-x-circle close-video'></i>
+            </div>
+        </div>
+    </div>
+    </div>
+    <br>
+    <div class="about-movie container">
+        <div class="cast">
+            <h2 class="cast-heading">classificação:</h2>
+            <div class="cast">
+                <div class="cast-box">
+                    <img src="src/classificações de idade/classificação 10 anos.png" alt="classificação 14 anos"
+                        class="class-img">
+                </div>
+            </div>
+            <div class="cast">
+                <h2 class="cast-heading">Assistir:</h2>
+                <div class="Streaming-platforms">
+                    <a
+                       target="_blank" href="https://www.primevideo.com/detail/amzn1.dv.gti.4ca9f67d-02fc-1223-7087-259a841204e0?irclickid=10de9d66N80e711ef9dab5d526248c50&ref=dvm_ass_acm_xx_mf_s_imp_10de9d66N80e711ef9dab5d526248c50&irgwc=1"><img
+                            src="src/onde ver/prime video.png" alt="classificação 14 anos" class="class-img"></a>
+                </div>
+                <div class="Streaming-platforms">
+                    <a
+                       target="_blank" href="https://www.max.com/br/pt/movies/jack-o-cacador-de-gigantes/10c3ff0c-8e88-4017-b189-30684a38a8f3?utm_id=1100l5988&utm_source=webediabr&utm_medium=affiliate&clickref=1100lzJzbHkb"><img
+                            src="src/onde ver/Max.jpg" alt="classificação 14 anos" class="class-img"></a>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <h2> Sinopse:</h2>
+        <p>Em Jack, o Caçador de Gigantes, Jack (Nicholas Hoult) é um fazendeiro que adquire grãos de feijão com a única recomendação de que não devem ser molhados. Obviamente, isto acaba ocorrendo e criando um enorme pé de feijão que vai dar em um mundo de gigantes. Em meio a tudo isso, a princesa Isabelle (Eleanor Tomlinson) é sequestrada pelos gigantes e Jack se unirá ao Rei (Ian McShane) numa cruzada para a salvar a jovem.
+        </p>
+        <h2 class="cast-heading">Direção</h2>
+        <div class="cast">
+            <div class="cast-box">
+                <img src="src/Filmes_Aventura/filme jack o caçador de gigantes/direção e elenco do filme/Diretor - Bryan Singer.webp"
+                    alt="Ator Bryan Singer " class="cast-img">
+                <span class="cast-title">Bryan Singer</span>
+            </div>
+        </div>
+        <br><br>
+        <h2 class="cast-heading">Elenco do Filme</h2>
+        <div class="cast">
+            <div class="cast-box">
+                <img src="src/Filmes_Aventura/filme jack o caçador de gigantes/direção e elenco do filme/Elenco - Nicholas Hoult.webp"
+                    alt="Ator Nicholas Hoult" class="cast-img">
+                <span class="cast-title">Nicholas Hoult</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_Aventura/filme jack o caçador de gigantes/direção e elenco do filme/Elenco - Eleanor Tomlinson.webp"
+                    alt="Ator Eleanor Tomlinson" class="cast-img">
+                <span class="cast-title">Eleanor Tomlinson</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_Aventura/filme jack o caçador de gigantes/direção e elenco do filme/Elenco - Ian McShane.webp"
+                    alt="Ator Ian McShane" class="cast-img">
+                <span class="cast-title">Ian McShane</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_Aventura/filme jack o caçador de gigantes/direção e elenco do filme/Elenco - Christopher Fairbank.webp"
+                    alt="Ator Christopher Fairbank" class="cast-img">
+                <span class="cast-title">Christopher Fairbank</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_Aventura/filme jack o caçador de gigantes/direção e elenco do filme/Elenco - Eddie Marsan.webp"
+                    alt="Atriz Eddie Marsan" class="cast-img">
+                <span class="cast-title">Eddie Marsan</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_Aventura/filme jack o caçador de gigantes/direção e elenco do filme/Elenco - Ewan McGregor.webp"
+                    alt="Ator Ewan McGregor" class="cast-img">
+                <span class="cast-title">Ewan McGregor</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_Aventura/filme jack o caçador de gigantes/direção e elenco do filme/Elenco - Ewen Bremner.jpg"
+                    alt="Ator Ewen Bremner" class="cast-img">
+                <span class="cast-title">Ewen Bremner</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_Aventura/filme jack o caçador de gigantes/direção e elenco do filme/Elenco - Stanley Tucci.webp"
+                    alt="Ator Stanley Tucci" class="cast-img">
+                <span class="cast-title">Stanley Tucci</span>
+            </div>
+        </div>
+        <br><br>
+        <h2 class="cast-heading">Direção da trilha sonora:</h2>
+        <div class="cast">
+            <div class="cast-box">
+                <img src="src/Filmes_Aventura/filme jack o caçador de gigantes/direção e elenco do filme/Elenco - John Ottman.webp"
+                    alt="John Ottman" class="cast-img">
+                <span class="cast-title">John Ottman</span>
+            </div>
+        </div>
+        <br>
+        <h2 class="cast-heading">Trilha sonora do filme:</h2>
+        <div class="movies-content">
+            <div class="movie-box">
+                <img src="src/Filmes_Aventura/filme jack o caçador de gigantes/Jack e o caçador de gigantes - Trilha sonora.jpg"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Jack And Isabellen</span>
+                    <span class="movie-type">John Ottman</span>
+                    <a href="https://youtu.be/RrrF7rTC6lo?si=WOvmmaKACF5vMfvU" target="blank" class="watch-btn ">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_Aventura/filme jack o caçador de gigantes/Jack e o caçador de gigantes - Trilha sonora.jpg"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Logo Mania</span>
+                    <span class="movie-type">John Ottman</span>
+                    <a href="https://youtu.be/qIWZrFZbGfc?si=Iyy9d2q2x9FJTpYi" target="blank" class="watch-btn ">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_Aventura/filme jack o caçador de gigantes/Jack e o caçador de gigantes - Trilha sonora.jpg"
+                    alt="musica 4" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">To Cloister</span>
+                    <span class="movie-type">John Ottman</span>
+                    <a href="https://youtu.be/GnfrdrZm5Vk?si=7UWO4fOQgskYsil6" target="blank" class="watch-btn ">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_Aventura/filme jack o caçador de gigantes/Jack e o caçador de gigantes - Trilha sonora.jpg"
+                    alt="musica 4" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">The Climb</span>
+                    <span class="movie-type">John Ottman</span>
+                    <a href="https://youtu.be/x8uViq43Q4g?si=zew4xOLX--tdaGQz" target="blank" class="watch-btn ">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_Aventura/filme jack o caçador de gigantes/Jack e o caçador de gigantes - Trilha sonora.jpg"
+                    alt="filme It a coisa" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title"> Fee Appears</span>
+                    <span class="movie-type">John Ottman</span>
+                    <a href="https://youtu.be/hXk9g1VeoL4?si=sM0lxxDssNNj37fJ" target="_blank" class="watch-btn ">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_Aventura/filme jack o caçador de gigantes/Jack e o caçador de gigantes - Trilha sonora.jpg"
+                    alt="filme It a coisa" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">How Do You Do</span>
+                    <span class="movie-type">John Ottman</span>
+                    <a href="https://youtu.be/rcZBGuXxp8k?si=0l5RkVHQZkwjXyrv" target="blank" class="watch-btn ">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_Aventura/filme jack o caçador de gigantes/Jack e o caçador de gigantes - Trilha sonora.jpg"
+                    alt="filme It a coisa" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Why Do People Scream ?</span>
+                    <span class="movie-type">John Ottman</span>
+                    <a href="https://youtu.be/4wuhG3vzx4c?si=NYqvTexG30cf4HfN" target="blank" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_Aventura/filme jack o caçador de gigantes/Jack e o caçador de gigantes - Trilha sonora.jpg"
+                    alt="filme It a coisa" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Story Of The Giants</span>
+                    <span class="movie-type">John Ottman</span>
+                    <a href="https://youtu.be/VXNdlyfsk5U?si=uHEDgttstaWzuvXo" target="blank" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_Aventura/filme jack o caçador de gigantes/Jack e o caçador de gigantes - Trilha sonora.jpg"
+                    alt="filme It a coisa" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Welcome To Gantua</span>
+                    <span class="movie-type">John Ottman</span>
+                    <a href="https://youtu.be/OPdj8byXwpk?si=mPsBMZkLbzIxgw-R" target="blank" class="watch-btn ">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_Aventura/filme jack o caçador de gigantes/Jack e o caçador de gigantes - Trilha sonora.jpg"
+                    alt="filme It a coisa" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title"> Power Of The Crown</span>
+                    <span class="movie-type">John Ottman</span>
+                    <a href="https://youtu.be/Ug5POqwAne0?si=wSXofrKuAQyzZpx0" target="blank" class="watch-btn ">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_Aventura/filme jack o caçador de gigantes/Jack e o caçador de gigantes - Trilha sonora.jpg"
+                    alt="filme It a coisa" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Not Wildly Keen On Heights</span>
+                    <span class="movie-type">John Ottman</span>
+                    <a href="https://youtu.be/xqKX06ahfZE?si=ErPxKAZCKtSczp-o" target="blank" class="watch-btn ">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_Aventura/filme jack o caçador de gigantes/Jack e o caçador de gigantes - Trilha sonora.jpg"
+                    alt="filme It a coisa" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Top Of The World</span>
+                    <span class="movie-type">John Ottman</span>
+                    <a href="https://youtu.be/niMtUQMC8tY?si=w28MEIQ5IiHLv_1J" target="blank" class="watch-btn ">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_Aventura/filme jack o caçador de gigantes/Jack e o caçador de gigantes - Trilha sonora.jpg"
+                    alt="filme It a coisa" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">The Legends Are True - First Kiss</span>
+                    <span class="movie-type">John Ottman</span>
+                    <a href="https://youtu.be/15QWJNhBuYQ?si=c3ei5919U-Hv-bya" target="blank" class="watch-btn ">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_Aventura/filme jack o caçador de gigantes/Jack e o caçador de gigantes - Trilha sonora.jpg"
+                    alt="filme It a coisa" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Roderick's Demise - The Beanstock Falls</span>
+                    <span class="movie-type">John Ottman</span>
+                    <a href="https://youtu.be/FCQ18j2Q0b8?si=iiD22n6gokOexYtm" target="blank" class="watch-btn ">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_Aventura/filme jack o caçador de gigantes/Jack e o caçador de gigantes - Trilha sonora.jpg"
+                    alt="filme It a coisa" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Kitchen Nightmare</span>
+                    <span class="movie-type">John Ottman</span>
+                    <a href="https://youtu.be/SNvDaj0Y1Jw?si=kvId91AhcbeffVPD" target="blank" class="watch-btn ">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_Aventura/filme jack o caçador de gigantes/Jack e o caçador de gigantes - Trilha sonora.jpg"
+                    alt="filme It a coisa" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Onward And Downward !</span>
+                    <span class="movie-type">John Ottman</span>
+                    <a href="https://youtu.be/-hSJQGokk-w?si=p94yVtBWv5Y9RTU8" target="blank" class="watch-btn ">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_Aventura/filme jack o caçador de gigantes/Jack e o caçador de gigantes - Trilha sonora.jpg"
+                    alt="filme It a coisa" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Waking A Sleeping Giant</span>
+                    <span class="movie-type">John Ottman</span>
+                    <a href="https://youtu.be/QMi4w95JQ8E?si=7BO0Iz4jhMuS-kDA" target="blank" class="watch-btn ">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_Aventura/filme jack o caçador de gigantes/Jack e o caçador de gigantes - Trilha sonora.jpg"
+                    alt="filme It a coisa" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Chase To Cloister</span>
+                    <span class="movie-type">John Ottman</span>
+                    <a href="https://youtu.be/zT-5FgSCUkM?si=MUouEUl5zG50NUR3" target="blank" class="watch-btn ">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_Aventura/filme jack o caçador de gigantes/Jack e o caçador de gigantes - Trilha sonora.jpg"
+                    alt="filme It a coisa" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Goodbyes</span>
+                    <span class="movie-type">John Ottman</span>
+                    <a href="https://youtu.be/THmEcMKI73g?si=XOap4YAGYy80oujQ" target="blank" class="watch-btn ">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_Aventura/filme jack o caçador de gigantes/Jack e o caçador de gigantes - Trilha sonora.jpg"
+                    alt="filme It a coisa" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">The Battle</span>
+                    <span class="movie-type">John Ottman</span>
+                    <a href="https://youtu.be/WzxB3OJ4qcI?si=NjyNRcMnObWEQzF-" target="blank" class="watch-btn ">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_Aventura/filme jack o caçador de gigantes/Jack e o caçador de gigantes - Trilha sonora.jpg"
+                    alt="filme It a coisa" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Sniffing Out Fear - All Is Lost</span>
+                    <span class="movie-type">John Ottman</span>
+                    <a href="hhttps://youtu.be/I7Hbgryc5MM?si=2LcjFS8MmGtyhHxH" target="blank" class="watch-btn ">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_Aventura/filme jack o caçador de gigantes/Jack e o caçador de gigantes - Trilha sonora.jpg"
+                    alt="filme It a coisa" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">The New King Stories</span>
+                    <span class="movie-type">John Ottman</span>
+                    <a href="https://youtu.be/tdWndE4zuOY?si=m1lq9Wy1FdpKfIyS" target="blank" class="watch-btn ">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br><br><br>
+    <script src="src/javascript/soundtrack.js"></script>
+    <script src="src/javascript/swiper-bundle.min.js"></script>
+    <script src="src/javascript/Pesquisa.js"></script>
+    <script src="src/javascript/script.js"></script>
+</body>
+
+</html>

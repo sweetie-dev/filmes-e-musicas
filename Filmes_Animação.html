@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M&M - Pagina de Animação</title>
+    <link rel="stylesheet" href="src/css/swiper.min.css">
+    <link rel="shortcut icon" href="src/imgens_pp/logo_M&M.png" type="imgens_pp">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            box-sizing: border-box;
+            scroll-padding-top: 2rem;
+        }
+
+        :root {
+            --text-color: #fcfeff;
+            --main-color: rgb(34, 34, 236);
+            --hover-color: rgb(20, 20, 227);
+            --body-color: #121220;
+            --container-color: #171727;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        section {
+            padding: 3rem 0 2rem;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .bx {
+            cursor: pointer;
+        }
+
+        body {
+            background: linear-gradient(#1e1e2a 89%, rgb(20, 20, 227));
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1068px;
+            margin: auto;
+            width: 100%;
+            justify-content: center;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--body-color);
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            color: var(--text-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin: 0 auto 0 0;
+        }
+
+        .logo span {
+            color: var(--main-color);
+
+        }
+
+        .search-box {
+            max-width: 240px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            column-gap: 0.7rem;
+            padding: 8px 15px;
+            background: var(--container-color);
+            border-radius: 4rem;
+            margin-right: 1rem;
+        }
+
+        .search-box .bx {
+            font-size: 1.1rem;
+        }
+
+        .search-box .bx:hover {
+            color: var(--main-color);
+        }
+
+        #search-input {
+            width: 100%;
+            border: none;
+            outline: none;
+            color: var(--text-color);
+            background: transparent;
+            font-size: 0.938rem;
+        }
+
+        /* Estilos da Barra de Pesquisa */
+        .search-box {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        /* Estilos dos Resultados da Pesquisa */
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--container-color);
+            border-radius: 0.5rem;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin-top: 5px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .search-result-item {
+            padding: 10px 15px;
+            cursor: pointer;
+            color: var(--text-color);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .search-result-item:hover {
+            background: var(--hover-color);
+            transform: translateX(5px);
+            padding-left: 20px;
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Estilo para Mensagem de Não Encontrado */
+        .no-results {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-color);
+            font-style: italic;
+        }
+
+        /* Estilização da Barra de Rolagem */
+        .search-results::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .search-results::-webkit-scrollbar-track {
+            background: var(--container-color);
+            border-radius: 0.5rem;
+        }
+
+        .search-results::-webkit-scrollbar-thumb {
+            background: var(--main-color);
+            border-radius: 0.5rem;
+        }
+
+        .search-results::-webkit-scrollbar-thumb:hover {
+            background: var(--hover-color);
+        }
+
+        /* Container de Resultados Não Encontrados */
+        .no-results-container {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--container-color);
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 500px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .no-results-container .bx-error-circle {
+            font-size: 48px;
+            color: var(--main-color);
+            margin-bottom: 15px;
+        }
+
+        .no-results-title {
+            font-size: 24px;
+            color: var(--text-color);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .no-results-text {
+            font-size: 16px;
+            color: #999;
+            line-height: 1.5;
+        }
+
+        .user {
+            display: flex;
+        }
+
+        .user-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 18px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 2.1rem;
+        }
+
+        .nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #b7b7b7;
+        }
+
+        .nav-link:hover,
+        .nav-active {
+            color: var(--text-color);
+            transition: 0.3s all linear;
+            transform: scale(1.1);
+        }
+
+        .nav-link .bx {
+            font-size: 1.6rem;
+        }
+
+        .nav-link-title {
+            font-size: 0.7rem;
+        }
+
+        .home {
+            position: relative;
+            min-height: 470px;
+            display: flex;
+            align-items: center;
+            margin-top: 5rem !important;
+            border-radius: 0.5rem;
+        }
+
+        .home-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+
+        .home-text {
+            padding-left: 40px;
+        }
+
+        .home-title {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .home-text p {
+            font-size: 0.938rem;
+            margin: 10px 0 20px;
+            color: var(--main-color);
+        }
+
+        .watch-btn {
+            display: flex;
+            align-items: center;
+            column-gap: 0.8rem;
+            color: var(--text-color);
+        }
+
+        .watch-btn .bx {
+            font-size: 21px;
+            background: var(--main-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .watch-btn .bx:hover {
+            background: var(--hover-color);
+        }
+
+        .watch-btn span {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--container-color);
+            padding: 8px 14px;
+            border: 1px solid hsl(200 100% 99% / 5%);
+            margin-bottom: 2rem;
+        }
+
+        .heading-animacao {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(to right, rgb(62, 62, 230) 55%, rgb(20, 20, 227));
+            padding: 8px 14px;
+            border: 1px solid hsl(200 100% 99% / 5%);
+            margin-bottom: 2rem;
+        }
+
+        .heading-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .movie-box {
+            position: relative;
+            width: 100%;
+            height: 380px;
+            overflow: hidden;
+        }
+
+        .movie-box-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .movie-box .box-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 14px;
+            background: linear-gradient(8deg,
+                    hsl(240 17% 14% / 74%) 14%,
+                    hsl(240 17% 14% / 14%) 44%);
+            overflow: hidden;
+        }
+
+        .movie-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .movie-type {
+            font-size: 0.938rem;
+        }
+
+        .play {
+            position: absolute;
+            bottom: 0.8rem;
+            right: 0.8rem;
+
+        }
+
+        .swiper-btn {
+            display: flex;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            position: static !important;
+            margin: 0 0 0 10px !important;
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            color: var(--text-color);
+            font-size: 18px !important;
+            font-weight: 700;
+        }
+
+        .seta {
+            width: 50px;
+        }
+
+        .movies .heading {
+            padding: 10px 14px;
+        }
+
+        .movies-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(247px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .movies-content .movie-box:hover .movie-box-img {
+            transform: scale(1.1);
+            transition: 0.5s;
+        }
+
+
+        /* Estilos da Barra de Pesquisa */
+        .search-box {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        /* Estilos dos Resultados da Pesquisa */
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--container-color);
+            border-radius: 0.5rem;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin-top: 5px;
+            animation: fadeIn 0.3s ease;
+        }
+        /*Não esquecer de passar essa linha para as outras paginas ->*/
+        .search-result-item {
+            padding: 10px 15px;
+            cursor: pointer;
+            color: var(--text-color);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .search-result-item:hover {
+            background: var(--hover-color);
+            transform: translateX(5px);
+            padding-left: 20px;
+        }
+        /*<- Não esquecer de passar essa linha para as outras paginas*/
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Estilo para Mensagem de Não Encontrado */
+        .no-results {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-color);
+            font-style: italic;
+        }
+
+        /* Estilização da Barra de Rolagem */
+        .search-results::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .search-results::-webkit-scrollbar-track {
+            background: var(--container-color);
+            border-radius: 0.5rem;
+        }
+
+        .search-results::-webkit-scrollbar-thumb {
+            background: var(--main-color);
+            border-radius: 0.5rem;
+        }
+
+        .search-results::-webkit-scrollbar-thumb:hover {
+            background: var(--hover-color);
+        }
+
+        /* Container de Resultados Não Encontrados */
+        .no-results-container {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--container-color);
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 500px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .no-results-container .bx-error-circle {
+            font-size: 48px;
+            color: var(--main-color);
+            margin-bottom: 15px;
+        }
+
+        .no-results-title {
+            font-size: 24px;
+            color: var(--text-color);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .no-results-text {
+            font-size: 16px;
+            color: #999;
+            line-height: 1.5;
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsividade */
+        /* Responsividade - Ordem do maior para o menor breakpoint */
+@media (max-width: 1240px) {
+    .navbar {
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: auto;
+        transform: translateY(0);
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding: 10px;
+        border-top: 1px solid hsl(200 100% 99% / 5%);
+        background: linear-gradient(8deg,
+                hsl(240 17% 14% / 100%) 5%,
+                hsl(240 17% 14% / 90%) 100%);
+    }
+
+    .nav-link .bx {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 1060px) {
+    .container {
+        margin: 0 auto;
+        width: 95%;
+    }
+}
+
+@media (max-width: 991px) {
+    .movie-box {
+        height: 340px;
+    }
+
+    .movies-content {
+        grid-template-columns: repeat(auto-fit, minmax(214px, 1fr));
+    }
+}
+
+@media (max-width: 888px) {
+    .nav {
+        padding: 14px 0;
+    }
+
+    .home {
+        min-height: 440px;
+        margin-top: 4rem !important;
+    }
+
+    .home-text {
+        padding-left: 25px;
+    }
+
+    .home-title {
+        font-size: 1.6rem;
+    }
+
+    .watch-btn span {
+        font-size: 0.9rem;
+    }
+
+    .movie-title {
+        font-size: 1rem;
+        padding-right: 30px;
+    }
+
+    .play-container {
+        min-width: 440px;
+        margin-top: 4rem !important;
+    }
+
+    .play-movie {
+        bottom: 14rem;
+        right: 4rem;
+    }
+
+    .cast {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 514px) {
+    .home {
+        min-height: 380px;
+    }
+
+    .heading {
+        padding: 2px 14px;
+        font-size: 1rem;
+        justify-items: center;
+    }
+
+    .play-text {
+        padding: 20px;
+    }
+
+    .play-movie {
+        bottom: 4rem;
+    }
+
+    .video-box {
+        width: 94%;
+    }
+
+    .cast-heading {
+        font-size: 1.1rem;
+    }
+
+    .cast-title {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    * {
+        scroll-padding-top: 5rem;
+    }
+
+    .nav {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        gap: 5px;
+    }
+
+    .search-box {
+        max-width: 100%;
+        width: 100%;
+        border-radius: 4px;
+        order: 3;
+        grid-column: 1 / -1;
+    }
+
+    .home,
+    .play-container {
+        margin-top: 7rem !important;
+    }
+
+    .movie-box {
+        height: 300px;
+    }
+
+    .movies-content {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+        justify-content: center;
+    }
+
+    /* Estilos adicionais para resultados da pesquisa */
+    .search-results {
+        max-height: 250px;
+    }
+
+    .search-result-item {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .no-results-container {
+        max-width: 250px;
+        padding: 20px 10px;
+    }
+}
+
+@media (max-width: 370px) {
+    .home {
+        min-width: 300px;
+    }
+
+    .movie-box {
+        height: 285px;
+    }
+
+    .watch-btn .bx {
+        width: 35px;
+        height: 35px;
+    }
+
+    .navbar {
+        justify-content: space-around;
+        padding: 8px 0;
+    }
+
+    .nav-link .bx {
+        font-size: 1.4rem;
+    }
+
+    .about-movie p {
+        text-align: justify;
+    }
+
+    /* Estilos adicionais para resultados da pesquisa */
+    .search-box input {
+        font-size: 13px;
+    }
+
+    .search-results {
+        max-height: 200px;
+    }
+
+    .search-result-item {
+        padding: 6px 8px;
+        font-size: 12px;
+    }
+
+    .no-results-container {
+        max-width: 200px;
+        padding: 15px 8px;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav container">
+            <a href="pagina principal.html" class="logo">
+                <span>M</span>&<span>M</span>
+            </a>
+
+
+            <div class="search-box">
+                <input type="search" name="" id="search-input" placeholder="Pesquisar um Filme">
+                <i class='bx bx-search'></i>
+
+                <div id="search-results" class="search-results"></div>
+            </div>
+
+            <div class="navbar">
+                <a href="pagina principal.html" class="nav-link nav-active">
+                    <i class='bx bx-home-alt-2'></i>
+                    <span class="nav-link-title">Início</span>
+                </a>
+                <a href="Filmes_Aventura.html" class="nav-link">
+                    <i class='bx bxs-tree'></i>
+                    <span class="nav-link-title">Aventura</span>
+                </a>
+                <a href="Filmes_Acao.html" class="nav-link">
+                    <i class='bx bx-car'></i>
+                    <span class="nav-link-title">Ação</span>
+                </a>
+                <a href="Filmes_Animação.html" class="nav-link">
+                    <i class='bx bx-happy'></i>
+                    <span class="nav-link-title">Animação</span>
+                </a>
+                <a href="Filmes_Comédia.html" class="nav-link">
+                    <i class='bx bx-laugh'></i>
+                    <span class="nav-link-title">Comédia</span>
+                </a>
+                <a href="Filme_Romance.html" class="nav-link">
+                    <i class='bx bx-happy-heart-eyes'></i>
+                    <span class="nav-link-title">Romance</span>
+                </a>
+                <a href="Filme_Terror.html" class="nav-link">
+                    <i class='bx bxs-skull'></i>
+                    <span class="nav-link-title">Terror</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    </div>
+    </section>
+    <br><br>
+    <section class="movies container" id="movies">
+        <div class="heading-animacao">
+            <h2 class="heading-title">Filmes de Animação</h2>
+        </div>
+        <div class="movies-content">
+
+            <div class="movie-box" id="movie-animacao-1">
+                <img src=" src/Filmes_animação/Filmes A Bailarina/A Bailarina - capa do filme animação.png"
+                    alt="Filme A Bailarina" class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">A Bailarina</h2>
+                    <span class="movie-type">Animação</span>
+                    <a href="Animação - A Bailarina.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box" id="movie-animacao-2">
+                <img src="src/Filmes_animação/Filmes A Bela e a Fera/A bela e a fera  - capa do filme animação.png"
+                    alt="Filme A Bela e a Fera" class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">A Bela e a Fera</h2>
+                    <span class="movie-type">Animação</span>
+                    <a href="Animação - A Bela e a Fera.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box" id="movie-animacao-3">
+                <img src="src/Filmes_animação/Filmes A Caminho da Lua/A Caminho da Lua - capa do filme animação2.jpg"
+                    alt="Filme A Caminho da Lua" class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">A Caminho da Lua</h2>
+                    <span class="movie-type">Animação</span>
+                    <a href="Animação - A Caminho da Lua.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box" id="movie-animacao-4">
+                <img src="src/Filmes_animação/Filmes Aladdin/Aladdin  - capa do filme animação.png" alt="Filme Aladdin"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Aladdin</h2>
+                    <span class="movie-type">Animação</span>
+                    <a href="Animação - Aladdin.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box" id="movie-animacao-5">
+                <img src="src/Filmes_animação/Filmes Como Treinar o seu Dragão/Como treinar o seu dragão  - capa do filme animação.png"
+                    alt="Como Treinar o seu Dragão" class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Como Treinar o seu Dragão</h2>
+                    <span class="movie-type">Animação</span>
+                    <a href="Animação - Como Treinar o seu Dragão.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box" id="movie-animacao-6">
+                <img src="src/Filmes_animação/Filmes Coraline/Coraline  - capa do filme animação.png"
+                    alt="Filme Coraline" class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Coraline e o Mundo Secreto</h2>
+                    <span class="movie-type">Animação</span>
+                    <a href="Animação - Coraline.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box" id="movie-animacao-7">
+                <img src="src/Filmes_animação/Filmes Divertidamente/Divertida mente - capa do filme animação.png"
+                    alt="Filme Divertidamente" class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Divertida Mente</h2>
+                    <span class="movie-type">Animação</span>
+                    <a href="Animação - Divertida Mente.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box" id="movie-animacao-8">
+                <img src="src/Filmes_animação/Filmes Enrolados/Enrolados - capa do filme animação.png"
+                    alt="Filme Enrolados" class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Enrolados</h2>
+                    <span class="movie-type">Animação</span>
+                    <a href="Animação - Enrolados.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box" id="movie-animacao-9">
+                <img src="src/Filmes_animação/Filmes Frozen/Frozen - capa do filme animação.png" alt="Filme Frozen"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Frozen: Uma aventura Congelante</h2>
+                    <span class="movie-type">Animação</span>
+                    <a href="Animação - Frozen.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box" id="movie-animacao-10">
+                <img src="src/Filmes_animação/Filmes O Rei leão/O rei leão  - capa do filme animação.png"
+                    alt="Filme O Rei Leão" class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">O Rei Leão</h2>
+                    <span class="movie-type">Animação</span>
+                    <a href="Animação - O Rei Leão.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box" id="movie-animacao-11">
+                <img src="src/Filmes_animação/Filmes Rio/Rio  - capa do filme animação.png" alt="Filme Rio"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Rio</h2>
+                    <span class="movie-type">Animação</span>
+                    <a href="Animação - Rio.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box" id="movie-animacao-12">
+                <img src="src/Filmes_animação/Filmes Shrek/Shrek  - capa do filme animação.png" alt="Filme Shrek"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Shrek</h2>
+                    <span class="movie-type">Animação</span>
+                    <a href="Animação - Shrek.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box" id="movie-animacao-13">
+                <img src="src/Filmes_animação/Filmes Sing/Sing  - capa do filme animação.png" alt="Filme Sing"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Sing: Quem Canta Seus Males Espanta</h2>
+                    <span class="movie-type">Animação</span>
+                    <a href="Animação - Sing.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box" id="movie-animacao-14">
+                <img src="src/Filmes_animação/Filmes Trolls/Trolls  - capa do filme animação.png" alt="Filme Trolls"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Trolls</h2>
+                    <span class="movie-type">Animação</span>
+                    <a href="Animação - Trolls.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box" id="movie-animacao-15">
+                <img src="src/Filmes_animação/Filmes Valente/Valente - capa do filme animação.png" alt="Filme Valente"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Valente</h2>
+                    <span class="movie-type">Animação</span>
+                    <a href="Animação - Valente.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box" id="movie-animacao-16">
+                <img src="src/Filmes_animação/Filmes Viva a Vida é uma festa/Viva a vida é uma festa - capa do filme animação.png"
+                    alt="Filme Viva a Vida é uma Festa" class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Viva a Vida<br>é uma Festa</h2>
+                    <span class="movie-type">Animação</span>
+                    <a href="Animação - Viva.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <br><br>
+    </section>
+    <script src="src/javascript/swiper-bundle.min.js"></script>
+    <script src="src/javascript/Pesquisa.js"></script>
+    <script src="src/javascript/script.js"></script>
+
+</body>
+
+</html>

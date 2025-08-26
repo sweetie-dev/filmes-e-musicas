@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/css/styles.css">
+    <link rel="stylesheet" href="src/css/swiper.min.css">
+    <link rel="stylesheet" href="src/css/style_login e cadastro.css">
+    <link rel="shortcut icon" href="src/imgens_pp/logo_M&M.png" type="imgens_pp">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>M&M - Cadastro</title>
+</head>
+
+<body>
+    <header>
+        <div class="nav container">
+            <a href="pagina principal.html" class="logo">
+                <span>M</span>&<span>M</span>
+            </a>
+
+            <div class="search-box">
+                <input type="search" name="" id="search-input" placeholder="Pesquisar um Filme">
+                <i class='bx bx-search'></i>
+                <div id="search-results" class="search-results"></div>
+            </div>
+            <div class="navbar">
+                <a href="pagina principal.html" class="nav-link nav-active">
+                    <i class='bx bx-home-alt-2'></i>
+                    <span class="nav-link-title">Início</span>
+                </a>
+                <a href="oque_é_M&M.html" class="nav-link">
+                    <i class='bx bx-question-mark'></i>
+                    <span class="nav-link-title">O que é M&M?</span>
+                </a>
+                <a href="avaliação.html" class="nav-link">
+                    <i class='bx bxs-star-half'></i>
+                    <span class="nav-link-title">Avaliações</span>
+                </a>
+                <a href="Pagina_Login e Cadastro.html" class="nav-link">
+                    <i class='bx bx-log-in'></i>
+                    <span class="nav-link-title">Login</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <br><br>
+    <main>
+        <div class="container">
+            <div class="form-container">
+                <div class="form-header">
+                    <h1 class="logo-main">
+                        <span>M</span>&<span>M</span>
+                    </h1>
+                    <p class="subtitle">Seu guia para o mundo do cinema</p>
+                </div>
+                <div class="form-content">
+                    <form id="signup-form">
+                        <h2>Cadastro</h2>
+                        <div class="form-group">
+                            <label for="name">Nome:</label>
+                            <input type="text" id="name" name="name" placeholder="Seu nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="age">Idade:</label>
+                            <input type="number" id="age" name="age" placeholder="Sua idade" required>
+                            <small>Não precisa esconder sua idade!</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" placeholder="Seu email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Senha:</label>
+                            <input type="password" id="password" name="password" placeholder="Sua senha" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="favorite-genre">Escolha o seu gênero de filme preferido:</label>
+                            <select id="favorite-genre" name="favorite-genre" required>
+                                <option value="" disabled selected>Escolha um gênero:</option>
+                                <option value="acao">Ação</option>
+                                <option value="aventura">Aventura</option>
+                                <option value="animacao">Animação</option>
+                                <option value="comedia">Comédia</option>
+                                <option value="romance">Romance</option>
+                                <option value="terror">Terror</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn">Cadastrar</button>
+                    </form>
+                </div>
+                <div class="form-footer">
+                    <p>Já possui uma conta? <a href="Pagina login.html" id="login-link">Entrar</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        const searchInput = document.getElementById('search-input');
+        const searchButton = document.getElementById('search-button');
+        const clearButton = document.getElementById('clear-button');
+        const moviesContent = document.querySelector('.movies-content');
+        const movieBoxes = moviesContent.querySelectorAll('.movie-box');
+
+        // Função para filtrar os filmes
+        function filterMovies() {
+            const query = searchInput.value.toLowerCase();
+
+            movieBoxes.forEach(movieBox => {
+                const movieTitle = movieBox.querySelector('.movie-title').textContent.toLowerCase();
+                if (movieTitle.includes(query)) {
+                    movieBox.style.display = ''; // Mostra o item
+                } else {
+                    movieBox.style.display = 'none'; // Esconde o item
+                }
+            });
+
+            // Verifica se só tem um filme visível
+            const visibleMovieBoxes = moviesContent.querySelectorAll('.movie-box:not([style*="display: none"])');
+            if (visibleMovieBoxes.length === 1) {
+                visibleMovieBoxes[0].classList.add('single');
+            } else {
+                // Remove a classe 'single' de todos os filmes
+                movieBoxes.forEach(movieBox => movieBox.classList.remove('single'));
+            }
+        }
+
+        // Evento de escuta para o campo de pesquisa
+        searchInput.addEventListener('keyup', filterMovies);
+
+        // Evento de escuta para o botão de pesquisa
+        searchButton.addEventListener('click', function () {
+            filterMovies();
+            searchInput.blur(); // Remove o foco do input
+        });
+
+        // Evento de escuta para o botão de limpar
+        clearButton.addEventListener('click', function () {
+            searchInput.value = ''; // Limpa o input
+            filterMovies(); // Atualiza a exibição para mostrar todos os filmes
+            searchInput.focus(); // Coloca o foco no input para o usuário continuar digitando
+        });
+    </script>
+    <script src="src/javascript/soundtrack.js"></script>
+    <script src="src/javascript/swiper-bundle.min.js"></script>
+    <script src="src/javascript/Pesquisa.js"></script>
+    <script src="src/javascript/script.js"></script>
+    <br><br>
+</body>
+
+</html>

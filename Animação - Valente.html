@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valente - Animação - M&M</title>
+    <link rel="stylesheet" href="src/css/swiper.min.css">
+    <link rel="shortcut icon" href="src/imgens_pp/logo_M&M.png" type="imgens_pp">
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            box-sizing: border-box;
+            scroll-padding-top: 2rem;
+        }
+
+        :root {
+            --text-color: #fcfeff;
+            --main-color: rgb(34, 34, 236);
+            --hover-color: rgb(20, 20, 227);
+            --body-color: #121220;
+            --container-color: #171727;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        section {
+            padding: 3rem 0 2rem;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .bx {
+            cursor: pointer;
+        }
+
+        body {
+            background: linear-gradient(#1e1e2a 89%, rgb(20, 20, 227));
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1068px;
+            margin: auto;
+            width: 100%;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--body-color);
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            color: var(--text-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin: 0 auto 0 0;
+        }
+
+        .logo span {
+            color: var(--main-color);
+
+        }
+
+        .search-box {
+            max-width: 240px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            column-gap: 0.7rem;
+            padding: 8px 15px;
+            background: var(--container-color);
+            border-radius: 4rem;
+            margin-right: 1rem;
+        }
+
+        .search-box .bx {
+            font-size: 1.1rem;
+        }
+
+        .search-box .bx:hover {
+            color: var(--main-color);
+        }
+
+        #search-input {
+            width: 100%;
+            border: none;
+            outline: none;
+            color: var(--text-color);
+            background: transparent;
+            font-size: 0.938rem;
+        }
+
+        .user {
+            display: flex;
+        }
+
+        .user-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 18px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 2.1rem;
+        }
+
+        .nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #b7b7b7;
+        }
+
+        .nav-link:hover,
+        .nav-active {
+            color: var(--text-color);
+            transition: 0.3s all linear;
+            transform: scale(1.1);
+        }
+
+        .nav-link .bx {
+            font-size: 1.6rem;
+        }
+
+        .nav-link-title {
+            font-size: 0.7rem;
+        }
+
+        .home {
+            position: relative;
+            min-height: 470px;
+            display: flex;
+            align-items: center;
+            margin-top: 5rem !important;
+            border-radius: 0.5rem;
+        }
+
+        .home-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+
+        .home-text {
+            padding-left: 40px;
+        }
+
+        .home-title {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .home-text p {
+            font-size: 0.938rem;
+            margin: 10px 0 20px;
+            color: var(--main-color);
+        }
+
+        .watch-btn {
+            display: flex;
+            align-items: center;
+            column-gap: 0.8rem;
+            color: var(--text-color);
+        }
+
+        .watch-btn .bx {
+            font-size: 25px;
+            background: var(--main-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .watch-btn .bx:hover {
+            background: var(--hover-color);
+        }
+
+        .watch-btn span {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--container-color);
+            padding: 8px 14px;
+            border: 1px solid hsl(200 100% 99% / 5%);
+            margin-bottom: 2rem;
+        }
+
+        .heading-aventura {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(to right, #3d3dec 55%, #1a1af0);
+            padding: 8px 14px;
+            border: 1px solid hsl(200 100% 99% / 5%);
+            margin-bottom: 2rem;
+        }
+
+        .heading-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .movie-box {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .movie-box-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .movie-box .box-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 14px;
+            background: linear-gradient(8deg,
+                    hsl(240 17% 14% / 74%) 14%,
+                    hsl(240 17% 14% / 14%) 44%);
+            overflow: hidden;
+        }
+
+        .movie-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .movie-type {
+            font-size: 0.938rem;
+        }
+
+        .play {
+            position: absolute;
+            bottom: 0.8rem;
+            right: 0.8rem;
+
+        }
+
+        .swiper-btn {
+            display: flex;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            position: static !important;
+            margin: 0 0 0 10px !important;
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            color: var(--text-color);
+            font-size: 18px !important;
+            font-weight: 700;
+        }
+
+        .seta {
+            width: 50px;
+        }
+
+        .movies .heading {
+            padding: 10px 14px;
+        }
+
+        .movies-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(247px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .movies-content .movie-box:hover .movie-box-img {
+            transform: scale(1.1);
+            transition: 0.5s;
+        }
+
+        .play-container {
+            position: relative;
+            min-height: 540px;
+            margin-top: 5rem !important;
+        }
+
+        .play-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: -1;
+        }
+
+        .play-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px;
+            background: linear-gradient(8deg,
+                    hsl(240 17% 14% / 74%) 14%,
+                    hsl(240 17% 14% / 14%) 44%);
+        }
+
+        .play-text h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            column-gap: 2px;
+            font-size: 1.1rem;
+            color: gold;
+            margin-top: 4px;
+        }
+
+        .tags {
+            display: flex;
+            align-items: center;
+            column-gap: 8px;
+            margin: 1rem 0;
+        }
+
+        .tags span {
+            background: var(--container-color);
+            padding: 0 4px;
+        }
+
+        .play-movie {
+            position: absolute;
+            bottom: 18rem;
+            right: 10rem;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--main-color);
+            font-size: 24px;
+            animation: animate 2s linear infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                box-shadow: 0 0 0 #5F9EA0;
+            }
+
+            40% {
+                box-shadow: 0 0 0 50px rgb(255, 193, 7, 0);
+            }
+
+            80% {
+                box-shadow: 0 0 0 50px rgb(255, 193, 7, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 rgb(255, 193, 7, 0);
+            }
+        }
+
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+            background: hsl(234 10% 20% /60%);
+            z-index: 400;
+        }
+
+        .video-container.show-video {
+            display: flex;
+        }
+
+        .video-box {
+            position: relative;
+            width: 82%;
+        }
+
+        .video-box #myvideo {
+            width: 100%;
+            aspect-ratio: 16/9;
+        }
+
+        .close-video {
+            position: absolute;
+            top: -3;
+            right: 0;
+            font-size: 40px;
+            color: var(--main-color);
+        }
+
+        .about-movie {
+            margin-top: 2rem !important;
+        }
+
+        .about-movie h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--main-color);
+        }
+
+        .about-movie p {
+            max-width: 6000px;
+            font-size: 0.938rem;
+            margin: 10px 0;
+        }
+
+        .cast-heading {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--main-color);
+        }
+
+        .cast {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .cast-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cast-img {
+            width: 150px;
+            height: 180px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .class-img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* Estilo base para o container das plataformas de streaming */
+        .streaming-platforms {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .streaming-platforms a {
+            display: inline-block;
+        }
+
+        .streaming-platforms img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .streaming-platforms img:hover {
+            transform: scale(1.1);
+        }
+
+        /**/
+
+        /* Estilos da Barra de Pesquisa */
+        .search-box {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        /* Estilos dos Resultados da Pesquisa */
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--container-color);
+            border-radius: 0.5rem;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin-top: 5px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .search-result-item {
+            padding: 10px 15px;
+            cursor: pointer;
+            color: var(--text-color);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .search-result-item:hover {
+            background: var(--hover-color);
+            transform: translateX(5px);
+            padding-left: 20px;
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Estilo para Mensagem de Não Encontrado */
+        .no-results {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-color);
+            font-style: italic;
+        }
+
+        /* Estilização da Barra de Rolagem */
+        .search-results::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .search-results::-webkit-scrollbar-track {
+            background: var(--container-color);
+            border-radius: 0.5rem;
+        }
+
+        .search-results::-webkit-scrollbar-thumb {
+            background: var(--main-color);
+            border-radius: 0.5rem;
+        }
+
+        .search-results::-webkit-scrollbar-thumb:hover {
+            background: var(--hover-color);
+        }
+
+        /* Container de Resultados Não Encontrados */
+        .no-results-container {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--container-color);
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 500px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .no-results-container .bx-error-circle {
+            font-size: 48px;
+            color: var(--main-color);
+            margin-bottom: 15px;
+        }
+
+        .no-results-title {
+            font-size: 24px;
+            color: var(--text-color);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .no-results-text {
+            font-size: 16px;
+            color: #999;
+            line-height: 1.5;
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* Responsividade - Ordem do maior para o menor breakpoint */
+        @media (max-width: 1240px) {
+            .navbar {
+                bottom: 0;
+                left: 0;
+                right: 0;
+                top: auto;
+                transform: translateY(0);
+                flex-direction: row;
+                justify-content: space-evenly;
+                padding: 10px;
+                border-top: 1px solid hsl(200 100% 99% / 5%);
+                background: linear-gradient(8deg,
+                        hsl(240 17% 14% / 100%) 5%,
+                        hsl(240 17% 14% / 90%) 100%);
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .search-results {
+                max-height: 400px;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 1060px) {
+            .container {
+                margin: 0 auto;
+                width: 95%;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .search-box {
+                max-width: 280px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+
+            .movie-box {
+                height: 280px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(214px, 1fr));
+            }
+
+            .play-container {
+                margin-top: 5rem !important;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .video-box {
+                width: 90%;
+            }
+
+            .search-results {
+                max-height: 350px;
+            }
+
+            .search-result-item {
+                padding: 10px 15px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 888px) {
+            .nav {
+                padding: 14px 0;
+            }
+
+            .search-box {
+                max-width: 240px;
+            }
+
+            .search-results {
+                max-height: 300px;
+            }
+
+            .play-text {
+                padding: 20px;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .cast {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                padding: 11px 0;
+            }
+
+            .search-box {
+                max-width: 200px;
+            }
+
+            .search-results {
+                max-height: 250px;
+            }
+
+            .search-result-item {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+
+            .no-results-container {
+                max-width: 300px;
+                padding: 25px 15px;
+            }
+
+            .no-results-title {
+                font-size: 18px;
+            }
+
+            .play-text h2 {
+                font-size: 1.4rem;
+            }
+
+            .video-box {
+                width: 95%;
+            }
+
+            .streaming-platforms {
+                gap: 15px;
+            }
+
+            .streaming-platforms img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            }
+
+            .movie-box {
+                height: 260px;
+            }
+        }
+
+        @media (max-width: 514px) {
+            .nav {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto;
+                gap: 5px;
+                padding: 10px;
+            }
+
+            .search-box {
+                max-width: 100%;
+                grid-column: 1 / -1;
+                order: 2;
+            }
+
+            .search-results {
+                max-height: 200px;
+                top: calc(100% + 5px);
+            }
+
+            .play-text {
+                padding: 15px;
+            }
+
+            .play-movie {
+                bottom: 8rem;
+                left: 17rem;
+            }
+
+            .video-box {
+                width: 100%;
+            }
+
+            .streaming-platforms {
+                gap: 10px;
+            }
+
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 1rem;
+            }
+
+            .movie-box {
+                height: 240px;
+            }
+        }
+
+        @media (max-width: 370px) {
+            .search-box input {
+                font-size: 13px;
+            }
+
+            .search-results {
+                max-height: 180px;
+            }
+
+            .search-result-item {
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+
+            .no-results-container {
+                max-width: 200px;
+                padding: 15px 8px;
+            }
+
+            .no-results-title {
+                font-size: 16px;
+            }
+
+            .play-text {
+                padding: 10px;
+            }
+
+            .video-box {
+                height: 180px;
+            }
+
+            .cast-img {
+                width: 100px;
+                height: 130px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav container">
+            <a href="pagina principal.html" class="logo">
+                <span>M</span>&<span>M</span>
+            </a>
+
+            <div class="search-box">
+                <input type="search" name="" id="search-input" placeholder="Pesquisar um Filme">
+                <i class='bx bx-search'></i>
+                <div id="search-results" class="search-results"></div>
+            </div>
+            <div class="navbar">
+                <a href="pagina principal.html" class="nav-link nav-active">
+                    <i class='bx bx-home-alt-2'></i>
+                    <span class="nav-link-title">Início</span>
+                </a>
+                <a href="Filmes_Aventura.html" class="nav-link">
+                    <i class='bx bxs-tree'></i>
+                    <span class="nav-link-title">Aventura</span>
+                </a>
+                <a href="Filmes_Acao.html" class="nav-link">
+                    <i class='bx bx-car'></i>
+                    <span class="nav-link-title">Ação</span>
+                </a>
+                <a href="Filmes_Animação.html" class="nav-link">
+                    <i class='bx bx-happy'></i>
+                    <span class="nav-link-title">Animação</span>
+                </a>
+                <a href="Filmes_Comédia.html" class="nav-link">
+                    <i class='bx bx-laugh'></i>
+                    <span class="nav-link-title">Comédia</span>
+                </a>
+                <a href="Filme_Romance.html" class="nav-link">
+                    <i class='bx bx-happy-heart-eyes'></i>
+                    <span class="nav-link-title">Romance</span>
+                </a>
+                <a href="Filme_Terror.html" class="nav-link">
+                    <i class='bx bxs-skull'></i>
+                    <span class="nav-link-title">Terror</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <br><br>
+    <div class="play-container container">
+        <img src="src/Filmes_animação/Filmes Valente/Valente - banner.jpg" alt="Banner Valente" class="play-img">
+        <div class="play-text">
+            <h2>Valente</h2>
+            <div class="rating">
+                <!--20% - 0%: 1 estrela-->
+                <i class='bx bxs-star'></i>
+                <!--40% - 21%: 2 estrelas-->
+                <i class='bx bxs-star'></i>
+                <!--60% - 41%: 3 estrelas-->
+                <i class='bx bxs-star'></i>
+                <!--80% - 61%: 4 estrelas-->
+                <i class='bx bxs-star'></i>
+                <!--100% - 81%: 5 estrelas-->
+                <i class='bx bx-star'></i>
+            </div>
+            <span>De acordo com os criticos</span>
+            <h3>Titulo original:</h3>
+            <span>Brave</span>
+            <div class="tags">
+                <span>Animação</span>
+                <!--<span>Aventura</span>-->
+                <span>1h 34min</span>
+                <span>20 de julho de 2012</span>
+            </div>
+        </div>
+        <i class='bx bx-right-arrow play-movie'></i>
+        <div class="video-container">
+            <div class="video-box">
+                <video id="myvideo" src="src/Filmes_animação/Filmes Valente/Trailer/Valente_ Trailer(720P_HD).mp4"
+                    controls></video>
+                <i class='bx bx-x-circle close-video'></i>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="about-movie container">
+        <br>
+        <div class="cast">
+
+            <h2 class="cast-heading">Classificação:</h2>
+            <div class="cast">
+                <div class="cast-box">
+                    <img src="src/classificações de idade/classificação livre.png" alt="classificação livre"
+                        class="class-img">
+                </div>
+            </div>
+
+            <div class="cast">
+                <h2 class="cast-heading">Assistir:</h2>
+                <div class="streaming-platforms">
+                    <a target="_blank" href="https://tv.apple.com/br/movie/valente/umc.cmc.a5h7arztcvuj7vdz82lydg5b">
+                        <img src="src/onde ver/Apple TV+.jpg" alt="Apple TV+" class="class-img">
+                    </a>
+                    <a target="_blank"
+                        href="https://www.disneyplus.com/pt-br/movies/valente/ovUp92sPbaSW?msockid=323e658cc557654d02a371f7c1576bd0">
+                        <img src="src/onde ver/Disney+.webp" alt="Disney+" class="class-img">
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <h2>Sinopse:</h2>
+        <p>"Valente" é um filme de animação da Disney Pixar que conta a história de Merida, uma habilidosa arqueira e a
+            impetuosa filha do Rei Fergus e da Rainha Elinor. Determinada a trilhar seu próprio caminho na vida, Merida
+            desafia um antigo costume sagrado e acaba desencadeando o caos no reino. Com a ajuda de uma bruxa
+            misteriosa, ela precisa descobrir o verdadeiro significado da coragem para desfazer uma terrível maldição
+            antes que seja tarde demais. O filme aborda temas de independência, coragem e o valor das relações
+            familiares.</p>
+
+        <h2 class="cast-heading">Direção do Filme</h2>
+        <div class="cast">
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes Valente/Elenco e direção do filme/Mark Andrews.webp"
+                    alt="Mark Andrews responsavel pala direção do filme" class="cast-img">
+                <span class="cast-title">Mark Andrews</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes Valente/Elenco e direção do filme/Brenda Chapman.jpg"
+                    alt="Brenda Chapman responsavel pala direção do filme" class="cast-img">
+                <span class="cast-title">Brenda Chapman</span>
+            </div>
+        </div>
+        <br><br>
+        <!--Merida - Personagem Principal
+            Rei Fergus - Personagem Secundário
+            Rainha Elinor / Urso - Personagem Secundário
+            Os irmãos Harry, Hubert e Hamish / Urso - Personagem Secundário
+            Bruxa - Personagem Secundário
+            Urso Mordu - Personagem Secundário
+            -->
+        <h2 class="cast-heading">Personagens do Filme</h2>
+        <div class="cast">
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes Valente/Elenco e direção do filme/Personagem/Merida.jpg"
+                    alt="Merida - Personagem Principal" class="cast-img">
+                <span class="cast-title">Merida</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes Valente/Elenco e direção do filme/Personagem/Rei Fergus.jpg"
+                    alt="Rei Fergus - Personagem Secundário" class="cast-img">
+                <span class="cast-title">Rei Fergus</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes Valente/Elenco e direção do filme/Personagem/Rainha Elinor.png"
+                    alt="Rainha Elinor - Personagem Secundário" class="cast-img">
+                <span class="cast-title">Rainha Elinor</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes Valente/Elenco e direção do filme/Personagem/Rainha Elinor Urso.jpg"
+                    alt="Rainha Elinor Urso - Personagem Secundário" class="cast-img">
+                <span class="cast-title">Rainha Elinor Urso</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes Valente/Elenco e direção do filme/Personagem/Harry, Hubert e Hamish.jpg"
+                    alt="Os Irmãos Harry, Hubert e Hamish  - Personagem Secundário" class="cast-img">
+                <span class="cast-title">Os Irmãos Harry,<BR>Hubert e Hamish</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes Valente/Elenco e direção do filme/Personagem/Harry, Hubert e Hamish Urso.png"
+                    alt="Os Irmãos Harry, Hubert e Hamish Urso - Personagem Secundário" class="cast-img">
+                <span class="cast-title">Os Irmãos Harry,<BR>Hubert e Hamish Urso</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes Valente/Elenco e direção do filme/Personagem/Bruxa.jpg"
+                    alt="Bruxa - Personagem Secundário" class="cast-img">
+                <span class="cast-title">Bruxa</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes Valente/Elenco e direção do filme/Personagem/Urso Mordu.png"
+                    alt="Urso Mordu - Personagem Secundário" class="cast-img">
+                <span class="cast-title">Urso Mordu</span>
+            </div>
+        </div>
+        <br><br>
+
+        <h2 class="cast-heading">Direção da Trilha Sonora</h2>
+        <div class="cast">
+            <div class="cast-box">
+                <img src="src/Filmes_animação/Filmes Valente/Elenco e direção do filme/Patrick Doyle.jpg"
+                    alt="Patrick Doyle responsável pela Trilha sonora" class="cast-img">
+                <span class="cast-title">Patrick Doyle</span>
+            </div>
+        </div>
+        <br><br>
+        <br><br>
+        <!--
+
+Trilha Sonora
+01 - O Céu eu Vou Tocar
+02 - Into the Open Air
+03 - Learn Me Right
+04 - Fate and Destiny
+05 - The Games
+06 - I Am Merida
+07 - Remember to Smile
+08 - Merida Rides Away
+09 - The Witch's Cottage
+10 - Canção de Mor'du
+11 - hrough the Castle
+12 - Legends are Lessons
+13 - Show Us the Way
+14 - Mum Goes Wild
+15 - In Her Heart
+16 - Noble Maiden Fair (A Mhaighdean Bhan Uasal)
+17 - Not Now!
+18 - Get the Key
+19 - We've Both Changed
+20 - Merida's Home
+-->
+        <h2 class="cast-heading">Trilha Sonora do Filme</h2>
+        <div class="movies-content">
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Valente/Valente img.jpg"
+                    alt="Música 1 - O Céu eu Vou Tocar (Valente)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">O Céu eu Vou Tocar</span>
+                    <span class="movie-type">Valente</span>
+                    <a target="_blank" href="https://youtu.be/3CxrqVlM0OY?si=oOSugIPXlhl8QyhQ" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Valente/Valente img.jpg"
+                    alt="Música 2 - Into the Open Air (Valente)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Into the Open Air</span>
+                    <span class="movie-type">Valente</span>
+                    <a target="_blank" href="https://youtu.be/KxdbiKxsprI?si=xC0K0VkEgamshwKU" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Valente/Valente img.jpg" alt="Música 3 - Learn Me Right (Valente)"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Learn Me Right</span>
+                    <span class="movie-type">Valente</span>
+                    <a target="_blank" href="https://youtu.be/XZXoiL89m_Q?si=rQBfSOfV8U9j0axY" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Valente/Valente img.jpg"
+                    alt="Música 4 - Fate and Destiny (Valente)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Fate and Destiny</span>
+                    <span class="movie-type">Valente</span>
+                    <a target="_blank" href="https://youtu.be/QjpTGEwUQk8?si=nHJ7YWTk392i9vbp" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Valente/Valente img.jpg" alt="Música 5 - The Games (Valente)"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">The Games</span>
+                    <span class="movie-type">Valente</span>
+                    <a target="_blank" href="https://youtu.be/f38xLU5IqHs?si=5w1Un_yXyKeQpLf3" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Valente/Valente img.jpg" alt="Música 6 - I Am Merida (Valente)"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">I Am Merida</span>
+                    <span class="movie-type">Valente</span>
+                    <a target="_blank" href="https://youtu.be/ZLsnxBj-IeE?si=wY_dT881ZpARbV0x" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Valente/Valente img.jpg"
+                    alt="Música 7 - Remember to Smile (Valente)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Remember to Smile</span>
+                    <span class="movie-type">Valente</span>
+                    <a target="_blank" href="https://youtu.be/jdVM2VlCT7k?si=fTHJ7ECvMUk34DOH" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Valente/Valente img.jpg"
+                    alt="Música 8 - Merida Rides Away (Valente)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Merida Rides Away</span>
+                    <span class="movie-type">Valente</span>
+                    <a target="_blank" href="https://youtu.be/ZkiJWy3IzL4?si=G5SQgCG156s4kx2e" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Valente/Valente img.jpg"
+                    alt="Música 9 - The Witch's Cottage (Valente)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">The Witch's Cottage</span>
+                    <span class="movie-type">Valente</span>
+                    <a target="_blank" href="https://youtu.be/BVokuHOOReY?si=HK_TI4Tj1WUQerC5" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Valente/Valente img.jpg"
+                    alt="Música 10 - Canção de Mor'du (Valente)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Canção de Mor'du</span>
+                    <span class="movie-type">Valente</span>
+                    <a target="_blank" href="https://youtu.be/52XSx6fJcbE?si=gAhQFkeyk_I54X1a" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Valente/Valente img.jpg"
+                    alt="Música 11 - Through the Castle (Valente)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Through the Castle</span>
+                    <span class="movie-type">Valente</span>
+                    <a target="_blank" href="https://youtu.be/ztoLEvOsR2Y?si=i8dX8p0h-pJ1nEo0" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Valente/Valente img.jpg"
+                    alt="Música 12 - Legends are Lessons (Valente)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Legends are Lessons</span>
+                    <span class="movie-type">Valente</span>
+                    <a target="_blank" href="https://youtu.be/5Tfsth-kbfg?si=sicLr3ecBYU4dxkH" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Valente/Valente img.jpg"
+                    alt="Música 13 - Show Us the Way (Valente)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Show Us the Way</span>
+                    <span class="movie-type">Valente</span>
+                    <a target="_blank" href="https://youtu.be/m4x3yJKD9bE?si=R2S9-qe7-naZ1Y0d" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Valente/Valente img.jpg" alt="Música 14 - Mum Goes Wild (Valente)"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Mum Goes Wild</span>
+                    <span class="movie-type">Valente</span>
+                    <a target="_blank" href="https://youtu.be/73gup7XpDBo?si=gAMGrw4ueN0fRMmX" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Valente/Valente img.jpg" alt="Música 15 - In Her Heart (Valente)"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">In Her Heart</span>
+                    <span class="movie-type">Valente</span>
+                    <a target="_blank" href="https://youtu.be/0GvHjl818hw?si=aVP15sOVlXgZgsqf" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Valente/Valente img.jpg"
+                    alt="Música 16 - Noble Maiden Fair (Valente)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Noble Maiden Fair</span>
+                    <span class="movie-type">Valente</span>
+                    <a target="_blank" href="https://youtu.be/wqOmlipOGe0?si=IoKeWr3HqtrEbvTb" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Valente/Valente img.jpg" alt="Música 17 - Not Now! (Valente)"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Not Now!</span>
+                    <span class="movie-type">Valente</span>
+                    <a target="_blank" href="https://youtu.be/8mNciMrzqkQ?si=bsEPNzBoUR0XFpDM" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Valente/Valente img.jpg" alt="Música 18 - Get the Key (Valente)"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Get the Key</span>
+                    <span class="movie-type">Valente</span>
+                    <a target="_blank" href="https://youtu.be/Eq7_3pddtZ8?si=BDFm2TqZaM7E9W5D" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Valente/Valente img.jpg"
+                    alt="Música 19 - We've Both Changed (Valente)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">We've Both Changed</span>
+                    <span class="movie-type">Valente</span>
+                    <a target="_blank" href="https://youtu.be/TQ1AEs77Jl4?si=5Ayrg7GNysq-40M0" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_animação/Filmes Valente/Valente img.jpg" alt="Música 20 - Merida's Home (Valente)"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Merida's Home</span>
+                    <span class="movie-type">Valente</span>
+                    <a target="_blank" href="https://youtu.be/TQ1AEs77Jl4?si=YvoH4AAznGenE1vk" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <br><br><br>
+    <script src="src/javascript/soundtrack.js"></script>
+    <script src="src/javascript/swiper-bundle.min.js"></script>
+    <script src="src/javascript/Pesquisa.js"></script>
+    <script src="src/javascript/script.js"></script>
+</body>
+
+</html>

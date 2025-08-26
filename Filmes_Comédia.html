@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pagina principal</title>
+    <link rel="stylesheet" href="src/css/swiper.min.css">
+    <link rel="shortcut icon" href="src/imgens_pp/logo_M&M.png" type="imgens_pp">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            box-sizing: border-box;
+            scroll-padding-top: 2rem;
+        }
+
+        :root {
+            --text-color: WHITE;
+            --main-color: rgb(139, 94, 12);
+            --hover-color: rgb(205, 150, 47);
+            --body-color: #b98016;
+            --container-color: #171727;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        section {
+            padding: 3rem 0 2rem;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .bx {
+            cursor: pointer;
+        }
+
+        body {
+            background: linear-gradient(rgb(104, 71, 8) 89%, YELLOW );
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1068px;
+            margin: auto;
+            width: 100%;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--body-color);
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            color: var(--text-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin: 0 auto 0 0;
+        }
+
+        .logo span {
+            color: var(--main-color);
+
+        }
+
+        .search-box {
+            max-width: 240px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            column-gap: 0.7rem;
+            padding: 8px 15px;
+            background: var(--container-color);
+            border-radius: 4rem;
+            margin-right: 1rem;
+        }
+
+        .search-box .bx {
+            font-size: 1.1rem;
+        }
+
+        .search-box .bx:hover {
+            color: var(--main-color);
+        }
+
+        #search-input {
+            width: 100%;
+            border: none;
+            outline: none;
+            color: var(--text-color);
+            background: transparent;
+            font-size: 0.938rem;
+        }
+
+                /* Estilos da Barra de Pesquisa */
+                .search-box {
+                    position: relative;
+                    width: 100%;
+                    max-width: 300px;
+                }
+        
+                /* Estilos dos Resultados da Pesquisa */
+                .search-results {
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    right: 0;
+                    background: var(--container-color);
+                    border-radius: 0.5rem;
+                    max-height: 300px;
+                    overflow-y: auto;
+                    z-index: 1000;
+                    display: none;
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+                    margin-top: 5px;
+                    animation: fadeIn 0.3s ease;
+                }
+        
+                .search-result-item {
+                    padding: 10px 15px;
+                    cursor: pointer;
+                    color: var(--text-color);
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                    transition: all 0.3s ease-in-out;
+                }
+        
+                .search-result-item:hover {
+                    background: var(--hover-color);
+                    transform: translateX(5px);
+                    padding-left: 20px;
+                }
+        
+                .search-result-item:last-child {
+                    border-bottom: none;
+                }
+        
+                /* Estilo para Mensagem de Não Encontrado */
+                .no-results {
+                    text-align: center;
+                    padding: 20px;
+                    color: var(--text-color);
+                    font-style: italic;
+                }
+        
+                /* Estilização da Barra de Rolagem */
+                .search-results::-webkit-scrollbar {
+                    width: 8px;
+                }
+        
+                .search-results::-webkit-scrollbar-track {
+                    background: var(--container-color);
+                    border-radius: 0.5rem;
+                }
+        
+                .search-results::-webkit-scrollbar-thumb {
+                    background: var(--main-color);
+                    border-radius: 0.5rem;
+                }
+        
+                .search-results::-webkit-scrollbar-thumb:hover {
+                    background: var(--hover-color);
+                }
+        
+                /* Container de Resultados Não Encontrados */
+                .no-results-container {
+                    text-align: center;
+                    padding: 40px 20px;
+                    background: var(--container-color);
+                    border-radius: 10px;
+                    margin: 20px auto;
+                    max-width: 500px;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                    animation: fadeIn 0.5s ease-in-out;
+                }
+        
+                .no-results-container .bx-error-circle {
+                    font-size: 48px;
+                    color: var(--main-color);
+                    margin-bottom: 15px;
+                }
+        
+                .no-results-title {
+                    font-size: 24px;
+                    color: var(--text-color);
+                    margin-bottom: 10px;
+                    font-weight: 600;
+                }
+        
+                .no-results-text {
+                    font-size: 16px;
+                    color: #999;
+                    line-height: 1.5;
+                }
+        
+
+        .user {
+            display: flex;
+        }
+
+        .user-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 18px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 2.1rem;
+        }
+
+        .nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #b7b7b7;
+        }
+
+        .nav-link:hover,
+        .nav-active {
+            color: var(--text-color);
+            transition: 0.3s all linear;
+            transform: scale(1.1);
+        }
+
+        .nav-link .bx {
+            font-size: 1.6rem;
+        }
+
+        .nav-link-title {
+            font-size: 0.7rem;
+        }
+
+        .home {
+            position: relative;
+            min-height: 470px;
+            display: flex;
+            align-items: center;
+            margin-top: 5rem !important;
+            border-radius: 0.5rem;
+        }
+
+        .home-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+
+        .home-text {
+            padding-left: 40px;
+        }
+
+        .home-title {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .home-text p {
+            font-size: 0.938rem;
+            margin: 10px 0 20px;
+            color: var(--main-color);
+        }
+
+        .watch-btn {
+            display: flex;
+            align-items: center;
+            column-gap: 0.8rem;
+            color: var(--text-color);
+        }
+
+        .watch-btn .bx {
+            font-size: 21px;
+            background: var(--main-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .watch-btn .bx:hover {
+            background: var(--hover-color);
+        }
+
+        .watch-btn span {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--container-color);
+            padding: 8px 14px;
+            border: 1px solid hsl(200 100% 99% / 5%);
+            margin-bottom: 2rem;
+        }
+
+        .heading-comedia {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(  TO right, rgb(139, 94, 12) 55%, ORANGE);
+            padding: 8px 14px;
+            border: 1px solid hsl(200 100% 99% / 5%);
+            margin-bottom: 2rem;
+        }
+
+        .heading-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .movie-box {
+            position: relative;
+            width: 100%;
+            height: 380px;
+            overflow: hidden;
+        }
+
+        .movie-box-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .movie-box .box-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 14px;
+            background: linear-gradient(8deg,
+                    hsl(240 17% 14% / 74%) 14%,
+                    hsl(240 17% 14% / 14%) 44%);
+            overflow: hidden;
+        }
+
+        .movie-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .movie-type {
+            font-size: 0.938rem;
+        }
+
+        .play {
+            position: absolute;
+            bottom: 0.8rem;
+            right: 0.8rem;
+
+        }
+
+        .swiper-btn {
+            display: flex;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            position: static !important;
+            margin: 0 0 0 10px !important;
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            color: var(--text-color);
+            font-size: 18px !important;
+            font-weight: 700;
+        }
+
+        .seta {
+            width: 50px;
+        }
+
+        .movies .heading {
+            padding: 10px 14px;
+        }
+
+        .movies-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(247px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .movies-content .movie-box:hover .movie-box-img {
+            transform: scale(1.1);
+            transition: 0.5s;
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 20px;
+
+        }
+
+        @media (max-width: 991px) {
+            .movie-box {
+                height: 340px;
+            }
+
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(214px, 1fr));
+            }
+
+        }
+
+        @media (max-width: 888px) {
+            .nav {
+                padding: 14px 0;
+            }
+
+            .home {
+                min-height: 440px;
+                margin-top: 4rem !important;
+            }
+
+            .home-text {
+                padding-left: 25px;
+            }
+
+            .home-title {
+                font-size: 1.6rem;
+            }
+
+            .watch-btn span {
+                font-size: 0.9rem;
+            }
+
+            .movie-title {
+                font-size: 1rem;
+                padding-right: 30px;
+            }
+
+            .play-container {
+                min-width: 440px;
+                margin-top: 4rem !important;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .cast {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 1240px) {
+            .navbar {
+                bottom: 0;
+                left: 0;
+                right: 0;
+                top: auto;
+                transform: translateY(0);
+                flex-direction: row;
+                justify-content: space-evenly;
+                row-gap: 1px;
+                padding: 10px;
+                border-top: 1px solid hsl(200 100% 99% / 5%);
+                background: linear-gradient(8deg,
+                        hsl(240 17% 14% / 100%) 5%,
+                        hsl(240 17% 14% / 90%) 100%);
+            }
+
+            .nav-link .bx {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 1060px) {
+            .container {
+                margin: 0 auto;
+                width: 95%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                padding: 11px 0;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .section {
+                padding: 2rem 0;
+            }
+
+            .home-img {
+                object-position: left;
+            }
+
+            .movie-type {
+                font-size: 0.875rem;
+                margin-top: 2px;
+            }
+
+            .tags span,
+            .about-movie p {
+                font-size: 0.875rem;
+            }
+
+            p {
+                font-size: 0.875rem;
+            }
+
+            .play-text h2,
+            .about-movie h2 {
+                font-size: 1.3rem;
+            }
+
+            .play-movie {
+                bottom: 10rem;
+                right: 2rem;
+            }
+        }
+
+        @media (max-width: 514px) {
+            .home {
+                min-height: 380px;
+            }
+
+            .heading {
+                padding: 2px 14px;
+
+            }
+
+            .heading {
+                font-size: 1rem;
+
+            }
+
+            .play-text {
+                padding: 20px
+            }
+
+            .play-movie {
+                bottom: 4rem;
+            }
+
+            .video-box {
+                width: 94%;
+            }
+
+            .cast-heading {
+                font-size: 1.1rem;
+            }
+
+            .cast-title {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            * {
+                scroll-padding-top: 5rem;
+            }
+
+            .nav {
+                display: grid;
+                grid-auto-columns: 1fr;
+                grid-template-rows: 1fr 1fr;
+                row-gap: 5px;
+            }
+
+            .search-box {
+                max-width: 100%;
+                width: 100%;
+                border-radius: 4px;
+                order: 3px;
+                grid-column-start: 1;
+                grid-column-end: 3;
+            }
+
+            .home,
+            .play-container {
+                margin-top: 7rem !important;
+            }
+
+            .movie-box {
+                height: 300px;
+            }
+
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 370px) {
+            .home {
+                min-width: 300px;
+            }
+
+            .movie-box {
+                height: 285px;
+            }
+
+            .watch-btn .br {
+                width: 35px;
+                height: 35px;
+            }
+
+            .navbar {
+                justify-content: space-around;
+                padding: 8px 0;
+            }
+
+            .nav-link .bx {
+                font-size: 1.4rem;
+            }
+
+            .about-movie p {
+                text-align: justify;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav container">
+            <a href="pagina principal.html" class="logo">
+                <span>M</span>&<span>M</span>
+            </a>
+
+            <div class="search-box">
+                <input type="search" name="" id="search-input" placeholder="Pesquisar um Filme">
+                <i class='bx bx-search'></i>
+                <div id="search-results" class="search-results"></div>
+            </div>
+            <div class="navbar">
+                <a href="pagina principal.html" class="nav-link nav-active">
+                    <i class='bx bx-home-alt-2'></i>
+                    <span class="nav-link-title">Início</span>
+                </a>
+                <a href="Filmes_Aventura.html" class="nav-link">
+                    <i class='bx bxs-tree'></i>
+                    <span class="nav-link-title">Aventura</span>
+                </a>
+                <a href="Filmes_Acao.html" class="nav-link">
+                    <i class='bx bx-car'></i>
+                    <span class="nav-link-title">Ação</span>
+                </a>
+                <a href="Filmes_Animação.html" class="nav-link">
+                    <i class='bx bx-happy'></i>
+                    <span class="nav-link-title">Animação</span>
+                </a>
+                <a href="Filmes_Comédia.html" class="nav-link">
+                    <i class='bx bx-laugh'></i>
+                    <span class="nav-link-title">Comédia</span>
+                </a>
+                <a href="Filme_Romance.html" class="nav-link">
+                    <i class='bx bx-happy-heart-eyes'></i>
+                    <span class="nav-link-title">Romance</span>
+                </a>
+                <a href="Filme_Terror.html" class="nav-link">
+                    <i class='bx bxs-skull'></i>
+                    <span class="nav-link-title">Terror</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    </div>
+    </section>
+    <br><br><br>
+    <section class="movies container" id="movies">
+        <div class="heading-comedia">
+            <h2 class="heading-title">Filmes de Comédia</h2>
+        </div>
+        <div class="movies-content">
+            <div class="movie-box">
+                <img src="src/Filmes_comédia/filme 17 outra vez/17 outra vez - capa filme comédia.png" alt="filme 17 outra vez "
+                    class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">17 outra vez </h2>
+                    <span class="movie-type">comédia</span>
+                    <a href="17_outra_vez_Comédia.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_comédia/filme A fantastica fábrica de chocolate/A fantástica fábrica de chocolate - capa filme comédia.png"
+                    alt="filme A fantástica fábrica de chocolate" class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">A fantástica fábrica<br>de chocolate</h2>
+                    <span class="movie-type">comédia</span>
+                    <a href="A_fantastica_fabrica_de_chocolate_Comédia.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i> 
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_comédia/filme As branquelas/As branquelas - capa filme comédia.png" class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">As branquelas</h2>
+                    <span class="movie-type">Comédia</span>
+                    <a href="As_branquelas_Comédia.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_comédia/filme Barbie/Barbie - capa do filme comédia.png" class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Barbie</h2>
+                    <span class="movie-type">Comédia</span>
+                    <a href="Barbie_Comédia.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i> 
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_comédia/filme fala sério mãe/Fala sério mãe - capa do filme comédia.png" alt="filme Fala sério mãe"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Fala sério mãe</h2>
+                    <span class="movie-type">Comédia</span>
+                    <a href="Fala_serio_mae_Comédia.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i> 
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_comédia/filme Encantada/Encantada - capa do filme comédia.png" alt="filme dracula"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Encantada</h2>
+                    <span class="movie-type">Comédia</span>
+                    <a href="Encantada_Comédia.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i> 
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_comédia/filme Meninas Malvadas/Meninas Malvadas - capa do filme comédia.png" alt="filme Meninas Malvadas"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Meninas Malvadas</h2>
+                    <span class="movie-type">Comédia</span>
+                    <a href="Meninas_malvadas_Comédia.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i> 
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_comédia/filme minha mãe é uma peça/MInha mãe é uma peça - capa do filme comédia.png"
+                    alt="filme Minha mãe é uma peça" class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title"> Minha mãe é uma peça </h2>
+                    <span class="movie-type">Comédia</span>
+                    <a href="Minha_mae_e_uma_peca_Comédia.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i> 
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_comédia/filme Os batutinhas/Os Batutinhas  - capa do filme comédia.png" alt="filme Os batutinhas"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Os batutinhas</h2>
+                    <span class="movie-type">Animação</span>
+                    <a href="Os_batutinhas_Comédia.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i> 
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_comédia/filme Os caça fantasmas/Os caça fantasmas - capa do filme comédia.png" alt="filme Percy jackson"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Os caça fantasmas</h2>
+                    <span class="movie-type">Comédia</span>
+                    <a href="Os_caca_fantasmas_Comédia.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i> 
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_comédia/filme Se beber não case/Se beber não case - capa do filme comédia.png" alt="filme Se beber não case "
+                    class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Se beber não case</h2>
+                    <span class="movie-type">Comédia</span>
+                    <a href="Se_beber_nao_case_Comédia.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i> 
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_comédia/filme Todo poderoso/Todo poderoso - capa do filme comédia.png" alt="filme Peter Pan"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Todo poderoso </h2>
+                    <span class="movie-type">Comédia</span>
+                    <a href="Todo_poderoso_Comédia.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i> 
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_comédia/filme Tudo por um pop star/Tudo por um pop star - capa do filme comédia.png" alt="filme Tudo por um pop star"
+                    class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Tudo por um pop star</h2>
+                    <span class="movie-type">Comédia</span>
+                    <a href="Tudo_por_um_pop_star_Comédia.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i> 
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_comédia/filme Um faz de conta que acontece/Um faz de conta que acontece - capa do filme comédia.png" alt="filme Um faz de conta que acontece "
+                    class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Um faz de conta que acontece </h2>
+                    <span class="movie-type">Comédia</span>
+                    <a href="Um_faz_de_conta_que_acontece_Comédia.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i> 
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_comédia/Cinderela Pop/Cinderela pop  - trilha sonora.jpg"
+                    alt="filme O Predador" class="movie-box-img">
+                <div class="box-text">
+                    <h2 class="movie-title">Cinderela Pop</h2>
+                    <span class="movie-type">Comédia</span>
+                    <a href="Cinderela_pop.html" class="watch-btn play">
+                        <i class='bx bx-right-arrow'></i> 
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <br><br>
+
+    <script src="src/javascript/soundtrack.js"></script>
+    <script src="src/javascript/swiper-bundle.min.js"></script>
+    <script src="src/javascript/Pesquisa.js"></script>
+    <script src="src/javascript/script.js"></script>
+</body>
+</html>

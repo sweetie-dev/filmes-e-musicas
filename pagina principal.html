@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pagina principal</title>
+    <link rel="stylesheet" href="src/css/styles.css">
+    <link rel="stylesheet" href="src/css/swiper.min.css">
+    <link rel="shortcut icon" href="src/imgens_pp/logo_M&M.png" type="image/png">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <header>
+        <div class="nav container">
+            <a href="pagina principal.html" class="logo">
+                <span>M</span>&<span>M</span>
+            </a>
+
+            <div class="search-box">
+                <input type="search" name="search" id="search-input" placeholder="Pesquisar um Filme" aria-label="Pesquisar um Filme">
+                <i class='bx bx-search'></i>
+                <div id="search-results" class="search-results"></div>
+            </div>
+            <div class="navbar">
+                <a href="pagina principal.html" class="nav-link nav-active" aria-current="page">
+                    <i class='bx bx-home-alt-2'></i>
+                    <span class="nav-link-title">Início</span>
+                </a>
+                <a href="oque_é_M&M.html" class="nav-link">
+                    <i class='bx bx-question-mark'></i>
+                    <span class="nav-link-title">Oque é M&M?</span>
+                </a>
+                <a href="avaliação.html" class="nav-link">
+                    <i class='bx bxs-star-half'></i>
+                    <span class="nav-link-title">Avaliações</span>
+                </a>
+                <a href="Pagina_Login e Cadastro.html" class="nav-link">
+                    <i class='bx bx-log-in'></i>
+                    <span class="nav-link-title">Login</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <section class="home container" id="home">
+        <img src="src/imgens_pp/banner da pagina inicial.png" alt="" class="home-img">
+        <div class="home-text">
+                <div class="card">
+                <div class="loader">
+                    <div class="words">
+                        <span class="word">Animação</span>
+                        <span class="word">Aventura</span>
+                        <span class="word">Terror</span>
+                        <span class="word">Romance</span>
+                        <span class="word">Ação</span>
+                    </div>
+                </div>
+            </div>
+            <p>Encontre aqui sua trilha sonora favorita!</p>
+        </div>
+    </section>
+    <section class="popular container" id="popular">
+        <div class="heading">
+            <h2 class="heading-title">Top 10 Filmes Populares</h2>
+            <div class="swiper-btn">
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+        <div class="popular-content swiper">
+            <div class="swiper-wrapper">
+                <!--Caixa de filme 1-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="src/Filmes_Aventura/Filme zathura/Zathura  - capa do filme aventura.png" alt="filme Zathura"
+                            class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title"> Zathura</h2>
+                            <span class="movie-type">Aventura</span>
+                            <a href="Zathura_Aventura.html" class="watch-btn ">
+                                <i class='bx bx-right-arrow'></i><span>Assistir Trailer</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--Caixa de filme 2-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="src/Filmes_ação/FILME FURIOSA MAD MAX/Furiosa mad max - capa do filme ação.png" alt="filme Furiosa mad max"
+                            class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title"> Furiosa Mad Max</h2>
+                            <span class="movie-type">Ação</span>
+                            <a href="Ação_Furiosa_Mad_Max.html" class="watch-btn ">
+                                <i class='bx bx-right-arrow'></i><span>Assistir Trailer</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--Caixa de filme 3-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="src/Filmes_terror/filme A freira/A freira - capa do filme terror.png" alt="filme A freira"
+                            class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title"> A Freira</h2>
+                            <span class="movie-type">Terror</span>
+                            <a href="A_freira_Terror.html" class="watch-btn ">
+                                <i class='bx bx-right-arrow'></i><span>Saiba mais</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--Caixa de filme 4-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="src/Filmes_comédia/filme As branquelas/As branquelas - capa filme comédia.png" alt="filme As branquelas"
+                            class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">As branquelas</h2>
+                            <span class="movie-type">Comédida</span>
+                            <a href="As_branquelas_Comédia.html" class="watch-btn ">
+                                <i class='bx bx-right-arrow'></i><span>Saiba mais</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--Caixa de filme 5-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="src/Filmes Romance/Filmes Titanic/Titanic - capa do filme romance.png" alt="filme Titanic"
+                            class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">Titanic</h2>
+                            <span class="movie-type">Romance</span>
+                            <a href="Romance - Titanic.html" class="watch-btn">
+                                <i class='bx bx-right-arrow'></i><span>Saiba mais</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--Caixa de filme 6-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="src/Filmes_animação/Filmes Coraline/Coraline  - capa do filme animação.png" alt="filme Coraline"
+                            class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">Coraline</h2>
+                            <span class="movie-type">Animação</span>
+                            <a href="Animação - Coraline.html" class="watch-btn ">
+                                <i class='bx bx-right-arrow'></i><span>Saiba mais</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--Caixa de filme 7-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="src/Filmes_comédia/filme Barbie/Barbie - capa do filme comédia.png" alt="filme Zathura"
+                            class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">Barbie</h2>
+                            <span class="movie-type">Comédia</span>
+                            <a href="Barbie_Comédia.html" class="watch-btn ">
+                                <i class='bx bx-right-arrow'></i><span>Saiba mais</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--Caixa de filme 8-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="src/Filmes Romance/Filmes A Culpa e das Estrelas/A culpa e das estrelas - capa do filme romance.png"
+                            alt="filme A culpa é das estrelas" class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">A culpa é das estrelas</h2>
+                            <span class="movie-type">Romance</span>
+                            <a href="Romance - A Culpa e das Estrelas.html" class="watch-btn">
+                                <i class='bx bx-right-arrow'></i><span>Saiba mais</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--Caixa de filme 9-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="src/Filmes_animação/Filmes Rio/Rio  - capa do filme animação.png" alt="filme Rio"
+                            class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">Rio</h2>
+                            <span class="movie-type">Animação</span>
+                            <a href="Animação - Rio.html" class="watch-btn">
+                                <i class='bx bx-right-arrow'></i><span>Saiba mais</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--Caixa de filme 10-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="src/Filmes Romance/Filmes La La Land/La la land cantando estações - capa do filme romance.png"
+                            alt="filme LA LA LAND" class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">LA LA LAND Cantando estações</h2>
+                            <span class="movie-type">Romance</span>
+                            <a href="LA_LA_LAND_romance" class="watch-btn">
+                                <i class='bx bx-right-arrow'></i><span>Saiba mais</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <!--inicio dos generos-->
+
+    </section>
+    <section class="movies container" id="movies">
+        <div class="heading-aventura">
+            <h2 class="heading-title">Filmes de Aventura</h2>
+            <a href="Filmes_Aventura.html"><img class="seta" src="src/imgens_pp/seta_para_direita.png" alt="Seta para direita">
+            </a>
+        </div>
+        <div class="popular-content swiper">
+            <div class="swiper-wrapper">
+                <!--Caixa de filme 1-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="src/Filmes_Aventura/Filme A cidade perdida/A cidade perdida - capa do filme aventura.png"
+                            alt="filme A cidade perdida" class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">A cidade perdida</h2>
+                            <span class="movie-type">Aventura</span>
+                            <a href="A_cidade_perdida_Aventura.html" class="watch-btn">
+                                <i class='bx bx-right-arrow'></i><span>Saiba mais</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--Caixa de filme 2-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="src/Filmes_Aventura/Filme A lenda de Tarzan/A lenda de Tarzan  - capa do filme aventura.png"
+                            alt="filme A Lenda de Tarzan" class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">A Lenda de Tarzan</h2>
+                            <span class="movie-type">Aventura</span>
+                            <a href="A_lenda_de_tarzan_Aventura.html" class="watch-btn">
+                                <i class='bx bx-right-arrow'></i><span>Saiba mais</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--Caixa de filme 3-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="src/Filmes_Aventura/filme a mumia/A múmia - capa do filme aventura.png" alt="filme A múmia"
+                            class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">A múmia</h2>
+                            <span class="movie-type">Aventura</span>
+                            <a href="A_múmia_Aventura.html" class="watch-btn">
+                                <i class='bx bx-right-arrow'></i><span>Saiba mais</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--Caixa de filme 4-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="src/Filmes_Aventura/Filme a viaajem2/A viagem - capa do filme aventura.png" alt="filme A viagem"
+                            class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">A Viagem</h2>
+                            <span class="movie-type">Aventura</span>
+                            <a href="A_viagem_2.html" class="watch-btn">
+                                <i class='bx bx-right-arrow'></i><span>Saiba mais</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <section class="movies container" id="movies">
+        <div class="heading-acao">
+            <h2 class="heading-title">Filmes de Ação</h2>
+            <a href="Filmes_Acao.html"><img class="seta" src="src/imgens_pp/seta_para_direita.png" alt="Seta para direita">
+            </a>
+        </div>
+        <div class="popular-content swiper">
+            <div class="swiper-wrapper">
+                <!--Caixa de filme 1-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="src/Filmes_ação/FILME INTELIGENCIA CENTAL/Inteligencia central - capa do filme ação.png"
+                            alt="filme Inteligencia central" class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">Inteligencia central</h2>
+                            <span class="movie-type">Ação</span>
+                            <a href="inteligencia_central_acao" class="watch-btn">
+                                <i class='bx bx-right-arrow'></i><span>Saiba mais</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--Caixa de filme 2-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="src/Filmes_ação/FILME FURIOSA MAD MAX/Furiosa mad max - capa do filme ação.png"
+                            class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">Furiosa mad max</h2>
+                            <span class="movie-type">Ação</span>
+                            <a href="Ação_Furiosa_Mad_Max.html" class="watch-btn">
+                                <i class='bx bx-right-arrow'></i><span>Saiba mais</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--Caixa de filme 3-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="src/Filmes_ação/FILME ESQUADRÃO6/esquadrão 6 - capa do filme ação.png" alt="filme Esquadrão 6"
+                            class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">Esquadrão 6</h2>
+                            <span class="movie-type">Ação</span>
+                            <a href="Ação_Esquadrão_6.html" class="watch-btn">
+                                <i class='bx bx-right-arrow'></i><span>Saiba mais</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--Caixa de filme 4-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="src/Filmes_ação/FILME VELOSES E FURIOSOS/Veloses e furiosos - capa do filme ação.png"
+                            alt="filme Veloses e Furiosos" class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">Veloses e Furiosos</h2>
+                            <span class="movie-type">Ação</span>
+                            <a href="Ação_Veloses_e_furiosos.html" class="watch-btn ">
+                                <i class='bx bx-right-arrow'></i><span>Saiba mais</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <section class="movies container" id="movies">
+        <div class="heading-animacao">
+            <h2 class="heading-title">Filmes de Animação</h2>
+            <a href="Filmes_Animação.html"><img class="seta" src="src/imgens_pp/seta_para_direita.png" alt="Seta para direita">
+            </a>
+        </div>
+        <div class="popular-content swiper">
+            <div class="swiper-wrapper">
+                <!--Caixa de filme 1-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="src/Filmes_animação/Filmes Sing/Sing  - capa do filme animação.png" alt="filme Sing"
+                            class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">Sing: Quem canta Seu males espanta</h2>
+                            <span class="movie-type">Animação</span>
+                            <a href="Animação - Sing.html" class="watch-btn">
+                                <i class='bx bx-right-arrow'></i><span>Saiba mais</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--Caixa de filme 2-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="src/Filmes_animação/Filmes Trolls/Trolls  - capa do filme animação.png" alt="filme Trolls"
+                            class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">Trolls</h2>
+                            <span class="movie-type">Animação</span>
+                            <a href="Animação - Trolls.html" class="watch-btn">
+                                <i class='bx bx-right-arrow'></i><span>Saiba mais</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--Caixa de filme 3-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="src/Filmes_animação/Filmes A Bela e a Fera/A bela e a fera  - capa do filme animação.png"
+                            alt="filme A Bela ea Fera" class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">A Bela ea Fera</h2>
+                            <span class="movie-type">Animação</span>
+                            <a href="Animação - A Bela e a Fera.html" class="watch-btn ">
+                                <i class='bx bx-right-arrow'></i><span>Saiba mais Trailer</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--Caixa de filme 4-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="src/Filmes_animação/Filmes A Bailarina/A Bailarina - capa do filme animação.png" alt="filme A bailarina"
+                            class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">A Bailarina</h2>
+                            <span class="movie-type">Animação</span>
+                            <a href="Animação - A Bailarina.html" class="watch-btn ">
+                                <i class='bx bx-right-arrow'></i><span>Saiba mais</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="movies container" id="movies">
+        <div class="heading-comedia">
+            <h2 class="heading-title">Filmes de Comédia</h2>
+            <a href="Filmes_Comédia.html"><img class="seta" src="src/imgens_pp/seta_para_direita.png" alt="Seta para direita">
+            </a>
+        </div>
+        <div class="popular-content swiper">
+            <div class="swiper-wrapper">
+                <!--Caixa de filme 1-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="src/Filmes_comédia/filme Tudo por um pop star/Tudo por um pop star - capa do filme comédia.png" alt="filme Sing"
+                            class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">Tudo por um Pop star</h2>
+                            <span class="movie-type">Comédia</span>
+                            <a href="Tudo_por_um_pop_star_Comédia.html" class="watch-btn ">
+                                <i class='bx bx-right-arrow'></i><span>Assistir Trailer</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--Caixa de filme 2-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="src/Filmes_comédia/filme minha mãe é uma peça/MInha mãe é uma peça - capa do filme comédia.png"
+                            alt="filme Minha mãe é uma peça" class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">Minha mãe<br>É uma peça</h2>
+                            <span class="movie-type">Comédia</span>
+                            <a href="Minha_mae_e_uma_peca_Comédia.html" class="watch-btn ">
+                                <i class='bx bx-right-arrow'></i><span>Saiba mais</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--Caixa de filme 3-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="src/Filmes_comédia/filme Barbie/Barbie - capa do filme comédia.png" alt="filme Barbie"
+                            class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">Barbie</h2>
+                            <span class="movie-type">Comédia</span>
+                            <a href="Barbie_Comédia.html" class="watch-btn ">
+                                <i class='bx bx-right-arrow'></i><span>Saiba mais</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--Caixa de filme 4-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="src/Filmes_comédia/filme As branquelas/As branquelas - capa filme comédia.png" alt="filme As branquelas"
+                            class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">As Branquelas</h2>
+                            <span class="movie-type">Comédia</span>
+                            <a href="As_branquelas_Comédia.html" class="watch-btn ">
+                                <i class='bx bx-right-arrow'></i><span>Saiba mais</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="movies container" id="movies">
+        <div class="heading-romance">
+            <h2 class="heading-title">Filmes de Romance</h2>
+            <a href="Filme_Romance.html"><img class="seta" src="src/imgens_pp/seta_para_direita.png" alt="Seta para direita">
+            </a>
+        </div>
+        <div class="popular-content swiper">
+            <div class="swiper-wrapper">
+                <!--Caixa de filme 1-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="src/Filmes Romance/Filmes Titanic/Titanic - capa do filme romance.png" alt="filme Titanic"
+                            class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">Titanic</h2>
+                            <span class="movie-type">Romance</span>
+                            <a href="Romance - Titanic.html" class="watch-btn ">
+                                <i class='bx bx-right-arrow'></i><span>Saiba mais</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--Caixa de filme 2-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="src/Filmes Romance/Filmes La La Land/La la land cantando estações - capa do filme romance.png"
+                            alt="filme LALA LAND" class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">LA LA LAND Cantando estações</h2>
+                            <span class="movie-type">Romance</span>
+                            <a href="Romance - LaLaLand.html" class="watch-btn ">
+                                <i class='bx bx-right-arrow'></i><span>Saiba mais</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--Caixa de filme 3-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="src/Filmes Romance/Filmes Por Lugares Incriveis/por lugares incríveis - capa do filme romance.png"
+                            alt="filme por lugares incríveis" class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">por lugares incríveis</h2>
+                            <span class="movie-type">Romance</span>
+                            <a href="Romance - Por Lugares Incriveis.html" class="watch-btn ">
+                                <i class='bx bx-right-arrow'></i><span>Saiba mais</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--Caixa de filme 4-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="src/Filmes Romance/Filmes Como eu Era Antes de Você/Como eu era antes de você - capa do filme romance.png" alt="filme As branquelas"
+                            class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">Como eu era antes de você</h2>
+                            <span class="movie-type">Romance</span>
+                            <a href="Romance - Como eu Era Antes de Voce.html" class="watch-btn ">
+                                <i class='bx bx-right-arrow'></i><span>Saiba mais</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="movies container" id="movies">
+        <div class="heading-terror">
+            <h2 class="heading-title">Filmes de Terror</h2>
+            <a href="Filme_Terror.html"><img class="seta" src="src/imgens_pp/seta_para_direita.png" alt="Seta para direita">
+            </a>
+        </div>
+            <div class="popular-content swiper">
+                <div class="swiper-wrapper">
+                    <!--Caixa de filme 1-->
+                    <div class="swiper-slide">
+                        <div class="movie-box">
+                            <img src="src/Filmes_terror/filme uma noite de crime/Uma noite de crime- capa do filme terror.png" alt="filme uma noite de crime"
+                                class="movie-box-img">
+                            <div class="box-text">
+                                <h2 class="movie-title">Uma Noite de crime</h2>
+                                <span class="movie-type">Terror</span>
+                                <a href="Uma_noite_de_crime_Terror.html" class="watch-btn ">
+                                    <i class='bx bx-right-arrow'></i><span>Saiba mais</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Caixa de filme 2-->
+                    <div class="swiper-slide">
+                        <div class="movie-box">
+                            <img src="src/Filmes_terror/filme Annabelle/Annabelle - capa do filme terror.png" alt="filme AnnaBelle"
+                                class="movie-box-img">
+                            <div class="box-text">
+                                <h2 class="movie-title">Annabelle</h2>
+                                <span class="movie-type">Terror</span>
+                                <a href="Annabelle_Terror.html" class="watch-btn ">
+                                    <i class='bx bx-right-arrow'></i><span>saiba mais</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Caixa de filme 3-->
+                    <div class="swiper-slide">
+                        <div class="movie-box">
+                            <img src="src/Filmes_terror/filme Bird box/Bird box - capa do filme terror.png" alt="filme bird box"
+                                class="movie-box-img">
+                            <div class="box-text">
+                                <h2 class="movie-title">Bird Box</h2>
+                                <span class="movie-type">Terror</span>
+                                <a href="Bird_box_Terror.html" class="watch-btn ">
+                                    <i class='bx bx-right-arrow'></i><span>Saiba mais</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Caixa de filme 4-->
+                    <div class="swiper-slide">
+                        <div class="movie-box">
+                            <img src="src/Filmes_terror/filme it a coisa/it - capa do filme terror.png" alt="filme It a coisa"
+                                class="movie-box-img">
+                            <div class="box-text">
+                                <h2 class="movie-title">It a coisa</h2>
+                                <span class="movie-type">Terror</span>
+                                <a href="It_a_coisa_Terror.html" class="watch-btn ">
+                                    <i class='bx bx-right-arrow'></i><span>Saiba mais</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br><br>
+    <!-- ... resto do código ... -->
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-left">
+            <a href="pagina principal.html" class="footer-logo">
+                <span>M</span>&<span>M</span>
+            </a>
+            <p class="footer-desc">Sua plataforma de trilhas sonoras de filmes</p>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook"><i class='bx bxl-facebook'></i></a>
+                <a href="#" aria-label="Twitter"><i class='bx bxl-twitter'></i></a>
+                <a href="#" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
+                <a href="#" aria-label="YouTube"><i class='bx bxl-youtube'></i></a>
+            </div>
+        </div>
+        
+        <div class="footer-links">
+            <h4>Links Rápidos</h4>
+            <ul>
+                <li><a href="Filmes_Animação.html">Animação</a></li>
+                <li><a href="Filmes_Acao.html">Ação</a></li>
+                <li><a href="Filmes_Aventura.html">Aventura</a></li>
+                <li><a href="Filmes_Comédia.html">Comédia</a></li>
+                <li><a href="Filme_Romance.html">Romance</a></li>
+                <li><a href="Filme_Terror.html">Terror</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-credits">
+            <h4>Desenvolvedores</h4>
+            <ul>
+                <li>Rayssa Vieira <span>Designer</span></li>
+                <li>Maria Baia <span>Front-End</span></li>
+                <li>Emily Silva <span>Back-End</span></li>
+                <li>Marcos Monteiro <span>Banco de Dados</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 M&M - Todos os direitos reservados</p>
+    </div>
+</footer>
+    <br><br>
+    <script src="src/javascript/swiper-bundle.min.js"></script>
+    <script src="src/javascript/Pesquisa.js"></script>
+    <script src="src/javascript/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orgulho e Preconceito - Romance - M&M</title>
+    <link rel="stylesheet" href="src/css/swiper.min.css">
+    <link rel="shortcut icon" href="src/imgens_pp/logo_M&M.png" type="imgens_pp">
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            box-sizing: border-box;
+            scroll-padding-top: 2rem;
+        }
+
+        :root {
+            --text-color: #fcfeff;
+            --main-color: #f64a5b;
+            --hover-color: #A80011;
+            --body-color: #121220;
+            --container-color: #171727;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        section {
+            padding: 3rem 0 2rem;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .bx {
+            cursor: pointer;
+        }
+
+        body {
+            background: linear-gradient(#1e1e2a 89%, #F50018);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1068px;
+            margin: auto;
+            width: 100%;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--body-color);
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            color: var(--text-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin: 0 auto 0 0;
+        }
+
+        .logo span {
+            color: var(--main-color);
+
+        }
+
+        .search-box {
+            max-width: 240px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            column-gap: 0.7rem;
+            padding: 8px 15px;
+            background: var(--container-color);
+            border-radius: 4rem;
+            margin-right: 1rem;
+        }
+
+        .search-box .bx {
+            font-size: 1.1rem;
+        }
+
+        .search-box .bx:hover {
+            color: var(--main-color);
+        }
+
+        #search-input {
+            width: 100%;
+            border: none;
+            outline: none;
+            color: var(--text-color);
+            background: transparent;
+            font-size: 0.938rem;
+        }
+
+        .user {
+            display: flex;
+        }
+
+        .user-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 18px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 2.1rem;
+        }
+
+        .nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #b7b7b7;
+        }
+
+        .nav-link:hover,
+        .nav-active {
+            color: var(--text-color);
+            transition: 0.3s all linear;
+            transform: scale(1.1);
+        }
+
+        .nav-link .bx {
+            font-size: 1.6rem;
+        }
+
+        .nav-link-title {
+            font-size: 0.7rem;
+        }
+
+        .home {
+            position: relative;
+            min-height: 470px;
+            display: flex;
+            align-items: center;
+            margin-top: 5rem !important;
+            border-radius: 0.5rem;
+        }
+
+        .home-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+
+        .home-text {
+            padding-left: 40px;
+        }
+
+        .home-title {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .home-text p {
+            font-size: 0.938rem;
+            margin: 10px 0 20px;
+            color: var(--main-color);
+        }
+
+        .watch-btn {
+            display: flex;
+            align-items: center;
+            column-gap: 0.8rem;
+            color: var(--text-color);
+        }
+
+        .watch-btn .bx {
+            font-size: 25px;
+            background: var(--main-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .watch-btn .bx:hover {
+            background: var(--hover-color);
+        }
+
+        .watch-btn span {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--container-color);
+            padding: 8px 14px;
+            border: 1px solid hsl(200 100% 99% / 5%);
+            margin-bottom: 2rem;
+        }
+
+        .heading-Romance {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(to right, #e11c30 55%, rgb(234, 70, 97));
+            padding: 8px 14px;
+            border: 1px solid hsl(200 100% 99% / 5%);
+            margin-bottom: 2rem;
+        }
+
+        .heading-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .movie-box {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .movie-box-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .movie-box .box-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 14px;
+            background: linear-gradient(8deg,
+                    hsl(240 17% 14% / 74%) 14%,
+                    hsl(240 17% 14% / 14%) 44%);
+            overflow: hidden;
+        }
+
+        .movie-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .movie-type {
+            font-size: 0.938rem;
+        }
+
+        .play {
+            position: absolute;
+            bottom: 0.8rem;
+            right: 0.8rem;
+
+        }
+
+        .swiper-btn {
+            display: flex;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            position: static !important;
+            margin: 0 0 0 10px !important;
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            color: var(--text-color);
+            font-size: 18px !important;
+            font-weight: 700;
+        }
+
+        .seta {
+            width: 50px;
+        }
+
+        .movies .heading {
+            padding: 10px 14px;
+        }
+
+        .movies-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(247px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .movies-content .movie-box:hover .movie-box-img {
+            transform: scale(1.1);
+            transition: 0.5s;
+        }
+
+        .play-container {
+            position: relative;
+            min-height: 540px;
+            margin-top: 5rem !important;
+        }
+
+        .play-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: -1;
+        }
+
+        .play-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px;
+            background: linear-gradient(8deg,
+                    hsl(240 17% 14% / 74%) 14%,
+                    hsl(240 17% 14% / 14%) 44%);
+        }
+
+        .play-text h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            column-gap: 2px;
+            font-size: 1.1rem;
+            color: gold;
+            margin-top: 4px;
+        }
+
+        .tags {
+            display: flex;
+            align-items: center;
+            column-gap: 8px;
+            margin: 1rem 0;
+        }
+
+        .tags span {
+            background: var(--container-color);
+            padding: 0 4px;
+        }
+
+        .play-movie {
+            position: absolute;
+            bottom: 18rem;
+            right: 10rem;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--main-color);
+            font-size: 24px;
+            animation: animate 2s linear infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                box-shadow: 0 0 0 greenyellow;
+            }
+
+            40% {
+                box-shadow: 0 0 0 50px rgb(255, 193, 7, 0);
+            }
+
+            80% {
+                box-shadow: 0 0 0 50px rgb(255, 193, 7, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 rgb(255, 193, 7, 0);
+            }
+        }
+
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+            background: hsl(234 10% 20% /60%);
+            z-index: 400;
+        }
+
+        .video-container.show-video {
+            display: flex;
+        }
+
+        .video-box {
+            position: relative;
+            width: 82%;
+        }
+
+        .video-box #myvideo {
+            width: 100%;
+            aspect-ratio: 16/9;
+        }
+
+        .close-video {
+            position: absolute;
+            top: -3;
+            right: 0;
+            font-size: 40px;
+            color: var(--main-color);
+        }
+
+        .about-movie {
+            margin-top: 2rem !important;
+        }
+
+        .about-movie h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--main-color);
+        }
+
+        .about-movie p {
+            max-width: 6000px;
+            font-size: 0.938rem;
+            margin: 10px 0;
+        }
+
+        .cast-heading {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--main-color);
+        }
+
+        .cast {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .cast-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cast-img {
+            width: 150px;
+            height: 180px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .class-img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* Estilo base para o container das plataformas de streaming */
+        .streaming-platforms {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .streaming-platforms a {
+            display: inline-block;
+        }
+
+        .streaming-platforms img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .streaming-platforms img:hover {
+            transform: scale(1.1);
+        }
+
+        /**/
+
+        /* Estilos da Barra de Pesquisa */
+        .search-box {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        /* Estilos dos Resultados da Pesquisa */
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--container-color);
+            border-radius: 0.5rem;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin-top: 5px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .search-result-item {
+            padding: 10px 15px;
+            cursor: pointer;
+            color: var(--text-color);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .search-result-item:hover {
+            background: var(--hover-color);
+            transform: translateX(5px);
+            padding-left: 20px;
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Estilo para Mensagem de Não Encontrado */
+        .no-results {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-color);
+            font-style: italic;
+        }
+
+        /* Estilização da Barra de Rolagem */
+        .search-results::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .search-results::-webkit-scrollbar-track {
+            background: var(--container-color);
+            border-radius: 0.5rem;
+        }
+
+        .search-results::-webkit-scrollbar-thumb {
+            background: var(--main-color);
+            border-radius: 0.5rem;
+        }
+
+        .search-results::-webkit-scrollbar-thumb:hover {
+            background: var(--hover-color);
+        }
+
+        /* Container de Resultados Não Encontrados */
+        .no-results-container {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--container-color);
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 500px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .no-results-container .bx-error-circle {
+            font-size: 48px;
+            color: var(--main-color);
+            margin-bottom: 15px;
+        }
+
+        .no-results-title {
+            font-size: 24px;
+            color: var(--text-color);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .no-results-text {
+            font-size: 16px;
+            color: #999;
+            line-height: 1.5;
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* Responsividade - Ordem do maior para o menor breakpoint */
+        @media (max-width: 1240px) {
+            .navbar {
+                bottom: 0;
+                left: 0;
+                right: 0;
+                top: auto;
+                transform: translateY(0);
+                flex-direction: row;
+                justify-content: space-evenly;
+                padding: 10px;
+                border-top: 1px solid hsl(200 100% 99% / 5%);
+                background: linear-gradient(8deg,
+                        hsl(240 17% 14% / 100%) 5%,
+                        hsl(240 17% 14% / 90%) 100%);
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .search-results {
+                max-height: 400px;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 1060px) {
+            .container {
+                margin: 0 auto;
+                width: 95%;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .search-box {
+                max-width: 280px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+
+            .movie-box {
+                height: 280px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(214px, 1fr));
+            }
+
+            .play-container {
+                margin-top: 5rem !important;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .video-box {
+                width: 90%;
+            }
+
+            .search-results {
+                max-height: 350px;
+            }
+
+            .search-result-item {
+                padding: 10px 15px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 888px) {
+            .nav {
+                padding: 14px 0;
+            }
+
+            .search-box {
+                max-width: 240px;
+            }
+
+            .search-results {
+                max-height: 300px;
+            }
+
+            .play-text {
+                padding: 20px;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .cast {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                padding: 11px 0;
+            }
+
+            .search-box {
+                max-width: 200px;
+            }
+
+            .search-results {
+                max-height: 250px;
+            }
+
+            .search-result-item {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+
+            .no-results-container {
+                max-width: 300px;
+                padding: 25px 15px;
+            }
+
+            .no-results-title {
+                font-size: 18px;
+            }
+
+            .play-text h2 {
+                font-size: 1.4rem;
+            }
+
+            .video-box {
+                width: 95%;
+            }
+
+            .streaming-platforms {
+                gap: 15px;
+            }
+
+            .streaming-platforms img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            }
+
+            .movie-box {
+                height: 260px;
+            }
+        }
+
+        @media (max-width: 514px) {
+            .nav {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto;
+                gap: 5px;
+                padding: 10px;
+            }
+
+            .search-box {
+                max-width: 100%;
+                grid-column: 1 / -1;
+                order: 2;
+            }
+
+            .search-results {
+                max-height: 200px;
+                top: calc(100% + 5px);
+            }
+
+            .play-text {
+                padding: 15px;
+            }
+
+            .play-movie {
+                bottom: 6rem;
+                left: 17rem;
+            }
+
+            .video-box {
+                width: 100%;
+            }
+
+            .streaming-platforms {
+                gap: 10px;
+            }
+
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 1rem;
+            }
+
+            .movie-box {
+                height: 240px;
+            }
+        }
+
+        @media (max-width: 370px) {
+            .search-box input {
+                font-size: 13px;
+            }
+
+            .search-results {
+                max-height: 180px;
+            }
+
+            .search-result-item {
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+
+            .no-results-container {
+                max-width: 200px;
+                padding: 15px 8px;
+            }
+
+            .no-results-title {
+                font-size: 16px;
+            }
+
+            .play-text {
+                padding: 10px;
+            }
+
+            .video-box {
+                height: 180px;
+            }
+
+            .cast-img {
+                width: 100px;
+                height: 130px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav container">
+            <a href="pagina principal.html" class="logo">
+                <span>M</span>&<span>M</span>
+            </a>
+
+            <div class="search-box">
+                <input type="search" name="" id="search-input" placeholder="Pesquisar um Filme">
+                <i class='bx bx-search'></i>
+                <div id="search-results" class="search-results"></div>
+            </div>
+            <div class="navbar">
+                <a href="pagina principal.html" class="nav-link nav-active">
+                    <i class='bx bx-home-alt-2'></i>
+                    <span class="nav-link-title">Início</span>
+                </a>
+                <a href="Filmes_Aventura.html" class="nav-link">
+                    <i class='bx bxs-tree'></i>
+                    <span class="nav-link-title">Aventura</span>
+                </a>
+                <a href="Filmes_Acao.html" class="nav-link">
+                    <i class='bx bx-car'></i>
+                    <span class="nav-link-title">Ação</span>
+                </a>
+                <a href="Filmes_Animação.html" class="nav-link">
+                    <i class='bx bx-happy'></i>
+                    <span class="nav-link-title">Animação</span>
+                </a>
+                <a href="Filmes_Comédia.html" class="nav-link">
+                    <i class='bx bx-laugh'></i>
+                    <span class="nav-link-title">Comédia</span>
+                </a>
+                <a href="Filme_Romance.html" class="nav-link">
+                    <i class='bx bx-happy-heart-eyes'></i>
+                    <span class="nav-link-title">Romance</span>
+                </a>
+                <a href="Filme_Terror.html" class="nav-link">
+                    <i class='bx bxs-skull'></i>
+                    <span class="nav-link-title">Terror</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <br><br>
+    <div class="play-container container">
+        <img src="src/Filmes Romance/Filmes Orgulho e Preconceito/Orgulho e preconceito - banner2.jpg"
+            alt="Banner  Orgulho e Preconceito" class="play-img">
+        <div class="play-text">
+            <h2>Orgulho e Preconceito</h2>
+            <div class="rating">
+                <!--20% - 0%: 1 estrela-->
+                <i class='bx bxs-star'></i>
+                <!--40% - 21%: 2 estrelas-->
+                <i class='bx bxs-star'></i>
+                <!--60% - 41%: 3 estrelas-->
+                <i class='bx bxs-star'></i>
+                <!--80% - 61%: 4 estrelas-->
+                <i class='bx bxs-star'></i>
+                <!--100% - 81%: 5 estrelas-->
+                <i class='bx bxs-star-half'></i>
+            </div>
+            <span>De acordo com os criticos</span>
+            <h3>Titulo original:</h3>
+            <span>Pride and Prejudice</span>
+            <div class="tags">
+                <span>Romance</span>
+                <span>2h 9min</span>
+                <span>10 de fevereiro de 2006</span>
+            </div>
+        </div>
+        <i class='bx bx-right-arrow play-movie'></i>
+        <div class="video-container">
+            <div class="video-box">
+                <video id="myvideo"
+                    src="src/Filmes Romance/Filmes Orgulho e Preconceito/Trailer/Orgulho e Preconceito (2005) - Trailer legendado(360P).mp4"
+                    controls></video>
+                <i class='bx bx-x-circle close-video'></i>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="about-movie container">
+        <br>
+        <div class="cast">
+
+            <h2 class="cast-heading">Classificação:</h2>
+            <div class="cast">
+                <div class="cast-box">
+                    <img src="src/classificações de idade/classificação livre.png" alt="classificação livre"
+                        class="class-img">
+                </div>
+            </div>
+
+            <div class="cast">
+                <h2 class="cast-heading">Assistir:</h2>
+                <div class="streaming-platforms">
+                    <a target="_blank"
+                        href="https://tv.apple.com/br/movie/orgulho-e-preconceito/umc.cmc.2recf8dyiecffam3er4u8a2mh?playableId=tvs.sbd.9001%3A563521605">
+                        <img src="src/onde ver/Apple TV+.jpg" alt="Apple TV+" class="class-img">
+                    </a>
+                    <a target="_blank"
+                        href="https://www.primevideo.com/-/pt/detail/0J7Y9UVDPJYTG6TM5CJB3KQAA7/ref=atv_dl_rdr?tag=justwatch21-20">
+                        <img src="src/onde ver/Telecine.jpg" alt="Telecine" class="class-img">
+                    </a>
+                    <a target="_blank"
+                    href="https://globoplay.globo.com/orgulho-e-preconceito/t/58n2S2Jy89/">
+                    <img src="src/onde ver/Globoplay.jpg" alt="Globoplay" class="class-img">
+                    </a>
+                    <a target="_blank"
+                        href="https://www.primevideo.com/-/pt/detail/0J7Y9UVDPJYTG6TM5CJB3KQAA7/ref=atv_dl_rdr?tag=justbrcock-20">
+                        <img src="src/onde ver/prime video.png" alt="Prime Video" class="class-img">
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <h2>Sinopse:</h2>
+        <p>O filme é uma adaptação do romance de Jane Austen, publicado em 1813. A história se passa na Inglaterra no
+            final do século XVIII e apresenta a família Bennet, formada por um casal e suas cinco filhas. A mãe das
+            moças é uma senhora bastante ansiosa para que as filhas façam bons casamentos. Entretanto, Elizabeth, uma
+            das mais velhas, só aceitará se casar por amor. Ela conhece Sr. Darcy, um rapaz rico e bonito, mas
+            aparentemente esnobe, com quem desenvolve uma contraditória relação ².
+        </p>
+
+        <h2 class="cast-heading">Direção do Filme</h2>
+        <div class="cast">
+            <div class="cast-box">
+                <img src="src/Filmes Romance/Filmes Orgulho e Preconceito/Elenco e direção do filme/Joe Wright.jpeg"
+                    alt="Joe Wright responsavel pala direção do filme" class="cast-img">
+                <span class="cast-title">Joe Wright</span>
+            </div>
+        </div>
+        <br><br>
+        <!-- Keira Knightley como Elizabeth Bennet
+             Matthew Macfadyen como Sr. Darcy
+             Rosamund Pike como Jane Bennet
+             Jena Malone como Lydia Bennet
+             Donald Sutherland como Sr. Bennet
+
+            -->
+        <h2 class="cast-heading">Elenco do Filme</h2>
+        <div class="cast">
+            <div class="cast-box">
+                <img src="src/Filmes Romance/Filmes Orgulho e Preconceito/Elenco e direção do filme/Elenco/Keira Knightley.webp"
+                    alt="Keira Knightley como Elizabeth Bennet" class="cast-img">
+                <span class="cast-title">Keira Knightley</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes Romance/Filmes Orgulho e Preconceito/Elenco e direção do filme/Elenco/Matthew Macfadyen.jpeg"
+                    alt="Matthew Macfadyen como Sr. Darcy" class="cast-img">
+                <span class="cast-title">Matthew Macfadyen</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes Romance/Filmes Orgulho e Preconceito/Elenco e direção do filme/Elenco/Rosamund Pike.jpeg"
+                    alt="Rosamund Pike como Jane Bennet" class="cast-img">
+                <span class="cast-title">Rosamund Pike</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes Romance/Filmes Orgulho e Preconceito/Elenco e direção do filme/Elenco/Jena Malone.jpg"
+                    alt="Jena Malone como Lydia Bennet" class="cast-img">
+                <span class="cast-title">Jena Malone</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes Romance/Filmes Orgulho e Preconceito/Elenco e direção do filme/Elenco/Donald Sutherland.jpeg"
+                    alt="Donald Sutherland como Sr. Bennet" class="cast-img">
+                <span class="cast-title">Donald Sutherland</span>
+            </div>
+        </div>
+        <br><br>
+        <h2 class="cast-heading">Direção da Trilha Sonora</h2>
+        <div class="cast">
+            <div class="cast-box">
+                <img src="src/Filmes Romance/Filmes Orgulho e Preconceito/Elenco e direção do filme/Dario Marianelli.jpeg"
+                    alt="Dario Marianelli responsável pela Trilha sonora" class="cast-img">
+                <span class="cast-title">Dario Marianelli</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes Romance/Filmes Orgulho e Preconceito/Elenco e direção do filme/Jean-Yves Thibaudet.jpeg"
+                    alt="Jean-Yves Thibaudet responsável pela Trilha sonora" class="cast-img">
+                <span class="cast-title">Jean-Yves Thibaudet</span>
+            </div>
+        </div>
+        <br><br>
+        <br><br>
+        <!--
+        Trilha Sonora
+        1 - Dawn - [https://youtu.be/nc_5XL6ae4I?si=o-pLn3vmJWoo4pzw]
+        2 - Stars and Butterflies - [https://youtu.be/7ty7gAMikUQ?si=9fQwZz9lZb4WEJw6]
+        3 - The Living Sculptures Of Pemberley - [https://youtu.be/Aag9GTLsmt8?si=45KoktbAOmLb9il9]
+        4 - Meryton Townhall - [https://youtu.be/2j4O6zlrR8U?si=zIc9SNHE2lVjHwN8]
+        5 - The Militia Marches In - [https://youtu.be/6W_Eau9b_a8?si=imcgu6rWDFGWRqoK]
+        6 - Georgiana - [https://youtu.be/JWUdeeDB5nk?si=YBPIsvTCf2Kp9Yxo]
+        7 - Arrival To Netherfield - [https://youtu.be/v5CgZqI4TFo?si=N0SjAtE9WEtu1UAm]
+        8 - A Postcard to Henry Purcell - [https://youtu.be/gYuk_Moy_4A?si=QswoNKFgNWrz7RpJ]
+        9 - Liz On Top Of The World - [https://youtu.be/SjLiiEC7ozg?si=Mg5GhHohp-6HPLq6]
+        10 - Leaving Netherfield - [https://youtu.be/NyuiYs6V0Fc?si=xU-PBGi6TVAlvV8-]
+        11 - Another Dance - [https://youtu.be/oXCtDGPsKlQ?si=OJVa6N-0Fc5Yyvb9]
+        12 - The Secret Life Of Daydreams - [https://youtu.be/sAmPLQEh_Ws?si=EMS6KLV-pZeCKZwP]
+        13 - Darcy's Letter - [https://youtu.be/zWLZ5OJ5EaA?si=GLehbn0bSTuvbYR3]
+        14 - Can't Slow Down - [https://youtu.be/AWFzOUsApTY?si=zk0DU_NQS1SnxoVC]
+        15 - Your Hands Are Cold - [https://youtu.be/X6bB0IjFSqM?si=xVq2qqwrAu8Cp-u7]
+        16 - Mrs Darcy - [https://youtu.be/YOQGBzNCe-g?si=9yBnMxqBn2uHRsmu]
+        17 - End Credits - [https://youtu.be/2we92wbieTU?si=Cpl8KF3ePqbMo_Ig]
+        -->
+        <h2 class="cast-heading">Trilha sonora do filme</h2>
+        <div class="movies-content">
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Orgulho e Preconceito/Orgulho e preconceito - banner.jpg"
+                    alt="Música 1 - Dawn (Orgulho e Preconceito)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Dawn</span>
+                    <span class="movie-type">Orgulho e Preconceito</span>
+                    <a target="_blank" href="https://youtu.be/nc_5XL6ae4I?si=o-pLn3vmJWoo4pzw" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Orgulho e Preconceito/Orgulho e preconceito - banner.jpg"
+                    alt="Música 2 - Stars and Butterflies (Orgulho e Preconceito)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Stars and Butterflies</span>
+                    <span class="movie-type">Orgulho e Preconceito</span>
+                    <a target="_blank" href="https://youtu.be/7ty7gAMikUQ?si=9fQwZz9lZb4WEJw6" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Orgulho e Preconceito/Orgulho e preconceito - banner.jpg"
+                    alt="Música 3 - The Living Sculptures Of Pemberley (Orgulho e Preconceito)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">The Living Sculptures Of Pemberley</span>
+                    <span class="movie-type">Orgulho e Preconceito</span>
+                    <a target="_blank" href="https://youtu.be/Aag9GTLsmt8?si=45KoktbAOmLb9il9" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Orgulho e Preconceito/Orgulho e preconceito - banner.jpg"
+                    alt="Música 4 - Meryton Townhall (Orgulho e Preconceito)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Meryton Townhall</span>
+                    <span class="movie-type">Orgulho e Preconceito</span>
+                    <a target="_blank" href="https://youtu.be/2j4O6zlrR8U?si=zIc9SNHE2lVjHwN8" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Orgulho e Preconceito/Orgulho e preconceito - banner.jpg"
+                    alt="Música 5 - The Militia Marches In (Orgulho e Preconceito)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">The Militia Marches In</span>
+                    <span class="movie-type">Orgulho e Preconceito</span>
+                    <a target="_blank" href="https://youtu.be/6W_Eau9b_a8?si=imcgu6rWDFGWRqoK" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Orgulho e Preconceito/Orgulho e preconceito - banner.jpg"
+                    alt="Música 6 - Georgiana (Orgulho e Preconceito)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Georgiana</span>
+                    <span class="movie-type">Orgulho e Preconceito</span>
+                    <a target="_blank" href="https://youtu.be/JWUdeeDB5nk?si=YBPIsvTCf2Kp9Yxo" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Orgulho e Preconceito/Orgulho e preconceito - banner.jpg"
+                    alt="Música 7 - Arrival To Netherfield (Orgulho e Preconceito)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Arrival To Netherfield</span>
+                    <span class="movie-type">Orgulho e Preconceito</span>
+                    <a target="_blank" href="https://youtu.be/v5CgZqI4TFo?si=N0SjAtE9WEtu1UAm" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Orgulho e Preconceito/Orgulho e preconceito - banner.jpg"
+                    alt="Música 8 - A Postcard to Henry Purcell (Orgulho e Preconceito)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">A Postcard to Henry Purcell</span>
+                    <span class="movie-type">Orgulho e Preconceito</span>
+                    <a target="_blank" href="https://youtu.be/gYuk_Moy_4A?si=QswoNKFgNWrz7RpJ" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Orgulho e Preconceito/Orgulho e preconceito - banner.jpg"
+                    alt="Música 9 - Liz On Top Of The World (Orgulho e Preconceito)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Liz On Top Of The World</span>
+                    <span class="movie-type">Orgulho e Preconceito</span>
+                    <a target="_blank" href="https://youtu.be/SjLiiEC7ozg?si=Mg5GhHohp-6HPLq6" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Orgulho e Preconceito/Orgulho e preconceito - banner.jpg"
+                    alt="Música 10 - Leaving Netherfield (Orgulho e Preconceito)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Leaving Netherfield</span>
+                    <span class="movie-type">Orgulho e Preconceito</span>
+                    <a target="_blank" href="https://youtu.be/NyuiYs6V0Fc?si=xU-PBGi6TVAlvV8-" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Orgulho e Preconceito/Orgulho e preconceito - banner.jpg"
+                    alt="Música 11 - Another Dance (Orgulho e Preconceito)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Another Dance</span>
+                    <span class="movie-type">Orgulho e Preconceito</span>
+                    <a target="_blank" href="https://youtu.be/oXCtDGPsKlQ?si=OJVa6N-0Fc5Yyvb9" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Orgulho e Preconceito/Orgulho e preconceito - banner.jpg"
+                    alt="Música 12 - The Secret Life Of Daydreams (Orgulho e Preconceito)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">The Secret Life Of Daydreams</span>
+                    <span class="movie-type">Orgulho e Preconceito</span>
+                    <a target="_blank" href="https://youtu.be/sAmPLQEh_Ws?si=EMS6KLV-pZeCKZwP" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Orgulho e Preconceito/Orgulho e preconceito - banner.jpg"
+                    alt="Música 13 - Darcy's Letter (Orgulho e Preconceito)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Darcy's Letter</span>
+                    <span class="movie-type">Orgulho e Preconceito</span>
+                    <a target="_blank" href="https://youtu.be/zWLZ5OJ5EaA?si=GLehbn0bSTuvbYR3" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Orgulho e Preconceito/Orgulho e preconceito - banner.jpg"
+                    alt="Música 14 - Can't Slow Down (Orgulho e Preconceito)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Can't Slow Down</span>
+                    <span class="movie-type">Orgulho e Preconceito</span>
+                    <a target="_blank" href="https://youtu.be/AWFzOUsApTY?si=zk0DU_NQS1SnxoVC" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Orgulho e Preconceito/Orgulho e preconceito - banner.jpg"
+                    alt="Música 15 - Your Hands Are Cold (Orgulho e Preconceito)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Your Hands Are Cold</span>
+                    <span class="movie-type">Orgulho e Preconceito</span>
+                    <a target="_blank" href="https://youtu.be/X6bB0IjFSqM?si=xVq2qqwrAu8Cp-u7" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Orgulho e Preconceito/Orgulho e preconceito - banner.jpg"
+                    alt="Música 16 - Mrs Darcy (Orgulho e Preconceito)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Mrs Darcy</span>
+                    <span class="movie-type">Orgulho e Preconceito</span>
+                    <a target="_blank" href="https://youtu.be/YOQGBzNCe-g?si=9yBnMxqBn2uHRsmu" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes Romance/Filmes Orgulho e Preconceito/Orgulho e preconceito - banner.jpg"
+                    alt="Música 17 - End Credits (Orgulho e Preconceito)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">End Credits</span>
+                    <span class="movie-type">Orgulho e Preconceito</span>
+                    <a target="_blank" href="https://youtu.be/2we92wbieTU?si=Cpl8KF3ePqbMo_Ig" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+        <script src="src/javascript/soundtrack.js"></script>
+        <script src="src/javascript/swiper-bundle.min.js"></script>
+        <script src="src/javascript/Pesquisa.js"></script>
+        <script src="src/javascript/script.js"></script>
+</body>
+
+</html>

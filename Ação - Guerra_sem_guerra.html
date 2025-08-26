@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guerra sem regra - Ação - M&M</title>
+    <link rel="stylesheet" href="src/css/swiper.min.css">
+    <link rel="shortcut icon" href="src/imgens_pp/logo_M&M.png" type="imgens_pp">
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            box-sizing: border-box;
+            scroll-padding-top: 2rem;
+        }
+
+        :root {
+            --text-color: #fcfeff;
+            --main-color: rgb(255, 72, 0);
+            --hover-color: rgb(32, 24, 97);
+            --body-color: #000000;
+            --container-color: #171727;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        section {
+            padding: 3rem 0 2rem;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .bx {
+            cursor: pointer;
+        }
+
+        body {
+            background: linear-gradient(#1e1e2a 89%, rgb(20, 20, 227));
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1068px;
+            margin: auto;
+            width: 100%;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--body-color);
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            color: var(--text-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin: 0 auto 0 0;
+        }
+
+        .logo span {
+            color: var(--main-color);
+
+        }
+
+        .search-box {
+            max-width: 240px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            column-gap: 0.7rem;
+            padding: 8px 15px;
+            background: var(--container-color);
+            border-radius: 4rem;
+            margin-right: 1rem;
+        }
+
+        .search-box .bx {
+            font-size: 1.1rem;
+        }
+
+        .search-box .bx:hover {
+            color: var(--main-color);
+        }
+
+        #search-input {
+            width: 100%;
+            border: none;
+            outline: none;
+            color: var(--text-color);
+            background: transparent;
+            font-size: 0.938rem;
+        }
+
+        /* Estilos da Barra de Pesquisa */
+        .search-box {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        /* Estilos dos Resultados da Pesquisa */
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--container-color);
+            border-radius: 0.5rem;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin-top: 5px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .search-result-item {
+            padding: 10px 15px;
+            cursor: pointer;
+            color: var(--text-color);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .search-result-item:hover {
+            background: var(--hover-color);
+            transform: translateX(5px);
+            padding-left: 20px;
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Estilo para Mensagem de Não Encontrado */
+        .no-results {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-color);
+            font-style: italic;
+        }
+
+        /* Estilização da Barra de Rolagem */
+        .search-results::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .search-results::-webkit-scrollbar-track {
+            background: var(--container-color);
+            border-radius: 0.5rem;
+        }
+
+        .search-results::-webkit-scrollbar-thumb {
+            background: var(--main-color);
+            border-radius: 0.5rem;
+        }
+
+        .search-results::-webkit-scrollbar-thumb:hover {
+            background: var(--hover-color);
+        }
+
+        /* Container de Resultados Não Encontrados */
+        .no-results-container {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--container-color);
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 500px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .no-results-container .bx-error-circle {
+            font-size: 48px;
+            color: var(--main-color);
+            margin-bottom: 15px;
+        }
+
+        .no-results-title {
+            font-size: 24px;
+            color: var(--text-color);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .no-results-text {
+            font-size: 16px;
+            color: #999;
+            line-height: 1.5;
+        }
+
+
+        .user {
+            display: flex;
+        }
+
+        .user-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 18px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 2.1rem;
+        }
+
+        .nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #b7b7b7;
+        }
+
+        .nav-link:hover,
+        .nav-active {
+            color: var(--text-color);
+            transition: 0.3s all linear;
+            transform: scale(1.1);
+        }
+
+        .nav-link .bx {
+            font-size: 1.6rem;
+        }
+
+        .nav-link-title {
+            font-size: 0.7rem;
+        }
+
+        .home {
+            position: relative;
+            min-height: 470px;
+            display: flex;
+            align-items: center;
+            margin-top: 5rem !important;
+            border-radius: 0.5rem;
+        }
+
+        .home-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+
+        .home-text {
+            padding-left: 40px;
+        }
+
+        .home-title {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .home-text p {
+            font-size: 0.938rem;
+            margin: 10px 0 20px;
+            color: var(--main-color);
+        }
+
+        .watch-btn {
+            display: flex;
+            align-items: center;
+            column-gap: 0.8rem;
+            color: var(--text-color);
+        }
+
+        .watch-btn .bx {
+            font-size: 25px;
+            background: var(--main-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .watch-btn .bx:hover {
+            background: var(--hover-color);
+        }
+
+        .watch-btn span {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--container-color);
+            padding: 8px 14px;
+            border: 1px solid hsl(200 100% 99% / 5%);
+            margin-bottom: 2rem;
+        }
+
+        .heading-aventura {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(to right, #3d3dec 55%, #1a1af0);
+            padding: 8px 14px;
+            border: 1px solid hsl(200 100% 99% / 5%);
+            margin-bottom: 2rem;
+        }
+
+        .heading-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .movie-box {
+            position: relative;
+            width: 100%;
+            height: 380px;
+            overflow: hidden;
+        }
+
+        .movie-box-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .movie-box .box-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 14px;
+            background: linear-gradient(8deg,
+                    hsl(240 17% 14% / 74%) 14%,
+                    hsl(240 17% 14% / 14%) 44%);
+            overflow: hidden;
+        }
+
+        .movie-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .movie-type {
+            font-size: 0.938rem;
+        }
+
+        .play {
+            position: absolute;
+            bottom: 0.8rem;
+            right: 0.8rem;
+
+        }
+
+        .swiper-btn {
+            display: flex;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            position: static !important;
+            margin: 0 0 0 10px !important;
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            color: var(--text-color);
+            font-size: 18px !important;
+            font-weight: 700;
+        }
+
+        .seta {
+            width: 50px;
+        }
+
+        .movies .heading {
+            padding: 10px 14px;
+        }
+
+        .movies-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(247px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .movies-content .movie-box:hover .movie-box-img {
+            transform: scale(1.1);
+            transition: 0.5s;
+        }
+
+        .play-container {
+            position: relative;
+            min-height: 540px;
+            margin-top: 5rem !important;
+        }
+
+        .play-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: -1;
+        }
+
+        .play-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px;
+            background: linear-gradient(8deg,
+                    hsl(240 17% 14% / 74%) 14%,
+                    hsl(240 17% 14% / 14%) 44%);
+        }
+
+        .play-text h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            column-gap: 2px;
+            font-size: 1.1rem;
+            color: gold;
+            margin-top: 4px;
+        }
+
+        .tags {
+            display: flex;
+            align-items: center;
+            column-gap: 8px;
+            margin: 1rem 0;
+        }
+
+        .tags span {
+            background: var(--container-color);
+            padding: 0 4px;
+        }
+
+        .play-movie {
+            position: absolute;
+            bottom: 18rem;
+            right: 10rem;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--main-color);
+            font-size: 24px;
+            animation: animate 2s linear infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                box-shadow: 0 0 0 rgb(255, 0, 0);
+            }
+
+            40% {
+                box-shadow: 0 0 0 50px rgb(255, 193, 7, 0);
+            }
+
+            80% {
+                box-shadow: 0 0 0 50px rgb(255, 193, 7, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 rgb(255, 193, 7, 0);
+            }
+        }
+
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+            background: hsl(234 10% 20% /60%);
+            z-index: 400;
+        }
+
+        .video-container.show-video {
+            display: flex;
+        }
+
+        .video-box {
+            position: relative;
+            width: 82%;
+        }
+
+        .video-box #myvideo {
+            width: 100%;
+            aspect-ratio: 16/9;
+        }
+
+        .close-video {
+            position: absolute;
+            top: -3;
+            right: 0;
+            font-size: 40px;
+            color: var(--main-color);
+        }
+
+        .about-movie {
+            margin-top: 2rem !important;
+        }
+
+        .about-movie h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--main-color);
+        }
+
+        .about-movie p {
+            max-width: 6000px;
+            font-size: 0.938rem;
+            margin: 10px 0;
+        }
+
+        .cast-heading {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--main-color);
+        }
+
+        .cast {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 150px));
+            gap: 1rem;
+        }
+
+        .cast-img {
+            width: 150px;
+            height: 180px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .class-img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        @media (max-width: 1240px) {
+            .navbar {
+                bottom: 0;
+                left: 0;
+                right: 0;
+                top: auto;
+                transform: translateY(0);
+                flex-direction: row;
+                justify-content: space-evenly;
+                padding: 10px;
+                border-top: 1px solid hsl(200 100% 99% / 5%);
+                background: linear-gradient(8deg,
+                        hsl(240 17% 14% / 100%) 5%,
+                        hsl(240 17% 14% / 90%) 100%);
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .search-results {
+                max-height: 400px;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 1060px) {
+            .container {
+                margin: 0 auto;
+                width: 95%;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .search-box {
+                max-width: 280px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+
+            .movie-box {
+                height: 280px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(214px, 1fr));
+            }
+
+            .play-container {
+                margin-top: 5rem !important;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .video-box {
+                width: 90%;
+            }
+
+            .search-results {
+                max-height: 350px;
+            }
+
+            .search-result-item {
+                padding: 10px 15px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 888px) {
+            .nav {
+                padding: 14px 0;
+            }
+
+            .search-box {
+                max-width: 240px;
+            }
+
+            .search-results {
+                max-height: 300px;
+            }
+
+            .play-text {
+                padding: 20px;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .cast {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                padding: 11px 0;
+            }
+
+            .search-box {
+                max-width: 200px;
+            }
+
+            .search-results {
+                max-height: 250px;
+            }
+
+            .search-result-item {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+
+            .no-results-container {
+                max-width: 300px;
+                padding: 25px 15px;
+            }
+
+            .no-results-title {
+                font-size: 18px;
+            }
+
+            .play-text h2 {
+                font-size: 1.4rem;
+            }
+
+            .video-box {
+                width: 95%;
+            }
+
+            .streaming-platforms {
+                gap: 15px;
+            }
+
+            .streaming-platforms img {
+                width: 45px;
+                height: 45px;
+            }
+
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            }
+
+            .movie-box {
+                height: 260px;
+            }
+        }
+
+        @media (max-width: 514px) {
+            .nav {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto;
+                gap: 5px;
+                padding: 10px;
+            }
+
+            .search-box {
+                max-width: 100%;
+                grid-column: 1 / -1;
+                order: 2;
+            }
+
+            .search-results {
+                max-height: 200px;
+                top: calc(100% + 5px);
+            }
+
+            .play-text {
+                padding: 15px;
+            }
+
+            .play-movie {
+                bottom: 6rem;
+                left: 20rem;
+            }
+
+            .video-box {
+                width: 100%;
+            }
+
+            .streaming-platforms {
+                gap: 10px;
+            }
+
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 1rem;
+            }
+
+            .movie-box {
+                height: 240px;
+            }
+        }
+
+        .cast {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .cast-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .Streaming-platforms {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .Streaming-platforms a {
+            display: inline-block;
+        }
+
+        .Streaming-platforms img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .Streaming-platforms img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav container">
+            <a href="pagina principal.html" class="logo">
+                <span>M</span>&<span>M</span>
+            </a>
+
+            <div class="search-box">
+                <input type="search" name="" id="search-input" placeholder="Pesquisar um Filme">
+                <i class='bx bx-search'></i>
+                <div id="search-results" class="search-results"></div>
+            </div>
+
+            <div class="navbar">
+                <a href="pagina principal.html" class="nav-link nav-active">
+                    <i class='bx bx-home-alt-2'></i>
+                    <span class="nav-link-title">Início</span>
+                </a>
+                <a href="Filmes_Aventura.html" class="nav-link">
+                    <i class='bx bxs-tree'></i>
+                    <span class="nav-link-title">Aventura</span>
+                </a>
+                <a href="Filmes_Acao.html" class="nav-link">
+                    <i class='bx bx-car'></i>
+                    <span class="nav-link-title">Ação</span>
+                </a>
+                <a href="Filmes_Animação.html" class="nav-link">
+                    <i class='bx bx-happy'></i>
+                    <span class="nav-link-title">Animação</span>
+                </a>
+                <a href="Filmes_Comédia.html" class="nav-link">
+                    <i class='bx bxs-film'></i>
+                    <span class="nav-link-title">Comédia</span>
+                </a>
+                <a href="Filme_Romance.html" class="nav-link">
+                    <i class='bx bx-heart'></i>
+                    <span class="nav-link-title">Romance</span>
+                </a>
+                <a href="Filme_Terror.html" class="nav-link">
+                    <i class='bx bxs-skull'></i>
+                    <span class="nav-link-title">Terror</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <br><br>
+    <div class="play-container container">
+        <img src="src/Filmes_ação/FILME GUERRA SEM GUERRA/Guerra sem guerra - banner.jpg"
+            alt="Banner A Bailarina - A imagem mostra uma bailarina de desenho animado em um palco de teatro. Ela está usando um tutu branco com detalhes dourados e uma coroa. Ela está sorrindo e olhando para a câmera. O palco é decorado com detalhes dourados"
+            class="play-img">
+        <div class="play-text">
+            <h2>Guerra sem Regra</h2>
+            <div class="rating">
+                <!--20% - 0%: 1 estrela-->
+                <i class='bx bxs-star'></i>
+                <!--40% - 21%: 2 estrelas-->
+                <i class='bx bxs-star'></i>
+                <!--60% - 41%: 3 estrelas-->
+                <i class='bx bxs-star'></i>
+                <!--80% - 61%: 4 estrelas-->
+                <i class='bx bxs-star'></i>
+                <!--100% - 81%: 5 estrelas-->
+                <i class='bx bxs-star-half'></i>
+            </div>
+            <span>De acordo com os criticos</span>
+            <h3>Titulo Original:</h3>
+            <span>The Ministry of Ungentlemanly Warfare</span>
+            <div class="tags">
+                <span>Ação</span>
+                <span>1h56</span>
+                <span>25 de julho de 2024</span>
+            </div>
+        </div>
+        <i class='bx bx-right-arrow play-movie'></i>
+        <div class="video-container">
+            <div class="video-box">
+                <video id="myvideo"
+                    src="src/Filmes_ação/FILME GUERRA SEM GUERRA/trailer/Trailer .mp4"
+                    controls></video>
+                <i class='bx bx-x-circle close-video'></i>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="about-movie container">
+        <br>
+        <div class="cast">
+
+            <div class="cast">
+                <h2 class="cast-heading">Classificação:</h2>
+                <div class="cast-box">
+                    <img src="src/classificações de idade/classificação livre.png" alt="classificação Livre"
+                        class="class-img">
+                </div>
+            </div>
+
+            <div class="cast">
+                <h2 class="cast-heading">Assistir:</h2>
+                <div class="Streaming-platforms">
+                    <a target="_blank"
+                        href="https://www.disneyplus.com/pt-br/movies/-/3gmwPpcKMkwS?irclickid=V58SS7RT7xyKRnaUVrW-nS8oUkCWqpX3bXc21M0&irgwc=1&cid=DSS-Affiliate-Impact-Content-adorocinema+integra%C3%A7%C3%A3o+nativa-564546&tgclid=0a010044-9f61-4a19-9d00-20e46723d4e2&dclid=CjkKEQjw1Yy5BhCDp9nb4O6jmOUBEiQAPEg16oSySMqm70fqd4FnMJaA9HV0BtOddh9UGNOrMGY2ZwTw_wcB"><img
+                            src="src/onde ver/Disney Plus.avif" alt="Disney Plus" class="class-img"></a>
+                </div>
+            </div>
+        </div>
+        <h2>Sinopse:</h2>
+        <p>Guerra Sem Regras é a nova obra de Guy Ritchie. O longa é baseado em um documentário do Departamento de
+            Guerra Britânico, onde o mesmo foi elaborado em eventos reais. A narrativa acompanha uma organização de
+            militares britânicos, fundada por Winston Churchill, primeiro-ministro do Reino Unido, que surgiu durante a
+            Segunda Guerra Mundial. Esse grupo recruta um pequeno grupo de soldados altamente qualificados, incluindo o
+            autor Ian Fleming, criador de James Bond para atacar as forças nazistas atrás das linhas inimigas, usando
+            técnicas de combate totalmente não convencionais de nada agradáveis. A forma de combate intensa e ofensiva
+            fez com que o curso da guerra se alterasse e deu origem às modernas operações negras. Segunda cooperação
+            entre Guy Ritchie e Henry Cavill depois de O Agente da U.N.C.L.E.
+        </p>
+        <h2 class="cast-heading">Direção do Filme</h2>
+        <div class="cast">
+            <div class="cast-box">
+                <img src="src/Filmes_ação/FILME GUERRA SEM GUERRA/elenco e direção do filme/direção - Guy Ritchie.webp"
+                    alt="Ridley Scott responsavel pela direção do filme" class="cast-img">
+                <span class="cast-title">Ridley Scott</span>
+            </div>
+        </div>
+        <br><br>
+        <h2 class="cast-heading">Personagem do Filme</h2>
+        <div class="cast">
+            <div class="cast-box">
+                <img src="src/Filmes_ação/FILME GUERRA SEM GUERRA/elenco e direção do filme/elenco - Alan Ritchson.webp"
+                    alt="Félicie - Personagem Principal" class="cast-img">
+                <span class="cast-title">Félicie</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_ação/FILME GUERRA SEM GUERRA/elenco e direção do filme/elenco - Cary Elwes.webp"
+                    alt="Victor - Personagem Secundário" class="cast-img">
+                <span class="cast-title">Victor</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_ação/FILME GUERRA SEM GUERRA/elenco e direção do filme/elenco - Alex Pettyfer.jpg"
+                    alt="Camille - Personagem Secundária" class="cast-img">
+                <span class="cast-title">Camille</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_ação/FILME GUERRA SEM GUERRA/elenco e direção do filme/elenco - Babs Olusanmokun.webp"
+                    alt="Sra. Olga - Personagem Secundária" class="cast-img">
+                <span class="cast-title">Sra. Olga</span>
+            </div>
+        </div>
+        <br><br>
+        <h2 class="cast-heading">Direção da Trilha Sonora</h2>
+        <div class="cast">
+            <div class="cast-box">
+                <img src="src/Filmes_ação/FILME GUERRA SEM GUERRA/elenco e direção do filme/elenco - Hero Fiennes Tiffin.webp"
+                    alt="Klaus Badelt responsavel pela Trilha sonora" class="cast-img">
+                <span class="cast-title">Klaus Badelt</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_ação/FILME GUERRA SEM GUERRA/elenco e direção do filme/elenco - Henry Golding.webp"
+                    alt="Chris Braide responsavel pela Trilha sonora" class="cast-img">
+                <span class="cast-title">Chris Braide</span>
+            </div>
+        </div>
+        <br><br>
+        <!--*1 - "You Know It's About You" (Magical Thinker & Stephen Wrabel) 
+                *2 - "Be Somebody" (Chantal Kreviazuk)
+                *3 - "Unstoppable" (Camila Mora)
+                *4 - "Blood Sweat and Tears" (Magical Thinker & Dezi Paige)
+                *5 - "Confident" (Demi Lovato)
+                *6 - "Ballerina" (Klaus Badelt)
+                *7 - "Dreams and the Music Box" (Klaus Badelt)Melhores ofertas em auscultadores
+                *8 - "Escaping the Orphanage" (Klaus Badelt)
+                *9 - "The Liberty Chase" (Klaus Badelt)
+                *10 - "Swan Lake, Op. 20a: Scene" (Chappell Recorded)
+                *11 - "Shannon Reel" (Daniel Darras & Youenn Le Berre)
+                *12 - "You Know It's About You" (Piano & Voice) [Bonus Track] (Magical Thinker & Stephen Wrabel)-->
+        <h2 class="cast-heading">Trilha Sonora do Filme</h2>
+        <div class="movies-content">
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME GUERRA SEM GUERRA/Guerra sem guerra - trilha sonora.jpg"
+                    alt="Música 1 - You Know It's About You (Magical Thinker & Stephen Wrabel)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">You Know It's About You</span>
+                    <span class="movie-type">Magical Thinker & Stephen Wrabel</span>
+                    <a target="_blank" href="https://youtu.be/QGlKkkTNTRo?si=wnHTeZP20YTzSVVf" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME GUERRA SEM GUERRA/Guerra sem guerra - trilha sonora.jpg"
+                    alt="Música 2 -Be Somebody (Chantal Kreviazuk)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Be Somebody</span>
+                    <span class="movie-type">Chantal Kreviazuk</span>
+                    <a target="_blank" href="https://youtu.be/ARf0vvqsTzc?si=IhmQFheYUY9QUVJh" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME GUERRA SEM GUERRA/Guerra sem guerra - trilha sonora.jpg"
+                    alt="Música 3 - Unstoppable (Camila Mora)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Unstoppable</span>
+                    <span class="movie-type">Camila Mora</span>
+                    <a target="_blank" href="https://youtu.be/c_ewSqvHqq4?si=1p9LzZJPEsKxEEW_" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME GUERRA SEM GUERRA/Guerra sem guerra - trilha sonora.jpg"
+                    alt="Música 4 - Blood Sweat and Tears (Magical Thinker & Dezi Paige)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Blood Sweat and Tears</span>
+                    <span class="movie-type">Magical Thinker & Dezi Paige</span>
+                    <a target="_blank" href="https://youtu.be/sn8_iq0aDuA?si=N-VELqrQEo0kOCCH" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME GUERRA SEM GUERRA/Guerra sem guerra - trilha sonora.jpg"
+                    alt="Música 5 - Confident (Demi Lovato)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Confident</span>
+                    <span class="movie-type">Demi Lovato</span>
+                    <a target="_blank" href="https://youtu.be/eIbnuqgXJ2Q?si=7n61Xa-YBEPIv7Ht" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME GUERRA SEM GUERRA/Guerra sem guerra - trilha sonora.jpg"
+                    alt="Música 6- Ballerina (Klaus Badelt)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Ballerina</span>
+                    <span class="movie-type">Klaus Badelt</span>
+                    <a target="_blank" href="https://youtu.be/L6DjhAlWBDE?si=nEIoHUmSV7M_W3vg" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME GUERRA SEM GUERRA/Guerra sem guerra - trilha sonora.jpg"
+                    alt="Música 7 - Dreams and the Music Box (Klaus Badelt)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Dreams and the Music Box</span>
+                    <span class="movie-type">Klaus Badelt</span>
+                    <a target="_blank" href="https://youtu.be/y9JLeuV6uys?si=D-zlwlpQNohSARP5" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME GUERRA SEM GUERRA/Guerra sem guerra - trilha sonora.jpg"
+                    alt="Música 8 - Escaping the Orphanage (Klaus Badelt)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Escaping the Orphanage</span>
+                    <span class="movie-type">Klaus Badelt</span>
+                    <a target="_blank" href="https://youtu.be/u9vKjHCM6Rg?si=blw3EKPeX3TYy1pO" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME GUERRA SEM GUERRA/Guerra sem guerra - trilha sonora.jpg"
+                    alt="Música 9 - The Liberty Chase (Klaus Badelt)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">The Liberty Chase</span>
+                    <span class="movie-type">Klaus Badelt</span>
+                    <a target="_blank" href="https://youtu.be/b31b5q-Qwkk?si=l2WEWpt8qz3H5A5c" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME GUERRA SEM GUERRA/Guerra sem guerra - trilha sonora.jpg"
+                    alt="Música 10 - Swan Lake, Op. 20a: Scene (Chappell Recorded)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Swan Lake, Op. 20a: Scene</span>
+                    <span class="movie-type">Chappell Recorded</span>
+                    <a target="_blank" href="https://youtu.be/CNtlMlwKrYI?si=T1ZtxGZP5mDJZGiF" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME GUERRA SEM GUERRA/Guerra sem guerra - trilha sonora.jpg"
+                    alt="Música 11 - Shannon Reel (Daniel Darras & Youenn Le Berre)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Shannon Reel</span>
+                    <span class="movie-type">Daniel Darras & Youenn Le Berre</span>
+                    <a target="_blank" href="https://youtu.be/r9O7GD-Sivw?si=LMCrgM3uyJS2nc8k" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME GUERRA SEM GUERRA/Guerra sem guerra - trilha sonora.jpg"
+                    alt="Música 12" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">You Know It's About You (Piano & Voice)</span>
+                    <span class="movie-type">Magical Thinker & Stephen Wrabel</span>
+                    <a target="_blank" href="https://youtu.be/5r3ib21a8Uc?si=2dEkhq_5yvN6xmcU" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <br><br><br>
+    <script src="src/javascript/soundtrack.js"></script>
+    <script src="src/javascript/swiper-bundle.min.js"></script>
+    <script src="src/javascript/Pesquisa.js"></script>
+    <script src="src/javascript/script.js"></script>
+</body>
+
+</html>

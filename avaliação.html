@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies and Music Feedback</title>
+    <link rel="stylesheet" href="src/css/styles.css">
+    <link rel="stylesheet" href="src/css/swiper.min.css">
+    <link rel="shortcut icon" href="src/imgens_pp/logo_M&M.png" type="imgens_pp">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .feedback-section {
+            padding: 30px;
+            background-color: #1e1e2a;
+            border-radius: 15px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            margin: 40px auto;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feedback-section:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 50px rgba(0, 0, 0, 0.7);
+        }
+
+        .feedback-section h1 {
+            color: #ffba00;
+            margin-bottom: 20px;
+            font-size: 2em;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+        }
+
+        .rating-container h2 {
+            margin-bottom: 10px;
+            color: #ffba00;
+        }
+
+        .stars {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .star {
+            font-size: 50px;
+            color: #ccc;
+            cursor: pointer;
+            transition: transform 0.3s ease, color 0.3s ease;
+            padding: 0 5px;
+        }
+
+        .star:hover,
+        .star.selected {
+            color: #ffba00;
+            transform: scale(1.3);
+        }
+
+        #comment {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            resize: none;
+            transition: border-color 0.3s ease, height 0.3s ease;
+            height: 120px;
+            background-color: #2a2a2a;
+            color: white;
+        }
+
+        #comment:focus {
+            border-color: #ffba00;
+            outline: none;
+            height: 150px; /* Expande ao focar */
+        }
+
+        #comment.error {
+            border-color: red;
+        }
+
+        #submitBtn {
+            background-color: #ffba00;
+            color: #fff;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        #submitBtn:hover {
+            background-color: #e69a00;
+            transform: scale(1.05);
+        }
+
+        .thank-you {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .thank-you p {
+            color: #ffba00;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .comments-section {
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .comment {
+            background-color: #2a2a2a;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .reply-container {
+            margin-top: 10px;
+        }
+
+        .reply-container textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #2a2a2a;
+            color: white;
+        }
+
+        .reply-button {
+            background-color: #ffba00;
+            color: #fff;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        .reply-button:hover {
+            background-color: #e69a00;
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            .feedback-section {
+                padding: 20px;
+                margin: 20px;
+            }
+
+            .star {
+                font-size: 40px;
+            }
+
+            #submitBtn {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav container">
+            <a href="pagina principal.html" class="logo">
+                <span>M</span>&<span>M</span>
+            </a>
+
+            <div class="search-box">
+                <input type="search" name="" id="search-input" placeholder="Pesquisar um Filme">
+                <i class='bx bx-search'></i>
+                <div id="search-results" class="search-results"></div>
+            </div>
+            <div class="navbar">
+                <a href="pagina principal.html" class="nav-link nav-active">
+                    <i class='bx bx-home-alt-2'></i>
+                    <span class="nav-link-title">Início</span>
+                </a>
+                <a href="oque_é_M&M.html" class="nav-link">
+                    <i class='bx bx-question-mark'></i>
+                    <span class="nav-link-title">O que é M&M?</span>
+                </a>
+                <a href="avaliação.html" class="nav-link">
+                    <i class='bx bxs-star-half'></i>
+                    <span class="nav-link-title">Avaliações</span>
+                </a>
+                <a href="Pagina_Login e Cadastro.html" class="nav-link">
+                    <i class='bx bx-log-in'></i>
+                    <span class="nav-link-title">Login</span>
+                </a>
+            </div>
+        </div>
+    </header>
+<br><br><br><br><br><br>
+    <div class="feedback-section">
+        <h1>Feedback - Movies & Music</h1>
+        <div class="rating-container">
+            <h2>Como você nos avaliaria?</h2>
+            <div class="stars">
+                <span class="star" data-rating="1">&#9733;</span>
+                <span class="star" data-rating="2">&#9733;</span>
+                <span class="star" data-rating="3">&#9733;</span>
+                <span class="star" data-rating="4">&#9733;</span>
+                <span class="star" data-rating="5">&#9733;</span>
+            </div>
+        </div>
+
+        <div class="feedback-container">
+            <h2>Deixe seu comentário</h2>
+            <textarea id="comment" placeholder="Conte-nos o que você acha do nosso site..."></textarea>
+        </div>
+
+        <button id="submitBtn">Enviar Feedback</button>
+
+        <div id="thankYouMessage" class="thank-you">
+            <p>Obrigado pelo seu feedback!</p>
+        </div>
+
+        <div class="comments-section">
+            <h2>Comentários de Outros Usuários</h2>
+            <div id="commentsList"></div>
+        </div>
+    </div>
+    <script>
+        const stars = document.querySelectorAll('.star');
+        let selectedRating = 0;
+
+        stars.forEach((star, index) => {
+            star.addEventListener('click', () => {
+                selectedRating = index + 1;
+                highlightStars(selectedRating);
+            });
+
+            star.addEventListener('mouseover', () => {
+                highlightStars(index + 1);
+            });
+
+            star.addEventListener('mouseleave', () => {
+                highlightStars(selectedRating);
+            });
+        });
+
+        function highlightStars(rating) {
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.add('selected');
+                } else {
+                    star.classList.remove('selected');
+                }
+            });
+        }
+
+        document.getElementById('submitBtn').addEventListener('click', () => {
+            const comment = document.getElementById('comment').value;
+
+            if (selectedRating > 0 && comment.trim() !== "") {
+                const commentElement = document.createElement('div');
+                commentElement.classList.add('comment');
+                commentElement.innerHTML = `
+                    <strong>Avaliação: ${selectedRating} estrelas</strong>
+                    <p>${comment}</p>
+                    <div class="reply-container">
+                        <textarea placeholder="Responder ao comentário..."></textarea>
+                        <button class="reply-button">Responder</button>
+                    </div>
+                `;
+                
+                document.getElementById('commentsList').prepend(commentElement);
+                document.getElementById('thankYouMessage').style.display = 'block';
+                highlightStars(0);
+                document.getElementById('comment').value = '';
+                document.getElementById('comment').classList.remove('error');
+                selectedRating = 0;
+
+                // Adiciona funcionalidade de resposta
+                const replyButton = commentElement.querySelector('.reply-button');
+                const replyTextarea = commentElement.querySelector('textarea');
+
+                replyButton.addEventListener('click', () => {
+                    const replyText = replyTextarea.value.trim();
+                    if (replyText) {
+                        const replyElement = document.createElement('p');
+                        replyElement.style.color = '#ffba00';
+                        replyElement.innerText = `Resposta: ${replyText}`;
+                        commentElement.appendChild(replyElement);
+                        replyTextarea.value = ''; // Limpa o textarea após resposta
+                    } else {
+                        alert('Por favor, escreva uma resposta!');
+                    }
+                });
+
+            } else {
+                alert('Por favor, forneça uma avaliação e deixe um comentário!');
+                document.getElementById('comment').classList.add('error');
+            }
+        });
+    </script>
+    <br><br><br>
+    <script src="src/javascript/soundtrack.js"></script>
+    <script src="src/javascript/swiper-bundle.min.js"></script>
+    <script src="src/javascript/Pesquisa.js"></script>
+    <script src="src/javascript/script.js"></script>
+</body>
+
+</html>

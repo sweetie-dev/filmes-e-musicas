@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Grande Mestre - Ação - M&M</title>
+    <link rel="stylesheet" href="src/css/swiper.min.css">
+    <link rel="shortcut icon" href="src/imgens_pp/logo_M&M.png" type="imgens_pp">
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            box-sizing: border-box;
+            scroll-padding-top: 2rem;
+        }
+
+        :root {
+            --text-color: #fcfeff;
+            --main-color: #F2AE2E;
+            --hover-color: #BF700F;
+            --body-color: #121220;
+            --container-color: #171727;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        section {
+            padding: 3rem 0 2rem;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .bx {
+            cursor: pointer;
+        }
+
+        body {
+            background: linear-gradient(#1e1e2a 89%, #BF700F);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1068px;
+            margin: auto;
+            width: 100%;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--body-color);
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            color: var(--text-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin: 0 auto 0 0;
+        }
+
+        .logo span {
+            color: var(--main-color);
+
+        }
+
+        .search-box {
+            max-width: 240px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            column-gap: 0.7rem;
+            padding: 8px 15px;
+            background: var(--container-color);
+            border-radius: 4rem;
+            margin-right: 1rem;
+        }
+
+        .search-box .bx {
+            font-size: 1.1rem;
+        }
+
+        .search-box .bx:hover {
+            color: var(--main-color);
+        }
+
+        #search-input {
+            width: 100%;
+            border: none;
+            outline: none;
+            color: var(--text-color);
+            background: transparent;
+            font-size: 0.938rem;
+        }
+
+        /* Estilos da Barra de Pesquisa */
+        .search-box {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        /* Estilos dos Resultados da Pesquisa */
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--container-color);
+            border-radius: 0.5rem;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin-top: 5px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .search-result-item {
+            padding: 10px 15px;
+            cursor: pointer;
+            color: var(--text-color);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .search-result-item:hover {
+            background: var(--hover-color);
+            transform: translateX(5px);
+            padding-left: 20px;
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Estilo para Mensagem de Não Encontrado */
+        .no-results {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-color);
+            font-style: italic;
+        }
+
+        /* Estilização da Barra de Rolagem */
+        .search-results::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .search-results::-webkit-scrollbar-track {
+            background: var(--container-color);
+            border-radius: 0.5rem;
+        }
+
+        .search-results::-webkit-scrollbar-thumb {
+            background: var(--main-color);
+            border-radius: 0.5rem;
+        }
+
+        .search-results::-webkit-scrollbar-thumb:hover {
+            background: var(--hover-color);
+        }
+
+        /* Container de Resultados Não Encontrados */
+        .no-results-container {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--container-color);
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 500px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .no-results-container .bx-error-circle {
+            font-size: 48px;
+            color: var(--main-color);
+            margin-bottom: 15px;
+        }
+
+        .no-results-title {
+            font-size: 24px;
+            color: var(--text-color);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .no-results-text {
+            font-size: 16px;
+            color: #999;
+            line-height: 1.5;
+        }
+
+
+        .user {
+            display: flex;
+        }
+
+        .user-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 18px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 2.1rem;
+        }
+
+        .nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #b7b7b7;
+        }
+
+        .nav-link:hover,
+        .nav-active {
+            color: var(--text-color);
+            transition: 0.3s all linear;
+            transform: scale(1.1);
+        }
+
+        .nav-link .bx {
+            font-size: 1.6rem;
+        }
+
+        .nav-link-title {
+            font-size: 0.7rem;
+        }
+
+        .home {
+            position: relative;
+            min-height: 470px;
+            display: flex;
+            align-items: center;
+            margin-top: 5rem !important;
+            border-radius: 0.5rem;
+        }
+
+        .home-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+
+        .home-text {
+            padding-left: 40px;
+        }
+
+        .home-title {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .home-text p {
+            font-size: 0.938rem;
+            margin: 10px 0 20px;
+            color: var(--main-color);
+        }
+
+        .watch-btn {
+            display: flex;
+            align-items: center;
+            column-gap: 0.8rem;
+            color: var(--text-color);
+        }
+
+        .watch-btn .bx {
+            font-size: 25px;
+            background: var(--main-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .watch-btn .bx:hover {
+            background: var(--hover-color);
+        }
+
+        .watch-btn span {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--container-color);
+            padding: 8px 14px;
+            border: 1px solid hsl(200 100% 99% / 5%);
+            margin-bottom: 2rem;
+        }
+
+        .heading-aventura {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(to right, #3d3dec 55%, #1a1af0);
+            padding: 8px 14px;
+            border: 1px solid hsl(200 100% 99% / 5%);
+            margin-bottom: 2rem;
+        }
+
+        .heading-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .movie-box {
+            position: relative;
+            width: 100%;
+            height: 380px;
+            overflow: hidden;
+        }
+
+        .movie-box-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .movie-box .box-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 14px;
+            background: linear-gradient(8deg,
+                    hsl(240 17% 14% / 74%) 14%,
+                    hsl(240 17% 14% / 14%) 44%);
+            overflow: hidden;
+        }
+
+        .movie-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .movie-type {
+            font-size: 0.938rem;
+        }
+
+        .play {
+            position: absolute;
+            bottom: 0.8rem;
+            right: 0.8rem;
+
+        }
+
+        .swiper-btn {
+            display: flex;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            position: static !important;
+            margin: 0 0 0 10px !important;
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            color: var(--text-color);
+            font-size: 18px !important;
+            font-weight: 700;
+        }
+
+        .seta {
+            width: 50px;
+        }
+
+        .movies .heading {
+            padding: 10px 14px;
+        }
+
+        .movies-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(247px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .movies-content .movie-box:hover .movie-box-img {
+            transform: scale(1.1);
+            transition: 0.5s;
+        }
+
+        .play-container {
+            position: relative;
+            min-height: 540px;
+            margin-top: 5rem !important;
+        }
+
+        .play-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: -1;
+        }
+
+        .play-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px;
+            background: linear-gradient(8deg,
+                    hsl(240 17% 14% / 74%) 14%,
+                    hsl(240 17% 14% / 14%) 44%);
+        }
+
+        .play-text h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            column-gap: 2px;
+            font-size: 1.1rem;
+            color: gold;
+            margin-top: 4px;
+        }
+
+        .tags {
+            display: flex;
+            align-items: center;
+            column-gap: 8px;
+            margin: 1rem 0;
+        }
+
+        .tags span {
+            background: var(--container-color);
+            padding: 0 4px;
+        }
+
+        .play-movie {
+            position: absolute;
+            bottom: 18rem;
+            right: 10rem;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--main-color);
+            font-size: 24px;
+            animation: animate 2s linear infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                box-shadow: 0 0 0 orangered;
+            }
+
+            40% {
+                box-shadow: 0 0 0 50px rgb(255, 193, 7, 0);
+            }
+
+            80% {
+                box-shadow: 0 0 0 50px rgb(255, 193, 7, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 rgb(255, 193, 7, 0);
+            }
+        }
+
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+            background: hsl(234 10% 20% /60%);
+            z-index: 400;
+        }
+
+        .video-container.show-video {
+            display: flex;
+        }
+
+        .video-box {
+            position: relative;
+            width: 82%;
+        }
+
+        .video-box #myvideo {
+            width: 100%;
+            aspect-ratio: 16/9;
+        }
+
+        .close-video {
+            position: absolute;
+            top: -3;
+            right: 0;
+            font-size: 40px;
+            color: var(--main-color);
+        }
+
+        .about-movie {
+            margin-top: 2rem !important;
+        }
+
+        .about-movie h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--main-color);
+        }
+
+        .about-movie p {
+            max-width: 6000px;
+            font-size: 0.938rem;
+            margin: 10px 0;
+        }
+
+        .cast-heading {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--main-color);
+        }
+
+        .cast {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 150px));
+            gap: 1rem;
+        }
+
+        .cast-img {
+            width: 150px;
+            height: 180px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .class-img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        @media (max-width: 1240px) {
+            .navbar {
+                bottom: 0;
+                left: 0;
+                right: 0;
+                top: auto;
+                transform: translateY(0);
+                flex-direction: row;
+                justify-content: space-evenly;
+                padding: 10px;
+                border-top: 1px solid hsl(200 100% 99% / 5%);
+                background: linear-gradient(8deg,
+                        hsl(240 17% 14% / 100%) 5%,
+                        hsl(240 17% 14% / 90%) 100%);
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .search-results {
+                max-height: 400px;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 1060px) {
+            .container {
+                margin: 0 auto;
+                width: 95%;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .search-box {
+                max-width: 280px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+
+            .movie-box {
+                height: 280px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(214px, 1fr));
+            }
+
+            .play-container {
+                margin-top: 5rem !important;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .video-box {
+                width: 90%;
+            }
+
+            .search-results {
+                max-height: 350px;
+            }
+
+            .search-result-item {
+                padding: 10px 15px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 888px) {
+            .nav {
+                padding: 14px 0;
+            }
+
+            .search-box {
+                max-width: 240px;
+            }
+
+            .search-results {
+                max-height: 300px;
+            }
+
+            .play-text {
+                padding: 20px;
+            }
+
+            .play-movie {
+                bottom: 14rem;
+                right: 4rem;
+            }
+
+            .cast {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                padding: 11px 0;
+            }
+
+            .search-box {
+                max-width: 200px;
+            }
+
+            .search-results {
+                max-height: 250px;
+            }
+
+            .search-result-item {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+
+            .no-results-container {
+                max-width: 300px;
+                padding: 25px 15px;
+            }
+
+            .no-results-title {
+                font-size: 18px;
+            }
+
+            .play-text h2 {
+                font-size: 1.4rem;
+            }
+
+            .video-box {
+                width: 95%;
+            }
+
+            .streaming-platforms {
+                gap: 15px;
+            }
+
+            .streaming-platforms img {
+                width: 45px;
+                height: 45px;
+            }
+
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            }
+
+            .movie-box {
+                height: 260px;
+            }
+        }
+
+        @media (max-width: 514px) {
+            .nav {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto;
+                gap: 5px;
+                padding: 10px;
+            }
+
+            .search-box {
+                max-width: 100%;
+                grid-column: 1 / -1;
+                order: 2;
+            }
+
+            .search-results {
+                max-height: 200px;
+                top: calc(100% + 5px);
+            }
+
+            .play-text {
+                padding: 15px;
+            }
+
+            .play-movie {
+                bottom: 6rem;
+                left: 20rem;
+            }
+
+            .video-box {
+                width: 100%;
+            }
+
+            .streaming-platforms {
+                gap: 10px;
+            }
+
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .movies-content {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 1rem;
+            }
+
+            .movie-box {
+                height: 240px;
+            }
+        }
+
+        .cast {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .cast-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .Streaming-platforms {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .Streaming-platforms a {
+            display: inline-block;
+        }
+
+        .Streaming-platforms img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .Streaming-platforms img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav container">
+            <a href="pagina principal.html" class="logo">
+                <span>M</span>&<span>M</span>
+            </a>
+
+            <div class="search-box">
+                <input type="search" name="" id="search-input" placeholder="Pesquisar um Filme">
+                <i class='bx bx-search'></i>
+                <div id="search-results" class="search-results"></div>
+            </div>
+
+            <div class="navbar">
+                <a href="pagina principal.html" class="nav-link nav-active">
+                    <i class='bx bx-home-alt-2'></i>
+                    <span class="nav-link-title">Início</span>
+                </a>
+                <a href="Filmes_Aventura.html" class="nav-link">
+                    <i class='bx bxs-tree'></i>
+                    <span class="nav-link-title">Aventura</span>
+                </a>
+                <a href="Filmes_Acao.html" class="nav-link">
+                    <i class='bx bx-car'></i>
+                    <span class="nav-link-title">Ação</span>
+                </a>
+                <a href="Filmes_Animação.html" class="nav-link">
+                    <i class='bx bx-happy'></i>
+                    <span class="nav-link-title">Animação</span>
+                </a>
+                <a href="Filmes_Comédia.html" class="nav-link">
+                    <i class='bx bx-laugh'></i>
+                    <span class="nav-link-title">Comédia</span>
+                </a>
+                <a href="Filme_Romance.html" class="nav-link">
+                    <i class='bx bx-happy-heart-eyes'></i>
+                    <span class="nav-link-title">Romance</span>
+                </a>
+                <a href="Filme_Terror.html" class="nav-link">
+                    <i class='bx bxs-skull'></i>
+                    <span class="nav-link-title">Terror</span>
+                </a>
+            </div>
+        </div>
+
+    </header>
+    <br><br>
+    <div class="play-container container">
+        <img src="src/Filmes_ação/FILME O GRANDE MESTRE/Ip man - banner.jpg" alt="Banner O Grande Mestre"
+            class="play-img">
+        <div class="play-text">
+            <h2>O Grande Mestre</h2>
+            <div class="rating">
+                <!--20% - 0%: 1 estrela-->
+                <i class='bx bxs-star'></i>
+                <!--40% - 21%: 2 estrelas-->
+                <i class='bx bxs-star'></i>
+                <!--60% - 41%: 3 estrelas-->
+                <i class='bx bxs-star'></i>
+                <!--80% - 61%: 4 estrelas-->
+                <i class='bx bx-star'></i>
+                <!--100% - 81%: 5 estrelas-->
+                <i class='bx bx-star'></i>
+            </div>
+            <span>De acordo com os criticos</span>
+            <h3>Titulo Original:</h3>
+            <span>Ip Man</span>
+            <div class="tags">
+                <span>Ação</span>
+                <span>2h 3min</span>
+                <span>15 de abril de 2011</span>
+            </div>
+        </div>
+        <i class='bx bx-right-arrow play-movie'></i>
+        <div class="video-container">
+            <div class="video-box">
+                <video id="myvideo" src="src/Filmes_ação/FILME O GRANDE MESTRE/Trailer/O Grande Mestre - Trailer legendado.mp4"
+                    controls></video>
+                <i class='bx bx-x-circle close-video'></i>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="about-movie container">
+        <br>
+        <div class="cast">
+
+            <div class="cast">
+                <h2 class="cast-heading">Classificação:</h2>
+                <div class="cast-box">
+                    <img src="src/classificações de idade/classificação 12 anos.png" alt="classificação 12 anos"
+                        class="class-img">
+                </div>
+            </div>
+
+            <div class="cast">
+                <h2 class="cast-heading">Assistir:</h2>
+                <div class="Streaming-platforms">
+                    <a target="_blank"
+                        href="https://tv.apple.com/"><img
+                            src="src/onde ver/Apple TV.png" alt="Apple TV+" class="class-img">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <h2>Sinopse:</h2>
+        <p>O filme conta a história de Ip Man, um mestre de artes marciais que treinou Bruce Lee. A história se passa na
+            China durante a invasão japonesa, onde Ip Man precisa usar suas habilidades para proteger sua família e
+            comunidade.
+        </p>
+        <h2 class="cast-heading">Direção do Filme</h2>
+        <div class="cast">
+            <div class="cast-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/elenco e direção do filme/Diretor - Wilson Yip.jpeg"
+                    alt="Wilson Yip responsavel pela direção do filme" class="cast-img">
+                <span class="cast-title">Wilson Yip</span>
+            </div>
+        </div>
+        <br><br>
+        <!--
+            Donnie Yen como Ip Man
+            Simon Yam como Quan (amigo de Ip Man)
+            Lynn Hung como Cheung Wing-sing (esposa de Ip Man)
+            Lam Ka-tung como Li Zhao
+            Xing Yu como General Miura
+            Hiroyuki Ikeuchi como General Miura (versão japonesa)
+            Tenma Shibuya como comandante japonês
+            Fan Siu-wong como Kam Shan
+            Chen Zhihui como Zhang
+            Wong You-nam como Twister
+        -->
+        <h2 class="cast-heading">Elenco do Filme</h2>
+        <div class="cast">
+            <div class="cast-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/elenco e direção do filme/Elenco/Donnie Yen.jpg"
+                    alt="Donnie Yen como Ip Man" class="cast-img">
+                <span class="cast-title">Donnie Yen</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/elenco e direção do filme/Elenco/Simon Yam.jpeg"
+                    alt="Simon Yam como Quan" class="cast-img">
+                <span class="cast-title">Simon Yam</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/elenco e direção do filme/Elenco/Lynn Hung.jpeg"
+                    alt="Lynn Hung como Cheung Wing-sing" class="cast-img">
+                <span class="cast-title">Lynn Hung</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/elenco e direção do filme/Elenco/Lam Ka-tung.jpeg"
+                    alt="Lam Ka-tung como Li Zhao" class="cast-img">
+                <span class="cast-title">Lam Ka-tung</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/elenco e direção do filme/Elenco/Xing Yu.jpg"
+                    alt="Xing Yu como General Miura" class="cast-img">
+                <span class="cast-title">Xing Yu</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/elenco e direção do filme/Elenco/Hiroyuki Ikeuchi.jpeg"
+                    alt="Hiroyuki Ikeuchi como General Miura" class="cast-img">
+                <span class="cast-title">Hiroyuki Ikeuchi</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/elenco e direção do filme/Elenco/Fan Siu-wong.jpg"
+                    alt="Fan Siu-wong como Kam Shan" class="cast-img">
+                <span class="cast-title">Fan Siu-wong</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/elenco e direção do filme/Elenco/Chen Zhihui.webp"
+                    alt="Chen Zhihui como Zhang" class="cast-img">
+                <span class="cast-title">Chen Zhihui</span>
+            </div>
+            <div class="cast-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/elenco e direção do filme/Elenco/Wong You-nam.jpeg"
+                    alt="Wong You-nam como Twister" class="cast-img">
+                <span class="cast-title">Wong You-nam</span>
+            </div>
+        </div>
+        <br><br>
+        <h2 class="cast-heading">Direção da Trilha Sonora</h2>
+        <div class="cast">
+            <div class="cast-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/elenco e direção do filme/Trilha sonora -  Kenji Kawai.jpg"
+                    alt="Kenji Kawai responsavel pela Trilha sonora" class="cast-img">
+                <span class="cast-title">Kenji Kawai</span>
+            </div>
+        </div>
+        <br><br>
+        <!--
+        1 - Maestro - [https://youtu.be/ImubAAvDnoU?si=ofdrh6MdQZR464Mj]
+        2 - Harmony - [https://youtu.be/xTOrYcLMqec?si=UpsO0ILAlCfZUnh]
+        3 - Challenge - [https://youtu.be/uHnuFE77s2k?si=3kZk-OcUSZKsmkoP]
+        4 - Arrogance - [https://youtu.be/B_CeS3shz9c?si=EGBhpo9XlD4YZdnB]
+        5 - Insolence - [https://youtu.be/vlSHNpZlR3U?si=5S0s_K5bdRMjtarN]
+        6 - Calmness - [https://youtu.be/71a31eRIImY?si=pRSNAyfhlv4NGqlg]
+        7 - City Of Sadness - [https://youtu.be/xwlOd8ELcP4?si=haeIbZRdU8y9nJga]
+        8 - Lost - [https://youtu.be/UaQqR7uGEE4?si=JGJQGnpz2qpgBqNA]
+        9 - In Vain - [https://youtu.be/SVIMmr9qJdk?si=EgduGdtcB_8hv9Q1]
+        10 - Decayed - [https://youtu.be/9jfFe2fieIQ?si=eh9tEuhK20NTiCHW]
+        11 - Stuck In A Moment - [https://youtu.be/uFGj1SmQQlk?si=XQBqA5nTC5pOGAZN]
+        12 - Consequences - [https://youtu.be/mbvrSzJRQgo?si=I5kgRJhXMjUlGXUA]
+        13 - Battle - [https://youtu.be/k2JSYjEVBec?si=K0A7kyGjy3W3qclS]
+        14 - Sacrifice - [https://youtu.be/CnQ7gmRsCTY?si=XT9P5ARRYHkFUGvp]
+        15 - Ip Man - [https://youtu.be/Wi5qTBF05MI?si=KxV1t0K7xVgxOIcg]
+        16 - Nirvana - [https://youtu.be/rp-_xJvA004?si=T32TunJWn8EJ_nug]
+        17 - Desperado - [https://youtu.be/G-SggThnwCg?si=9_njUFXsJ1483RpC]
+        18 - Little Thoughts - [https://youtu.be/ri-U4UfXMAI?si=b8wBRO3JWzufEt8p]
+        19 - Entanglement - [https://youtu.be/TrvYJ1yNjZE?si=G2JRC6SfWl-cehjN]
+        20 - Fearless - [https://youtu.be/HYFmpr3YRg8?si=dVPEWDLQvPbO_9SA]
+        21 - Going Under - [https://youtu.be/9wTCEUhTyAw?si=BlEH25mYwbYuquTn]
+        22 - Instinct - [https://youtu.be/B8UhQxKG5-w?si=6VhHi0y8y58XF1d4]
+        23 - Danger - [https://youtu.be/C0ptnSgvXlg?si=ncW1e1ZKzlMc3XaM]
+        24 - Sinking - [https://youtu.be/qyN1pmUuFiM?si=La1OUZnrfViBe-Uj]
+        25 - Tensed - [https://youtu.be/adxP2H_skv4?si=Now27n-5BZUOKID2]
+        26 - Battle For Righteousness - [https://youtu.be/0Xz12j3GNBg?si=TFiI8YahFK1KgJh1]
+        27 - Remembrance - [https://youtu.be/0Xz12j3GNBg?si=TFiI8YahFK1KgJh1]
+        28 - Harakiri - [https://youtu.be/HH9bBsDDz8c?si=9bkPOoCRIQdObpKU]
+        29 - Completion - [https://youtu.be/jLmRdkPRVwc?si=GrhY5wAJptjOlBH2]
+        30 - Maestro - [https://youtu.be/a4l_qDb-cSA?si=a4HIxmH3ZDGRg1ZM]
+        31 - Trailer - [https://youtu.be/6j30WbpQIm0?si=w9f8hHBms0gxAAfq]
+        -->
+        <h2 class="cast-heading">Trilha Sonora do Filme</h2>
+        <div class="movies-content">
+
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/Ip man - img.jpg "
+                    alt="Música 1 - Maestro (O Grande Mestre)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Maestro</span>
+                    <span class="movie-type">O Grande Mestre</span>
+                    <a target="_blank" href="https://youtu.be/ImubAAvDnoU?si=ofdrh6MdQZR464Mj" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/Ip man - img.jpg "
+                    alt="Música 2 - Harmony (O Grande Mestre)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Harmony</span>
+                    <span class="movie-type">O Grande Mestre</span>
+                    <a target="_blank" href="https://youtu.be/xTOrYcLMqec?si=UpsO0ILAlCfZUnh" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/Ip man - img.jpg "
+                    alt="Música 3 - Challenge (O Grande Mestre)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Challenge</span>
+                    <span class="movie-type">O Grande Mestre</span>
+                    <a target="_blank" href="https://youtu.be/uHnuFE77s2k?si=3kZk-OcUSZKsmkoP" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/Ip man - img.jpg "
+                    alt="Música 4 - Arrogance (O Grande Mestre)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Arrogance</span>
+                    <span class="movie-type">O Grande Mestre</span>
+                    <a target="_blank" href="https://youtu.be/B_CeS3shz9c?si=EGBhpo9XlD4YZdnB" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/Ip man - img.jpg "
+                    alt="Música 5 - Insolence (O Grande Mestre)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Insolence</span>
+                    <span class="movie-type">O Grande Mestre</span>
+                    <a target="_blank" href="https://youtu.be/vlSHNpZlR3U?si=5S0s_K5bdRMjtarN" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/Ip man - img.jpg "
+                    alt="Música 6 - Calmness (O Grande Mestre)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Calmness</span>
+                    <span class="movie-type">O Grande Mestre</span>
+                    <a target="_blank" href="https://youtu.be/71a31eRIImY?si=pRSNAyfhlv4NGqlg" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/Ip man - img.jpg "
+                    alt="Música 7 - City Of Sadness (O Grande Mestre)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">City Of Sadness</span>
+                    <span class="movie-type">O Grande Mestre</span>
+                    <a target="_blank" href="https://youtu.be/xwlOd8ELcP4?si=haeIbZRdU8y9nJga" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/Ip man - img.jpg "
+                    alt="Música 8 - Lost (O Grande Mestre)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Lost</span>
+                    <span class="movie-type">O Grande Mestre</span>
+                    <a target="_blank" href="https://youtu.be/UaQqR7uGEE4?si=JGJQGnpz2qpgBqNA" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/Ip man - img.jpg "
+                    alt="Música 9 - In Vain (O Grande Mestre)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">In Vain</span>
+                    <span class="movie-type">O Grande Mestre</span>
+                    <a target="_blank" href="https://youtu.be/SVIMmr9qJdk?si=EgduGdtcB_8hv9Q1" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/Ip man - img.jpg "
+                    alt="Música 10 - Decayed (O Grande Mestre)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Decayed</span>
+                    <span class="movie-type">O Grande Mestre</span>
+                    <a target="_blank" href="https://youtu.be/9jfFe2fieIQ?si=eh9tEuhK20NTiCHW" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/Ip man - img.jpg "
+                    alt="Música 11 - Stuck In A Moment (O Grande Mestre)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Stuck In A Moment</span>
+                    <span class="movie-type">O Grande Mestre</span>
+                    <a target="_blank" href="https://youtu.be/uFGj1SmQQlk?si=XQBqA5nTC5pOGAZN" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/Ip man - img.jpg "
+                    alt="Música 12 - Consequences (O Grande Mestre)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Consequences</span>
+                    <span class="movie-type">O Grande Mestre</span>
+                    <a target="_blank" href="https://youtu.be/mbvrSzJRQgo?si=I5kgRJhXMjUlGXUA" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/Ip man - img.jpg "
+                    alt="Música 21 - Going Under (O Grande Mestre)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Going Under</span>
+                    <span class="movie-type">O Grande Mestre</span>
+                    <a target="_blank" href="https://youtu.be/9wTCEUhTyAw?si=BlEH25mYwbYuquTn" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/Ip man - img.jpg "
+                    alt="Música 22 - Instinct (O Grande Mestre)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Instinct</span>
+                    <span class="movie-type">O Grande Mestre</span>
+                    <a target="_blank" href="https://youtu.be/B8UhQxKG5-w?si=6VhHi0y8y58XF1d4" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/Ip man - img.jpg "
+                    alt="Música 23 - Danger (O Grande Mestre)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Danger</span>
+                    <span class="movie-type">O Grande Mestre</span>
+                    <a target="_blank" href="https://youtu.be/C0ptnSgvXlg?si=ncW1e1ZKzlMc3XaM" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/Ip man - img.jpg "
+                    alt="Música 24 - Sinking (O Grande Mestre)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Sinking</span>
+                    <span class="movie-type">O Grande Mestre</span>
+                    <a target="_blank" href="https://youtu.be/qyN1pmUuFiM?si=La1OUZnrfViBe-Uj" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/Ip man - img.jpg "
+                    alt="Música 25 - Tensed (O Grande Mestre)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Tensed</span>
+                    <span class="movie-type">O Grande Mestre</span>
+                    <a target="_blank" href="https://youtu.be/adxP2H_skv4?si=Now27n-5BZUOKID2" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/Ip man - img.jpg "
+                    alt="Música 26 - Battle For Righteousness (O Grande Mestre)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Battle For Righteousness</span>
+                    <span class="movie-type">O Grande Mestre</span>
+                    <a target="_blank" href="https://youtu.be/0Xz12j3GNBg?si=TFiI8YahFK1KgJh1" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/Ip man - img.jpg "
+                    alt="Música 27 - Remembrance (O Grande Mestre)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Remembrance</span>
+                    <span class="movie-type">O Grande Mestre</span>
+                    <a target="_blank" href="https://youtu.be/0Xz12j3GNBg?si=TFiI8YahFK1KgJh1" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/Ip man - img.jpg "
+                    alt="Música 28 - Harakiri (O Grande Mestre)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Harakiri</span>
+                    <span class="movie-type">O Grande Mestre</span>
+                    <a target="_blank" href="https://youtu.be/HH9bBsDDz8c?si=9bkPOoCRIQdObpKU" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/Ip man - img.jpg "
+                    alt="Música 29 - Completion (O Grande Mestre)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Completion</span>
+                    <span class="movie-type">O Grande Mestre</span>
+                    <a target="_blank" href="https://youtu.be/jLmRdkPRVwc?si=GrhY5wAJptjOlBH2" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/Ip man - img.jpg "
+                    alt="Música 30 - Maestro (O Grande Mestre)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Maestro</span>
+                    <span class="movie-type">O Grande Mestre</span>
+                    <a target="_blank" href="https://youtu.be/a4l_qDb-cSA?si=a4HIxmH3ZDGRg1ZM" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="movie-box">
+                <img src="src/Filmes_ação/FILME O GRANDE MESTRE/Ip man - img.jpg "
+                    alt="Música 31 - Trailer (O Grande Mestre)" class="movie-box-img">
+                <div class="box-text">
+                    <span class="movie-title">Trailer</span>
+                    <span class="movie-type">O Grande Mestre</span>
+                    <a target="_blank" href="https://youtu.be/6j30WbpQIm0?si=w9f8hHBms0gxAAfq" class="watch-btn">
+                        <i class='bx bx-right-arrow'></i>
+                    </a>
+                </div>
+            </div>
+       </div>
+    </div>
+    </div>
+    <br><br><br>
+    <script src="src/javascript/soundtrack.js"></script>
+    <script src="src/javascript/swiper-bundle.min.js"></script>
+    <script src="src/javascript/Pesquisa.js"></script>
+    <script src="src/javascript/script.js"></script>
+</body>
+
+</html>
