@@ -10,8 +10,8 @@
 }
 
 :root {
-    --main-color: #ffb43a;
-    --hover-color: hsl(37, 94%, 57%);
+    --main-color: #ff9d00;
+    --hover-color: hsl(37, 100%, 19%);
     --body-color: #1e1e2a;
     --container-color: #171727;
     --text-color: #fff;
@@ -60,7 +60,7 @@ body {
 }
 
 body{
-    background: linear-gradient(var(--body-color) 80%, yellow);
+    background: linear-gradient(var(--body-color) 80%, rgb(59, 4, 4));
     color: var(--text-color);
 }
 
