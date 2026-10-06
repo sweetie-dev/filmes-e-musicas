@@ -3,7 +3,7 @@ import {Link,Route,Routes,useParams} from 'react-router-dom';
 import {Film,Home as HomeIcon,Search,Music2,ArrowLeft,Play,Star,ExternalLink,LoaderCircle} from 'lucide-react';
 import {genres,movies} from './data/movies';
 
-const raw=(path)=>'https://raw.githubusercontent.com/sweetie-dev/filmes-e-musicas/main/'+path.split('/').map(encodeURIComponent).join('/');
+const raw=(path)=>'https://raw.githubusercontent.com/sweetie-dev/filmes-e-musicas/0ecdf168448d23f1395fe668fb915bc8ddb337d9/'+path.split('/').map(encodeURIComponent).join('/');
 const absolute=(value)=>{if(!value)return null;if(/^https?:/i.test(value))return value;return raw(value.replace(/^\.\//,''));};
 
 function useLegacyDetails(file){
