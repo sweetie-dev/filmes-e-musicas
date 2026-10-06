@@ -106,6 +106,13 @@ Modernização e manutenção atual realizadas por **Emily Nivea Ribeiro da Silv
 
 ---
 
+
+<p align="center">
+  <a href="https://moviesandmusic.netlify.app/" target="_blank">
+    <img src="https://img.shields.io/badge/🎬_Acessar_o_M&M-725CFF?style=for-the-badge" alt="Acessar o M&M">
+  </a>
+</p>
+
 ### M&M — Filmes & Músicas
 
 **Do primeiro projeto em HTML a uma aplicação moderna em React.**
