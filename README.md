@@ -1,6 +1,6 @@
 # M&M — Filmes & Músicas
 
-> Um projeto que começou no Ensino Médio Técnico em Informática e evoluiu junto com o meu aprendizado em desenvolvimento de software.
+> Um projeto que começou no Ensino Médio Técnico em Informática e evoluiu junto com o meu aprendizado em desenvolvimento de software; Ainda em manutenção...
 
 O **M&M — Filmes & Músicas** é um site desenvolvido para reunir filmes de diferentes gêneros e suas trilhas sonoras em uma experiência simples e organizada.
 
@@ -106,6 +106,9 @@ Modernização e manutenção atual realizadas por **Emily Nivea Ribeiro da Silv
 
 ---
 
+### M&M — Filmes & Músicas
+
+**Do primeiro projeto em HTML a uma aplicação moderna em React.**
 
 <p align="center">
   <a href="https://moviesandmusic.netlify.app/" target="_blank">
@@ -113,6 +116,4 @@ Modernização e manutenção atual realizadas por **Emily Nivea Ribeiro da Silv
   </a>
 </p>
 
-### M&M — Filmes & Músicas
 
-**Do primeiro projeto em HTML a uma aplicação moderna em React.**
