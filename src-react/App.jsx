@@ -14,7 +14,12 @@ function useLegacyDetails(file){
   const doc=new DOMParser().parseFromString(html,'text/html');
   const headings=[...doc.querySelectorAll('.about-movie h2')];
   const synopsisHeading=headings.find(h=>/sinopse/i.test(h.textContent||''));
-  const synopsis=synopsisHeading?.nextElementSibling?.textContent?.trim()||'';
+  const synopsisOverrides={
+   'Ação - CASABLANCA.html':'Durante a Segunda Guerra Mundial, Rick Blaine administra um café em Casablanca, no Marrocos. Sua vida muda quando Ilsa, uma mulher de seu passado, reaparece ao lado do marido, um líder da resistência perseguido pelos nazistas. Rick precisa escolher entre o amor e a possibilidade de ajudá-los a escapar.',
+   'Terrrifier_Terror.html':'Na noite de Halloween, duas amigas são perseguidas por Art, um palhaço assassino, que transforma a noite em um pesadelo de violência e terror.',
+   'Fale_comigo_Terror.html':'Um grupo de amigos descobre uma mão embalsamada capaz de permitir contato com espíritos. Quando Mia participa do ritual, a brincadeira sobrenatural sai do controle e coloca todos em perigo.'
+  };
+  const synopsis=synopsisOverrides[file]||synopsisHeading?.nextElementSibling?.textContent?.trim()||'';
   const video=absolute(doc.querySelector('video')?.getAttribute('src'));
   const tags=[...doc.querySelectorAll('.play-text .tags span')].map(x=>x.textContent.trim()).filter(Boolean);
   const originalTitle=[...doc.querySelectorAll('.play-text h3')].find(x=>/titulo original/i.test(x.textContent||''))?.nextElementSibling?.textContent?.trim()||'';
