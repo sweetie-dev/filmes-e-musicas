@@ -29,7 +29,7 @@ function useLegacyDetails(file){
    'O_poço_Terror.html':'Em uma prisão vertical, os detentos recebem comida por uma plataforma que desce pelos andares, deixando cada vez menos para os níveis inferiores. Goreng tenta sobreviver e questionar o sistema brutal de desigualdade.',
    'Pearl_Terror.html':'Em 1918, Pearl vive isolada na fazenda da família, sonhando com uma vida de fama e estrelato. Frustrada com suas limitações e seu cotidiano, ela começa a revelar uma personalidade violenta e perturbadora.',
    'Telefone_preto_Terror.html':'Finney, um garoto de 13 anos, é sequestrado por um assassino mascarado e preso em um porão. Um telefone preto desligado começa a tocar, permitindo que ele receba orientações das vítimas anteriores para tentar escapar.',
-   'Uma_noite_de_crime_Terror.html':'Em um futuro próximo, todos os crimes, inclusive assassinatos, são permitidos durante uma noite por ano. Quando uma família acolhe um desconhecido perseguido, sua casa se torna alvo de invasores violentos.',
+   'Uma_noite_de_crime_Terror.html':'Em um futuro próximo, todos os crimes, inclusive assassinatos, são permitidos durante uma noite por ano. Quando uma família acolhe um desconhecido perseguido, sua casa se torna alvo de invasores violentos.','O_Magico_de_oz.html':'Após um tornado levar Dorothy e seu cachorro Totó até a Terra de Oz, ela parte pela estrada de tijolos amarelos rumo à Cidade das Esmeraldas para encontrar o poderoso Mágico de Oz. No caminho, conhece o Espantalho, o Homem de Lata e o Leão Covarde.',
   };
   const synopsis=synopsisOverrides[file]||synopsisHeading?.nextElementSibling?.textContent?.trim()||'';
   const video=absolute(doc.querySelector('video')?.getAttribute('src'));
