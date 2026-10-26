@@ -20,6 +20,9 @@ export const movies=[
     "poster": "https://raw.githubusercontent.com/sweetie-dev/filmes-e-musicas/main/src/Filmes_com%C3%A9dia/filme%20A%20fantastica%20f%C3%A1brica%20de%20chocolate/A%20fant%C3%A1stica%20f%C3%A1brica%20de%20chocolate%20-%20capa%20filme%20com%C3%A9dia.png",
     "legacy": "A_fantastica_fabrica_de_chocolate_Comédia.html"
   },
+  /* FILME OCULTO TEMPORARIAMENTE — A freira
+     Motivo confirmado: capa não cadastrada (poster: null).
+     Para reativar, corrija a capa e remova este comentário.
   {
     "id": "a-freira",
     "title": "A freira",
@@ -27,6 +30,7 @@ export const movies=[
     "poster": null,
     "legacy": "A_freira_Terror.html"
   },
+  */
   {
     "id": "a-lenda-de-tarzan",
     "title": "A lenda de tarzan",
@@ -34,6 +38,9 @@ export const movies=[
     "poster": "https://raw.githubusercontent.com/sweetie-dev/filmes-e-musicas/main/src/Filmes_Aventura/Filme%20A%20lenda%20de%20Tarzan/A%20lenda%20de%20Tarzan%20%20-%20capa%20do%20filme%20aventura.png",
     "legacy": "A_lenda_de_tarzan_Aventura.html"
   },
+  /* FILME OCULTO TEMPORARIAMENTE — A morte te da parabéns
+     Motivo confirmado: capa não cadastrada (poster: null).
+     Para reativar, corrija a capa e remova este comentário.
   {
     "id": "a-morte-te-da-parabens",
     "title": "A morte te da parabéns",
@@ -41,6 +48,10 @@ export const movies=[
     "poster": null,
     "legacy": "A_morte_te_da_parabéns_Terror.html"
   },
+  */
+  /* FILME OCULTO TEMPORARIAMENTE — A orfã
+     Motivo confirmado: capa não cadastrada (poster: null).
+     Para reativar, corrija a capa e remova este comentário.
   {
     "id": "a-orfa",
     "title": "A orfã",
@@ -48,6 +59,7 @@ export const movies=[
     "poster": null,
     "legacy": "A_orfã_Terror.html"
   },
+  */
   {
     "id": "a-viagem-2",
     "title": "A viagem 2",
@@ -76,6 +88,9 @@ export const movies=[
     "poster": "https://raw.githubusercontent.com/sweetie-dev/filmes-e-musicas/main/src/Filmes_anima%C3%A7%C3%A3o/Filmes%20A%20Caminho%20da%20Lua/A%20Caminho%20da%20Lua%20-%20capa%20do%20filme%20anima%C3%A7%C3%A3o.png",
     "legacy": "Animação - A Caminho da Lua.html"
   },
+  /* FILME OCULTO TEMPORARIAMENTE — Aladdin
+     Motivo confirmado: capa não cadastrada (poster: null).
+     Para reativar, corrija a capa e remova este comentário.
   {
     "id": "aladdin",
     "title": "Aladdin",
@@ -83,6 +98,7 @@ export const movies=[
     "poster": null,
     "legacy": "Animação - Aladdin.html"
   },
+  */
   {
     "id": "como-treinar-o-seu-dragao",
     "title": "Como Treinar o seu Dragão",
@@ -167,6 +183,9 @@ export const movies=[
     "poster": "https://raw.githubusercontent.com/sweetie-dev/filmes-e-musicas/main/src/Filmes_anima%C3%A7%C3%A3o/Filmes%20Viva%20a%20Vida%20%C3%A9%20uma%20festa/Viva%20a%20vida%20%C3%A9%20uma%20festa%20-%20capa%20do%20filme%20anima%C3%A7%C3%A3o.png",
     "legacy": "Animação - Viva.html"
   },
+  /* FILME OCULTO TEMPORARIAMENTE — Annabelle
+     Motivo confirmado: capa não cadastrada (poster: null).
+     Para reativar, corrija a capa e remova este comentário.
   {
     "id": "annabelle",
     "title": "Annabelle",
@@ -174,6 +193,7 @@ export const movies=[
     "poster": null,
     "legacy": "Annabelle_Terror.html"
   },
+  */
   {
     "id": "as-branquelas",
     "title": "As branquelas",
@@ -293,6 +313,9 @@ export const movies=[
     "poster": "https://raw.githubusercontent.com/sweetie-dev/filmes-e-musicas/main/src/Filmes_com%C3%A9dia/filme%20Barbie/Barbie%20-%20capa%20do%20filme%20com%C3%A9dia.png",
     "legacy": "Barbie_Comédia.html"
   },
+  /* FILME OCULTO TEMPORARIAMENTE — Bird box
+     Motivo confirmado: capa não cadastrada (poster: null).
+     Para reativar, corrija a capa e remova este comentário.
   {
     "id": "bird-box",
     "title": "Bird box",
@@ -300,6 +323,7 @@ export const movies=[
     "poster": null,
     "legacy": "Bird_box_Terror.html"
   },
+  */
   {
     "id": "cinderela-pop",
     "title": "Cinderela pop",
@@ -328,6 +352,9 @@ export const movies=[
     "poster": "https://raw.githubusercontent.com/sweetie-dev/filmes-e-musicas/main/src/Filmes_com%C3%A9dia/filme%20fala%20s%C3%A9rio%20m%C3%A3e/Fala%20s%C3%A9rio%20m%C3%A3e%20-%20capa%20do%20filme%20com%C3%A9dia.png",
     "legacy": "Fala_serio_mae_Comédia.html"
   },
+  /* FILME OCULTO TEMPORARIAMENTE — Fale comigo
+     Motivo confirmado: capa não cadastrada (poster: null).
+     Para reativar, corrija a capa e remova este comentário.
   {
     "id": "fale-comigo",
     "title": "Fale comigo",
@@ -335,6 +362,7 @@ export const movies=[
     "poster": null,
     "legacy": "Fale_comigo_Terror.html"
   },
+  */
   {
     "id": "it-a-coisa",
     "title": "It a coisa",
@@ -496,6 +524,9 @@ export const movies=[
     "poster": "https://raw.githubusercontent.com/sweetie-dev/filmes-e-musicas/main/src/Filmes%20Romance/Filmes%20E%20o%20Vento%20Levou/De%20repente%20e%20amor%20-%20capa%20do%20filme.jpg",
     "legacy": "Romance - E o Vento Levou.html"
   },
+  /* FILME OCULTO TEMPORARIAMENTE — LaLaLand
+     Motivo confirmado: capa não cadastrada (poster: null).
+     Para reativar, corrija a capa e remova este comentário.
   {
     "id": "lalaland",
     "title": "LaLaLand",
@@ -503,6 +534,7 @@ export const movies=[
     "poster": null,
     "legacy": "Romance - LaLaLand.html"
   },
+  */
   {
     "id": "mensagem-para-voce",
     "title": "Mensagem Para Voce",
