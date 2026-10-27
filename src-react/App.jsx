@@ -39,6 +39,10 @@ function useLegacyDetails(file){
   const soundtrackHeading=headings.find(h=>/trilha sonora do filme/i.test(h.textContent||''));
   let soundtrack=[];
   if(soundtrackHeading){const box=soundtrackHeading.nextElementSibling;soundtrack=[...(box?.querySelectorAll('.movie-box')||[])].map(x=>({title:x.querySelector('.movie-title')?.textContent?.trim()||'Faixa',subtitle:x.querySelector('.movie-type')?.textContent?.trim()||'',url:x.querySelector('a')?.href||null})).filter(x=>x.url);}
+  // Para Planeta dos Macacos, mostrar apenas a playlist indicada, sem faixas ocultas ou trailers na trilha sonora.
+  if(file==='Ação - Planeta dos Macacos.html'){
+   soundtrack=[{title:'Trilha sonora — Dawn of the Planet of the Apes',subtitle:'Playlist no YouTube',url:'https://www.youtube.com/playlist?list=PLRW80bBvVD3VLZf_hZaRkNJaeFVH2kClu'}];
+  }
   if(active)setData({loading:false,synopsis,video,tags,originalTitle,streaming,soundtrack});
  }).catch(()=>active&&setData({loading:false,synopsis:'',streaming:[],soundtrack:[]}));
  return()=>{active=false};},[file]);
