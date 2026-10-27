@@ -39,9 +39,29 @@ function useLegacyDetails(file){
   const soundtrackHeading=headings.find(h=>/trilha sonora do filme/i.test(h.textContent||''));
   let soundtrack=[];
   if(soundtrackHeading){const box=soundtrackHeading.nextElementSibling;soundtrack=[...(box?.querySelectorAll('.movie-box')||[])].map(x=>({title:x.querySelector('.movie-title')?.textContent?.trim()||'Faixa',subtitle:x.querySelector('.movie-type')?.textContent?.trim()||'',url:x.querySelector('a')?.href||null})).filter(x=>x.url);}
-  // Para Planeta dos Macacos, mostrar apenas a playlist indicada, sem faixas ocultas ou trailers na trilha sonora.
+  // Faixas visíveis da playlist enviada; buscas individuais evitam apontar para vídeos ocultos ou trailers.
   if(file==='Ação - Planeta dos Macacos.html'){
-   soundtrack=[{title:'Trilha sonora — Dawn of the Planet of the Apes',subtitle:'Playlist no YouTube',url:'https://www.youtube.com/playlist?list=PLRW80bBvVD3VLZf_hZaRkNJaeFVH2kClu'}];
+   soundtrack=[
+    {title:"Level Plaguing Field",subtitle:"Michael Giacchino",url:'https://www.youtube.com/results?search_query='+encodeURIComponent("Level Plaguing Field Dawn of the Planet of the Apes soundtrack Michael Giacchino")},
+    {title:"Look Who's Stalking",subtitle:"Michael Giacchino",url:'https://www.youtube.com/results?search_query='+encodeURIComponent("Look Who's Stalking Dawn of the Planet of the Apes soundtrack Michael Giacchino")},
+    {title:"The Great Ape Processional",subtitle:"Michael Giacchino",url:'https://www.youtube.com/results?search_query='+encodeURIComponent("The Great Ape Processional Dawn of the Planet of the Apes soundtrack Michael Giacchino")},
+    {title:"Past Their Primates",subtitle:"Michael Giacchino",url:'https://www.youtube.com/results?search_query='+encodeURIComponent("Past Their Primates Dawn of the Planet of the Apes soundtrack Michael Giacchino")},
+    {title:"Close Encounters of the Furred Kind",subtitle:"Michael Giacchino",url:'https://www.youtube.com/results?search_query='+encodeURIComponent("Close Encounters of the Furred Kind Dawn of the Planet of the Apes soundtrack Michael Giacchino")},
+    {title:"Monkey to the City",subtitle:"Michael Giacchino",url:'https://www.youtube.com/results?search_query='+encodeURIComponent("Monkey to the City Dawn of the Planet of the Apes soundtrack Michael Giacchino")},
+    {title:"The Lost City of Chimpanzee",subtitle:"Michael Giacchino",url:'https://www.youtube.com/results?search_query='+encodeURIComponent("The Lost City of Chimpanzee Dawn of the Planet of the Apes soundtrack Michael Giacchino")},
+    {title:"Along Simian Lines",subtitle:"Michael Giacchino",url:'https://www.youtube.com/results?search_query='+encodeURIComponent("Along Simian Lines Dawn of the Planet of the Apes soundtrack Michael Giacchino")},
+    {title:"Caesar No Evil, Hear No Evil",subtitle:"Michael Giacchino",url:'https://www.youtube.com/results?search_query='+encodeURIComponent("Caesar No Evil, Hear No Evil Dawn of the Planet of the Apes soundtrack Michael Giacchino")},
+    {title:"Monkey See, Monkey Coup",subtitle:"Michael Giacchino",url:'https://www.youtube.com/results?search_query='+encodeURIComponent("Monkey See, Monkey Coup Dawn of the Planet of the Apes soundtrack Michael Giacchino")},
+    {title:"Gorilla Warfare",subtitle:"Michael Giacchino",url:'https://www.youtube.com/results?search_query='+encodeURIComponent("Gorilla Warfare Dawn of the Planet of the Apes soundtrack Michael Giacchino")},
+    {title:"The Apes of Wrath",subtitle:"Michael Giacchino",url:'https://www.youtube.com/results?search_query='+encodeURIComponent("The Apes of Wrath Dawn of the Planet of the Apes soundtrack Michael Giacchino")},
+    {title:"Gibbon Take",subtitle:"Michael Giacchino",url:'https://www.youtube.com/results?search_query='+encodeURIComponent("Gibbon Take Dawn of the Planet of the Apes soundtrack Michael Giacchino")},
+    {title:"Aped Crusaders",subtitle:"Michael Giacchino",url:'https://www.youtube.com/results?search_query='+encodeURIComponent("Aped Crusaders Dawn of the Planet of the Apes soundtrack Michael Giacchino")},
+    {title:"How Bonobo Can You Go",subtitle:"Michael Giacchino",url:'https://www.youtube.com/results?search_query='+encodeURIComponent("How Bonobo Can You Go Dawn of the Planet of the Apes soundtrack Michael Giacchino")},
+    {title:"Enough Monkeying Around",subtitle:"Michael Giacchino",url:'https://www.youtube.com/results?search_query='+encodeURIComponent("Enough Monkeying Around Dawn of the Planet of the Apes soundtrack Michael Giacchino")},
+    {title:"Primates for Life",subtitle:"Michael Giacchino",url:'https://www.youtube.com/results?search_query='+encodeURIComponent("Primates for Life Dawn of the Planet of the Apes soundtrack Michael Giacchino")},
+    {title:"Planet of the Apes End Credits",subtitle:"Michael Giacchino",url:'https://www.youtube.com/results?search_query='+encodeURIComponent("Planet of the Apes End Credits Dawn of the Planet of the Apes soundtrack Michael Giacchino")},
+    {title:"Ain't That a Stinger",subtitle:"Griffith Giacchino",url:'https://www.youtube.com/results?search_query='+encodeURIComponent("Ain't That a Stinger Dawn of the Planet of the Apes soundtrack Griffith Giacchino")}
+   ];
   }
   if(active)setData({loading:false,synopsis,video,tags,originalTitle,streaming,soundtrack});
  }).catch(()=>active&&setData({loading:false,synopsis:'',streaming:[],soundtrack:[]}));
